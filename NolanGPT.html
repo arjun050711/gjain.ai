@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NolanGPT — gjain.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --bg2: #111111;
+    --bg3: #181818;
+    --surface: #1e1e1e;
+    --border: rgba(255,255,255,0.07);
+    --accent: #e8ff47;
+    --accent2: #ff6b35;
+    --text: #f0f0f0;
+    --muted: #888;
+    --faint: #444;
+    --white: #ffffff;
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'Courier New', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 20px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-weight: 800; font-size: 20px;
+    letter-spacing: -0.5px;
+    color: var(--white); text-decoration: none;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-back {
+    font-size: 13px; font-weight: 500;
+    color: var(--muted); text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+  .nav-back:hover { color: var(--white); }
+
+  /* HERO */
+  .hero {
+    min-height: 60vh;
+    display: flex; align-items: center;
+    padding: 140px 48px 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero-grid-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+  }
+  .hero-blob {
+    position: absolute;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(232,255,71,0.07) 0%, transparent 70%);
+    top: -100px; right: -100px; pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 800px; }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(232,255,71,0.08);
+    border: 1px solid rgba(232,255,71,0.2);
+    color: var(--accent);
+    font-size: 12px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 6px 14px; border-radius: 100px;
+    margin-bottom: 28px;
+  }
+  .hero-tag::before {
+    content: ''; width: 6px; height: 6px;
+    background: var(--accent); border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+  }
+  .hero-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(48px, 7vw, 88px);
+    letter-spacing: -3px; line-height: 1.0;
+    color: var(--white); margin-bottom: 8px;
+  }
+  .hero-title span {
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(255,255,255,0.25);
+  }
+  .hero-subtitle {
+    font-family: var(--font-display);
+    font-weight: 500; font-size: 20px;
+    color: var(--muted); letter-spacing: -0.3px;
+    margin-bottom: 24px; line-height: 1.5;
+  }
+  .hero-subtitle strong { color: var(--accent); font-weight: 600; }
+
+  /* TECH SPEC */
+  .spec-section {
+    padding: 80px 48px;
+    border-top: 1px solid var(--border);
+    background: var(--bg2);
+  }
+  .section-label {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(28px, 3vw, 42px);
+    letter-spacing: -1px; line-height: 1.1;
+    color: var(--white); margin-bottom: 48px;
+  }
+  .spec-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px; margin-bottom: 48px;
+  }
+  .spec-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px; padding: 24px;
+  }
+  .spec-label {
+    font-size: 11px; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  .spec-value {
+    font-family: var(--font-display);
+    font-weight: 700; font-size: 22px;
+    color: var(--white); letter-spacing: -0.5px;
+  }
+  .spec-value span { color: var(--accent); }
+  .spec-desc {
+    font-size: 13px; color: var(--muted);
+    margin-top: 6px; font-weight: 300;
+  }
+  .arch-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  }
+  .arch-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 10px; padding: 24px;
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+  .arch-num {
+    font-family: var(--font-display);
+    font-weight: 800; font-size: 32px;
+    color: var(--accent); opacity: 0.3;
+    line-height: 1; min-width: 40px;
+  }
+  .arch-title {
+    font-family: var(--font-display);
+    font-weight: 700; font-size: 16px;
+    color: var(--white); margin-bottom: 6px;
+  }
+  .arch-desc {
+    font-size: 13px; color: var(--muted);
+    font-weight: 300; line-height: 1.6;
+  }
+
+  /* GENERATOR */
+  .generator-section {
+    padding: 80px 48px;
+    border-top: 1px solid var(--border);
+    background: var(--bg);
+  }
+  .generator-inner { max-width: 800px; }
+  .prompt-area {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px; overflow: hidden;
+    margin-bottom: 16px;
+    transition: border-color 0.2s;
+  }
+  .prompt-area:focus-within { border-color: rgba(232,255,71,0.3); }
+  .prompt-label {
+    padding: 14px 20px 0;
+    font-size: 11px; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.1em;
+  }
+  .prompt-input {
+    width: 100%; padding: 10px 20px 16px;
+    background: transparent; border: none; outline: none;
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 16px; font-weight: 400;
+    resize: none;
+  }
+  .prompt-input::placeholder { color: var(--faint); }
+  .prompt-footer {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 20px;
+    border-top: 1px solid var(--border);
+  }
+  .prompt-hints {
+    display: flex; gap: 8px; flex-wrap: wrap;
+  }
+  .hint-pill {
+    font-size: 12px; color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 4px 12px; border-radius: 100px;
+    cursor: pointer; transition: all 0.2s;
+    background: transparent;
+    font-family: var(--font-body);
+  }
+  .hint-pill:hover { border-color: rgba(232,255,71,0.3); color: var(--accent); }
+  .token-control {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 12px; color: var(--muted);
+  }
+  .token-control input {
+    width: 60px; padding: 4px 8px;
+    background: var(--bg3); border: 1px solid var(--border);
+    border-radius: 4px; color: var(--text);
+    font-size: 12px; font-family: var(--font-body);
+    text-align: center; outline: none;
+  }
+  .generate-btn {
+    width: 100%; padding: 16px;
+    background: var(--accent); color: #0a0a0a;
+    font-family: var(--font-display);
+    font-weight: 700; font-size: 15px;
+    letter-spacing: 0.02em;
+    border: none; border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-bottom: 24px;
+  }
+  .generate-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(232,255,71,0.25); }
+  .generate-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+  .output-area {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 12px; overflow: hidden;
+    display: none;
+  }
+  .output-area.visible { display: block; }
+  .output-header {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .output-header-label {
+    font-size: 11px; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.1em;
+  }
+  .output-model-tag {
+    font-size: 11px; color: var(--accent);
+    background: rgba(232,255,71,0.08);
+    border: 1px solid rgba(232,255,71,0.15);
+    padding: 3px 10px; border-radius: 4px;
+    letter-spacing: 0.05em;
+  }
+  .output-text {
+    padding: 24px;
+    font-family: var(--font-mono);
+    font-size: 14px; line-height: 1.8;
+    color: var(--text);
+    white-space: pre-wrap;
+    min-height: 200px;
+  }
+  .loading-dots {
+    display: inline-flex; gap: 4px; align-items: center;
+  }
+  .loading-dots span {
+    width: 6px; height: 6px;
+    background: var(--accent); border-radius: 50%;
+    animation: bounce 1.2s infinite;
+  }
+  .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+  .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes bounce {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-6px); }
+  }
+  .error-text { color: var(--accent2); font-family: var(--font-body); font-size: 14px; }
+
+  /* FOOTER NOTE */
+  .footer-note {
+    padding: 48px;
+    border-top: 1px solid var(--border);
+    background: var(--bg2);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+  }
+  .footer-note p { font-size: 13px; color: var(--faint); line-height: 1.6; }
+  .footer-note a { color: var(--muted); text-decoration: none; }
+  .footer-note a:hover { color: var(--white); }
+  .back-link {
+    font-family: var(--font-display);
+    font-weight: 600; font-size: 13px;
+    color: var(--accent); text-decoration: none;
+    border: 1px solid rgba(232,255,71,0.2);
+    padding: 8px 18px; border-radius: 6px;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .back-link:hover { background: rgba(232,255,71,0.08); }
+
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .hero, .spec-section, .generator-section { padding: 80px 24px; }
+    .hero { padding-top: 120px; }
+    .spec-grid { grid-template-columns: repeat(2, 1fr); }
+    .arch-grid { grid-template-columns: 1fr; }
+    .footer-note { padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">gjain<span>.ai</span></a>
+  <a href="/#projects" class="nav-back">← Back to projects</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-blob"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Built from scratch · Live demo</div>
+    <h1 class="hero-title">Nolan<span>GPT</span></h1>
+    <div class="hero-subtitle">
+      A transformer trained on <strong>every Christopher Nolan screenplay</strong>.<br>
+      Built from scratch using PyTorch. No APIs. No shortcuts.
+    </div>
+  </div>
+</section>
+
+<section class="spec-section">
+  <div class="section-label">Tech spec</div>
+  <div class="section-title">What you're interacting with</div>
+
+  <div class="spec-grid">
+    <div class="spec-card">
+      <div class="spec-label">Architecture</div>
+      <div class="spec-value">GPT</div>
+      <div class="spec-desc">Decoder-only transformer — same architecture as ChatGPT</div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-label">Training data</div>
+      <div class="spec-value">1.4<span>M</span></div>
+      <div class="spec-desc">Characters across 8 Nolan screenplays</div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-label">Training steps</div>
+      <div class="spec-value">70<span>K</span></div>
+      <div class="spec-desc">~57 minutes on Mac Mini M4</div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-label">Final loss</div>
+      <div class="spec-value">1.27</div>
+      <div class="spec-desc">Down from 4.71 at random initialisation</div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-label">Parameters</div>
+      <div class="spec-value">~3.7<span>M</span></div>
+      <div class="spec-desc">GPT-3 has 175 billion. Same idea, 47,000x smaller.</div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-label">Attention heads</div>
+      <div class="spec-value">8</div>
+      <div class="spec-desc">Multi-head self-attention per block</div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-label">Transformer blocks</div>
+      <div class="spec-value">4</div>
+      <div class="spec-desc">Each block = attention + feedforward + layer norm</div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-label">Embedding dim</div>
+      <div class="spec-value">128</div>
+      <div class="spec-desc">Each token represented as a 128-dimensional vector</div>
+    </div>
+  </div>
+
+  <div class="arch-grid">
+    <div class="arch-card">
+      <div class="arch-num">01</div>
+      <div>
+        <div class="arch-title">Token + Position Embeddings</div>
+        <div class="arch-desc">Every character mapped to a 128-dim vector. Position embeddings added so the model knows where each character appears in the sequence.</div>
+      </div>
+    </div>
+    <div class="arch-card">
+      <div class="arch-num">02</div>
+      <div>
+        <div class="arch-title">Multi-Head Self-Attention</div>
+        <div class="arch-desc">8 attention heads running in parallel. Each head learns different relationships — character names, dialogue patterns, scene structure. Based on "Attention Is All You Need" (Vaswani et al., 2017).</div>
+      </div>
+    </div>
+    <div class="arch-card">
+      <div class="arch-num">03</div>
+      <div>
+        <div class="arch-title">Feedforward + Residual</div>
+        <div class="arch-desc">Each token independently processes what it learned from attention. Residual connections allow gradients to flow cleanly through 4 stacked blocks during training.</div>
+      </div>
+    </div>
+    <div class="arch-card">
+      <div class="arch-num">04</div>
+      <div>
+        <div class="arch-title">Trained on</div>
+        <div class="arch-desc">Batman Begins · The Dark Knight · Inception · Interstellar · Dunkirk · Tenet · The Prestige · Oppenheimer. Character-level tokenisation — 97 unique tokens.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="generator-section">
+  <div class="section-label">Live demo</div>
+  <div class="section-title">Generate Nolan screenplay</div>
+  <div class="generator-inner">
+
+    <div class="prompt-area">
+      <div class="prompt-label">Prompt</div>
+      <textarea class="prompt-input" id="prompt-input" rows="2" placeholder="COOPER, BATMAN, INT. BATCAVE, INCEPTION..."></textarea>
+      <div class="prompt-footer">
+        <div class="prompt-hints">
+          <button class="hint-pill" onclick="setPrompt('COOPER')">COOPER</button>
+          <button class="hint-pill" onclick="setPrompt('BATMAN')">BATMAN</button>
+          <button class="hint-pill" onclick="setPrompt('INCEPTION')">INCEPTION</button>
+          <button class="hint-pill" onclick="setPrompt('INT. BATCAVE')">INT. BATCAVE</button>
+          <button class="hint-pill" onclick="setPrompt('MURPH')">MURPH</button>
+          <button class="hint-pill" onclick="setPrompt('COOPER meets BATMAN')">COOPER meets BATMAN</button>
+        </div>
+        <div class="token-control">
+          <span>Tokens</span>
+          <input type="number" id="max-tokens" value="300" min="50" max="500">
+        </div>
+      </div>
+    </div>
+
+    <button class="generate-btn" id="generate-btn" onclick="generate()">
+      Generate screenplay ↗
+    </button>
+
+    <div class="output-area" id="output-area">
+      <div class="output-header">
+        <span class="output-header-label">Generated output</span>
+        <span class="output-model-tag">NolanGPT · 3.7M params</span>
+      </div>
+      <div class="output-text" id="output-text"></div>
+    </div>
+
+  </div>
+</section>
+
+<div class="footer-note">
+  <div>
+    <p>Built by <a href="/">Gaurav Jain</a> · Trained from scratch using PyTorch on a Mac Mini M4.</p>
+    <p>Architecture based on <a href="https://arxiv.org/abs/1706.03762" target="_blank">Attention Is All You Need</a> (Vaswani et al., 2017) · Inspired by <a href="https://www.youtube.com/watch?v=kCc8FmEb1nY" target="_blank">Andrej Karpathy's nanoGPT</a>.</p>
+  </div>
+  <a href="/" class="back-link">← gjain.ai</a>
+</div>
+
+<script>
+  const API_URL = 'http://100.95.124.41:5001/generate';
+
+  function setPrompt(text) {
+    document.getElementById('prompt-input').value = text;
+  }
+
+  async function generate() {
+    const prompt = document.getElementById('prompt-input').value.trim();
+    const maxTokens = parseInt(document.getElementById('max-tokens').value) || 300;
+    const btn = document.getElementById('generate-btn');
+    const outputArea = document.getElementById('output-area');
+    const outputText = document.getElementById('output-text');
+
+    if (!prompt) {
+      alert('Please enter a prompt');
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Generating...';
+    outputArea.classList.add('visible');
+    outputText.innerHTML = '<div class="loading-dots"><span></span><span></span><span></span></div>';
+
+    try {
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt, max_tokens: maxTokens })
+      });
+
+      if (!response.ok) throw new Error('API error');
+
+      const data = await response.json();
+      outputText.textContent = data.generated;
+
+    } catch (err) {
+      outputText.innerHTML = '<span class="error-text">Could not reach the model. The Mac Mini may be asleep — try again in a moment.</span>';
+    }
+
+    btn.disabled = false;
+    btn.textContent = 'Generate screenplay ↗';
+  }
+
+  document.getElementById('prompt-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      generate();
+    }
+  });
+</script>
+
+</body>
+</html>
