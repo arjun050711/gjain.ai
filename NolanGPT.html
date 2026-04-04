@@ -331,7 +331,21 @@
     .hero { padding-top: 120px; }
     .spec-grid { grid-template-columns: repeat(2, 1fr); }
     .arch-grid { grid-template-columns: 1fr; }
-    .footer-note { padding: 32px 24px; }
+  }
+  @media (max-width: 600px) {
+    nav { padding: 14px 20px; }
+    .hero { padding: 100px 20px 48px; }
+    .spec-section, .generator-section { padding: 56px 20px; }
+    .spec-grid { grid-template-columns: 1fr; }
+    .hero-title { letter-spacing: -2px; }
+    .hero-subtitle { font-size: 17px; }
+    .section-title { font-size: 28px; letter-spacing: -0.5px; }
+    .prompt-footer { flex-direction: column; gap: 12px; align-items: flex-start; }
+    .prompt-hints { gap: 6px; }
+    .generate-btn { font-size: 14px; padding: 14px; }
+    .arch-card { padding: 18px; }
+    .spec-card { padding: 18px; }
+    .output-text { font-size: 13px; padding: 18px; }
   }
 </style>
 </head>

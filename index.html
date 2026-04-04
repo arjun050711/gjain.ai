@@ -26,10 +26,10 @@
     font-family: 'Syne', sans-serif;
     font-weight: 800;
     font-size: clamp(48px, 8vw, 96px);
-    letter-spacing: -3px;
+    letter-spacing: clamp(-1px, -0.03em, -3px);
     color: #ffffff;
     line-height: 1;
-    margin-bottom: 8px;
+    margin-bottom: 48px;
     text-align: center;
   }
   .title span {
@@ -154,9 +154,15 @@
     50% { opacity: 0.4; transform: scale(0.8); }
   }
   @media (max-width: 600px) {
-    .timeline-card { padding: 32px 24px; }
-    .timeline-track { flex-direction: column; gap: 40px; }
+    body { padding: 36px 16px; }
+    .title { margin-bottom: 32px; }
+    .timeline-card { padding: 28px 20px; }
+    .timeline-label { margin-bottom: 28px; }
+    .timeline-track { flex-direction: column; gap: 32px; }
     .timeline-line { display: none; }
+    .timeline-step { padding: 0; text-align: left; display: flex; align-items: flex-start; gap: 16px; }
+    .step-dot-done, .step-dot-active, .step-dot-inactive { margin: 0; flex-shrink: 0; }
+    .step-title, .step-desc, .badge { text-align: left; display: block; }
   }
 </style>
 </head>
