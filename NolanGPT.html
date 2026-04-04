@@ -339,7 +339,6 @@
 
 <nav>
   <a href="/" class="nav-logo">gjain<span>.ai</span></a>
-  <a href="/#projects" class="nav-back">← Back to projects</a>
 </nav>
 
 <section class="hero">
@@ -436,7 +435,7 @@
 
 <section class="generator-section">
   <div class="section-label">Live demo</div>
-  <div class="section-title">Generate Nolan screenplay</div>
+  <div class="section-title">Play with a (rudimentary) Tesseract</div>
   <div class="generator-inner">
 
     <div class="prompt-area">
@@ -459,7 +458,7 @@
     </div>
 
     <button class="generate-btn" id="generate-btn" onclick="generate()">
-      Generate screenplay ↗
+      Play with a (rudimentary) Tesseract ↗
     </button>
 
     <div class="output-area" id="output-area">
@@ -473,13 +472,6 @@
   </div>
 </section>
 
-<div class="footer-note">
-  <div>
-    <p>Built by <a href="/">Gaurav Jain</a> · Trained from scratch using PyTorch on a Mac Mini M4.</p>
-    <p>Architecture based on <a href="https://arxiv.org/abs/1706.03762" target="_blank">Attention Is All You Need</a> (Vaswani et al., 2017) · Inspired by <a href="https://www.youtube.com/watch?v=kCc8FmEb1nY" target="_blank">Andrej Karpathy's nanoGPT</a>.</p>
-  </div>
-  <a href="/" class="back-link">← gjain.ai</a>
-</div>
 
 <script>
   const API_URL = 'https://mason-belly-processed-send.trycloudflare.com/generate';
@@ -522,7 +514,7 @@
     }
 
     btn.disabled = false;
-    btn.textContent = 'Generate screenplay ↗';
+    btn.textContent = 'Play with a (rudimentary) Tesseract ↗';
   }
 
   document.getElementById('prompt-input').addEventListener('keydown', function(e) {
