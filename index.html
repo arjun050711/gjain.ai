@@ -3,55 +3,198 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>gjain.ai</title>
+<title>Darkstar — gjain.ai</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    height: 100%;
+  }
   body {
     background: #0a0a0a;
     color: #f0f0f0;
     font-family: 'DM Sans', sans-serif;
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 48px 24px;
+  }
+  .title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(48px, 8vw, 96px);
+    letter-spacing: -3px;
+    color: #ffffff;
+    line-height: 1;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  .title span {
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(255,255,255,0.25);
+  }
+  .subtitle {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    color: #888;
+    font-weight: 300;
+    margin-bottom: 64px;
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+  .timeline-card {
+    padding: 40px 48px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    width: 100%;
+    max-width: 860px;
+  }
+  .timeline-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  .timeline-track {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    position: relative;
+  }
+  .timeline-line {
+    position: absolute;
+    top: 20px;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, #e8ff47, rgba(232,255,71,0.4), rgba(255,255,255,0.1));
+    z-index: 0;
+  }
+  .timeline-step {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 0 16px;
+  }
+  .step-dot-done {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #e8ff47;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 18px;
+  }
+  .step-dot-active {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #1e1e1e;
+    border: 2px solid #e8ff47;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+    animation: pulse 2s infinite;
+  }
+  .step-dot-inactive {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #1e1e1e;
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+  }
+  .inner-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+  }
+  .step-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: -0.2px;
+    margin-bottom: 8px;
+  }
+  .step-desc {
+    font-size: 13px;
+    color: #888;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 12px;
+    border-radius: 4px;
+  }
+  .badge-done {
+    color: #0a0a0a;
+    background: #e8ff47;
+  }
+  .badge-active {
+    color: #e8ff47;
+    background: rgba(232,255,71,0.08);
+    border: 1px solid rgba(232,255,71,0.2);
+  }
+  .badge-soon {
+    color: #555;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
   }
   @keyframes pulse {
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.4; transform: scale(0.8); }
   }
+  @media (max-width: 600px) {
+    .timeline-card { padding: 32px 24px; }
+    .timeline-track { flex-direction: column; gap: 40px; }
+    .timeline-line { display: none; }
+  }
 </style>
 </head>
 <body>
 
-<div style="margin-top:48px;padding:28px 32px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;max-width:680px;">
-  <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#888;margin-bottom:20px;">AI learning arc — work in progress (very much)</div>
-  <div style="display:flex;align-items:flex-start;gap:0;position:relative;">
-    <div style="position:absolute;top:16px;left:16px;right:16px;height:1px;background:linear-gradient(90deg,#e8ff47,rgba(232,255,71,0.4),rgba(255,255,255,0.1));z-index:0;"></div>
-    <div style="flex:1;position:relative;z-index:1;text-align:center;">
-      <div style="width:32px;height:32px;border-radius:50%;background:#e8ff47;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:14px;">✓</div>
-      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:13px;color:#ffffff;margin-bottom:4px;letter-spacing:-0.2px;">Trained own GPT</div>
-      <div style="font-size:11px;color:#888;line-height:1.5;">Built & trained a<br>language model<br>from scratch</div>
-      <div style="margin-top:8px;display:inline-block;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#0a0a0a;background:#e8ff47;padding:2px 8px;border-radius:4px;">Done</div>
+<div class="title">Dark<span>star</span></div>
+<div class="subtitle">my digital twin — gjain.ai</div>
+
+<div class="timeline-card">
+  <div class="timeline-label">AI learning arc — work in progress (very much)</div>
+  <div class="timeline-track">
+    <div class="timeline-line"></div>
+
+    <div class="timeline-step">
+      <div class="step-dot-done">✓</div>
+      <div class="step-title" style="color:#ffffff;">Trained own GPT</div>
+      <div class="step-desc">Built & trained a<br>language model<br>from scratch</div>
+      <span class="badge badge-done">Done</span>
     </div>
-    <div style="flex:1;position:relative;z-index:1;text-align:center;">
-      <div style="width:32px;height:32px;border-radius:50%;background:#1e1e1e;border:2px solid #e8ff47;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;animation:pulse 2s infinite;">
-        <div style="width:8px;height:8px;border-radius:50%;background:#e8ff47;"></div>
+
+    <div class="timeline-step">
+      <div class="step-dot-active">
+        <div class="inner-dot" style="background:#e8ff47;"></div>
       </div>
-      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:13px;color:#ffffff;margin-bottom:4px;letter-spacing:-0.2px;">Open Source LLMs</div>
-      <div style="font-size:11px;color:#888;line-height:1.5;">Running small models<br>on a home server.<br>Frugal by necessity.</div>
-      <div style="margin-top:8px;display:inline-block;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#e8ff47;background:rgba(232,255,71,0.08);border:1px solid rgba(232,255,71,0.2);padding:2px 8px;border-radius:4px;">In progress</div>
+      <div class="step-title" style="color:#ffffff;">Open Source LLMs</div>
+      <div class="step-desc">Running small models<br>on a home server.<br>Frugal by necessity.</div>
+      <span class="badge badge-active">In progress</span>
     </div>
-    <div style="flex:1;position:relative;z-index:1;text-align:center;">
-      <div style="width:32px;height:32px;border-radius:50%;background:#1e1e1e;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
-        <div style="width:8px;height:8px;border-radius:50%;background:#444;"></div>
+
+    <div class="timeline-step">
+      <div class="step-dot-inactive">
+        <div class="inner-dot" style="background:#444;"></div>
       </div>
-      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:13px;color:#888;margin-bottom:4px;letter-spacing:-0.2px;">Digital Twin</div>
-      <div style="font-size:11px;color:#555;line-height:1.5;">Replacing myself<br>with commercially<br>available LLMs.</div>
-      <div style="margin-top:8px;display:inline-block;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#555;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);padding:2px 8px;border-radius:4px;">Coming soon</div>
+      <div class="step-title" style="color:#888;">Digital Twin</div>
+      <div class="step-desc" style="color:#555;">Replacing myself<br>with commercially<br>available LLMs.</div>
+      <span class="badge badge-soon">Coming soon</span>
     </div>
+
   </div>
 </div>
 
