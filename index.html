@@ -203,5 +203,49 @@
   </div>
 </div>
 
+
+<audio id="bg-audio" src="cornfield.mp4" loop></audio>
+
+<button id="audio-btn" onclick="toggleAudio()" title="Toggle music" style="
+  position:fixed; bottom:24px; right:24px;
+  width:40px; height:40px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  color:#888;
+  font-size:16px;
+  cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition:background 0.2s, color 0.2s;
+  z-index:999;
+">♪</button>
+
+<script>
+  const audio = document.getElementById('bg-audio');
+  const btn = document.getElementById('audio-btn');
+  audio.volume = 0.15;
+  let playing = false;
+
+  audio.play().then(() => {
+    playing = true;
+    btn.style.color = '#e8ff47';
+    btn.style.borderColor = 'rgba(232,255,71,0.3)';
+  }).catch(() => {});
+
+  function toggleAudio() {
+    if (playing) {
+      audio.pause();
+      playing = false;
+      btn.style.color = '#888';
+      btn.style.borderColor = 'rgba(255,255,255,0.1)';
+    } else {
+      audio.play();
+      playing = true;
+      btn.style.color = '#e8ff47';
+      btn.style.borderColor = 'rgba(232,255,71,0.3)';
+    }
+  }
+</script>
+
 </body>
 </html>
