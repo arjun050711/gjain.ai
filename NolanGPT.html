@@ -543,7 +543,7 @@
 
 <audio id="bg-audio" src="cornfield.mp4" loop></audio>
 
-<button id="audio-btn" onclick="toggleAudio()" title="Toggle music">♪ <span id="audio-label">SOUND ON</span></button>
+<button id="audio-btn" onclick="toggleAudio()" title="Toggle music">♪ <span id="audio-label">SOUND OFF</span></button>
 
 <style>
   #audio-btn {
@@ -577,15 +577,31 @@
   let playing = false;
   let started = false;
 
+  function setOn() {
+    playing = true;
+    btn.style.color = '#e8ff47';
+    btn.style.borderColor = 'rgba(232,255,71,0.3)';
+    document.getElementById('audio-label').textContent = 'SOUND OFF';
+  }
+
+  function setOff() {
+    playing = false;
+    btn.style.color = '#888';
+    btn.style.borderColor = 'rgba(255,255,255,0.12)';
+    document.getElementById('audio-label').textContent = 'SOUND ON';
+  }
+
+  // Default to "on" appearance on desktop
+  if (window.innerWidth > 600) setOn();
+
   function startAudio() {
     if (started) return;
     started = true;
     audio.play().then(() => {
-      playing = true;
-      btn.style.color = '#e8ff47';
-      btn.style.borderColor = 'rgba(232,255,71,0.3)';
-      document.getElementById('audio-label').textContent = 'SOUND OFF';
-    }).catch(() => {});
+      setOn();
+    }).catch(() => {
+      setOff();
+    });
   }
 
   // Try autoplay immediately (works on desktop)
@@ -599,16 +615,10 @@
   function toggleAudio() {
     if (playing) {
       audio.pause();
-      playing = false;
-      btn.style.color = '#888';
-      btn.style.borderColor = 'rgba(255,255,255,0.1)';
-      document.getElementById('audio-label').textContent = 'SOUND ON';
+      setOff();
     } else {
       audio.play();
-      playing = true;
-      btn.style.color = '#e8ff47';
-      btn.style.borderColor = 'rgba(232,255,71,0.3)';
-      document.getElementById('audio-label').textContent = 'SOUND OFF';
+      setOn();
     }
     event.stopPropagation();
   }
