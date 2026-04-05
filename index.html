@@ -225,12 +225,25 @@
   const btn = document.getElementById('audio-btn');
   audio.volume = 0.15;
   let playing = false;
+  let started = false;
 
-  audio.play().then(() => {
-    playing = true;
-    btn.style.color = '#e8ff47';
-    btn.style.borderColor = 'rgba(232,255,71,0.3)';
-  }).catch(() => {});
+  function startAudio() {
+    if (started) return;
+    started = true;
+    audio.play().then(() => {
+      playing = true;
+      btn.style.color = '#e8ff47';
+      btn.style.borderColor = 'rgba(232,255,71,0.3)';
+    }).catch(() => {});
+  }
+
+  // Try autoplay immediately (works on desktop)
+  startAudio();
+
+  // On first user interaction, start audio (works on mobile)
+  ['touchstart', 'click', 'keydown'].forEach(evt => {
+    document.addEventListener(evt, startAudio, { once: true });
+  });
 
   function toggleAudio() {
     if (playing) {
@@ -244,6 +257,8 @@
       btn.style.color = '#e8ff47';
       btn.style.borderColor = 'rgba(232,255,71,0.3)';
     }
+    // Prevent the toggle click from re-triggering startAudio
+    event.stopPropagation();
   }
 </script>
 
