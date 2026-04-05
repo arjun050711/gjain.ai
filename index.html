@@ -206,7 +206,7 @@
 
 <audio id="bg-audio" src="cornfield.mp4" loop></audio>
 
-<button id="audio-btn" onclick="toggleAudio()" title="Toggle music">♪ <span id="audio-label">sound</span></button>
+<button id="audio-btn" onclick="toggleAudio()" title="Toggle music">♪ <span id="audio-label">SOUND ON</span></button>
 
 <style>
   #audio-btn {
@@ -230,13 +230,14 @@
       top: 16px; right: 16px;
       bottom: auto;
       width: auto;
-      height: 32px;
+      height: 40px;
       border-radius: 100px;
-      padding: 0 12px;
-      font-size: 13px;
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 500;
-      gap: 4px;
+      padding: 0 16px;
+      font-size: 15px;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      gap: 6px;
       background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.12);
     }
@@ -258,7 +259,7 @@
       playing = true;
       btn.style.color = '#e8ff47';
       btn.style.borderColor = 'rgba(232,255,71,0.3)';
-      document.getElementById('audio-label').textContent = 'mute';
+      document.getElementById('audio-label').textContent = 'SOUND OFF';
     }).catch(() => {});
   }
 
@@ -276,13 +277,13 @@
       playing = false;
       btn.style.color = '#888';
       btn.style.borderColor = 'rgba(255,255,255,0.1)';
-      document.getElementById('audio-label').textContent = 'sound';
+      document.getElementById('audio-label').textContent = 'SOUND ON';
     } else {
       audio.play();
       playing = true;
       btn.style.color = '#e8ff47';
       btn.style.borderColor = 'rgba(232,255,71,0.3)';
-      document.getElementById('audio-label').textContent = 'mute';
+      document.getElementById('audio-label').textContent = 'SOUND OFF';
     }
     event.stopPropagation();
   }
