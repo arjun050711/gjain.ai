@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pulse — by Flipkart Group</title>
+<style>
+  :root{
+    --fk-blue:#2874F0;        /* Flipkart signature blue */
+    --fk-blue-dark:#1a52b8;
+    --fk-yellow:#FFE11B;       /* Flipkart yellow accent */
+    --fk-navy:#172337;
+    --ink:#1a2233;
+    --muted:#6b7689;
+    --line:#e7ebf2;
+    --bg:#f4f6fb;
+    --card:#ffffff;
+    --green:#1ba672;
+    --red:#e0533d;
+    --chip:#eef3fe;
+    --radius:14px;
+    --shadow:0 1px 3px rgba(23,35,55,.06),0 6px 24px rgba(23,35,55,.06);
+    --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.45}
+  /* ---------- Top bar ---------- */
+  .topbar{position:sticky;top:0;z-index:50;background:var(--fk-blue);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:58px;box-shadow:0 2px 12px rgba(40,116,240,.25)}
+  .brand{display:flex;align-items:baseline;gap:8px;cursor:pointer}
+  .brand .logo{font-weight:800;font-size:25px;letter-spacing:-1px;line-height:1;display:flex;align-items:center;gap:5px}
+  .brand .logo i{font-style:italic;color:var(--fk-yellow)}
+  .pulse-mark{width:30px;height:17px;display:block}
+  .pulse-mark polyline{animation:dash 2.4s ease-in-out infinite}
+  @keyframes dash{0%{stroke-dasharray:0 60;stroke-dashoffset:0}50%{stroke-dasharray:60 0}100%{stroke-dasharray:0 60;stroke-dashoffset:-60}}
+  .brand .by{font-size:11px;opacity:.9;font-weight:500}
+  .topbar-right{display:flex;align-items:center;gap:18px}
+  .client-switch{display:flex;background:rgba(255,255,255,.14);border-radius:9px;padding:3px;gap:2px}
+  .client-switch button{border:0;background:transparent;color:#fff;font-family:inherit;font-size:12.5px;font-weight:600;padding:7px 13px;border-radius:7px;cursor:pointer;opacity:.8;transition:.15s;white-space:nowrap}
+  .client-switch button.active{background:#fff;color:var(--fk-blue);opacity:1}
+  .avatar{width:32px;height:32px;border-radius:50%;background:var(--fk-yellow);color:var(--fk-navy);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px}
+  .hamburger{display:none;background:none;border:0;color:#fff;font-size:22px;cursor:pointer}
+  /* ---------- Layout ---------- */
+  .shell{display:flex;min-height:calc(100vh - 58px)}
+  .sidebar{width:212px;background:var(--card);border-right:1px solid var(--line);padding:18px 12px;flex-shrink:0}
+  .nav-label{font-size:10.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:700;margin:14px 10px 7px}
+  .nav-item{display:flex;align-items:center;gap:11px;padding:10px 11px;border-radius:9px;cursor:pointer;font-size:13.5px;font-weight:500;color:#42506b;transition:.13s}
+  .nav-item:hover{background:var(--bg)}
+  .nav-item.active{background:var(--chip);color:var(--fk-blue);font-weight:600}
+  .nav-item .ic{width:17px;text-align:center;font-size:15px}
+  .nav-item .badge{margin-left:auto;font-size:9px;background:var(--fk-yellow);color:var(--fk-navy);font-weight:700;padding:2px 6px;border-radius:20px;letter-spacing:.02em}
+  .main{flex:1;padding:24px 30px 60px;max-width:1180px;overflow-x:hidden}
+  /* ---------- Headers ---------- */
+  .page-head{margin-bottom:20px}
+  .page-head h1{font-size:22px;font-weight:800;letter-spacing:-.5px}
+  .page-head .ctx{color:var(--muted);font-size:13.5px;margin-top:3px}
+  .live-dot{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;color:var(--green);background:#e7f7f0;padding:4px 10px;border-radius:20px;margin-left:8px;vertical-align:middle}
+  .live-dot::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 1.6s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(27,166,114,.5)}70%{box-shadow:0 0 0 7px rgba(27,166,114,0)}100%{box-shadow:0 0 0 0 rgba(27,166,114,0)}}
+  /* ---------- KPI cards ---------- */
+  .kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 17px;box-shadow:var(--shadow)}
+  .kpi .label{font-size:11.5px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+  .kpi .val{font-size:25px;font-weight:800;margin:7px 0 4px;letter-spacing:-.5px}
+  .kpi .chg{font-size:12px;font-weight:600;display:inline-flex;align-items:center;gap:3px}
+  .up{color:var(--green)}.down{color:var(--red)}
+  /* ---------- Cards / grid ---------- */
+  .grid2{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin-bottom:16px}
+  .grid2b{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+  .card h3{font-size:14.5px;font-weight:700;margin-bottom:3px;display:flex;align-items:center;gap:8px}
+  .card .sub{font-size:12px;color:var(--muted);margin-bottom:15px}
+  /* bar chart */
+  .bars{display:flex;align-items:flex-end;gap:10px;height:160px;padding-top:10px}
+  .bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;height:100%;justify-content:flex-end}
+  .bar{width:100%;max-width:42px;background:linear-gradient(180deg,var(--fk-blue),#5a97f7);border-radius:6px 6px 0 0;position:relative;transition:height 1s cubic-bezier(.2,.8,.2,1)}
+  .bar.alt{background:linear-gradient(180deg,#ffd000,var(--fk-yellow))}
+  .bar-lbl{font-size:11px;color:var(--muted);font-weight:600;text-align:center}
+  .bar-val{font-size:10.5px;font-weight:700;color:var(--ink);position:absolute;top:-17px;width:100%;text-align:center}
+  /* trend line (svg) */
+  .trend svg{width:100%;height:150px;display:block}
+  /* share / ranking list */
+  .rank{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--line)}
+  .rank:last-child{border-bottom:0}
+  .rank .pos{width:22px;height:22px;border-radius:6px;background:var(--chip);color:var(--fk-blue);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .rank .nm{font-size:13px;font-weight:600;flex:1}
+  .rank.you .nm{color:var(--fk-blue)}
+  .rank.you{background:var(--chip);margin:0 -10px;padding:9px 10px;border-radius:8px;border-bottom:0}
+  .rank .meter{flex:1.4;height:7px;background:var(--bg);border-radius:10px;overflow:hidden;max-width:160px}
+  .rank .meter span{display:block;height:100%;border-radius:10px;background:var(--fk-blue)}
+  .rank.you .meter span{background:var(--fk-yellow)}
+  .rank .pct{font-size:12.5px;font-weight:700;width:48px;text-align:right}
+  /* geo heat */
+  .geo{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+  .geo-cell{padding:11px 13px;border-radius:10px;border:1px solid var(--line);position:relative;overflow:hidden}
+  .geo-cell .s{font-size:12.5px;font-weight:600}
+  .geo-cell .d{font-size:11px;color:var(--muted);margin-top:2px}
+  .geo-fill{position:absolute;inset:0;background:var(--fk-blue);opacity:.07;z-index:0}
+  .geo-cell>*{position:relative;z-index:1}
+  /* insight pills */
+  .insight{display:flex;gap:11px;padding:13px;border-radius:11px;background:linear-gradient(135deg,#eef3fe,#f7faff);border:1px solid #dce8fd;margin-bottom:10px}
+  .insight .ico{width:30px;height:30px;border-radius:8px;background:var(--fk-blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+  .insight .tx{font-size:12.8px;line-height:1.5}
+  .insight .tx b{color:var(--fk-blue-dark)}
+  .tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;background:var(--fk-yellow);color:var(--fk-navy);margin-left:6px;vertical-align:middle}
+  /* ---------- Ask Pulse ---------- */
+  .ask-fab{position:fixed;bottom:24px;right:24px;z-index:60;background:var(--fk-blue);color:#fff;border:0;border-radius:30px;padding:14px 22px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 8px 28px rgba(40,116,240,.4);display:flex;align-items:center;gap:9px;transition:.18s}
+  .ask-fab:hover{transform:translateY(-2px)}
+  .ask-fab .spark{font-size:17px}
+  .ask-panel{position:fixed;bottom:0;right:0;z-index:70;width:430px;max-width:100vw;height:600px;max-height:88vh;background:var(--card);border-radius:18px 18px 0 0;box-shadow:0 -10px 50px rgba(23,35,55,.25);display:flex;flex-direction:column;transform:translateY(110%);transition:transform .32s cubic-bezier(.2,.85,.25,1);margin:0 24px 0 0}
+  .ask-panel.open{transform:translateY(0)}
+  @media(min-width:640px){.ask-panel{bottom:24px;border-radius:18px}}
+  .ask-head{background:var(--fk-blue);color:#fff;padding:15px 18px;border-radius:18px 18px 0 0;display:flex;align-items:center;justify-content:space-between}
+  .ask-head .t{font-weight:800;font-size:16px;display:flex;align-items:center;gap:8px}
+  .ask-head .t .spark{color:var(--fk-yellow)}
+  .ask-head .sub2{font-size:11px;opacity:.9;font-weight:500;margin-top:1px}
+  .ask-close{background:rgba(255,255,255,.18);border:0;color:#fff;width:28px;height:28px;border-radius:7px;font-size:16px;cursor:pointer}
+  .ask-body{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:13px;background:var(--bg)}
+  .msg{max-width:85%;padding:11px 14px;border-radius:13px;font-size:13px;line-height:1.55}
+  .msg.bot{background:var(--card);border:1px solid var(--line);align-self:flex-start;border-bottom-left-radius:4px}
+  .msg.user{background:var(--fk-blue);color:#fff;align-self:flex-end;border-bottom-right-radius:4px;font-weight:500}
+  .msg.bot b{color:var(--fk-blue-dark)}
+  .msg.bot .metric{display:inline-block;background:var(--chip);color:var(--fk-blue-dark);font-weight:700;padding:1px 7px;border-radius:5px;font-size:12px;margin:1px 0}
+  .msg .cite{margin-top:9px;padding-top:9px;border-top:1px dashed var(--line);font-size:10.5px;color:var(--muted)}
+  .msg .cite b{color:var(--muted)}
+  .typing{display:flex;gap:4px;padding:13px 15px;background:var(--card);border:1px solid var(--line);border-radius:13px;border-bottom-left-radius:4px;align-self:flex-start;width:fit-content}
+  .typing span{width:7px;height:7px;border-radius:50%;background:var(--muted);opacity:.5;animation:blink 1.2s infinite}
+  .typing span:nth-child(2){animation-delay:.2s}.typing span:nth-child(3){animation-delay:.4s}
+  @keyframes blink{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
+  .suggest{padding:12px 18px;display:flex;flex-wrap:wrap;gap:7px;border-top:1px solid var(--line);background:var(--card)}
+  .suggest .sg{font-size:11.5px;background:var(--chip);color:var(--fk-blue-dark);border:1px solid #d6e4fd;padding:7px 11px;border-radius:20px;cursor:pointer;font-weight:600;transition:.13s}
+  .suggest .sg:hover{background:var(--fk-blue);color:#fff}
+  .ask-input{display:flex;gap:9px;padding:13px 16px;border-top:1px solid var(--line);background:var(--card);border-radius:0 0 18px 18px}
+  .ask-input input{flex:1;border:1px solid var(--line);border-radius:10px;padding:11px 13px;font-family:inherit;font-size:13px;outline:none}
+  .ask-input input:focus{border-color:var(--fk-blue)}
+  .ask-input button{background:var(--fk-blue);color:#fff;border:0;border-radius:10px;padding:0 16px;font-size:16px;cursor:pointer}
+  /* activation banner */
+  .activate{display:flex;align-items:center;gap:13px;background:linear-gradient(120deg,var(--fk-navy),#27406b);color:#fff;border-radius:var(--radius);padding:16px 18px;margin-bottom:16px}
+  .activate .ico{width:38px;height:38px;border-radius:10px;background:rgba(255,225,27,.2);color:var(--fk-yellow);display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
+  .activate .tx{flex:1}
+  .activate .tx .h{font-weight:700;font-size:13.5px}
+  .activate .tx .p{font-size:12px;opacity:.85;margin-top:2px}
+  .activate button{background:var(--fk-yellow);color:var(--fk-navy);border:0;font-weight:700;font-size:12.5px;padding:9px 15px;border-radius:9px;cursor:pointer;font-family:inherit;white-space:nowrap}
+  /* pricing */
+  .price-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .price{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);position:relative}
+  .price.feat{border:2px solid var(--fk-blue)}
+  .price .pop{position:absolute;top:-10px;left:20px;background:var(--fk-blue);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.04em}
+  .price .tier{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+  .price .amt{font-size:23px;font-weight:800;margin:9px 0 3px;letter-spacing:-.5px}
+  .price .amt small{font-size:12px;color:var(--muted);font-weight:500}
+  .price ul{list-style:none;margin-top:13px;display:flex;flex-direction:column;gap:8px}
+  .price li{font-size:12px;color:#42506b;display:flex;gap:7px}
+  .price li::before{content:"✓";color:var(--green);font-weight:800}
+  .src-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+  .src{font-size:11px;font-weight:600;padding:6px 11px;border-radius:8px;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;gap:6px;color:#42506b}
+  .src .dot{width:7px;height:7px;border-radius:50%;background:var(--green)}
+  .src.soon .dot{background:var(--muted)}
+  .src.soon{opacity:.6}
+  .page{display:none}.page.active{display:block}
+  .mobile-only{display:none}
+  /* ---------- responsive ---------- */
+  @media(max-width:920px){
+    .kpi-row{grid-template-columns:repeat(2,1fr)}
+    .grid2,.grid2b{grid-template-columns:1fr}
+    .price-row{grid-template-columns:repeat(2,1fr)}
+  }
+  @media(max-width:760px){
+    .hamburger{display:block}
+    .client-switch{display:none}
+    .sidebar{position:fixed;left:0;top:58px;bottom:0;z-index:40;transform:translateX(-100%);transition:.25s;box-shadow:6px 0 30px rgba(0,0,0,.1)}
+    .sidebar.open{transform:translateX(0)}
+    .main{padding:18px 16px 80px}
+    .client-switch.mobile{display:flex;width:100%;margin:0 0 16px;background:var(--chip)}
+    .client-switch.mobile button{color:var(--fk-blue);flex:1;justify-content:center;display:flex}
+    .client-switch.mobile button.active{background:var(--fk-blue);color:#fff}
+    .mobile-only{display:flex}
+    .page-head h1{font-size:19px}
+    .ask-panel{margin:0;height:82vh}
+    .ask-fab{padding:13px 18px;bottom:18px;right:18px}
+  }
+  @media(max-width:430px){.kpi-row{grid-template-columns:1fr 1fr}.price-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div style="display:flex;align-items:center;gap:14px">
+    <button class="hamburger" onclick="toggleNav()">☰</button>
+    <div class="brand" onclick="go('dashboard')">
+      <span class="logo"><i>Pulse</i><svg class="pulse-mark" viewBox="0 0 44 24" aria-hidden="true"><polyline points="0,12 9,12 14,4 20,20 26,9 31,12 44,12" fill="none" stroke="#FFE11B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="by">— by Flipkart Group</span>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <div class="client-switch">
+      <button class="active" data-c="fmcg" onclick="setClient('fmcg',this)">HUL · FMCG</button>
+      <button data-c="fashion" onclick="setClient('fashion',this)">Trendsetter · Fashion</button>
+      <button data-c="smb" onclick="setClient('smb',this)">Aria · D2C/SMB</button>
+    </div>
+    <div class="avatar" id="avatar">HU</div>
+  </div>
+</div>
+
+<div class="shell">
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="nav-label">Intelligence</div>
+    <div class="nav-item active" data-p="dashboard" onclick="go('dashboard',this)"><span class="ic">▦</span> Overview</div>
+    <div class="nav-item" data-p="channel" onclick="go('channel',this)"><span class="ic">📊</span> Channel Performance</div>
+    <div class="nav-item" data-p="shopper" onclick="go('shopper',this)"><span class="ic">🛒</span> Shopper Behaviour</div>
+    <div class="nav-item" data-p="crossdomain" onclick="go('crossdomain',this)"><span class="ic">🔗</span> Cross-Domain Signals <span class="badge">MOAT</span></div>
+    <div class="nav-label">Activate</div>
+    <div class="nav-item" data-p="activation" onclick="go('activation',this)"><span class="ic">📡</span> Brand Lift &amp; Surveys</div>
+    <div class="nav-item" data-p="pricing" onclick="go('pricing',this)"><span class="ic">◆</span> Plans</div>
+    <div class="nav-label">Data Spine</div>
+    <div style="padding:4px 10px">
+      <div class="src-row">
+        <div class="src"><span class="dot"></span>Flipkart</div>
+        <div class="src"><span class="dot"></span>Minutes</div>
+        <div class="src"><span class="dot"></span>Grocery</div>
+        <div class="src"><span class="dot"></span>Myntra</div>
+        <div class="src"><span class="dot"></span>Cleartrip</div>
+        <div class="src"><span class="dot"></span>Shopsy</div>
+        <div class="src"><span class="dot"></span>SuperMoney</div>
+        <div class="src"><span class="dot"></span>Ekart</div>
+      </div>
+      <div style="font-size:9.5px;color:var(--muted);margin-top:8px;line-height:1.4">8 live Group sources · source-agnostic by design</div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <!-- mobile client switch -->
+    <div class="client-switch mobile mobile-only">
+      <button class="active" data-c="fmcg" onclick="setClient('fmcg',this)">FMCG</button>
+      <button data-c="fashion" onclick="setClient('fashion',this)">Fashion</button>
+      <button data-c="smb" onclick="setClient('smb',this)">D2C/SMB</button>
+    </div>
+
+    <!-- ============ DASHBOARD ============ -->
+    <section class="page active" id="page-dashboard">
+      <div class="page-head">
+        <h1 id="dash-title">Overview</h1>
+        <div class="ctx" id="dash-ctx"></div>
+      </div>
+      <div class="kpi-row" id="kpis"></div>
+      <div class="grid2">
+        <div class="card">
+          <h3 id="trendH">Category sales velocity <span class="live-dot">live</span></h3>
+          <div class="sub" id="trendSub"></div>
+          <div class="trend" id="trendChart"></div>
+        </div>
+        <div class="card">
+          <h3 id="shareH">Category share</h3>
+          <div class="sub" id="shareSub"></div>
+          <div id="shareList"></div>
+        </div>
+      </div>
+      <div class="grid2b">
+        <div class="card">
+          <h3 id="geoH">Demand by region</h3>
+          <div class="sub">Top pincodes / states · last 7 days</div>
+          <div class="geo" id="geoGrid"></div>
+        </div>
+        <div class="card">
+          <h3>Surfaced insights <span class="tag">AI</span></h3>
+          <div class="sub">Generated by Pulse from live data</div>
+          <div id="insightList"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CHANNEL ============ -->
+    <section class="page" id="page-channel">
+      <div class="page-head"><h1>Channel Performance</h1><div class="ctx">Real-time sell-through across the Flipkart Group — as of yesterday, not 6 weeks late.</div></div>
+      <div class="kpi-row" id="kpis2"></div>
+      <div class="card" style="margin-bottom:16px">
+        <h3>SKU velocity by channel <span class="live-dot">live</span></h3>
+        <div class="sub" id="ch-sub"></div>
+        <div class="bars" id="channelBars"></div>
+      </div>
+      <div class="grid2b">
+        <div class="card"><h3>Availability / out-of-stock</h3><div class="sub">Where you're losing sales to stockouts</div><div id="oosList"></div></div>
+        <div class="card"><h3>Price & promotion impact</h3><div class="sub">Elasticity from real transactions</div><div id="promoList"></div></div>
+      </div>
+    </section>
+
+    <!-- ============ SHOPPER ============ -->
+    <section class="page" id="page-shopper">
+      <div class="page-head"><h1>Shopper Behaviour</h1><div class="ctx">Who buys, what they switch from, what's in the basket — from real purchases.</div></div>
+      <div class="grid2b">
+        <div class="card"><h3>Basket affinity</h3><div class="sub" id="basketSub"></div><div id="basketList"></div></div>
+        <div class="card"><h3>Brand switching</h3><div class="sub">Net gain / loss vs competitors</div><div id="switchList"></div></div>
+      </div>
+      <div class="card" style="margin-top:16px"><h3>New-to-brand vs repeat</h3><div class="sub">Quality of demand</div><div class="bars" id="ntbBars"></div></div>
+    </section>
+
+    <!-- ============ CROSS DOMAIN ============ -->
+    <section class="page" id="page-crossdomain">
+      <div class="page-head"><h1>Cross-Domain Signals <span class="tag">THE MOAT</span></h1><div class="ctx">The same individual across retail, grocery, fashion, travel & payments — a 360° consumer graph no panel and no other retailer can build.</div></div>
+      <div class="card" style="margin-bottom:16px;background:linear-gradient(120deg,#eef3fe,#f7faff)">
+        <h3>Why this is unique</h3>
+        <div class="sub" style="margin-bottom:0;line-height:1.6">Legacy panels see a small survey sample, weeks late. <b style="color:var(--fk-blue-dark)">Pulse sees the same real person shopping on Flipkart, ordering on Minutes & Grocery, dressing via Myntra, travelling via Cleartrip and paying via SuperMoney</b> — letting brands answer questions no panel can, from real behaviour rather than a projected sample.</div>
+      </div>
+      <div id="crossList"></div>
+    </section>
+
+    <!-- ============ ACTIVATION ============ -->
+    <section class="page" id="page-activation">
+      <div class="page-head"><h1>Brand Lift &amp; Surveys</h1><div class="ctx">Run brand-lift studies and consumer surveys against real buyers in days, not months — the measurement legacy panels charge a fortune for, turbocharged.</div></div>
+      <div class="activate">
+        <div class="ico">📡</div>
+        <div class="tx"><div class="h">Brand-lift measurement, reinvented</div><div class="p">Measure awareness, consideration and purchase lift from a campaign against verified buyers across the Group — fielded in days at a fraction of legacy panel cost, then optionally activate the proven audience.</div></div>
+      </div>
+      <div id="activateList"></div>
+    </section>
+
+    <!-- ============ PRICING ============ -->
+    <section class="page" id="page-pricing">
+      <div class="page-head"><h1>Plans</h1><div class="ctx">Land free, expand to depth — a freemium ladder that turns every brand on the platform into a subscriber, then a power user.</div></div>
+      <div class="price-row">
+        <div class="price"><div class="tier">Basic</div><div class="amt">Free</div><ul><li>Channel Performance (lite)</li><li>Category trends</li><li>Weekly refresh</li><li>1 brand, 1 user</li></ul></div>
+        <div class="price feat"><div class="pop">Most popular</div><div class="tier">Pro</div><div class="amt">₹6–18L<small>/yr</small></div><ul><li>All intelligence modules</li><li>Shopper Behaviour + Ask Pulse</li><li>Daily refresh, SKU & pincode</li><li>Up to 10 users</li></ul></div>
+        <div class="price"><div class="tier">Enterprise</div><div class="amt">Custom</div><ul><li>Cross-Domain Signals</li><li>API & data feeds</li><li>Brand Lift & survey studies</li><li>Dedicated success team</li></ul></div>
+        <div class="price"><div class="tier">Self-serve</div><div class="amt">₹4,999<small>/mo</small></div><ul><li>For D2C & SMB long tail</li><li>Self-onboard, no account mgr</li><li>Core dashboards + Ask Pulse</li><li>The long-tail growth engine</li></ul></div>
+      </div>
+      <div class="card" style="margin-top:18px">
+        <h3>Plus: Brand Lift &amp; custom research — priced per study</h3>
+        <div class="sub" style="margin-bottom:0;line-height:1.6">The measurement legacy panels charge a fortune for — brand-lift studies, custom surveys, product testing — fielded against real verified buyers in <b>days, not months</b>, at a fraction of the cost. A high-margin revenue line on top of subscriptions.</div>
+      </div>
+      <div class="card" style="margin-top:14px">
+        <h3>Built for every brand — enterprise to the long tail</h3>
+        <div class="sub" style="margin-bottom:0;line-height:1.6">Large FMCG and fashion houses get white-glove Enterprise. The millions of D2C and SMB sellers get self-serve. One platform, the full demand curve.</div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- ASK PULSE -->
+<button class="ask-fab" onclick="openAsk()"><span class="spark">✦</span> Ask Pulse</button>
+<div class="ask-panel" id="askPanel">
+  <div class="ask-head">
+    <div><div class="t"><span class="spark">✦</span> Ask Pulse</div><div class="sub2" id="askCtx">AI analyst · grounded in your live data</div></div>
+    <button class="ask-close" onclick="closeAsk()">✕</button>
+  </div>
+  <div class="ask-body" id="askBody"></div>
+  <div class="suggest" id="suggest"></div>
+  <div class="ask-input"><input id="askInput" placeholder="Ask anything about your data…" onkeydown="if(event.key==='Enter')sendAsk()"><button onclick="sendAsk()">➤</button></div>
+</div>
+
+<script>
+/* ============================================================
+   DATA for three client personas
+   ============================================================ */
+const DATA = {
+  fmcg: {
+    avatar:"HU", brand:"Hindustan Unilever",
+    dashTitle:"Surf Excel · Home Care",
+    ctx:"Hindustan Unilever · Detergents & Home Care · all-India view",
+    kpis:[
+      {label:"Category GMV (90d)",val:"₹1,214 Cr",chg:"+18.2%",up:1},
+      {label:"Your category share",val:"34.6%",chg:"+1.4 pts",up:1},
+      {label:"SKU velocity",val:"2.3M / wk",chg:"+22%",up:1},
+      {label:"Out-of-stock loss",val:"₹38 L",chg:"-0.9 pts",up:1},
+    ],
+    trendSub:"Detergent category · daily units · last 8 weeks",
+    trend:[42,45,44,48,52,50,58,63],
+    shareSub:"Liquid detergent · all-India",
+    share:[{n:"Surf Excel (you)",v:34.6,you:1},{n:"Ariel",v:28.1},{n:"Tide",v:16.3},{n:"Ghadi",v:9.2},{n:"Others",v:11.8}],
+    geo:[{s:"Maharashtra",d:"+31% demand · stock tight"},{s:"Karnataka",d:"+24% demand"},{s:"Delhi NCR",d:"+19% demand"},{s:"Tamil Nadu",d:"+12% · premium mix up"}],
+    insights:[
+      {i:"⚡",t:"<b>Maharashtra demand is outrunning supply.</b> Liquid detergent velocity up 31% but availability slipped to 91%. Est. ₹38L/month leaking to Ariel on stockouts."},
+      {i:"📈",t:"<b>Premiumisation in South.</b> Tamil Nadu shoppers are trading up to your premium SKU 1.7× faster than national average — a launch-marketing opportunity."},
+      {i:"🔁",t:"<b>You're winning switchers from Tide</b> (+2.1 pts net) but losing first-time buyers to Ghadi on price in Tier-2."},
+    ],
+    kpis2:[
+      {label:"Online sell-through",val:"94.1%",chg:"+1.2 pts",up:1},
+      {label:"Quick-comm (Minutes)",val:"28% of vol",chg:"+9 pts",up:1},
+      {label:"Avg basket w/ your SKU",val:"₹612",chg:"+6%",up:1},
+      {label:"Repeat rate",val:"61%",chg:"+3 pts",up:1},
+    ],
+    chSub:"Surf Excel Matic 1L · units by Group channel · last 4 wks",
+    channel:[{l:"Flipkart",v:70},{l:"Grocery",v:88},{l:"Minutes",v:100,alt:1},{l:"Shopsy",v:46}],
+    oos:[{n:"Surf Excel Matic 2L — Maharashtra",v:"91% avail",bad:1},{n:"Surf Excel Liquid 1L — Karnataka",v:"96% avail"},{n:"Comfort 800ml — Delhi NCR",v:"89% avail",bad:1}],
+    promo:[{n:"₹20 off 1L pack",v:"+34% units, ROI 2.1×"},{n:"Bundle (Surf+Comfort)",v:"+18% basket value"},{n:"Min order free-ship",v:"+11% conversion"}],
+    basketSub:"Most bought alongside Surf Excel on Minutes/Grocery",
+    basket:[{n:"Comfort fabric conditioner",v:"42%"},{n:"Vim dishwash",v:"31%"},{n:"Bread & eggs",v:"27%"},{n:"Rin bar",v:"19%"}],
+    switch:[{n:"Won from Tide",v:"+2.1 pts",up:1},{n:"Won from Ariel",v:"+0.8 pts",up:1},{n:"Lost to Ghadi (Tier-2)",v:"-1.3 pts",up:0}],
+    ntb:[{l:"New-to-brand",v:38},{l:"Repeat",v:62,alt:1}],
+    cross:[
+      {i:"✈️",t:"<b>Cleartrip × Home Care:</b> Households that booked domestic travel in the last 30 days over-index <b>1.6×</b> on premium detergent & fabric-care purchases. A premium-SKU audience Nielsen literally cannot see."},
+      {i:"💳",t:"<b>SuperMoney × basket size:</b> Shoppers using EMI/credit on SuperMoney run <b>23% larger</b> home-care baskets — a target segment for bulk & premium bundles."},
+      {i:"👗",t:"<b>Myntra × demographics:</b> Premium-fashion buyers on Myntra index high for your premium liquid detergent — a cross-sell segment you can size, track and run a brand-lift study against."},
+      {i:"🛵",t:"<b>Minutes signal:</b> 28% of your volume is now quick-commerce, growing 9 pts/quarter — the highest-intent, fastest-growing channel in your mix, and your earliest read on demand shifts."},
+    ],
+    activate:[
+      {h:"Premium detergent — brand-lift study",p:"Measure awareness & purchase lift of your premium campaign against verified premium-home-care buyers. Fielded in 4 days.",btn:"Run study"},
+      {h:"Maharashtra share-shift tracker",p:"Continuous brand-health tracking in Maharashtra — measure if you're holding share against Ariel, week over week.",btn:"Run study"},
+      {h:"Tier-2 perception survey",p:"Survey price-sensitive Tier-2 buyers on why they pick Ghadi — message-test your value-pack response.",btn:"Run study"},
+    ],
+    ask:[
+      {q:"Should I increase detergent inventory in Maharashtra next month?",a:"<b>Yes — and urgently.</b> Liquid detergent demand in Maharashtra is up <span class='metric'>+31% YoY</span> over the last 8 weeks, but your availability has slipped to <span class='metric'>91%</span>. Pulse estimates you're leaking <span class='metric'>~₹38L/month</span> to Ariel on stockouts in the state.<br><br>Recommendation: lift Maharashtra replenishment <b>~25%</b>, prioritising the Matic 2L SKU (worst-hit), and concentrate on Pune & Mumbai pincodes where Minutes velocity is highest.<div class='cite'><b>Sources:</b> Flipkart Grocery + Minutes sell-through, availability logs, competitor share · last 56 days</div>"},
+      {q:"Which region is premiumising fastest?",a:"<b>Tamil Nadu.</b> Shoppers there are trading up to your premium SKUs <span class='metric'>1.7× faster</span> than the national average, with premium mix up <span class='metric'>+4.2 pts</span> in 90 days.<br><br>This is a strong signal to direct premium-SKU marketing and launch spend to TN metros (Chennai, Coimbatore) — and to test a premium bundle there first.<div class='cite'><b>Sources:</b> Flipkart + Grocery basket mix, SKU-level price tiers · 90 days</div>"},
+      {q:"Who am I losing customers to?",a:"You have a <b>two-sided story</b>:<br>• <b>Winning</b> switchers from Tide <span class='metric'>+2.1 pts</span> and Ariel <span class='metric'>+0.8 pts</span> in metros.<br>• <b>Losing</b> first-time buyers to <b>Ghadi</b> <span class='metric'>-1.3 pts</span> in Tier-2, almost entirely on price.<br><br>Recommendation: defend Tier-2 with a value pack rather than discounting your hero SKU — protects premium equity while plugging the leak.<div class='cite'><b>Sources:</b> brand-switching matrix, new-to-brand analysis · 90 days</div>"},
+      {q:"What's my biggest hidden opportunity?",a:"<b>The travel-to-premium cross-signal.</b> Households booking domestic travel on Cleartrip over-index <span class='metric'>1.6×</span> on premium fabric care. This is a segment <b>no panel can see</b> — it only exists because Pulse joins Cleartrip and purchase data.<br><br>You can quantify and track this segment, and run a brand-lift study against it, from the Brand Lift &amp; Surveys tab.<div class='cite'><b>Sources:</b> Cross-domain graph (Cleartrip × Grocery × Flipkart) · 30 days</div>"},
+    ],
+    suggest:["Should I increase detergent inventory in Maharashtra next month?","Which region is premiumising fastest?","Who am I losing customers to?","What's my biggest hidden opportunity?"]
+  },
+
+  fashion: {
+    avatar:"TS", brand:"Trendsetter Apparel",
+    dashTitle:"Trendsetter · Womenswear",
+    ctx:"Trendsetter Apparel · Womenswear & Accessories · Myntra + Flipkart",
+    kpis:[
+      {label:"Category GMV (90d)",val:"₹342 Cr",chg:"+26%",up:1},
+      {label:"Your category share",val:"12.4%",chg:"+2.1 pts",up:1},
+      {label:"Sell-through rate",val:"71%",chg:"+5 pts",up:1},
+      {label:"Return rate",val:"22%",chg:"-3 pts",up:1},
+    ],
+    trendSub:"Womenswear · daily units · last 8 weeks (festive build-up)",
+    trend:[30,34,33,40,46,55,61,74],
+    shareSub:"Women's ethnic & fusion · Myntra",
+    share:[{n:"Trendsetter (you)",v:12.4,you:1},{n:"Libas",v:15.2},{n:"W for Woman",v:13.8},{n:"Biba",v:10.1},{n:"Others",v:48.5}],
+    geo:[{s:"Bengaluru",d:"+38% · fusion-wear hot"},{s:"Mumbai",d:"+29% demand"},{s:"Hyderabad",d:"+25% demand"},{s:"Pune",d:"+18% · size M sells out"}],
+    insights:[
+      {i:"👗",t:"<b>Fusion-wear is your breakout.</b> Indo-western dresses up 41% in metros; this sub-category is pulling 2× the margin of your core ethnic line."},
+      {i:"📦",t:"<b>Returns concentrated in size M.</b> 34% of returns are size M 'fit too small' — a sizing-chart fix could lift net sell-through 4–5 pts."},
+      {i:"🎯",t:"<b>Gen-Z skew rising.</b> 18–24 cohort now 44% of buyers (up from 31%), over-indexing on bright colours & co-ord sets."},
+    ],
+    kpis2:[
+      {label:"Myntra sell-through",val:"71%",chg:"+5 pts",up:1},
+      {label:"Full-price sell %",val:"58%",chg:"+7 pts",up:1},
+      {label:"Avg order value",val:"₹1,840",chg:"+12%",up:1},
+      {label:"Repeat buyer rate",val:"39%",chg:"+4 pts",up:1},
+    ],
+    chSub:"Hero fusion-dress SKU · units by channel · last 4 wks",
+    channel:[{l:"Myntra",v:100,alt:1},{l:"Flipkart",v:54},{l:"Shopsy",v:38},{l:"Cleartrip*",v:14}],
+    oos:[{n:"Fusion dress (M) — Bengaluru",v:"82% avail",bad:1},{n:"Co-ord set (S) — Mumbai",v:"90% avail",bad:1},{n:"Kurta (L) — Pune",v:"97% avail"}],
+    promo:[{n:"Festive 30% off",v:"+52% units, ROI 1.8×"},{n:"Buy 2 co-ords",v:"+24% AOV"},{n:"Free returns badge",v:"+9% conversion"}],
+    basketSub:"Bought together on Myntra",
+    basket:[{n:"Matching dupatta / stole",v:"38%"},{n:"Juttis / flats",v:"29%"},{n:"Statement earrings",v:"24%"},{n:"Potli bag",v:"15%"}],
+    switch:[{n:"Won from Biba",v:"+1.6 pts",up:1},{n:"Won from W",v:"+0.5 pts",up:1},{n:"Lost to Libas (value)",v:"-0.9 pts",up:0}],
+    ntb:[{l:"New-to-brand",v:52},{l:"Repeat",v:48,alt:1}],
+    cross:[
+      {i:"✈️",t:"<b>Cleartrip × fashion:</b> Shoppers booking a holiday buy <b>2.3×</b> more resort & fusion wear in the 2 weeks before travel. A pre-trip 'vacation edit' audience you can target precisely."},
+      {i:"🛒",t:"<b>Grocery × life-stage:</b> Buyers shifting to baby & family grocery on Grocery/Minutes signal a life-stage change — a trigger for your maternity & comfort-wear lines."},
+      {i:"💳",t:"<b>SuperMoney × premium:</b> EMI users on SuperMoney spend <b>31% more</b> per fashion order — your premium occasion-wear audience."},
+      {i:"📱",t:"<b>Gen-Z cross-platform:</b> The 18–24 cohort active on Shopsy + Myntra over-indexes on co-ord sets & bright palettes — your fastest-growing, most-activatable segment."},
+    ],
+    activate:[
+      {h:"Pre-trip 'vacation edit' — concept test",p:"Test your resort & fusion line concepts with shoppers who have upcoming travel — validate before you produce.",btn:"Run study"},
+      {h:"Gen-Z brand-lift study",p:"Measure aided awareness & consideration of your co-ord range among the 18–24 cohort vs competitors.",btn:"Run study"},
+      {h:"Size-M fit survey",p:"Survey shoppers who returned size M to pinpoint the fit issue and validate the corrected size guide.",btn:"Run study"},
+    ],
+    ask:[
+      {q:"Which sub-category should I double down on this festive season?",a:"<b>Indo-western fusion wear.</b> It's up <span class='metric'>+41%</span> in metros and delivering <span class='metric'>~2× the margin</span> of your core ethnic line, with the strongest pull in Bengaluru and Mumbai.<br><br>Recommendation: shift festive inventory and marketing weight toward fusion dresses & co-ord sets, and lead with the 18–24 cohort where it's resonating hardest.<div class='cite'><b>Sources:</b> Myntra + Flipkart sell-through, margin mix, cohort analysis · 90 days</div>"},
+      {q:"Why are my returns so high?",a:"Returns are <span class='metric'>22%</span> — but the issue is concentrated: <b>34% of all returns are size M, flagged 'fit too small.'</b> This is a sizing-chart problem, not a product problem.<br><br>Fixing the M size guide could lift <b>net sell-through by 4–5 pts</b> — a bigger margin win than any discount.<div class='cite'><b>Sources:</b> Myntra returns reasons, SKU-size analysis · 90 days</div>"},
+      {q:"Who is my customer becoming?",a:"<b>Younger and bolder.</b> The 18–24 cohort is now <span class='metric'>44%</span> of buyers (up from 31% a year ago), over-indexing on bright colours and co-ord sets.<br><br>This Gen-Z shift should reshape your range plan and creative — and you can validate any new direction with a quick brand-lift or concept-test study before committing.<div class='cite'><b>Sources:</b> buyer demographics, cross-platform activity · 12 months</div>"},
+      {q:"What's a signal no other platform can give me?",a:"<b>The pre-travel fashion spike.</b> Shoppers who book a holiday on Cleartrip buy <span class='metric'>2.3×</span> more resort & fusion wear in the two weeks before they travel.<br><br>Only Pulse can see this — it joins Cleartrip booking data with Myntra purchases. You can target this 'about to travel' audience directly from the Activation tab.<div class='cite'><b>Sources:</b> Cross-domain graph (Cleartrip × Myntra) · 60 days</div>"},
+    ],
+    suggest:["Which sub-category should I double down on this festive season?","Why are my returns so high?","Who is my customer becoming?","What's a signal no other platform can give me?"]
+  },
+
+  smb: {
+    avatar:"AR", brand:"Aria Naturals (D2C)",
+    dashTitle:"Aria Naturals · D2C Beauty",
+    ctx:"Aria Naturals · D2C face & body care · self-serve plan",
+    kpis:[
+      {label:"GMV (90d)",val:"₹2.1 Cr",chg:"+64%",up:1},
+      {label:"Category share",val:"0.8%",chg:"+0.3 pts",up:1},
+      {label:"Return on Pulse-led decisions",val:"3.4×",chg:"+0.9×",up:1},
+      {label:"Repeat rate",val:"34%",chg:"+6 pts",up:1},
+    ],
+    trendSub:"Face serum range · daily units · last 8 weeks",
+    trend:[8,11,10,14,19,22,28,35],
+    shareSub:"Natural face care · your niche",
+    share:[{n:"Minimalist",v:14.1},{n:"Plum",v:11.2},{n:"Dot & Key",v:9.4},{n:"Aria (you)",v:0.8,you:1},{n:"Long tail",v:64.5}],
+    geo:[{s:"Bengaluru",d:"+71% · your #1 city"},{s:"Mumbai",d:"+44% demand"},{s:"Pune",d:"+39% demand"},{s:"Hyderabad",d:"+33% · niche but loyal"}],
+    insights:[
+      {i:"🚀",t:"<b>You're a breakout in the making.</b> 64% GMV growth, concentrated in metro Gen-Z. The data says: pour fuel on Bengaluru & Mumbai, don't spread thin."},
+      {i:"💡",t:"<b>Your serum is the hero, not the cleanser.</b> Vitamin-C serum drives 58% of revenue & 2× the repeat rate — make it the front door, bundle the rest behind it."},
+      {i:"🎯",t:"<b>Evidence-led decisions return 3.4×</b> — because every focus choice (which city, which SKU, which message) is grounded in real category data and validated with quick studies, not guesswork."},
+    ],
+    kpis2:[
+      {label:"Sell-through",val:"66%",chg:"+8 pts",up:1},
+      {label:"Quick-comm (Minutes)",val:"19% of vol",chg:"+11 pts",up:1},
+      {label:"Avg order value",val:"₹540",chg:"+9%",up:1},
+      {label:"New-to-brand",val:"71%",chg:"-",up:1},
+    ],
+    chSub:"Vitamin-C serum · units by channel · last 4 wks",
+    channel:[{l:"Flipkart",v:72},{l:"Minutes",v:88,alt:1},{l:"Shopsy",v:64},{l:"Myntra",v:40}],
+    oos:[{n:"Vit-C Serum 30ml — Bengaluru",v:"88% avail",bad:1},{n:"Niacinamide 30ml — Mumbai",v:"94% avail"},{n:"Cleanser 100ml — Pune",v:"98% avail"}],
+    promo:[{n:"₹100 off first order",v:"+48% new buyers, ROI 3.4×"},{n:"Serum + cleanser bundle",v:"+27% AOV"},{n:"Subscribe & save",v:"+19% repeat"}],
+    basketSub:"Bought together on Flipkart/Minutes",
+    basket:[{n:"Niacinamide serum",v:"36%"},{n:"Gentle cleanser",v:"28%"},{n:"Cotton pads",v:"21%"},{n:"Moisturiser",v:"17%"}],
+    switch:[{n:"Won from long-tail brands",v:"+0.4 pts",up:1},{n:"Won trial from Plum",v:"+0.2 pts",up:1},{n:"Lost to Minimalist (price)",v:"-0.1 pts",up:0}],
+    ntb:[{l:"New-to-brand",v:71,alt:1},{l:"Repeat",v:29}],
+    cross:[
+      {i:"🔍",t:"<b>You don't have to guess your buyer.</b> Pulse shows your serum buyers also purchase mid-premium skincare & wellness on Flipkart — so your real competitor is Minimalist, not the mass brands. Price & position accordingly."},
+      {i:"🛵",t:"<b>Minutes is your fastest channel:</b> 19% of volume already, up 11 pts — quick-commerce shoppers buy your serum on impulse. Prioritise dark-store availability in Bengaluru."},
+      {i:"💳",t:"<b>SuperMoney signal:</b> a third of your buyers use BNPL — bundle pricing at the ₹599 BNPL-friendly threshold to lift basket size."},
+      {i:"📈",t:"<b>Intelligence the big brands had, now yours:</b> Nielsen/Kantar-grade tracking and surveys were priced out of reach for a brand your size. Pulse self-serve gives you the same category truth and brand-lift measurement for a few thousand rupees a month — and your decisions show a 3.4× return on the categories you double down on."},
+    ],
+    activate:[
+      {h:"Bengaluru concept test",p:"Test your serum positioning with proven category buyers in Bengaluru before you scale spend — affordable, fast.",btn:"Run study"},
+      {h:"Brand-awareness baseline",p:"Establish where Aria stands vs Minimalist & Plum on awareness — the brand-health tracking only big brands could afford before.",btn:"Run study"},
+      {h:"Price-point survey at ₹599",p:"Survey BNPL-friendly buyers on willingness-to-pay for your serum+cleanser bundle.",btn:"Run study"},
+    ],
+    ask:[
+      {q:"I have a small budget — where should I focus?",a:"<b>Go narrow, not broad.</b> Put your focus behind your <b>Vitamin-C serum</b> (it's 58% of revenue and 2× repeat) in <b>Bengaluru</b> (your #1 city, +71% growth).<br><br>Brands that concentrate on Pulse-validated opportunities are seeing a <span class='metric'>3.4× return</span> on those decisions — because they're acting on real category truth, not guesswork. Concentrate, don't spread.<div class='cite'><b>Sources:</b> your sell-through, decision tracking, city demand · 90 days</div>"},
+      {q:"Who is my real competitor?",a:"<b>Minimalist — not the mass-market brands.</b> Pulse shows your serum buyers also shop mid-premium skincare and wellness, so you're competing in that tier, not against mass FMCG.<br><br>Implication: price and position against Minimalist & Plum on <b>ingredient credibility</b>, not on being cheap. Don't race to the bottom.<div class='cite'><b>Sources:</b> basket affinity, brand-switching, category mapping · 90 days</div>"},
+      {q:"Which product should be my hero?",a:"<b>The Vitamin-C serum, decisively.</b> It drives <span class='metric'>58%</span> of revenue and double the repeat rate of anything else in your range.<br><br>Make it the front door of every campaign and your storefront, then bundle the cleanser and moisturiser behind it to lift AOV. Lead with the winner.<div class='cite'><b>Sources:</b> SKU revenue & repeat analysis · 90 days</div>"},
+      {q:"How do I compete with big brands' research budgets?",a:"<b>You don't outspend them — you get the same intelligence they do.</b> Big brands have always had Nielsen/Kantar tracking and brand-lift studies; brands your size were priced out.<br><br>Pulse self-serve removes that floor — you get the same category truth, switching data and survey tools for a few thousand a month. The result: every decision (where to focus, which SKU to push) is evidence-based, which is why your concentrated bets are returning <span class='metric'>3.4×</span>. Precision, not scale, is your edge.<div class='cite'><b>Sources:</b> self-serve usage vs category benchmark · 90 days</div>"},
+    ],
+    suggest:["I have a small budget — where should I focus?","Who is my real competitor?","Which product should be my hero?","How do I compete with big brands' research budgets?"]
+  }
+};
+
+let current = 'fmcg';
+
+/* ---------- render helpers ---------- */
+function el(html){const t=document.createElement('template');t.innerHTML=html.trim();return t.content.firstChild;}
+
+function renderKPIs(id,arr){
+  document.getElementById(id).innerHTML = arr.map(k=>`
+    <div class="kpi"><div class="label">${k.label}</div><div class="val">${k.val}</div>
+    <div class="chg ${k.up?'up':'down'}">${k.up?'▲':'▼'} ${k.chg}</div></div>`).join('');
+}
+function renderTrend(d){
+  const w=460,h=150,max=Math.max(...d.trend)*1.15,min=Math.min(...d.trend)*.6;
+  const pts=d.trend.map((v,i)=>[20+i*(w-40)/(d.trend.length-1),h-12-((v-min)/(max-min))*(h-30)]);
+  const path=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');
+  const area=path+` L${pts[pts.length-1][0]} ${h-10} L${pts[0][0]} ${h-10} Z`;
+  document.getElementById('trendSub').textContent=d.trendSub;
+  document.getElementById('trendChart').innerHTML=`
+    <svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2874F0" stop-opacity=".22"/><stop offset="1" stop-color="#2874F0" stop-opacity="0"/></linearGradient></defs>
+      <path d="${area}" fill="url(#g)"/><path d="${path}" fill="none" stroke="#2874F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      ${pts.map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="3" fill="#fff" stroke="#2874F0" stroke-width="2"/>`).join('')}
+    </svg>`;
+}
+function renderShare(d){
+  document.getElementById('shareSub').textContent=d.shareSub;
+  const max=Math.max(...d.share.map(s=>s.v));
+  document.getElementById('shareList').innerHTML=d.share.map((s,i)=>`
+    <div class="rank ${s.you?'you':''}"><div class="pos">${i+1}</div><div class="nm">${s.n}</div>
+    <div class="meter"><span style="width:${(s.v/max*100).toFixed(0)}%"></span></div><div class="pct">${s.v}%</div></div>`).join('');
+}
+function renderGeo(d){
+  document.getElementById('geoGrid').innerHTML=d.geo.map(g=>`
+    <div class="geo-cell"><div class="geo-fill"></div><div class="s">${g.s}</div><div class="d">${g.d}</div></div>`).join('');
+}
+function renderInsights(d){
+  document.getElementById('insightList').innerHTML=d.insights.map(x=>`
+    <div class="insight"><div class="ico">${x.i}</div><div class="tx">${x.t}</div></div>`).join('');
+}
+function renderBars(id,arr){
+  const max=Math.max(...arr.map(b=>b.v));
+  document.getElementById(id).innerHTML=arr.map(b=>`
+    <div class="bar-col"><div class="bar ${b.alt?'alt':''}" style="height:0" data-h="${(b.v/max*100).toFixed(0)}">
+    <span class="bar-val">${b.v}${id==='channelBars'||id.includes('ntb')?'':''}</span></div><div class="bar-lbl">${b.l}</div></div>`).join('');
+  // animate
+  setTimeout(()=>document.querySelectorAll('#'+id+' .bar').forEach(b=>b.style.height=b.dataset.h+'%'),60);
+}
+function renderList(id,arr,kind){
+  document.getElementById(id).innerHTML=arr.map(x=>{
+    if(kind==='oos')return `<div class="rank"><div class="nm">${x.n}</div><div class="pct" style="color:${x.bad?'var(--red)':'var(--green)'};width:auto">${x.v}</div></div>`;
+    if(kind==='switch')return `<div class="rank"><div class="nm" style="color:${x.up?'var(--green)':'var(--red)'}">${x.up?'▲':'▼'} ${x.n}</div><div class="pct" style="width:auto">${x.v}</div></div>`;
+    return `<div class="rank"><div class="nm">${x.n}</div><div class="pct" style="width:auto">${x.v}</div></div>`;
+  }).join('');
+}
+function renderCross(d){
+  document.getElementById('crossList').innerHTML=d.cross.map(x=>`
+    <div class="insight" style="margin-bottom:11px"><div class="ico">${x.i}</div><div class="tx">${x.t}</div></div>`).join('');
+}
+function renderActivate(d){
+  document.getElementById('activateList').innerHTML=d.activate.map(x=>`
+    <div class="card" style="margin-bottom:11px;display:flex;align-items:center;gap:14px">
+      <div style="flex:1"><div style="font-weight:700;font-size:13.5px">${x.h}</div><div style="font-size:12px;color:var(--muted);margin-top:3px">${x.p}</div></div>
+      <button onclick="pushAd(this)" style="background:var(--fk-blue);color:#fff;border:0;font-weight:700;font-size:12px;padding:9px 15px;border-radius:9px;cursor:pointer;font-family:inherit;white-space:nowrap">${x.btn}</button>
+    </div>`).join('');
+}
+function pushAd(btn){btn.textContent="✓ Study live";btn.style.background="var(--green)";}
+
+function renderAll(){
+  const d=DATA[current];
+  document.getElementById('avatar').textContent=d.avatar;
+  document.getElementById('dash-title').textContent=d.dashTitle;
+  document.getElementById('dash-ctx').textContent=d.ctx;
+  renderKPIs('kpis',d.kpis); renderKPIs('kpis2',d.kpis2);
+  renderTrend(d); renderShare(d); renderGeo(d); renderInsights(d);
+  document.getElementById('ch-sub').textContent=d.chSub;
+  renderBars('channelBars',d.channel);
+  renderList('oosList',d.oos,'oos'); renderList('promoList',d.promo);
+  document.getElementById('basketSub').textContent=d.basketSub;
+  renderList('basketList',d.basket); renderList('switchList',d.switch,'switch');
+  renderBars('ntbBars',d.ntb);
+  renderCross(d); renderActivate(d);
+  document.getElementById('askCtx').textContent=`AI analyst · grounded in ${d.brand}'s live data`;
+  renderSuggest();
+}
+function renderSuggest(){
+  document.getElementById('suggest').innerHTML=DATA[current].suggest.map(s=>`<div class="sg" onclick="askPreset(this)">${s}</div>`).join('');
+}
+
+/* ---------- client switching ---------- */
+function setClient(c,btn){
+  current=c;
+  document.querySelectorAll('.client-switch button').forEach(b=>{if(b.dataset.c===c)b.classList.add('active');else b.classList.remove('active');});
+  renderAll();
+  // reset ask conversation
+  resetAsk();
+  go('dashboard');
+  document.querySelectorAll('.nav-item').forEach(n=>{n.classList.toggle('active',n.dataset.p==='dashboard');});
+}
+
+/* ---------- nav ---------- */
+function go(p,elm){
+  document.querySelectorAll('.page').forEach(s=>s.classList.remove('active'));
+  document.getElementById('page-'+p).classList.add('active');
+  if(elm){document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));elm.classList.add('active');}
+  else{document.querySelectorAll('.nav-item').forEach(n=>n.classList.toggle('active',n.dataset.p===p));}
+  if(window.innerWidth<=760){document.getElementById('sidebar').classList.remove('open');}
+  window.scrollTo(0,0);
+}
+function toggleNav(){document.getElementById('sidebar').classList.toggle('open');}
+
+/* ---------- Ask Pulse ---------- */
+function openAsk(){document.getElementById('askPanel').classList.add('open');}
+function closeAsk(){document.getElementById('askPanel').classList.remove('open');}
+function resetAsk(){
+  document.getElementById('askBody').innerHTML=`<div class="msg bot">Hi — I'm <b>Pulse</b>, your AI analyst for <b>${DATA[current].brand}</b>. Ask me anything about your performance, shoppers, or where to act. Try a suggestion below. ✦</div>`;
+}
+function addMsg(cls,html){
+  const b=document.getElementById('askBody');
+  b.appendChild(el(`<div class="msg ${cls}">${html}</div>`));
+  b.scrollTop=b.scrollHeight;
+}
+function findAnswer(q){
+  const list=DATA[current].ask;
+  const ql=q.toLowerCase();
+  // try exact-ish match first
+  let best=null,bestScore=0;
+  list.forEach(item=>{
+    const words=item.q.toLowerCase().split(/\W+/).filter(w=>w.length>3);
+    let score=0;words.forEach(w=>{if(ql.includes(w))score++;});
+    if(score>bestScore){bestScore=score;best=item;}
+  });
+  if(bestScore>=1)return best.a;
+  return `That's a great question. In the full product, Pulse answers this live from ${DATA[current].brand}'s data across the Flipkart Group. For this demo, try one of the suggested questions below — those are wired to real worked examples.<div class='cite'><b>Tip:</b> tap a suggestion chip ↓</div>`;
+}
+function respond(q){
+  addMsg('user',q);
+  const b=document.getElementById('askBody');
+  const typing=el(`<div class="typing"><span></span><span></span><span></span></div>`);
+  b.appendChild(typing);b.scrollTop=b.scrollHeight;
+  setTimeout(()=>{typing.remove();addMsg('bot',findAnswer(q));},900);
+}
+function sendAsk(){
+  const i=document.getElementById('askInput');
+  if(!i.value.trim())return;
+  respond(i.value.trim());i.value='';
+}
+function askPreset(elm){openAsk();respond(elm.textContent);}
+
+/* ---------- init ---------- */
+renderAll();resetAsk();
+</script>
+</body>
+</html>
