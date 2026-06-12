@@ -163,6 +163,47 @@
   .activate .tx .h{font-weight:700;font-size:13.5px}
   .activate .tx .p{font-size:12px;opacity:.85;margin-top:2px}
   .activate button{background:var(--fk-yellow);color:var(--fk-navy);border:0;font-weight:700;font-size:12.5px;padding:9px 15px;border-radius:9px;cursor:pointer;font-family:inherit;white-space:nowrap}
+  /* study builder */
+  .studyb{margin-bottom:16px}
+  .sb-step{font-size:12.5px;font-weight:700;color:var(--ink);margin:15px 0 9px;display:flex;align-items:center;gap:8px}
+  .sb-n{width:20px;height:20px;border-radius:50%;background:var(--fk-blue);color:#fff;font-size:11.5px;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .sb-aud{display:flex;gap:9px;flex-wrap:wrap}
+  .sb-chip{border:1.5px solid var(--line);background:#fff;border-radius:11px;padding:10px 13px;cursor:pointer;font-size:12.5px;font-weight:600;color:#42506b;transition:.13s;display:flex;flex-direction:column;gap:2px;min-width:150px}
+  .sb-chip .r{font-size:11px;font-weight:600;color:var(--muted)}
+  .sb-chip:hover{border-color:var(--fk-blue)}
+  .sb-chip.active{border-color:var(--fk-blue);background:var(--chip);color:var(--fk-blue)}
+  .sb-chip.active .r{color:var(--fk-blue-dark)}
+  .sb-meta{font-size:12px;color:var(--muted);margin:13px 0 2px}
+  .sb-meta b{color:var(--ink)}
+  .sb-go{margin-top:13px;background:var(--fk-blue);color:#fff;border:0;font-weight:700;font-size:13px;padding:11px 18px;border-radius:10px;cursor:pointer;font-family:inherit}
+  .sb-go:hover{background:var(--fk-blue-dark)}
+  .sb-go.run{background:var(--muted);cursor:default}
+  .sb-prog{margin-top:15px;font-size:12.5px;color:var(--fk-blue);font-weight:600;display:flex;align-items:center;gap:9px}
+  .sb-prog .sp{width:15px;height:15px;border:2.5px solid var(--chip);border-top-color:var(--fk-blue);border-radius:50%;animation:spin .7s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .sb-lift{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin:16px 0 4px}
+  .sb-l{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px}
+  .sb-l .lh{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
+  .sb-l .lv{font-size:25px;font-weight:800;color:var(--green);margin:6px 0 2px;letter-spacing:-.5px}
+  .sb-l .ld{font-size:11px;color:var(--muted)}
+  .sb-bar2{margin-top:11px;display:flex;flex-direction:column;gap:6px}
+  .sb-bar2 .row{display:flex;align-items:center;gap:7px;font-size:10px;color:var(--muted)}
+  .sb-bar2 .lab{width:46px;flex-shrink:0}
+  .sb-bar2 .track{flex:1;height:9px;background:#e7ebf2;border-radius:5px;overflow:hidden}
+  .sb-bar2 .fill{height:100%;width:0;border-radius:5px;transition:width .9s cubic-bezier(.2,.8,.2,1)}
+  .sb-bar2 .fill.ctrl{background:#c2ccdc}
+  .sb-bar2 .fill.exp{background:linear-gradient(90deg,var(--fk-blue),#5a97f7)}
+  .sb-comp{display:flex;gap:12px;margin-top:8px}
+  .sb-comp .c{flex:1;border-radius:11px;padding:13px 15px;font-size:12px;line-height:1.5}
+  .sb-comp .pulse{background:#e7f7f0;border:1px solid #bce8d4}
+  .sb-comp .panel{background:#fbecea;border:1px solid #f3cfc8}
+  .sb-comp .ct{font-weight:700;font-size:12px;margin-bottom:3px}
+  .sb-comp .pulse .ct{color:#0f7a52}
+  .sb-comp .panel .ct{color:var(--red)}
+  .sb-act{margin-top:13px;background:var(--fk-navy);color:#fff;border-radius:11px;padding:14px 16px;display:flex;align-items:center;gap:13px}
+  .sb-act .t{flex:1;font-size:12.5px;line-height:1.5}.sb-act .t b{color:var(--fk-yellow)}
+  .sb-act button{background:var(--fk-yellow);color:var(--fk-navy);border:0;font-weight:700;font-size:12.5px;padding:9px 15px;border-radius:9px;cursor:pointer;font-family:inherit;white-space:nowrap}
+  .sb-listlbl{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:6px 0 11px}
   /* pricing */
   .price-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
   .price{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);position:relative}
@@ -171,6 +212,8 @@
   .price .tier{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
   .price .amt{font-size:23px;font-weight:800;margin:9px 0 3px;letter-spacing:-.5px}
   .price .amt small{font-size:12px;color:var(--muted);font-weight:500}
+  .price .bill{font-size:11px;color:var(--fk-blue-dark);font-weight:700;margin:1px 0 2px}
+  .price .bill span{color:var(--muted);font-weight:500}
   .price ul{list-style:none;margin-top:13px;display:flex;flex-direction:column;gap:8px}
   .price li{font-size:12px;color:#42506b;display:flex;gap:7px}
   .price li::before{content:"✓";color:var(--green);font-weight:800}
@@ -457,6 +500,16 @@
         <div class="ico">📡</div>
         <div class="tx"><div class="h">Brand-lift measurement, reinvented</div><div class="p">Measure awareness, consideration and purchase lift from a campaign against verified buyers across the Group — fielded in days at a fraction of legacy panel cost, then optionally activate the proven audience.</div></div>
       </div>
+      <div class="card studyb" id="studyBuilder">
+        <h3>Build a brand-lift study <span class="tag">LIVE DEMO</span></h3>
+        <div class="sub">Pick a verified-buyer audience, field the study, and read real lift in days — not the weeks a panel takes.</div>
+        <div class="sb-step"><span class="sb-n">1</span> Choose your test audience</div>
+        <div class="sb-aud" id="sbAud"></div>
+        <div class="sb-meta" id="sbMeta"></div>
+        <button class="sb-go" id="sbGo" onclick="fieldStudy()">Field study against verified buyers →</button>
+        <div id="sbResult"></div>
+      </div>
+      <div class="sb-listlbl">Suggested studies for you</div>
       <div id="activateList"></div>
     </section>
 
@@ -510,7 +563,7 @@
         <div class="price"><div class="tier">Basic</div><div class="amt">Free</div><ul><li>Channel Performance (lite)</li><li>Category trends</li><li>Weekly refresh</li><li>1 brand, 1 user</li></ul></div>
         <div class="price feat"><div class="pop">Most popular</div><div class="tier">Pro</div><div class="amt">₹6–18L<small>/yr</small></div><ul><li>All intelligence modules</li><li>Shopper Behaviour + Ask Pulse</li><li>Daily refresh, SKU & pincode</li><li>Up to 10 users</li></ul></div>
         <div class="price"><div class="tier">Enterprise</div><div class="amt">Custom</div><ul><li>Cross-Domain Signals</li><li>API & data feeds</li><li>Brand Lift & survey studies</li><li>Dedicated success team</li></ul></div>
-        <div class="price"><div class="tier">Self-serve</div><div class="amt">₹4,999<small>/mo</small></div><ul><li>For D2C & SMB long tail</li><li>Self-onboard, no account mgr</li><li>Core dashboards + Ask Pulse</li><li>The long-tail growth engine</li></ul></div>
+        <div class="price"><div class="tier">Self-serve</div><div class="amt">₹4,999<small>/mo</small></div><div class="bill">billed annually <span>· ₹59,988/yr</span></div><ul><li>For D2C & SMB long tail</li><li>Annual plan — one yearly invoice</li><li>Self-onboard, no account mgr</li><li>Core dashboards + Ask Pulse</li></ul></div>
       </div>
       <div class="card" style="margin-top:18px">
         <h3>Plus: Brand Lift &amp; custom research — priced per study</h3>
@@ -959,8 +1012,67 @@ function renderActivate(d){
       <div style="flex:1"><div style="font-weight:700;font-size:13.5px">${x.h}</div><div style="font-size:12px;color:var(--muted);margin-top:3px">${x.p}</div></div>
       <button onclick="pushAd(this)" style="background:var(--fk-blue);color:#fff;border:0;font-weight:700;font-size:12px;padding:9px 15px;border-radius:9px;cursor:pointer;font-family:inherit;white-space:nowrap">${x.btn}</button>
     </div>`).join('');
+  renderStudyBuilder();
 }
 function pushAd(btn){btn.textContent="✓ Study live";btn.style.background="var(--green)";}
+/* ---- interactive brand-lift study ---- */
+const STUDY={
+  fmcg:{pulseCost:"₹1.5–2L",panelCost:"₹18–25L",panelWk:"6–8 weeks",aud:[
+    {k:"Premium home-care buyers",reach:"420K",aw:14,co:9,pi:6},
+    {k:"Lapsed detergent buyers",reach:"180K",aw:11,co:13,pi:8},
+    {k:"Cleartrip travellers × home care",reach:"95K",aw:18,co:12,pi:10}]},
+  fashion:{pulseCost:"₹1.2–1.8L",panelCost:"₹15–22L",panelWk:"6–8 weeks",aud:[
+    {k:"Gen-Z ethnic-wear browsers",reach:"310K",aw:16,co:11,pi:7},
+    {k:"Pre-festive fusion shoppers",reach:"140K",aw:13,co:10,pi:9},
+    {k:"Pre-travel resort-wear intenders",reach:"70K",aw:19,co:14,pi:11}]},
+  smb:{pulseCost:"₹40–70K",panelCost:"₹6–10L",panelWk:"5–7 weeks",aud:[
+    {k:"D2C beauty discovery audience",reach:"120K",aw:12,co:8,pi:5},
+    {k:"Minimalist / Plum cross-shoppers",reach:"60K",aw:15,co:11,pi:8},
+    {k:"Skincare routine-builders",reach:"45K",aw:17,co:10,pi:9}]}
+};
+let sbSel=0;
+function renderStudyBuilder(){
+  const cfg=STUDY[current]; if(!cfg)return; sbSel=0;
+  document.getElementById('sbAud').innerHTML=cfg.aud.map((a,i)=>
+    `<div class="sb-chip ${i===0?'active':''}" onclick="selStudyAudience(${i})"><span>${a.k}</span><span class="r">~${a.reach} verified buyers</span></div>`).join('');
+  setSbMeta();
+  document.getElementById('sbResult').innerHTML='';
+  const btn=document.getElementById('sbGo'); btn.textContent='Field study against verified buyers →'; btn.disabled=false; btn.classList.remove('run');
+}
+function selStudyAudience(i){
+  sbSel=i;
+  document.querySelectorAll('#sbAud .sb-chip').forEach((c,j)=>c.classList.toggle('active',j===i));
+  setSbMeta(); document.getElementById('sbResult').innerHTML='';
+}
+function setSbMeta(){
+  const cfg=STUDY[current], a=cfg.aud[sbSel];
+  document.getElementById('sbMeta').innerHTML=`Testing against <b>~${a.reach}</b> verified buyers · fielded in <b>~4 days</b> · est. <b>${cfg.pulseCost}</b> vs ${cfg.panelCost} on a legacy panel.`;
+}
+function fieldStudy(){
+  const cfg=STUDY[current], a=cfg.aud[sbSel];
+  const btn=document.getElementById('sbGo'), res=document.getElementById('sbResult');
+  btn.classList.add('run'); btn.textContent='Fielding…'; btn.disabled=true;
+  res.innerHTML=`<div class="sb-prog"><span class="sp"></span> Fielding against ~${a.reach} verified buyers across the Group…</div>`;
+  setTimeout(()=>{
+    btn.classList.remove('run'); btn.textContent='Field a different audience →'; btn.disabled=false;
+    const base={aw:28,co:19,pi:11}, w=v=>Math.min(100,v/55*100);
+    const mk=(name,ctrl,lift)=>{const exp=ctrl+lift;
+      return `<div class="sb-l"><div class="lh">${name}</div><div class="lv">+${lift} pts</div><div class="ld">${ctrl}% → ${exp}% among exposed</div>
+        <div class="sb-bar2">
+          <div class="row"><span class="lab">Control</span><div class="track"><div class="fill ctrl" data-w="${w(ctrl)}"></div></div></div>
+          <div class="row"><span class="lab">Exposed</span><div class="track"><div class="fill exp" data-w="${w(exp)}"></div></div></div>
+        </div></div>`;};
+    res.innerHTML=`
+      <div class="sb-lift">${mk('Awareness lift',base.aw,a.aw)}${mk('Consideration lift',base.co,a.co)}${mk('Purchase-intent lift',base.pi,a.pi)}</div>
+      <div class="sb-comp">
+        <div class="c pulse"><div class="ct">✓ Fielded on Pulse</div>in <b>4 days</b> against real verified buyers · est. <b>${cfg.pulseCost}</b></div>
+        <div class="c panel"><div class="ct">Legacy panel equivalent</div>${cfg.panelWk} · <b>${cfg.panelCost}</b>, on a sampled, recalled audience</div>
+      </div>
+      <div class="sb-act"><div class="t">This audience is <b>proven to respond</b>. Push it — privacy-safe &amp; hashed — into your media via the clean room.</div><button onclick="go('exchange')">Activate audience →</button></div>
+      <div class="ex-note2" style="margin-top:11px">Illustrative, synthetic results for demonstration. Lift = exposed vs. matched control among verified buyers, resolved by PulseID inside a clean room — aggregated, never individual-level.</div>`;
+    requestAnimationFrame(()=>res.querySelectorAll('.fill').forEach(f=>f.style.width=f.dataset.w+'%'));
+  },1300);
+}
 function fakeUpload(){
   const main=document.getElementById('dzMain'), sub=document.getElementById('dzSub'), res=document.getElementById('uploadResult');
   main.textContent="Hashing & matching in clean room…"; sub.textContent="SHA-256 applied locally · uploading hashed keys only";
