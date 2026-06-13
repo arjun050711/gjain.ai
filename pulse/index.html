@@ -338,7 +338,14 @@
 <body>
 
 <script>
-  fetch('https://gjain-notify.gaurav-iiit.workers.dev/hit?site=pulse-static', { mode: 'no-cors', keepalive: true }).catch(function () {});
+  (function () {
+    try {
+      var p = new URLSearchParams(location.search);
+      if (p.has('pulsemute')) localStorage.setItem('pulse_mute', '1');
+      var m = localStorage.getItem('pulse_mute') ? '&mute=1' : '';
+      fetch('https://gjain-notify.gaurav-iiit.workers.dev/hit?site=pulse-static' + m, { mode: 'no-cors', keepalive: true }).catch(function () {});
+    } catch (e) {}
+  })();
 </script>
 
 <!-- TOP BAR -->
