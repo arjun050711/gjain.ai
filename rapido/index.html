@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Rapido Monetization — Mode Is the Message</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0F0F12; --ink2:#17171C; --ink3:#1F1F26;
+  --paper:#F7F3EA; --cream:#EFE9DB;
+  --yl:#FDCE09; --am:#FFB300; --glow:rgba(253,206,9,.14);
+  --bike:#FDCE09; --auto:#3DDC97; --cab:#6FB7FF;
+  --grey:#9A94A8; --grey2:#6E6880;
+  --line:rgba(255,255,255,.11); --lineP:rgba(15,15,18,.14);
+  --disp:'Bricolage Grotesque',system-ui,sans-serif;
+  --body:'Hanken Grotesk',system-ui,sans-serif;
+  --mono:'Space Mono','Courier New',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--paper);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:var(--disp);font-weight:700;line-height:1.03;letter-spacing:-.02em}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+section{position:relative}
+
+/* topbar */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:calc(12px + env(safe-area-inset-top)) 28px 12px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:background .3s}
+.topbar .brand{font-family:var(--disp);font-weight:800;font-size:18px;background:var(--yl);color:#141414;padding:4px 12px;border-radius:8px}
+.topbar .brand .d{color:var(--yl)}
+.topbar .tag{color:var(--grey);font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase}
+
+/* hero */
+.hero{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;justify-content:center;padding:120px 0 70px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(110% 75% at 78% 8%,var(--glow),transparent 62%);pointer-events:none}
+.hero .ey{color:var(--yl);margin-bottom:24px}
+.hero h1{font-size:clamp(2.9rem,8.6vw,6.8rem);font-weight:800;letter-spacing:-.035em}
+.hero h1 .modeword{display:inline-block;position:relative}
+.hero h1 .modeword span{position:absolute;left:0;top:0;opacity:0;transform:translateY(12px);transition:opacity .45s,transform .45s;white-space:nowrap}
+.hero h1 .modeword span.on{position:relative;opacity:1;transform:none}
+.hero h1 .modeword span{padding:0 .18em;border-radius:.12em;color:#141414}
+.hero h1 .modeword .w0{background:var(--bike)}.hero h1 .modeword .w1{background:var(--auto)}.hero h1 .modeword .w2{background:var(--cab)}
+.hero .lede{max-width:640px;margin-top:30px;font-size:clamp(1.05rem,2vw,1.3rem);color:#DDD7CB;line-height:1.5}
+.hero .lede b{color:var(--paper);font-weight:600}
+.heroStats{display:flex;flex-wrap:wrap;margin-top:46px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.heroStats .t{flex:1;min-width:128px;padding:17px 20px 15px;border-right:1px solid var(--line)}
+.heroStats .t:last-child{border-right:none}
+.heroStats .n{font-family:var(--disp);font-weight:700;font-size:clamp(1.4rem,2.9vw,2rem)}
+.heroStats .l{color:var(--grey);font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;margin-top:4px}
+
+/* section scaffold */
+.sec{padding:100px 0}
+.shead{display:flex;align-items:baseline;gap:16px;margin-bottom:14px}
+.snum{font-family:var(--mono);font-size:12px;color:var(--yl);letter-spacing:.12em;border:1px solid rgba(253,206,9,.45);border-radius:100px;padding:5px 13px;white-space:nowrap}
+.slbl{color:var(--grey);font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.sec h2{font-size:clamp(2rem,4.8vw,3.3rem);max-width:18ch;margin-bottom:20px}
+.sec .intro{max-width:660px;color:#D8D2C6;font-size:clamp(1.02rem,1.7vw,1.16rem)}
+.sec .intro b{color:var(--paper);font-weight:600}
+
+.light{background:var(--paper);color:var(--ink)}
+.light h2{color:var(--ink)}
+.light .intro{color:#423C4F}
+.light .intro b{color:var(--ink)}
+.light .slbl{color:var(--grey2)}
+.light .snum{color:#8a6b00;border-color:rgba(15,15,18,.3)}
+
+/* truths (what rapido knows) */
+.truths{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2px;margin-top:44px;background:var(--line);border:1px solid var(--line)}
+.truth{background:var(--ink);padding:26px 24px}
+.truth .k{font-family:var(--mono);font-size:11px;color:var(--yl);letter-spacing:.12em}
+.truth h3{font-size:1.25rem;margin:12px 0 8px;letter-spacing:-.015em}
+.truth p{font-size:14.5px;color:#C6C0B4;line-height:1.55}
+.truth p b{color:var(--paper)}
+
+/* ===== MODE LADDER (signature) ===== */
+.modes{background:var(--ink2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.modeTabs{display:flex;gap:10px;margin:44px 0 0;flex-wrap:wrap}
+.mtab{flex:1;min-width:180px;text-align:left;border:1px solid var(--line);background:var(--ink);border-radius:14px;padding:18px 20px;cursor:pointer;transition:all .25s;color:var(--paper);font-family:var(--body)}
+.mtab .mk{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
+.mtab h3{font-family:var(--disp);font-size:1.35rem;margin:6px 0 2px;letter-spacing:-.01em}
+.mtab .ms{font-size:12.5px;color:var(--grey)}
+.mtab.on{transform:translateY(-3px)}
+.mtab[data-m="0"].on{border-color:var(--bike);box-shadow:0 8px 30px rgba(253,206,9,.18)}
+.mtab[data-m="1"].on{border-color:var(--auto);box-shadow:0 8px 30px rgba(61,220,151,.15)}
+.mtab[data-m="2"].on{border-color:var(--cab);box-shadow:0 8px 30px rgba(111,183,255,.15)}
+.mtab[data-m="0"].on h3{color:var(--bike)}
+.mtab[data-m="1"].on h3{color:var(--auto)}
+.mtab[data-m="2"].on h3{color:var(--cab)}
+
+.modePanel{margin-top:22px;border:1px solid var(--line);border-radius:18px;background:var(--ink);overflow:hidden}
+.mp{display:none}
+.mp.on{display:block;animation:fadein .45s}
+@keyframes fadein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.mpTop{display:grid;grid-template-columns:1.15fr 1fr;border-bottom:1px solid var(--line)}
+.mpAtt{padding:30px 30px 26px;border-right:1px solid var(--line)}
+.mpAtt .lbl2{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);margin-bottom:16px}
+.attRow{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.attRow .an{font-family:var(--mono);font-size:11px;width:88px;flex-shrink:0;color:#CFC9BD}
+.attRow .bar{flex:1;height:10px;border-radius:6px;background:rgba(255,255,255,.07);overflow:hidden}
+.attRow .fill{height:100%;border-radius:6px;width:0;transition:width .8s cubic-bezier(.2,.8,.2,1)}
+.mp[data-c="bike"] .fill{background:var(--bike)}
+.mp[data-c="auto"] .fill{background:var(--auto)}
+.mp[data-c="cab"] .fill{background:var(--cab)}
+.mpAtt .att-note{font-size:13.5px;color:#BDB7AC;margin-top:16px;line-height:1.5}
+.mpAtt .att-note b{color:var(--paper)}
+.mpRole{padding:30px 30px 26px;display:flex;flex-direction:column;justify-content:center}
+.mpRole .roleTag{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;display:inline-block;padding:6px 13px;border-radius:100px;margin-bottom:14px;align-self:flex-start}
+.mp[data-c="bike"] .roleTag{background:rgba(253,206,9,.16);color:var(--bike)}
+.mp[data-c="auto"] .roleTag{background:rgba(61,220,151,.14);color:var(--auto)}
+.mp[data-c="cab"] .roleTag{background:rgba(111,183,255,.14);color:var(--cab)}
+.mpRole h3{font-size:1.7rem;letter-spacing:-.02em;margin-bottom:10px}
+.mpRole p{font-size:15px;color:#C6C0B4;line-height:1.55}
+.mpBottom{display:grid;grid-template-columns:1fr 1fr 1fr}
+.mpCell{padding:24px 26px;border-right:1px solid var(--line)}
+.mpCell:last-child{border-right:none}
+.mpCell .cl{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);margin-bottom:10px}
+.mpCell p{font-size:13.8px;color:#CFC9BD;line-height:1.55}
+.mpCell p b{color:var(--paper)}
+.ladderLine{margin-top:26px;font-family:var(--disp);font-weight:600;font-size:clamp(1.2rem,2.3vw,1.6rem);letter-spacing:-.015em;max-width:30ch;line-height:1.2}
+.ladderLine .y{color:var(--yl)}
+
+/* signals */
+.sigGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:44px}
+.sig{border:1px solid var(--lineP);border-radius:16px;padding:30px 28px;background:#FCFAF4}
+.sig .k{font-family:var(--mono);font-size:11px;color:#8a6b00;letter-spacing:.13em}
+.sig h3{font-size:1.35rem;margin:13px 0 10px;color:var(--ink);letter-spacing:-.015em}
+.sig p{font-size:15px;color:#4A4457;line-height:1.55}
+.sig p b{color:var(--ink)}
+.sig .ex{margin-top:14px;padding:12px 14px;border-left:3px solid var(--yl);background:rgba(255,209,26,.09);font-size:13.5px;color:#3A3446;border-radius:0 8px 8px 0}
+
+/* footfall */
+.loop{display:flex;align-items:stretch;gap:0;margin-top:46px;border:1px solid var(--line);border-radius:16px;overflow:hidden;flex-wrap:wrap}
+.loopStep{flex:1;min-width:200px;padding:28px 24px;border-right:1px solid var(--line);position:relative;background:var(--ink2)}
+.loopStep:last-child{border-right:none}
+.loopStep .ln{font-family:var(--mono);font-size:11px;color:var(--yl);letter-spacing:.12em}
+.loopStep h3{font-size:1.15rem;margin:10px 0 6px}
+.loopStep p{font-size:13.8px;color:#C0BAAE;line-height:1.5}
+.loopStep::after{content:"→";position:absolute;right:-11px;top:50%;transform:translateY(-50%);color:var(--yl);font-size:20px;z-index:2;background:var(--ink);border-radius:50%;width:24px;height:24px;line-height:24px;text-align:center;border:1px solid var(--line)}
+.loopStep:last-child::after{display:none}
+.moatline{margin-top:30px;font-family:var(--disp);font-weight:600;font-size:clamp(1.25rem,2.4vw,1.75rem);letter-spacing:-.02em;max-width:26ch;line-height:1.18}
+.moatline .y{color:var(--yl)}
+
+/* flywheel */
+.fly{display:flex;justify-content:center;margin-top:48px}
+.flyDiagram{position:relative;aspect-ratio:1;max-width:420px;margin:0 auto;width:100%}
+.flyDiagram .ring{position:absolute;inset:8%;border:2px dashed rgba(253,206,9,.45);border-radius:50%;animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.flyNode{position:absolute;width:118px;padding:10px 8px;background:var(--ink2);border:1px solid var(--line);border-radius:12px;text-align:center;font-size:12px;line-height:1.35;color:#D8D2C6}
+.flyNode b{display:block;font-family:var(--disp);font-size:13px;color:var(--yl);margin-bottom:2px}
+.fn1{top:0;left:50%;transform:translateX(-50%)}
+.fn2{top:50%;right:0;transform:translateY(-50%)}
+.fn3{bottom:0;left:50%;transform:translateX(-50%)}
+.fn4{top:50%;left:0;transform:translateY(-50%)}
+
+/* proof strip */
+.proof{display:flex;flex-wrap:wrap;gap:2px;margin-top:40px;background:var(--lineP);border:1px solid var(--lineP)}
+.pf{flex:1;min-width:190px;background:var(--paper);padding:22px 22px 20px}
+.pf .w{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey2)}
+.pf .n{font-family:var(--disp);font-weight:800;font-size:1.9rem;color:var(--ink);margin:8px 0 2px;letter-spacing:-.02em}
+.pf .s{font-size:12.5px;color:#4A4457;line-height:1.4}
+.proofNote{margin-top:22px;font-size:14.5px;color:#4A4457;max-width:70ch}
+.proofNote b{color:var(--ink)}
+
+/* calculator */
+.calc{background:#FCFAF4;border:1px solid var(--lineP);border-radius:20px;padding:36px 34px;margin-top:44px;color:var(--ink)}
+.calc .scen{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.calc .scen button{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;padding:9px 15px;border-radius:100px;border:1px solid var(--lineP);background:transparent;color:var(--grey2);cursor:pointer;transition:all .2s}
+.calc .scen button.on{background:var(--ink);color:var(--yl);border-color:var(--ink)}
+.calc .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.calc .lab{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--grey2)}
+.calc .val{font-family:var(--disp);font-weight:700;font-size:1.3rem}
+.calc input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:5px;background:linear-gradient(90deg,var(--am),var(--yl));outline:none;margin:6px 0 4px}
+.calc input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:var(--ink);border:3px solid var(--yl);cursor:pointer}
+.calc input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:var(--ink);border:3px solid var(--yl);cursor:pointer}
+.calc .ticks{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;color:var(--grey2)}
+.calc .out{margin-top:26px;padding-top:24px;border-top:1px solid var(--lineP);display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.calc .big{font-family:var(--disp);font-weight:800;font-size:clamp(2.2rem,5.5vw,3.4rem);letter-spacing:-.03em;line-height:.95}
+.calc .cap{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--grey2);margin-top:8px}
+.calc .note{grid-column:1/-1;font-size:13.5px;color:#4A4457;background:rgba(15,15,18,.06);border-radius:10px;padding:13px 16px;line-height:1.5}
+.calc .note b{color:var(--ink)}
+
+/* build */
+.build{counter-reset:step;margin-top:44px;display:grid;gap:2px;background:var(--line);border:1px solid var(--line)}
+.step{background:var(--ink);padding:22px 26px;display:flex;gap:22px}
+.step::before{counter-increment:step;content:"0" counter(step);font-family:var(--mono);font-size:13px;color:var(--yl);padding-top:3px}
+.step h3{font-size:1.12rem;margin-bottom:4px}
+.step p{font-size:14.5px;color:#BDB7AC;max-width:62ch}
+
+/* close */
+.close{padding:130px 0 90px;text-align:center;overflow:hidden}
+.close::before{content:"";position:absolute;inset:0;background:radial-gradient(90% 70% at 50% 30%,var(--glow),transparent 65%)}
+.close h2{font-size:clamp(2.1rem,5.6vw,4rem);font-weight:800;max-width:18ch;margin:0 auto 22px;position:relative}
+.close p{color:#CFC9BD;max-width:56ch;margin:0 auto;position:relative;font-size:1.08rem}
+.sigblk{margin-top:60px;padding-top:26px;border-top:1px solid var(--line);position:relative;color:var(--grey);font-size:13.5px;line-height:1.7}
+.sigblk b{color:var(--paper)}
+.sigblk a{color:var(--yl);text-decoration:none}
+.disc{margin-top:14px;font-size:11.5px;color:var(--grey2);max-width:74ch;margin-left:auto;margin-right:auto;line-height:1.6}
+
+/* road marking */
+.road{height:5px;background:repeating-linear-gradient(90deg,var(--yl) 0 34px,transparent 34px 60px);opacity:.85;border:none;margin:0}
+.hero .road{margin-top:52px;animation:roadmove 2.6s linear infinite}
+@keyframes roadmove{to{background-position:120px 0}}
+/* icons */
+.vic{display:block;margin-bottom:8px}
+.vic svg{width:34px;height:24px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;opacity:.9}
+.mtab .vic{color:var(--grey)}
+.mtab[data-m="0"].on .vic{color:var(--bike)}
+.mtab[data-m="1"].on .vic{color:var(--auto)}
+.mtab[data-m="2"].on .vic{color:var(--cab)}
+.tic{width:30px;height:30px;border-radius:9px;background:rgba(253,206,9,.14);display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.tic svg{width:17px;height:17px;stroke:var(--yl);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+/* rapido yellow section */
+.brandy{background:var(--yl);color:#141414}
+.brandy h2{color:#111}
+.brandy .intro{color:#3A3208}
+.brandy .intro b{color:#111}
+.brandy .slbl{color:#7A6A0A}
+.brandy .snum{color:#111;border-color:rgba(17,17,17,.4)}
+.brandy .proof{background:rgba(17,17,17,.18);border-color:rgba(17,17,17,.18)}
+.brandy .pf{background:var(--yl)}
+.brandy .pf .w{color:#6E5F09}
+.brandy .pf .n{color:#111}
+.brandy .pf .s{color:#3A3208}
+.brandy .proofNote{color:#3A3208}
+.brandy .proofNote b{color:#111}
+.brandy .calc{background:#141414;color:var(--paper);border-color:#141414}
+.brandy .calc .val,.brandy .calc .big{color:var(--yl)}
+.brandy .calc .lab,.brandy .calc .cap,.brandy .calc .ticks{color:#9a94a8}
+.brandy .calc .scen button{border-color:rgba(255,255,255,.2);color:#b9b3a6}
+.brandy .calc .scen button.on{background:var(--yl);color:#141414;border-color:var(--yl)}
+.brandy .calc input[type=range]::-webkit-slider-thumb{background:var(--yl);border-color:#141414}
+.brandy .calc input[type=range]::-moz-range-thumb{background:var(--yl);border-color:#141414}
+.brandy .calc .note{background:rgba(255,255,255,.07);color:#c6c0b4}
+.brandy .calc .note b{color:var(--paper)}
+.noarrow .loopStep::after{display:none}
+/* stack */
+.stackWrap{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:stretch;margin-top:48px}
+.stack{display:flex;flex-direction:column-reverse;align-items:center;gap:0;perspective:900px}
+.slayer{position:relative;border-radius:8px;padding:15px 22px 16px;background:linear-gradient(180deg,#22222A,#17171C);border:1px solid rgba(255,255,255,.13);border-bottom:none;box-shadow:0 9px 0 -1px #08080A,0 9px 0 0 rgba(253,206,9,.28),0 22px 34px rgba(0,0,0,.45);margin-bottom:11px;transition:transform .22s}
+.slayer:hover{transform:translateY(-5px)}
+.slayer:nth-child(1){width:100%;z-index:6}
+.slayer:nth-child(2){width:90%;z-index:5}
+.slayer:nth-child(3){width:81%;z-index:4}
+.slayer:nth-child(4){width:72%;z-index:3}
+.slayer:nth-child(5){width:63%;z-index:2}
+.slayer:nth-child(6){width:55%;z-index:1}
+.slayer .lhead{display:flex;align-items:baseline;gap:12px;margin-bottom:5px;flex-wrap:wrap}
+.slayer .sk{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--yl);white-space:nowrap}
+.slayer .sn2{font-family:var(--disp);font-weight:700;font-size:1.15rem;letter-spacing:-.01em}
+.slayer p{font-size:13.2px;color:#C6C0B4;line-height:1.48;margin:0}
+.slayer p b{color:var(--paper)}
+.slayer.base{background:linear-gradient(180deg,#FFDB47,var(--yl));border-color:rgba(0,0,0,.2);color:#141414;box-shadow:0 10px 0 -1px #8F7404,0 10px 0 0 rgba(0,0,0,.35),0 26px 40px rgba(0,0,0,.5)}
+.slayer.base .sk{color:#6E5A05}
+.slayer.base .sn2{color:#111}
+.slayer.base p{color:#3A3208}
+.slayer.base p b{color:#111}
+.arpu{display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:8px 4px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--grey);text-transform:uppercase}
+.arpu .arrow{flex:1;width:2px;margin:10px 0;background:linear-gradient(0deg,var(--grey2),var(--yl));position:relative}
+.arpu .arrow::after{content:"";position:absolute;left:50%;transform:translateX(-50%);border:6px solid transparent;border-bottom:9px solid var(--yl);top:-14px}
+.arpu .hi{color:var(--yl)}
+@media(max-width:840px){.stackWrap{grid-template-columns:1fr}.arpu{display:none}.slayer{width:100%!important}}
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:840px){
+  .mpTop{grid-template-columns:1fr}
+  .mpAtt{border-right:none;border-bottom:1px solid var(--line)}
+  .mpBottom{grid-template-columns:1fr}
+  .mpCell{border-right:none;border-bottom:1px solid var(--line)}
+  .mpCell:last-child{border-bottom:none}
+  .calc .out{grid-template-columns:1fr}
+  .topbar .tag{display:none}
+  .loopStep::after{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">rapido <span style="font-weight:600">monetization</span></div>
+  <div class="tag">The monetization stack — a vision</div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="ey mono">A product &amp; business vision · independent POV</div>
+    <h1>Every <span class="modeword"><span class="w0 on">bike</span><span class="w1">auto</span><span class="w2">cab</span></span> ride<br>says something.</h1>
+    <p class="lede">Rapido isn't one audience. It's <b>three attention environments and one identity across them</b> — 4M+ rides a day where the mode a person picks reveals their moment, their mood, and their money. No platform in India sees all three. That's the monetization opportunity.</p>
+    <div class="heroStats">
+      <div class="t"><div class="n">4M+</div><div class="l">rides / day</div></div>
+      <div class="t"><div class="n">74M</div><div class="l">riders / month</div></div>
+      <div class="t"><div class="n">3</div><div class="l">modes · one identity</div></div>
+      <div class="t"><div class="n">400+</div><div class="l">cities</div></div>
+    </div>
+    <div class="road"></div>
+  </div>
+</section>
+
+<!-- 01 WHAT RAPIDO KNOWS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="shead rv"><span class="snum">01</span><span class="slbl">First principles</span></div>
+    <h2 class="rv">Start from what is physically true.</h2>
+    <p class="intro rv">Strip away the ad-tech language and Rapido holds four primitives no search engine, social feed, or quick-commerce app has. Everything on this page is built from these.</p>
+    <div class="truths rv">
+      <div class="truth"><div class="tic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7 V12 L16 14"/></svg></div><div class="k">Truth 01</div><h3>It knows the future</h3><p>The commute is a habit. Rapido doesn't just know where you are — it knows <b>where you'll physically be tomorrow at 9:10am</b>, with high confidence. That enables anticipatory advertising: a genuinely new targeting primitive.</p></div>
+      <div class="truth"><div class="tic"><svg viewBox="0 0 24 24"><path d="M12 21 C12 21 5 14.5 5 9.5 A7 7 0 0 1 19 9.5 C19 14.5 12 21 12 21 Z"/><circle cx="12" cy="9.5" r="2.5"/></svg></div><div class="k">Truth 02</div><h3>Destination is intent</h3><p>A destination is a declaration. Airport = travel. Mall = shopping mode. Showroom = purchase. Rapido catches intent <b>15 minutes before physical arrival</b> — the last influenceable moment before money is spent.</p></div>
+      <div class="truth"><div class="tic"><svg viewBox="0 0 24 24"><path d="M2 12 C5 6.5 8.5 4 12 4 C15.5 4 19 6.5 22 12 C19 17.5 15.5 20 12 20 C8.5 20 5 17.5 2 12 Z"/><circle cx="12" cy="12" r="3"/></svg></div><div class="k">Truth 03</div><h3>It can see the visit</h3><p>~90% of Indian retail is offline, where digital ads rely on modelled panels. Rapido holds something rarer: <b>observed, ride-level ground truth</b> when the journey ends at the store — real-world evidence, not a model.</p></div>
+      <div class="truth"><div class="tic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5 V16.5 M9.5 10 C9.5 8.8 10.6 8 12 8 C13.4 8 14.5 8.8 14.5 9.8 C14.5 12.6 9.5 11.4 9.5 14.2 C9.5 15.2 10.6 16 12 16 C13.4 16 14.5 15.2 14.5 14"/></svg></div><div class="k">Truth 04</div><h3>It controls the fare</h3><p>Rapido's users are India's most price-sensitive commuters. Brand money can do here what it can't anywhere else: <b>pay for the ride itself.</b> Advertising that subsidises the fare grows the core business instead of taxing it.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 MODE LADDER (signature) -->
+<section class="sec modes">
+  <div class="wrap">
+    <div class="shead rv"><span class="snum">02</span><span class="slbl">The mode ladder</span></div>
+    <h2 class="rv">Mode is the message.</h2>
+    <p class="intro rv">The physics of each ride are different — so the attention, the formats, and the advertiser are different. Bikes deliver <b>reach</b>, autos deliver <b>engagement</b>, cabs deliver <b>dwell</b>. Switch a mode.</p>
+
+    <div class="modeTabs rv">
+      <button class="mtab on" data-m="0"><span class="vic"><svg viewBox="0 0 48 32"><circle cx="10" cy="24" r="6"/><circle cx="38" cy="24" r="6"/><path d="M10 24 L17 12 H25 M25 12 L32 22 M25 12 L29 7 H35 M17 12 L13 24 M32 22 L38 24"/></svg></span><div class="mk">Mode 01 · &gt;50% of rides</div><h3>Bike</h3><div class="ms">the daily commute</div></button>
+      <button class="mtab" data-m="1"><span class="vic"><svg viewBox="0 0 48 32"><path d="M7 23 V13 Q7 6 15 6 H29 Q39 6 42 16 L43 23 H37"/><path d="M7 23 H9 M19 23 H27"/><path d="M15 6 V14 H30"/><circle cx="14" cy="25" r="4.5"/><circle cx="32" cy="25" r="4.5"/></svg></span><div class="mk">Mode 02 · ~40% of GMV</div><h3>Auto</h3><div class="ms">the city hop</div></button>
+      <button class="mtab" data-m="2"><span class="vic"><svg viewBox="0 0 48 32"><path d="M8 21 L12 12 Q13 9 16 9 H30 Q33 9 34 12 L38 21 M8 21 H5 V26 H43 V21 H38 M8 21 H38"/><path d="M20 9 V15 M15 15 H33"/><circle cx="14" cy="26" r="4"/><circle cx="34" cy="26" r="4"/></svg></span><div class="mk">Mode 03 · the premium ride</div><h3>Cab</h3><div class="ms">the occasion</div></button>
+    </div>
+
+    <div class="modePanel rv">
+      <!-- BIKE -->
+      <div class="mp on" data-c="bike">
+        <div class="mpTop">
+          <div class="mpAtt">
+            <div class="lbl2">Where the attention actually is</div>
+            <div class="attRow"><span class="an">Booking</span><div class="bar"><div class="fill" data-w="92%"></div></div></div>
+            <div class="attRow"><span class="an">Waiting</span><div class="bar"><div class="fill" data-w="85%"></div></div></div>
+            <div class="attRow"><span class="an">On-ride</span><div class="bar"><div class="fill" data-w="4%"></div></div></div>
+            <div class="attRow"><span class="an">End of ride</span><div class="bar"><div class="fill" data-w="70%"></div></div></div>
+            <div class="att-note">Hands on the pillion, eyes on the road — <b>in-ride attention is honestly zero.</b> But booking, waiting and arrival attention is total, and it repeats every single day. Sell what's real.</div>
+          </div>
+          <div class="mpRole">
+            <span class="roleTag">Reach — the frequency engine</span>
+            <h3>India's highest-frequency ad moment</h3>
+            <p>The same commuter, twice a day, five days a week. Short, static, repeated brand moments at booking and wait — sachet-sized advertising for the mass market.</p>
+          </div>
+        </div>
+        <div class="mpBottom">
+          <div class="mpCell"><div class="cl">What the mode signals</div><p><b>Price-first, solo, functional.</b> A value-conscious commuter in work mode — the exact audience FMCG, telecom and fintech fight to reach at national scale.</p></div>
+          <div class="mpCell"><div class="cl">Formats that fit</div><p>Static offer cards at booking, brand takeover in the wait, scratch-card rewards at ride end. High frequency, zero friction.</p></div>
+          <div class="mpCell"><div class="cl">The fare flywheel here</div><p><b>The sponsored commute.</b> A fintech pays for your Monday ride — a habit-forming daily brand touch that makes riding cheaper.</p></div>
+        </div>
+      </div>
+      <!-- AUTO -->
+      <div class="mp" data-c="auto">
+        <div class="mpTop">
+          <div class="mpAtt">
+            <div class="lbl2">Where the attention actually is</div>
+            <div class="attRow"><span class="an">Booking</span><div class="bar"><div class="fill" data-w="88%"></div></div></div>
+            <div class="attRow"><span class="an">Waiting</span><div class="bar"><div class="fill" data-w="80%"></div></div></div>
+            <div class="attRow"><span class="an">On-ride</span><div class="bar"><div class="fill" data-w="65%"></div></div></div>
+            <div class="attRow"><span class="an">End of ride</span><div class="bar"><div class="fill" data-w="62%"></div></div></div>
+            <div class="att-note">Seated, hands free, phone out, 10–20 minutes, looking at the screen <b>and</b> the city. The one mode where in-app media and the streetscape work together.</div>
+          </div>
+          <div class="mpRole">
+            <span class="roleTag">Engagement — the interactive middle</span>
+            <h3>The browsable ride</h3>
+            <p>Real mid-ride attention on an open-air hop. Interactive formats, short video, offers you can actually explore before you arrive.</p>
+          </div>
+        </div>
+        <div class="mpBottom">
+          <div class="mpCell"><div class="cl">What the mode signals</div><p><b>The occasion trip.</b> Short social and family hops, errands, markets — often not alone. Local commerce, QSR and entertainment's natural moment.</p></div>
+          <div class="mpCell"><div class="cl">Formats that fit</div><p>Short video, interactive carousels, location-aware nudges — the store two streets from your drop, surfaced mid-ride.</p></div>
+          <div class="mpCell"><div class="cl">The fare flywheel here</div><p><b>The sponsored occasion.</b> Free auto to the mall launch, movie-night tie-ins — brands buying the trip that ends at their door.</p></div>
+        </div>
+      </div>
+      <!-- CAB -->
+      <div class="mp" data-c="cab">
+        <div class="mpTop">
+          <div class="mpAtt">
+            <div class="lbl2">Where the attention actually is</div>
+            <div class="attRow"><span class="an">Booking</span><div class="bar"><div class="fill" data-w="82%"></div></div></div>
+            <div class="attRow"><span class="an">Waiting</span><div class="bar"><div class="fill" data-w="76%"></div></div></div>
+            <div class="attRow"><span class="an">On-ride</span><div class="bar"><div class="fill" data-w="90%"></div></div></div>
+            <div class="attRow"><span class="an">End of ride</span><div class="bar"><div class="fill" data-w="55%"></div></div></div>
+            <div class="att-note">A seated, captive passenger on the longest rides — airport runs, late nights, families. <b>The deepest dwell on the platform</b>, and the highest-value intent signals.</div>
+          </div>
+          <div class="mpRole">
+            <span class="roleTag">Dwell — the premium environment</span>
+            <h3>The considered-purchase moment</h3>
+            <p>Long-form video and rich storytelling for categories that need time: BFSI, auto, real estate, travel. An airport drop <i>is</i> a travel-intent declaration.</p>
+          </div>
+        </div>
+        <div class="mpBottom">
+          <div class="mpCell"><div class="cl">What the mode signals</div><p><b>Spending mode.</b> Occasion, company, luggage, weather — or simply "tonight I'm spending." The same user who bikes on Tuesday tells you something different on Friday night.</p></div>
+          <div class="mpCell"><div class="cl">Formats that fit</div><p>Long-form video in-ride, premium brand environments, high-consideration storytelling — the Uber-tablet moment, on the phone in hand.</p></div>
+          <div class="mpCell"><div class="cl">The fare flywheel here</div><p><b>The sponsored high-value customer.</b> The bank that comps your airport ride for using its card; the mall that pays your cab home if you shopped.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ladderLine rv">One buy, three environments — <span class="y">reach, engagement and dwell in a single platform.</span> Nobody else in India can sell that ladder.</div>
+  </div>
+</section>
+
+<!-- 03 SIGNALS -->
+<section class="sec light">
+  <div class="wrap">
+    <div class="shead rv"><span class="snum">03</span><span class="slbl">The signals underneath</span></div>
+    <h2 class="rv">The mode you pick is data. The modes you graduate through are more.</h2>
+    <p class="intro rv">Search sees queries. Social sees scrolls. Rapido sees <b>lives moving through the city</b> — and three signals fall out of that which no other platform in India holds.</p>
+    <div class="sigGrid">
+      <div class="sig rv">
+        <div class="k">Signal 01 · per trip</div>
+        <h3>The occasion signal</h3>
+        <p>The same person choosing bike on Tuesday morning and cab on Friday night is telling you their <b>spending mood, company and occasion — per trip</b>. Serve the ₹99 offer on the commute and the credit-card ad on the Friday cab. Same human, priced by the moment.</p>
+        <div class="ex">Search and social can't see occasion. Rapido <i>is</i> the occasion.</div>
+      </div>
+      <div class="sig rv">
+        <div class="k">Signal 02 · over months</div>
+        <h3>The trajectory signal</h3>
+        <p>The mode ladder is India's income ladder. A rider graduating bike → auto → cab is a <b>real-time upward-mobility signal</b>: first job, first raise, new household. A frequent bike user who starts taking cabs is the two-wheeler-to-car purchase funnel — visible in behaviour.</p>
+        <div class="ex">For fintech, auto OEMs, insurance and telecom, that's an audience product, not just reach.</div>
+      </div>
+      <div class="sig rv">
+        <div class="k">Signal 03 · the graph</div>
+        <h3>The multi-modal Journey Graph</h3>
+        <p>One identity across bike, auto, cab — plus parcels, plus food. Single-mode players see a slice; Rapido sees the pattern: home, work, weekly rhythm, spending shape. <b>The fullest movement-and-consumption picture of the mass Indian consumer that exists.</b></p>
+        <div class="ex">This is the moat version of "location data" — and it's asset-light.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 FOOTFALL -->
+<section class="sec">
+  <div class="wrap">
+    <div class="shead rv"><span class="snum">04</span><span class="slbl">The measurement edge</span></div>
+    <h2 class="rv">A real-world signal most ad budgets never get.</h2>
+    <p class="intro rv">~90% of Indian retail happens offline, where store-visit measurement is modelled from panels. Rapido can add something harder to fake: <b>observed, ride-level evidence</b> — for the journeys it carries — across all three modes. Not universal attribution; a differentiated signal.</p>
+    <div class="loop rv">
+      <div class="loopStep"><div class="ln">Step 1</div><h3>Ad shown</h3><p>A QSR, showroom or store campaign served at booking, in the wait, or mid-ride.</p></div>
+      <div class="loopStep"><div class="ln">Step 2</div><h3>Ride taken</h3><p>The rider books to — or stops at — the advertised location. Bike, auto or cab.</p></div>
+      <div class="loopStep"><div class="ln">Step 3</div><h3>Arrival observed</h3><p>GPS ground truth records the journey ending at the location — observed, not modelled.</p></div>
+      <div class="loopStep"><div class="ln">Step 4</div><h3>Evidence sold back</h3><p>Ride-level visit evidence enriches the campaign report — a signal panels can’t match.</p></div>
+    </div>
+    <div class="moatline rv">Observed ground truth for <span class="y">offline outcomes</span> — a sharper signal than the modelled panels advertisers settle for today.</div>
+  </div>
+</section>
+
+<!-- 05 FLYWHEEL -->
+<section class="sec modes">
+  <div class="wrap">
+    <div class="shead rv"><span class="snum">05</span><span class="slbl">The flywheel</span></div>
+    <h2 class="rv">Advertising that pays your ride.</h2>
+    <p class="intro rv">On every other platform, ads tax the experience. On Rapido, brand money can <b>subsidise the fare</b> — turning ad budgets into cheaper rides, more rides, more inventory, and more ad demand. Ads people actually want.</p>
+    <div class="fly">
+      <div class="flyDiagram rv">
+        <div class="ring"></div>
+        <div class="flyNode fn1"><b>Brand ₹</b>funds the fare</div>
+        <div class="flyNode fn2"><b>Cheaper rides</b>for price-first India</div>
+        <div class="flyNode fn3"><b>More rides</b>more journeys, more moments</div>
+        <div class="flyNode fn4"><b>More inventory</b>more ad demand</div>
+      </div>
+    </div>
+    <div class="ladderLine rv" style="text-align:center;max-width:34ch;margin-left:auto;margin-right:auto">One product per mode — <span class="y">sponsored commutes, occasions and customers</span> — each detailed in the ladder above.</div>
+  </div>
+</section>
+
+<!-- 06 CAPTAINS AS CONSUMERS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="shead rv"><span class="snum">06</span><span class="slbl">The second audience</span></div>
+    <h2 class="rv">The other nine million.</h2>
+    <p class="intro rv">Captains are usually discussed as supply. First principles says they're also <b>consumers — earners with disposable income, whose earnings Rapido itself settles.</b> No other consumer platform in India holds an audience like this.</p>
+    <div class="truths rv">
+      <div class="truth"><div class="tic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.5 L11 15 L16 9.5"/></svg></div><div class="k">Fact 01</div><h3>Verified income</h3><p>Rapido pays its captains — so it knows <b>earnings, frequency and growth, verified weekly.</b> For lending, insurance and BFSI, that's targeting gold no bureau or panel can match. Consent-led, it's a category-defining audience product.</p></div>
+      <div class="truth"><div class="tic"><svg viewBox="0 0 24 24"><path d="M7 3 H17 M7 21 H17 M8 3 C8 9 16 9 16 3 M8 21 C8 15 16 15 16 21"/></svg></div><div class="k">Fact 02</div><h3>Part-time by design</h3><p>Bike captains especially work a few hours a day around other work — <b>dual-income households with real disposable income</b> and aspirations to match. Low commitment also keeps the pool vast and growing.</p></div>
+      <div class="truth"><div class="tic"><svg viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 10 L14.5 12 L11 14 Z"/></svg></div><div class="k">Fact 03</div><h3>Idle-time attention</h3><p>Between pings, a captain is parked, phone in hand, waiting. That's <b>genuine daily screen time inside the captain app</b> — a video-capable moment that costs the ride experience nothing.</p></div>
+      <div class="truth"><div class="tic"><svg viewBox="0 0 24 24"><path d="M13 3 L5 13 H11 L10 21 L19 10 H12 Z"/></svg></div><div class="k">Fact 04</div><h3>Endemic demand</h3><p>Fuel &amp; EV, two-wheeler brands, lending, insurance, income tools — <b>categories that specifically want earners on vehicles.</b> Demand only Rapido can serve at this precision, on both sides of its marketplace.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 VIDEO LAYER -->
+<section class="sec modes noarrow">
+  <div class="wrap">
+    <div class="shead rv"><span class="snum">07</span><span class="slbl">The video layer</span></div>
+    <h2 class="rv">Video, only where the attention is real.</h2>
+    <p class="intro rv">Video is the high-attention, high-ARPU end of advertising — CPMs run at multiples of static, and it's where brand budgets are moving. Rapido can build a genuine video business, because it has <b>four honest video moments</b> — and the discipline to sell only those.</p>
+    <div class="loop rv">
+      <div class="loopStep"><div class="ln">Rider · the wait</div><h3>The brand film</h3><p>Captain on the way, rider watching the screen — a full-screen, sound-on video moment with nowhere else to go.</p></div>
+      <div class="loopStep"><div class="ln">Rider · the auto</div><h3>Short video mid-ride</h3><p>Seated, phone out, 10–20 minutes — short-form video and interactive stories that ride along.</p></div>
+      <div class="loopStep"><div class="ln">Rider · the cab</div><h3>Long-form premium</h3><p>The deepest dwell on the platform — considered-purchase storytelling for BFSI, auto, travel, real estate.</p></div>
+      <div class="loopStep"><div class="ln">Captain · idle time</div><h3>Between pings</h3><p>Parked and waiting — daily video minutes inside the captain app, reaching the verified-income audience.</p></div>
+    </div>
+    <div class="moatline rv">And one refusal that builds trust: <span class="y">never video on a moving bike.</span> Selling only real attention is what keeps the CPMs premium.</div>
+  </div>
+</section>
+
+<!-- 08 THE STACK -->
+<section class="sec">
+  <div class="wrap">
+    <div class="shead rv"><span class="snum">08</span><span class="slbl">Beyond ads — the stack</span></div>
+    <h2 class="rv">What a daily paying base in India is really worth.</h2>
+    <p class="intro rv">In India, ARPU is built by <b>stacking small monetizations on high frequency</b> — the super-app math. The hardest asset is a daily paying relationship with payment rails and trust attached. Rapido already has it, 4M+ times a day, on both sides of the marketplace.</p>
+    <div class="stackWrap rv">
+      <div class="stack">
+        <div class="slayer base"><div class="lhead"><span class="sn2">Rides</span><span class="sk">Layer 1 · the base</span></div><p><b>The daily paying relationship.</b> Payment rails, verified identity, trust — the foundation every other layer monetises.</p></div>
+        <div class="slayer"><div class="lhead"><span class="sn2">Advertising</span><span class="sk">Layer 2 · attention</span></div><p>Everything above — mode-aware inventory, the Journey Graph, video, retail media. The highest-margin layer.</p></div>
+        <div class="slayer"><div class="lhead"><span class="sn2">Commerce</span><span class="sk">Layer 3 · transactions</span></div><p>Ownly food, parcels, hyperlocal errands — and mobility-native commerce like metro, bus and event ticketing inside the app people already open daily.</p></div>
+        <div class="slayer"><div class="lhead"><span class="sn2">Financial services</span><span class="sk">Layer 4 · the big one</span></div><p><b>Riders:</b> transit BNPL ("ride now, pay weekly"), a co-branded card, trip insurance that upsells to health and term. <b>Captains:</b> lending underwritten by earnings <b>Rapido itself settles</b> — an underwriting edge no bank has — plus vehicle finance and insurance.</p></div>
+        <div class="slayer"><div class="lhead"><span class="sn2">Membership</span><span class="sk">Layer 5 · loyalty</span></div><p>A rider subscription — priority matching, capped surge, Ownly benefits — plus coalition coins earned on rides and redeemed across partner brands.</p></div>
+        <div class="slayer"><div class="lhead"><span class="sn2">EV &amp; insights</span><span class="sk">Layer 6 · the ecosystem</span></div><p>EV leasing and financing at fleet scale — Rapido is India's largest two-wheeler demand aggregator — and privacy-safe urban and retail insights (catchment, site selection) sold to enterprises.</p></div>
+      </div>
+      <div class="arpu"><span class="hi">ARPU</span><div class="arrow"></div><span>frequency</span></div>
+    </div>
+    <div class="ladderLine rv">Each layer rides the same rails: <span class="y">identity, payments, frequency, trust.</span> Ads is the wedge; the stack is the prize.</div>
+  </div>
+</section>
+
+<!-- 09 PROOF + PRIZE -->
+<section class="sec brandy">
+  <div class="wrap">
+    <div class="shead rv"><span class="snum">09</span><span class="slbl">The proof &amp; the prize</span></div>
+    <h2 class="rv">The world already ran this play. The prize is a number.</h2>
+    <p class="intro rv">Every journey platform that built ads turned it into a profit pillar — and none of them had three modes or the fare flywheel. And Ownly raises the stakes: <b>a zero-commission food business is structurally an ads-funded one</b> — the bet only pays if this platform gets built.</p>
+    <div class="proof rv">
+      <div class="pf"><div class="w">Uber Advertising</div><div class="n">$2B+</div><div class="s">2025 revenue, from zero in 2022 — under 1% of bookings, lifting a ~27% take rate</div></div>
+      <div class="pf"><div class="w">GrabAds</div><div class="n">+45%</div><div class="s">~$236M run-rate, built on the "transit moment"</div></div>
+      <div class="pf"><div class="w">GoTo · Gojek</div><div class="n">+92%</div><div class="s">ad revenue growth in a year; a named pillar of profitability</div></div>
+      <div class="pf"><div class="w">Didi</div><div class="n">~18%</div><div class="s">of non-ride revenue from in-app advertising</div></div>
+    </div>
+    <p class="proofNote rv">Rapido Ads already exists — <b>1B+ impressions a month, sold largely as agency media.</b> The step-change is a first-party, self-serve platform with the Journey Graph and observed footfall signal underneath. Move the dials:</p>
+    <div class="calc rv">
+      <div class="scen" id="scen">
+        <button data-gmv="1.5" class="on">GMV today · ~$1.5B</button>
+        <button data-gmv="2.5">Near-term · ~$2.5B</button>
+        <button data-gmv="4">IPO-year · ~$4B</button>
+      </div>
+      <div class="row"><span class="lab">Ads as % of GMV</span><span class="val" id="pctv">1.5%</span></div>
+      <input type="range" id="pct" min="0.5" max="3" step="0.1" value="1.5">
+      <div class="ticks"><span>0.5%</span><span>Uber / Grab band ≈ 1–2%</span><span>3%</span></div>
+      <div class="out">
+        <div><div class="big" id="usd">$23M</div><div class="cap">annual ad revenue</div></div>
+        <div><div class="big" id="inr">₹187 Cr</div><div class="cap">≈ high-margin, recurring</div></div>
+        <div class="note">Illustrative. For scale: Rapido's <b>total</b> FY25 operating revenue was ~₹934 Cr — so even a modest ad take is <b>material, at a structurally higher margin than rides</b>, because an ad rupee isn't tied to a trip. It lands on the bottom line and re-rates the multiple ahead of an IPO.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 BUILD -->
+<section class="sec">
+  <div class="wrap">
+    <div class="shead rv"><span class="snum">10</span><span class="slbl">The build</span></div>
+    <h2 class="rv">Twelve months to the platform.</h2>
+    <div class="build rv">
+      <div class="step"><div><h3>Ship the self-serve platform</h3><p>A first-party Ads Manager — static and video, mode-aware placements, closed-loop measurement — so demand isn't gated by agencies. The buyers are marketers, not riders: enterprise sales + agency partnerships + self-serve, built for the advertiser.</p></div></div>
+      <div class="step"><div><h3>Lead with measurement</h3><p>Ride-level visit evidence as the wedge into QSR, retail and BFSI budgets — sold honestly as observed signal alongside standard metrics, not as universal attribution.</p></div></div>
+      <div class="step"><div><h3>Build the Journey Graph</h3><p>One identity across modes, turned into privacy-safe audiences: occasion, trajectory, pre-arrival intent — and, consent-led, the verified-income captain audience.</p></div></div>
+      <div class="step"><div><h3>Build Ownly ads-first</h3><p>Zero commission works only if merchant advertising becomes the revenue line. Promoted restaurants and dishes from day one — the highest-intent inventory on the platform.</p></div></div>
+      <div class="step"><div><h3>Pilot the fare flywheel</h3><p>Sponsored commutes, occasions and customers — one flagship brand per mode, measured end-to-end.</p></div></div>
+      <div class="step"><div><h3>One team, one P&amp;L</h3><p>Product, data, sales and ops owned end-to-end and accountable for the number — an ad business, not a feature.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section class="close">
+  <div class="wrap">
+    <h2>Mode is the message. The stack is the prize.</h2>
+    <p>Prediction, pre-arrival intent, observed real-world signal, a flywheel where advertising makes rides cheaper — and a monetization stack that turns a daily paying base into fintech, commerce, membership and ecosystem revenue. Built on the one journey network in India that spans bike, auto and cab.</p>
+    <div class="sigblk">
+      <div class="disc">An independent point of view, built from public information; not affiliated with or endorsed by Rapido. Figures are approximate, from public reports and company materials; benchmarks from Uber, Grab, GoTo, Didi disclosures and press. Attention maps are illustrative hypotheses. The calculator is for discussion, not a forecast.</div>
+    </div>
+  </div>
+</section>
+
+<script>
+// reveal
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// hero mode word rotation
+const words=[...document.querySelectorAll('.modeword span')];
+let wi=0;
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!reduce){setInterval(()=>{words[wi].classList.remove('on');wi=(wi+1)%words.length;words[wi].classList.add('on')},2600)}
+
+// mode ladder tabs
+const tabs=[...document.querySelectorAll('.mtab')];
+const panels=[...document.querySelectorAll('.mp')];
+function fillBars(panel){
+  panel.querySelectorAll('.fill').forEach(f=>{f.style.width='0';requestAnimationFrame(()=>requestAnimationFrame(()=>{f.style.width=f.dataset.w}))});
+}
+function setMode(i){
+  tabs.forEach((t,k)=>t.classList.toggle('on',k===i));
+  panels.forEach((p,k)=>{p.classList.toggle('on',k===i);if(k===i)fillBars(p)});
+}
+tabs.forEach((t,i)=>t.addEventListener('click',()=>setMode(i)));
+// animate bars when section first visible
+const mio=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){fillBars(document.querySelector('.mp.on'));mio.disconnect()}})},{threshold:.3});
+mio.observe(document.querySelector('.modePanel'));
+
+// calculator
+const pct=document.getElementById('pct'),pctv=document.getElementById('pctv');
+const usd=document.getElementById('usd'),inr=document.getElementById('inr');
+const scen=document.getElementById('scen');
+let gmv=1.5;
+function calc(){
+  const p=parseFloat(pct.value);
+  pctv.textContent=p.toFixed(1)+'%';
+  const rev=gmv*1e9*(p/100);
+  usd.textContent='$'+Math.round(rev/1e6)+'M';
+  inr.textContent='₹'+Math.round(rev*83/1e7).toLocaleString('en-IN')+' Cr';
+}
+pct.addEventListener('input',calc);
+scen.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;[...scen.children].forEach(x=>x.classList.remove('on'));b.classList.add('on');gmv=parseFloat(b.dataset.gmv);calc()});
+calc();
+
+// topbar solidify
+const topbar=document.querySelector('.topbar');
+addEventListener('scroll',()=>{topbar.style.background=scrollY>40?'rgba(15,15,18,.94)':''});
+</script>
+</body>
+</html>
