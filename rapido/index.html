@@ -30,7 +30,6 @@ section{position:relative}
 /* topbar */
 .topbar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:calc(12px + env(safe-area-inset-top)) 28px 12px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:background .3s}
 .topbar .brand{font-family:var(--disp);font-weight:800;font-size:18px;background:var(--yl);color:#141414;padding:4px 12px;border-radius:8px}
-.topbar .brand .d{color:var(--yl)}
 .topbar .tag{color:var(--grey);font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase}
 
 /* hero */
@@ -195,8 +194,6 @@ section{position:relative}
 .close h2{font-size:clamp(2.1rem,5.6vw,4rem);font-weight:800;max-width:18ch;margin:0 auto 22px;position:relative}
 .close p{color:#CFC9BD;max-width:56ch;margin:0 auto;position:relative;font-size:1.08rem}
 .sigblk{margin-top:60px;padding-top:26px;border-top:1px solid var(--line);position:relative;color:var(--grey);font-size:13.5px;line-height:1.7}
-.sigblk b{color:var(--paper)}
-.sigblk a{color:var(--yl);text-decoration:none}
 .disc{margin-top:14px;font-size:11.5px;color:var(--grey2);max-width:74ch;margin-left:auto;margin-right:auto;line-height:1.6}
 
 /* road marking */
@@ -325,12 +322,12 @@ section{position:relative}
   <div class="wrap">
     <div class="shead rv"><span class="snum">02</span><span class="slbl">The mode ladder</span></div>
     <h2 class="rv">Mode is the message.</h2>
-    <p class="intro rv">The physics of each ride are different — so the attention, the formats, and the advertiser are different. Bikes deliver <b>reach</b>, autos deliver <b>engagement</b>, cabs deliver <b>dwell</b>. Switch a mode.</p>
+    <p class="intro rv">The physics of each ride are different — so the attention, the formats, and the advertiser are different. Bikes deliver <b>reach</b>, autos deliver <b>engagement</b>, cabs deliver <b>dwell</b>. Switch modes below.</p>
 
     <div class="modeTabs rv">
-      <button class="mtab on" data-m="0"><span class="vic"><svg viewBox="0 0 48 32"><circle cx="10" cy="24" r="6"/><circle cx="38" cy="24" r="6"/><path d="M10 24 L17 12 H25 M25 12 L32 22 M25 12 L29 7 H35 M17 12 L13 24 M32 22 L38 24"/></svg></span><div class="mk">Mode 01 · &gt;50% of rides</div><h3>Bike</h3><div class="ms">the daily commute</div></button>
-      <button class="mtab" data-m="1"><span class="vic"><svg viewBox="0 0 48 32"><path d="M7 23 V13 Q7 6 15 6 H29 Q39 6 42 16 L43 23 H37"/><path d="M7 23 H9 M19 23 H27"/><path d="M15 6 V14 H30"/><circle cx="14" cy="25" r="4.5"/><circle cx="32" cy="25" r="4.5"/></svg></span><div class="mk">Mode 02 · ~40% of GMV</div><h3>Auto</h3><div class="ms">the city hop</div></button>
-      <button class="mtab" data-m="2"><span class="vic"><svg viewBox="0 0 48 32"><path d="M8 21 L12 12 Q13 9 16 9 H30 Q33 9 34 12 L38 21 M8 21 H5 V26 H43 V21 H38 M8 21 H38"/><path d="M20 9 V15 M15 15 H33"/><circle cx="14" cy="26" r="4"/><circle cx="34" cy="26" r="4"/></svg></span><div class="mk">Mode 03 · the premium ride</div><h3>Cab</h3><div class="ms">the occasion</div></button>
+      <button class="mtab on" data-m="0"><span class="vic"><svg viewBox="0 0 48 32"><circle cx="10" cy="24" r="6"/><circle cx="38" cy="24" r="6"/><path d="M10 24 L17 12 H25 M25 12 L32 22 M25 12 L29 7 H35 M17 12 L13 24 M32 22 L38 24"/></svg></span><div class="mk">Mode 01 · reach</div><h3>Bike</h3><div class="ms">the daily commute</div></button>
+      <button class="mtab" data-m="1"><span class="vic"><svg viewBox="0 0 48 32"><path d="M7 23 V13 Q7 6 15 6 H29 Q39 6 42 16 L43 23 H37"/><path d="M7 23 H9 M19 23 H27"/><path d="M15 6 V14 H30"/><circle cx="14" cy="25" r="4.5"/><circle cx="32" cy="25" r="4.5"/></svg></span><div class="mk">Mode 02 · engagement</div><h3>Auto</h3><div class="ms">the city hop</div></button>
+      <button class="mtab" data-m="2"><span class="vic"><svg viewBox="0 0 48 32"><path d="M8 21 L12 12 Q13 9 16 9 H30 Q33 9 34 12 L38 21 M8 21 H5 V26 H43 V21 H38 M8 21 H38"/><path d="M20 9 V15 M15 15 H33"/><circle cx="14" cy="26" r="4"/><circle cx="34" cy="26" r="4"/></svg></span><div class="mk">Mode 03 · dwell</div><h3>Cab</h3><div class="ms">the occasion</div></button>
     </div>
 
     <div class="modePanel rv">
@@ -532,7 +529,7 @@ section{position:relative}
     <h2 class="rv">The world already ran this play. The prize is a number.</h2>
     <p class="intro rv">Every journey platform that built ads turned it into a profit pillar — and none of them had three modes or the fare flywheel. And Ownly raises the stakes: <b>a zero-commission food business is structurally an ads-funded one</b> — the bet only pays if this platform gets built.</p>
     <div class="proof rv">
-      <div class="pf"><div class="w">Uber Advertising</div><div class="n">$2B+</div><div class="s">2025 revenue, from zero in 2022 — under 1% of bookings, lifting a ~27% take rate</div></div>
+      <div class="pf"><div class="w">Uber Advertising</div><div class="n">$2B+</div><div class="s">2025 revenue, from zero in 2022 — under 1% of bookings, on top of the mobility take rate</div></div>
       <div class="pf"><div class="w">GrabAds</div><div class="n">+45%</div><div class="s">~$236M run-rate, built on the "transit moment"</div></div>
       <div class="pf"><div class="w">GoTo · Gojek</div><div class="n">+92%</div><div class="s">ad revenue growth in a year; a named pillar of profitability</div></div>
       <div class="pf"><div class="w">Didi</div><div class="n">~18%</div><div class="s">of non-ride revenue from in-app advertising</div></div>
