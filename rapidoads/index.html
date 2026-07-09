@@ -148,11 +148,6 @@ section{position:relative}
 .tago h2{font-size:clamp(2.6rem,7vw,5.2rem);font-weight:800;letter-spacing:-.03em;margin:22px auto 18px;max-width:14ch;position:relative}
 .tago h2 .y{color:var(--yl)}
 .tago .sub{font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:#D8D2C6;position:relative}
-/* close */
-.close{padding:110px 0 90px;text-align:center;overflow:hidden}
-.close h2{font-size:clamp(2rem,5.4vw,3.8rem);font-weight:800;max-width:20ch;margin:0 auto 22px}
-.close p{color:#CFC9BD;max-width:56ch;margin:0 auto;font-size:1.08rem}
-.disc{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);font-size:11.5px;color:var(--grey2);max-width:74ch;margin-left:auto;margin-right:auto;line-height:1.6}
 
 
 
@@ -174,54 +169,23 @@ section{position:relative}
 .sdot .n{font-family:var(--mono);font-size:9px;letter-spacing:.06em;color:#D8D2C6;margin-top:8px;white-space:nowrap}
 
 
-/* ===== RAPIDO ADS FORMAT — MOMENT CARDS ===== */
+/* ===== RAPIDO ADS FORMAT — TABLE ===== */
 .adformats{margin-top:42px;position:relative;text-align:left}
-
-/* Sponsored ride hero */
-.sponsoredRide{border:1px solid rgba(253,206,9,.4);border-radius:20px;background:linear-gradient(135deg,rgba(253,206,9,.12) 0%,rgba(253,206,9,.04) 100%);padding:28px 30px;margin-bottom:16px;position:relative;overflow:hidden}
-.sponsoredRide::before{content:"";position:absolute;top:-40px;right:-40px;width:180px;height:180px;background:radial-gradient(circle,rgba(253,206,9,.18),transparent 70%);pointer-events:none}
-.srBadge{display:inline-flex;align-items:center;gap:8px;background:var(--yl);color:#141414;border-radius:100px;padding:5px 14px;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:16px}
-.srBadge::before{content:"★";font-size:11px}
-.srTitle{font-family:var(--disp);font-weight:800;font-size:1.5rem;color:var(--paper);letter-spacing:-.02em;margin-bottom:8px}
-.srDesc{font-size:14px;color:#C6C0B4;line-height:1.55;max-width:70ch;margin-bottom:18px}
-.srDesc b{color:var(--paper)}
-.srFormats{display:flex;flex-wrap:wrap;gap:8px}
-.srFormat{border:1px solid rgba(253,206,9,.35);border-radius:10px;padding:10px 14px;background:rgba(253,206,9,.07)}
-.srFormat .srfLabel{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--yl);margin-bottom:4px}
-.srFormat .srfName{font-size:13px;color:var(--paper);font-weight:600}
-.srFormat .srfDesc{font-size:12px;color:#AAA3B6;margin-top:2px;line-height:1.35}
-
-/* Moment cards grid */
-.momentGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
-
-/* Individual moment card */
-.mc{border:1px solid var(--line);border-radius:16px;background:rgba(15,15,18,.78);overflow:hidden;transition:border-color .2s}
-.mc:hover{border-color:rgba(253,206,9,.25)}
-.mcHead{padding:16px 18px 12px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px}
-.mcIcon{font-size:20px;line-height:1;flex-shrink:0}
-.mcMeta{flex:1}
-.mcMoment{font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
-.mcTitle{font-family:var(--disp);font-weight:700;font-size:1rem;color:var(--paper);letter-spacing:-.01em;margin-top:1px}
-.mcDuration{font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--yl);margin-top:2px}
-.mcFormats{padding:14px 18px;display:grid;gap:9px}
-.mf{display:flex;align-items:flex-start;gap:9px}
-.mfDot{width:6px;height:6px;border-radius:50%;background:var(--yl);flex-shrink:0;margin-top:5px}
-.mfBody{}
-.mfName{font-size:13px;color:var(--paper);font-weight:600;line-height:1.2}
-.mfDesc{font-size:11.5px;color:#8A8498;line-height:1.35;margin-top:1px}
-.mfTag{display:inline-block;font-family:var(--mono);font-size:8px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);border-radius:100px;padding:2px 7px;color:#AAA3B6;margin-top:3px}
-.mfTag.brand{border-color:rgba(199,155,255,.4);color:#C79BFF}
-.mfTag.perf{border-color:rgba(61,220,151,.4);color:#3DDC97}
-.mfTag.both{border-color:rgba(253,206,9,.4);color:var(--yl)}
-
-/* Captain-side card — distinct treatment */
-.mcCaptain{background:linear-gradient(135deg,rgba(30,28,38,1),rgba(20,20,26,1));border-color:rgba(253,206,9,.2)}
-.mcCaptain .mcTitle{color:var(--yl)}
-
-/* Format type legend */
-.fmtLegend{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
-.fmtLegend .fl{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase}
-.fmtLegend .fld{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.flagLine{border:1px solid rgba(253,206,9,.4);border-radius:14px;background:linear-gradient(135deg,rgba(253,206,9,.12),rgba(253,206,9,.04));padding:18px 22px;font-size:14.5px;color:#D8D2C6;line-height:1.55;margin-bottom:22px}
+.flagLine b{color:var(--paper)}
+.fmtWrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:16px}
+.fmtTable{width:100%;border-collapse:collapse;font-size:13.5px;min-width:660px}
+.fmtTable th{text-align:left;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);font-weight:400;padding:14px 18px;border-bottom:1px solid var(--line);background:var(--ink2)}
+.fmtTable td{padding:12px 18px;border-bottom:1px solid var(--line);color:#B8B2A6;line-height:1.45;vertical-align:top}
+.fmtTable tbody tr:last-child td{border-bottom:none}
+.fmtTable .mcell{border-right:1px solid var(--line);color:var(--paper);white-space:nowrap}
+.fmtTable .mcell b{font-family:var(--disp);font-weight:700;font-size:1rem;letter-spacing:-.01em;display:block}
+.fmtTable .mcell span{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--yl);display:block;margin-top:4px;white-space:normal}
+.fmtTable .fname{color:var(--paper);font-weight:600}
+.obj{display:inline-block;font-family:var(--mono);font-size:8px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);border-radius:100px;padding:2px 8px;white-space:nowrap}
+.obj.b{border-color:rgba(199,155,255,.4);color:#C79BFF}
+.obj.p{border-color:rgba(61,220,151,.4);color:#3DDC97}
+.obj.x{border-color:rgba(253,206,9,.4);color:var(--yl)}
 
 @media(max-width:860px){.bp{grid-template-columns:1fr}.sdot .n{font-size:8px}}
 
@@ -229,11 +193,6 @@ section{position:relative}
 .ptab .blogo{width:42px;height:42px;margin-bottom:10px}
 .ppTop .blogo{width:54px;height:54px;float:right;margin-left:14px}
 
-@media(max-width:760px){
-  .srFormats{flex-direction:column}
-  .srFormat{flex:1}
-  .momentGrid{grid-template-columns:1fr}
-}
 .lg-sting{background:#C8102E;color:#fff;font-style:italic;font-size:11px}
 .lg-zudio{background:#FFD200;color:#141414;font-size:11.5px;letter-spacing:-.02em}
 
@@ -891,163 +850,38 @@ section{position:relative}
 
     <div class="adformats rv">
 
-      <!-- HERO: SPONSORED RIDE -->
-      <div class="sponsoredRide">
-        <div class="srBadge">Flagship format</div>
-        <div class="srTitle">Sponsored Ride</div>
-        <div class="srDesc">A brand pays some or all of the rider's fare — and owns the entire journey moment. <b>The rider feels rewarded, not advertised to.</b> The brand gets full-screen presence, verified delivery, and a measurable grateful audience. No other media in India can buy this moment.</div>
-        <div class="srFormats">
-          <div class="srFormat">
-            <div class="srfLabel">Fare subsidy</div>
-            <div class="srfName">Full / partial ride sponsor</div>
-            <div class="srfDesc">Brand pays ₹5–₹30 off fare. Rider sees "Your ride is sponsored by X." 100% attention guaranteed.</div>
-          </div>
-          <div class="srFormat">
-            <div class="srfLabel">Mode takeover</div>
-            <div class="srfName">Sponsored auto / bike day</div>
-            <div class="srfDesc">Brand owns all rides on a mode in a city for a day. Festival, launch, or sales event moment.</div>
-          </div>
-          <div class="srFormat">
-            <div class="srfLabel">Route / occasion</div>
-            <div class="srfName">Commute or event sponsorship</div>
-            <div class="srfDesc">Office-hour commute, airport route, or IPL match-day rides — owned by one brand, measured by ride.</div>
-          </div>
-          <div class="srFormat">
-            <div class="srfLabel">Captain-side</div>
-            <div class="srfName">Captain branded kit</div>
-            <div class="srfDesc">Brand wraps the captain's bike or auto jacket. Physical OOH meets digital verification — every ride, every city.</div>
-          </div>
-        </div>
-      </div>
+      <div class="flagLine"><b>Flagship — the Sponsored Ride:</b> a brand pays some or all of the fare and owns the whole journey; the rider feels rewarded, not advertised to. Full-screen presence, verified delivery, a measurably grateful audience — no other medium in India can buy this moment.</div>
 
-      <!-- FORMAT LEGEND -->
-      <div class="fmtLegend">
-        <div class="fl"><div class="fld" style="background:#C79BFF"></div><span style="color:#C79BFF">Brand / awareness</span></div>
-        <div class="fl"><div class="fld" style="background:#3DDC97"></div><span style="color:#3DDC97">Performance / outcome</span></div>
-        <div class="fl"><div class="fld" style="background:var(--yl)"></div><span style="color:var(--yl)">Both objectives</span></div>
-      </div>
-
-      <!-- MOMENT CARDS -->
-      <div class="momentGrid" style="margin-top:16px">
-
-        <!-- PRE-BOOKING -->
-        <div class="mc">
-          <div class="mcHead">
-            <div class="mcIcon">📱</div>
-            <div class="mcMeta">
-              <div class="mcMoment">Moment 1</div>
-              <div class="mcTitle">Pre-booking</div>
-              <div class="mcDuration">App open → destination set</div>
-            </div>
-          </div>
-          <div class="mcFormats">
-            <div class="mf"><div class="mfDot"></div><div class="mfBody"><div class="mfName">Home-screen masthead</div><div class="mfDesc">Full-width brand takeover above the booking flow. Highest share-of-voice in the app.</div><span class="mfTag brand">Brand</span></div></div>
-            <div class="mf"><div class="mfDot"></div><div class="mfBody"><div class="mfName">City / route takeover</div><div class="mfDesc">Own all inventory in a city or corridor for a campaign window. Category exclusivity.</div><span class="mfTag brand">Brand</span></div></div>
-            <div class="mf"><div class="mfDot"></div><div class="mfBody"><div class="mfName">Destination-aware offer card</div><div class="mfDesc">Coupon or offer that surfaces when a rider's likely destination matches a merchant's catchment.</div><span class="mfTag perf">Performance</span></div></div>
-          </div>
-        </div>
-
-        <!-- WAIT MOMENT -->
-        <div class="mc">
-          <div class="mcHead">
-            <div class="mcIcon">⏱</div>
-            <div class="mcMeta">
-              <div class="mcMoment">Moment 2</div>
-              <div class="mcTitle">The Wait</div>
-              <div class="mcDuration">Captain en route · 2–6 mins · eyes on screen</div>
-            </div>
-          </div>
-          <div class="mcFormats">
-            <div class="mf"><div class="mfDot"></div><div class="mfBody"><div class="mfName">Vertical video — wait moment</div><div class="mfDesc">Full-screen 15–30 sec video. Captive, high-intent, eyes-on-phone attention. Best CPM in the journey.</div><span class="mfTag brand">Brand</span></div></div>
-            <div class="mf"><div class="mfDot"></div><div class="mfBody"><div class="mfName">Content / episode teaser</div><div class="mfDesc">Partner content preview with ride-end unlock. Audio-first for eyes-busy moments.</div><span class="mfTag both">Both</span></div></div>
-            <div class="mf"><div class="mfDot"></div><div class="mfBody"><div class="mfName">Pre-ride brand film</div><div class="mfDesc">15–45 sec skippable brand story. Festival launches, product reveals, occasion moments.</div><span class="mfTag brand">Brand</span></div></div>
-            <div class="mf"><div class="mfDot"></div><div class="mfBody"><div class="mfName">Rewarded video</div><div class="mfDesc">Rider opts in to watch a full 15–30 sec ad and earns a fare discount or RapidoCoins in return. <b>Highest completion rates in the platform</b> — voluntary attention is the most valuable kind.</div><span class="mfTag both">Both</span></div></div>
-          </div>
-        </div>
-
-        <!-- IN-RIDE (BIKE / AUTO) -->
-        <div class="mc">
-          <div class="mcHead">
-            <div class="mcIcon">🛵</div>
-            <div class="mcMeta">
-              <div class="mcMoment">Moment 3a</div>
-              <div class="mcTitle">In-ride · Bike / Auto</div>
-              <div class="mcDuration">En route · glance frequency · mode-aware</div>
-            </div>
-          </div>
-          <div class="mcFormats">
-            <div class="mf"><div class="mfDot"></div><div class="mfBody"><div class="mfName">Route-aware native card</div><div class="mfDesc">Merchant or offer served based on current route corridor. "3 stops from your drop."</div><span class="mfTag perf">Performance</span></div></div>
-            <div class="mf"><div class="mfDot"></div><div class="mfBody"><div class="mfName">Store catchment card</div><div class="mfDesc">Radius-triggered offer when rider passes within 500m of merchant. Walk-in CTA.</div><span class="mfTag perf">Performance</span></div></div>
-            <div class="mf"><div class="mfDot"></div><div class="mfBody"><div class="mfName">Mid-ride swipeable carousel</div><div class="mfDesc">3-card brand or product carousel. Low-interruption, natural scroll behaviour.</div><span class="mfTag both">Both</span></div></div>
-          </div>
-        </div>
-
-        <!-- IN-RIDE (CAB) -->
-        <div class="mc">
-          <div class="mcHead">
-            <div class="mcIcon">🚕</div>
-            <div class="mcMeta">
-              <div class="mcMoment">Moment 3b</div>
-              <div class="mcTitle">In-ride · Cab</div>
-              <div class="mcDuration">10–40 mins · sustained engagement · leaned-back</div>
-            </div>
-          </div>
-          <div class="mcFormats">
-            <div class="mf"><div class="mfDot"></div><div class="mfBody"><div class="mfName">Cab ride video card</div><div class="mfDesc">Longer-form 30–60 sec video. Cab riders are leaned back — highest completion rate in the platform.</div><span class="mfTag brand">Brand</span></div></div>
-            <div class="mf"><div class="mfDot"></div><div class="mfBody"><div class="mfName">Vernacular creator video</div><div class="mfDesc">Creator-style content in rider's language. Haryanvi, Bhojpuri, Tamil — matched to city cluster.</div><span class="mfTag both">Both</span></div></div>
-            <div class="mf"><div class="mfDot"></div><div class="mfBody"><div class="mfName">Destination-context card</div><div class="mfDesc">Drop-aware: airport → travel offers, mall → retail coupons, hospital → pharmacy, office → food.</div><span class="mfTag perf">Performance</span></div></div>
-          </div>
-        </div>
-
-        <!-- RIDE-END -->
-        <div class="mc">
-          <div class="mcHead">
-            <div class="mcIcon">📍</div>
-            <div class="mcMeta">
-              <div class="mcMoment">Moment 4</div>
-              <div class="mcTitle">Ride-end</div>
-              <div class="mcDuration">Arrival screen · highest purchase intent moment</div>
-            </div>
-          </div>
-          <div class="mcFormats">
-            <div class="mf"><div class="mfDot"></div><div class="mfBody"><div class="mfName">Ride-end CTA card</div><div class="mfDesc">Full-screen takeover at drop. Highest conversion moment — rider is stationary, phone in hand, decision ready.</div><span class="mfTag perf">Performance</span></div></div>
-            <div class="mf"><div class="mfDot"></div><div class="mfBody"><div class="mfName">Coupon unlock / scratch card</div><div class="mfDesc">Gamified reveal of brand discount. Emotional reward loop — feels like winning, not advertising.</div><span class="mfTag perf">Performance</span></div></div>
-            <div class="mf"><div class="mfDot"></div><div class="mfBody"><div class="mfName">Map / drop-pin offer</div><div class="mfDesc">Merchant pinned on arrival map. "200m from your drop." Walk-in measurement by observed arrival.</div><span class="mfTag perf">Performance</span></div></div>
-            <div class="mf"><div class="mfDot"></div><div class="mfBody"><div class="mfName">Video-to-install / order CTA</div><div class="mfDesc">Short video closes with an install or order button. CPM + CPI hybrid — brand story meets performance close.</div><span class="mfTag both">Both</span></div></div>
-          </div>
-        </div>
-
-        <!-- CAPTAIN-SIDE -->
-        <div class="mc mcCaptain">
-          <div class="mcHead">
-            <div class="mcIcon">🧑‍✈️</div>
-            <div class="mcMeta">
-              <div class="mcMoment">Moment 5 · Captain</div>
-              <div class="mcTitle">Captain-side</div>
-              <div class="mcDuration">9M captains · daily earners · physical + digital</div>
-            </div>
-          </div>
-          <div class="mcFormats">
-            <div class="mf"><div class="mfDot"></div><div class="mfBody"><div class="mfName">Captain branded kit</div><div class="mfDesc">Jacket, helmet, or bike wrap. Physical OOH at street level — verified by app identity, measured by city coverage.</div><span class="mfTag brand">Brand</span></div></div>
-            <div class="mf"><div class="mfDot"></div><div class="mfBody"><div class="mfName">Captain app brand card</div><div class="mfDesc">In-driver-app placements between rides. FMCG, insurance, and fintech offers relevant to a gig worker's income.</div><span class="mfTag both">Both</span></div></div>
-            <div class="mf"><div class="mfDot"></div><div class="mfBody"><div class="mfName">Earnings milestone sponsor</div><div class="mfDesc">Brand sponsors a ₹500 earnings milestone bonus. Captain loyalty + brand attribution in one product.</div><span class="mfTag both">Both</span></div></div>
-          </div>
-        </div>
-
+      <div class="fmtWrap">
+      <table class="fmtTable">
+        <thead><tr><th>Moment</th><th>Format</th><th>What it is</th><th>Objective</th></tr></thead>
+        <tbody>
+          <tr><td class="mcell" rowspan="3"><b>Pre-booking</b><span>app open → destination</span></td><td class="fname">Home-screen masthead</td><td>Full-width brand takeover above the booking flow.</td><td><span class="obj b">Brand</span></td></tr>
+          <tr><td class="fname">City / route takeover</td><td>Own all inventory in a city or corridor for a campaign window.</td><td><span class="obj b">Brand</span></td></tr>
+          <tr><td class="fname">Destination-aware offer card</td><td>Coupon that surfaces when the likely destination matches a merchant.</td><td><span class="obj p">Performance</span></td></tr>
+          <tr><td class="mcell" rowspan="4"><b>The Wait</b><span>captain en route · 2–6 min</span></td><td class="fname">Vertical video</td><td>Full-screen 15–30s video — captive, eyes on phone. Best CPM in the journey.</td><td><span class="obj b">Brand</span></td></tr>
+          <tr><td class="fname">Content / episode teaser</td><td>Partner content preview with a ride-end unlock.</td><td><span class="obj x">Both</span></td></tr>
+          <tr><td class="fname">Pre-ride brand film</td><td>15–45s skippable brand story for launches and occasions.</td><td><span class="obj b">Brand</span></td></tr>
+          <tr><td class="fname">Rewarded video</td><td>Opt-in ad for a fare discount or RapidoCoins — highest completion.</td><td><span class="obj x">Both</span></td></tr>
+          <tr><td class="mcell" rowspan="3"><b>In-ride · Bike / Auto</b><span>glance frequency · mode-aware</span></td><td class="fname">Route-aware native card</td><td>Offer served on the current route corridor — “3 stops from your drop.”</td><td><span class="obj p">Performance</span></td></tr>
+          <tr><td class="fname">Store catchment card</td><td>Radius-triggered offer within 500m of a merchant.</td><td><span class="obj p">Performance</span></td></tr>
+          <tr><td class="fname">Mid-ride swipeable carousel</td><td>3-card brand or product carousel, low-interruption.</td><td><span class="obj x">Both</span></td></tr>
+          <tr><td class="mcell" rowspan="3"><b>In-ride · Cab</b><span>10–40 min · leaned-back</span></td><td class="fname">Cab ride video card</td><td>30–60s video — leaned-back riders, highest completion.</td><td><span class="obj b">Brand</span></td></tr>
+          <tr><td class="fname">Vernacular creator video</td><td>Creator content matched to the city's language.</td><td><span class="obj x">Both</span></td></tr>
+          <tr><td class="fname">Destination-context card</td><td>Drop-aware: airport → travel, mall → retail, office → food.</td><td><span class="obj p">Performance</span></td></tr>
+          <tr><td class="mcell" rowspan="4"><b>Ride-end</b><span>arrival · highest intent</span></td><td class="fname">Ride-end CTA card</td><td>Full-screen takeover at drop — the highest-conversion moment.</td><td><span class="obj p">Performance</span></td></tr>
+          <tr><td class="fname">Coupon unlock / scratch card</td><td>Gamified discount reveal — feels like winning, not advertising.</td><td><span class="obj p">Performance</span></td></tr>
+          <tr><td class="fname">Map / drop-pin offer</td><td>Merchant pinned on the arrival map; walk-in measured by observed arrival.</td><td><span class="obj p">Performance</span></td></tr>
+          <tr><td class="fname">Video-to-install / order CTA</td><td>Short video closes with an install or order button — CPM + CPI hybrid.</td><td><span class="obj x">Both</span></td></tr>
+          <tr><td class="mcell" rowspan="3"><b>Captain-side</b><span>9M captains · daily earners</span></td><td class="fname">Captain branded kit</td><td>Jacket, helmet or bike wrap — street-level OOH, app-verified.</td><td><span class="obj b">Brand</span></td></tr>
+          <tr><td class="fname">Captain app brand card</td><td>In-driver-app placements between rides.</td><td><span class="obj x">Both</span></td></tr>
+          <tr><td class="fname">Earnings milestone sponsor</td><td>Brand sponsors an earnings-milestone bonus — loyalty + attribution.</td><td><span class="obj x">Both</span></td></tr>
+        </tbody>
+      </table>
       </div>
     </div>
   </div>
 </section>
-
-<!-- CLOSE -->
-<section class="close">
-  <div class="wrap">
-    <h2>The second two points are already riding around the city.</h2>
-    <p>A brand system, five personas, four pitches, a partnership engine and a build plan — everything needed to turn 1B+ impressions and a daily paying base into the margin story. What's left is the mandate.</p>
-    <div class="disc">An independent point of view, built from public information; not affiliated with or endorsed by Rapido. Financial figures, bridge percentages and scenarios are illustrative hypotheses for discussion, not forecasts or company guidance. Global references and brand examples are used only as illustrative strategy analogies. Personas are illustrative composites; film characters are referenced purely for recall (actor portraits, where shown, are sourced from public materials and used purely for illustration), with no affiliation or endorsement implied by the films, actors or studios. Brand pitches are unsolicited concepts — the brands and logos shown are the property of their owners, used for illustration only; none are affiliated with this work.</div>
-  </div>
-</section>
-
 
 <div class="pgfoot"><div class="in2"><span></span><a class="pgbtn primary" href="#/personas">Next · Personas →</a></div></div>
 </div>
