@@ -22,7 +22,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:#FFFFFF;color:#1A0A10;font-family:var(--body);font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background:#F5E8EE;color:#1A0A10;font-family:var(--body);font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 h1,h2,h3,h4{font-family:var(--disp);font-weight:800;line-height:1.05;letter-spacing:-.025em;color:#1A0A10}
 b{font-weight:600}
 .wrap{max-width:1120px;margin:0 auto;padding:0 26px}
@@ -50,8 +50,8 @@ section{position:relative}
 .sec{padding:60px 0}
 .teal{background:var(--pink);color:#0A0E1A}
 .navy{background:var(--navy);color:#1A0A10}
-.dark2{background:#FFF5F9;border-top:1px solid rgba(232,24,109,.1);border-bottom:1px solid rgba(232,24,109,.1)}
-.dark2bg{background:#FFF5F9;border-top:1px solid rgba(232,24,109,.1);border-bottom:1px solid rgba(232,24,109,.1)}
+.dark2{background:transparent;border-top:1px solid rgba(232,24,109,.1);border-bottom:1px solid rgba(232,24,109,.1)}
+.dark2bg{background:transparent;border-top:1px solid rgba(232,24,109,.1);border-bottom:1px solid rgba(232,24,109,.1)}
 .snpink{background:var(--pink);color:#fff}
 .snpink h2,.snpink .intro,.snpink .intro b{color:#fff}
 
@@ -283,6 +283,12 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
   h2{font-size:1.9rem}
   .heroStats .t{min-width:50%}
 }
+/* contrast: lift cards off the tinted page */
+.opp,.pcard,.finCard,.mc,.mutualCard,.ptab,.pp,#bridge,.revTable,.samplingHero{box-shadow:0 2px 12px rgba(26,10,16,.06)}
+.opp,.pcard,.finCard,.mc,.mutualCard,.ptab,#bridge,.revTable{border-color:rgba(232,24,109,.2)}
+.moatStrip{border-color:rgba(232,24,109,.18)}
+.heroStats{border-color:rgba(232,24,109,.2)}
+.prn{border-color:rgba(232,24,109,.18)}
 </style>
 </head>
 <body>
@@ -315,14 +321,14 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
   <div class="wrap">
     <div class="ey rv">Snabbit · Monetization brief</div>
     <h1 class="rv">Beyond the<br><span class="pill">service fee.</span></h1>
-    <p class="lede rv">Snabbit enters <b>50,000 high-income urban homes every day</b> — verified, trusted, recurring. That is not just a services business. It is an attention network, a distribution channel, a financial services corridor, and an enterprise staffing platform waiting to be monetized. This brief maps every path from a ₹500 booking to a ₹500 Cr business.</p>
+    <p class="lede rv">Snabbit already runs <b>40,000+ home visits a day</b> into high-income urban homes — verified, trusted, recurring — and the category is still early: within 3–5 years millions of premium households will buy on-demand home help. That is not just a services business. It is an attention network, a distribution channel, a financial-services corridor, and an enterprise staffing platform waiting to be monetized. This brief maps every path from a ₹500 booking to a ₹1,500 Cr+ business.</p>
 
     <div class="heroStats rv">
-      <div class="t"><div class="n">50K+</div><div class="l">SEC A/A+ households served</div></div>
-      <div class="t"><div class="n">10K+</div><div class="l">verified Snabblers active</div></div>
-      <div class="t"><div class="n">Daily</div><div class="l">recurring home access</div></div>
-      <div class="t"><div class="n">3 cities</div><div class="l">Mumbai · Bangalore · Delhi NCR</div></div>
-      <div class="t"><div class="n">₹2L+</div><div class="l">avg household monthly income</div></div>
+      <div class="t"><div class="n">40K+</div><div class="l">home visits a day</div></div>
+      <div class="t"><div class="n">15K+</div><div class="l">verified Snabbler experts</div></div>
+      <div class="t"><div class="n">5 cities</div><div class="l">Mumbai · Bengaluru · Gurugram · Noida · Pune</div></div>
+      <div class="t"><div class="n">$350M</div><div class="l">valuation · ~$112M raised</div></div>
+      <div class="t"><div class="n">₹2L+</div><div class="l">avg SEC A household income</div></div>
     </div>
   </div>
 </section>
@@ -336,6 +342,38 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
       <div class="moat"><div class="mi">✅</div><div class="mk">Verified trust</div><h4>Background-checked Snabblers, recurring relationship</h4><p>The household trusts Snabbit enough to give access to their home. Trust = conversion rate no brand can buy.</p></div>
       <div class="moat"><div class="mi">👑</div><div class="mk">Premium audience</div><h4>SEC A/A+ · 28–45 · dual-income · high LTV</h4><p>The most valuable urban consumer cohort in India. Exactly who Nykaa, Apple, Ariel, and HDFC are chasing.</p></div>
       <div class="moat"><div class="mi">🔁</div><div class="mk">Recurring frequency</div><h4>Daily or weekly home visits · not a one-off</h4><p>Repeat physical access is a distribution channel, not a moment. FMCG brands would pay for this permanently.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark2bg">
+  <div class="wrap">
+    <div class="shead rv"><span class="snum">↗</span><span class="slbl">The market · 3–5 year view</span></div>
+    <h2 class="rv">The household base is<br>about to <span class="pill">10×</span>.</h2>
+    <p class="intro rv">India's home-services market is ~$60B today and heads to ~$100B by FY30 — but only ~3% of the top-8 cities buy it <b>online</b>, and that share is just starting to compound. The affluent base Snabbit serves is projected to reach <b>~100M people (~25M households) by 2027</b>. The prize is not the service fee on today's homes — it is owning the trusted relationship with <b>millions</b> of premium households as the category moves online.</p>
+
+    <div class="heroStats rv" style="margin-top:30px">
+      <div class="t"><div class="n">$60B→$100B</div><div class="l">India home services · FY25→FY30</div></div>
+      <div class="t"><div class="n">$15–18B</div><div class="l">instant home-help niche by 2030</div></div>
+      <div class="t"><div class="n">~100M</div><div class="l">affluent Indians by 2027 (Goldman Sachs)</div></div>
+      <div class="t"><div class="n">~3%</div><div class="l">top-8 city online penetration today</div></div>
+    </div>
+
+    <div class="shead rv" style="margin-top:46px"><span class="snum">—</span><span class="slbl">Households a platform like Snabbit can serve by Year 5</span></div>
+    <div class="revTable rv">
+      <div class="revHead"><div>Scenario</div><div>Penetration</div><div>Households served</div><div>Blended revenue potential</div></div>
+      <div class="revRow"><div class="rn">Bear</div><div class="rv2">~10%</div><div class="rv2">~1.5M</div><div>₹500–800 Cr / yr</div></div>
+      <div class="revRow"><div class="rn">Base</div><div class="rv2">~20%</div><div class="rv2">~3M</div><div>₹1,500–2,200 Cr / yr</div></div>
+      <div class="revRow"><div class="rn">Bull</div><div class="rv2">~35%</div><div class="rv2">~5–6M</div><div>₹3,500–4,500 Cr / yr</div></div>
+      <div class="revRow revTotal"><div class="rn">Addressable base</div><div class="rv2">100%</div><div class="rv2">~15M</div><div style="color:var(--pink);font-weight:700">SEC A metro homes, 3–5 yr horizon</div></div>
+    </div>
+    <div class="guard rv" style="margin-top:22px"><b>How to read it:</b> an estimated <b>~15M affluent metro households</b> will pay for on-demand home help within 3–5 years (top-8 cities today, top-15 as coverage expands). At a blended <b>₹6–10K per household per year</b> across service commission + ads, sampling, fintech and commerce, the base case is a <b>₹1,500–2,200 Cr revenue business</b> — already larger than today's category leader — on a relationship that starts with a ₹500 booking.</div>
+
+    <div class="shead rv" style="margin-top:46px"><span class="snum">—</span><span class="slbl">Where Snabbit sits in the race</span></div>
+    <div class="principles rv">
+      <div class="prn"><div class="prnNum">Snabbit</div><div><div class="prnTitle">~40% niche share</div><div class="prnDesc">10-min home help · 40K+ jobs/day · 15K+ experts · 5 cities. $350M valuation, ~$112M raised (Lightspeed, Elevation, Nexus, Bertelsmann).</div></div></div>
+      <div class="prn"><div class="prnNum">Urban Co · InstaHelp</div><div><div class="prnTitle">~40% · the leader</div><div class="prnDesc">₹1,144 Cr FY25 revenue, first profit (₹240 Cr), IPO'd Sept 2025. 20–30% take rate; ~20% of revenue from products — the ancillary playbook already works.</div></div></div>
+      <div class="prn"><div class="prnNum">Pronto + long tail</div><div><div class="prnTitle">~20% · challengers</div><div class="prnDesc">Pronto (~$60M raised) plus BookMyBai, Broomees. The instant-home-help niche alone is projected at $15–18B by 2030.</div></div></div>
     </div>
   </div>
 </section>
@@ -369,7 +407,7 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
         <div class="oppIcon">💳</div>
         <div class="oppKey">Stream 03</div>
         <div class="oppTitle">Snabbler Financial Services</div>
-        <div class="oppDesc">10,000+ gig workers: underbanked, first digital job, regular income. <b>Earned wage access, micro-insurance, savings, equipment loans.</b> Rapido-captain-level opportunity on the supply side.</div>
+        <div class="oppDesc">15,000+ gig workers: underbanked, first digital job, regular income. <b>Earned wage access, micro-insurance, savings, equipment loans.</b> Rapido-captain-level opportunity on the supply side.</div>
         <div class="oppChips"><span class="oppChip hi">Distribution fee</span><span class="oppChip hi">Rev-share</span><span class="oppChip">Loan origination</span></div>
         <div class="oppPotential">Yr 1–2: ₹10–20 Cr · Yr 3–5: ₹60–100 Cr</div>
       </div>
@@ -432,6 +470,7 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
   </div>
 </section>
 
+<div class="wrap"><p style="font-size:11px;color:#9A8A92;max-width:82ch;margin:8px auto 0;line-height:1.6">Market, competitor and household figures are estimates compiled from public sources (TechCrunch, YourStory, Entrackr, Tracxn, Bloomberg, Goldman Sachs, IBEF, Grand View Research, and Urban Company FY25 filings) plus independent projection. Scenarios are illustrative, not forecasts. Snabbit operating metrics as of April 2026.</p></div>
 <div class="pgfoot"><div class="in2"><span></span><a class="pgbtn primary" href="#/personas">Next · Personas →</a></div></div>
 </div>
 
@@ -725,7 +764,7 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
       </div>
       <div class="ppGrid">
         <div class="ppCell"><div class="cl">The moment</div><p><b>Post-service completion screen</b> — "Your home is cared for. Is your family?" HDFC Life term plan offer with a 2-minute quote. Household is relaxed, home is clean, family is top of mind. No more qualified moment exists in financial services acquisition.</p></div>
-        <div class="ppCell"><div class="cl">Snabbler channel</div><p>HDFC Life trains Snabblers on a 3-sentence referral pitch — not a sales pitch, a conversation starter. <b>Every maid, cook, and driver who mentions HDFC Life earns a ₹200 referral bonus.</b> 10,000 Snabblers = 10,000 financial advisors inside SEC A homes.</p></div>
+        <div class="ppCell"><div class="cl">Snabbler channel</div><p>HDFC Life trains Snabblers on a 3-sentence referral pitch — not a sales pitch, a conversation starter. <b>Every maid, cook, and driver who mentions HDFC Life earns a ₹200 referral bonus.</b> 15,000 Snabblers = 15,000 financial advisors inside SEC A homes.</p></div>
         <div class="ppCell"><div class="cl">Revenue model</div><p><b>CPA on qualified leads + referral commission on policy issuance.</b> HDFC Life's current CAC for a term policy is ₹3,000–8,000. Snabbit can deliver a qualified household lead for ₹800–1,500 — verified income, verified homeowner, verified family composition.</p></div>
       </div>
       <div class="ppLine">"Your best lead is a homeowner thinking about their family. We see them every week."</div>
@@ -794,8 +833,8 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
 <section class="sec snpink">
   <div class="wrap">
     <div class="shead rv"><span class="snum" style="border-color:rgba(255,255,255,.4);color:#fff">04</span><span class="slbl" style="color:rgba(255,255,255,.8)">Financial services</span></div>
-    <h2 class="rv" style="color:#fff">10,000 Snabblers.<br>Zero credit history.<br><span style="background:#0A0E1A;color:var(--pink);padding:0 .1em;border-radius:.1em">Every product.</span></h2>
-    <p class="intro rv" style="color:rgba(255,255,255,.85)">Snabbit's 10,000 Snabblers are the most underserved financial cohort in urban India — regular income, verified identity, known work history, zero formal credit. This is both a social obligation and a significant revenue opportunity. The two are not in conflict.</p>
+    <h2 class="rv" style="color:#fff">15,000 Snabblers.<br>Zero credit history.<br><span style="background:#0A0E1A;color:var(--pink);padding:0 .1em;border-radius:.1em">Every product.</span></h2>
+    <p class="intro rv" style="color:rgba(255,255,255,.85)">Snabbit's 15,000 Snabblers are the most underserved financial cohort in urban India — regular income, verified identity, known work history, zero formal credit. This is both a social obligation and a significant revenue opportunity. The two are not in conflict.</p>
   </div>
 </section>
 
@@ -805,10 +844,10 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
     <div class="shead rv"><span class="snum">—</span><span class="slbl">Snabbler financial products</span></div>
     <div class="finGrid rv">
       <div class="finCard"><div class="fk">Earned wage access</div><h4>Draw tomorrow's earnings today</h4><p>Snabblers can withdraw earned wages daily instead of waiting for weekly/monthly payout. <b>Snabbit charges 1–2% float fee.</b> Partners: Refyne, EarlySalary, Salary Finance.</p><div class="fpotential">₹5–10 Cr Yr 1 · near-zero risk (earned wages only)</div></div>
-      <div class="finCard"><div class="fk">Micro health insurance</div><h4>₹199/mo family cover</h4><p>Hospitalization cover for Snabbler and 3 dependents. <b>Snabbit earns 15–20% distribution fee.</b> Partners: Acko, Digit, Niva Bupa. Bulk negotiated rates — 10,000 lives at once.</p><div class="fpotential">₹3–7 Cr Yr 1 distribution fee</div></div>
+      <div class="finCard"><div class="fk">Micro health insurance</div><h4>₹199/mo family cover</h4><p>Hospitalization cover for Snabbler and 3 dependents. <b>Snabbit earns 15–20% distribution fee.</b> Partners: Acko, Digit, Niva Bupa. Bulk negotiated rates — 15,000 lives at once.</p><div class="fpotential">₹3–7 Cr Yr 1 distribution fee</div></div>
       <div class="finCard"><div class="fk">Savings account</div><h4>Zero-balance · UPI-enabled · goal-linked</h4><p>First bank account for many Snabblers. <b>Referral fee ₹200–500 per activated account.</b> Partners: Jupiter, Fi Money, Airtel Payments Bank. Snabbit controls payroll — clean salary credit from day 1.</p><div class="fpotential">₹2–4 Cr Yr 1 · long-term loyalty asset</div></div>
       <div class="finCard"><div class="fk">Equipment &amp; tool loans</div><h4>Cleaning kit, uniforms, phone upgrades</h4><p>Snabbler needs a better mop or a new smartphone to use the app. <b>Snabbit underwrites with earnings data — zero credit score needed.</b> Loan repaid via salary deduction. Partners: KreditBee, StashFin.</p><div class="fpotential">₹4–8 Cr Yr 1 origination fees</div></div>
-      <div class="finCard"><div class="fk">Life &amp; accident cover</div><h4>Term cover · ₹10L sum assured · ₹99/mo</h4><p>Snabbler works in homes — risk is low but cover is meaningful. <b>Group term rate negotiated by Snabbit for 10,000 lives.</b> Distribution fee 15%. Partners: LIC, HDFC Life, Max Life.</p><div class="fpotential">₹2–4 Cr Yr 1 · highest loyalty impact</div></div>
+      <div class="finCard"><div class="fk">Life &amp; accident cover</div><h4>Term cover · ₹10L sum assured · ₹99/mo</h4><p>Snabbler works in homes — risk is low but cover is meaningful. <b>Group term rate negotiated by Snabbit for 15,000 lives.</b> Distribution fee 15%. Partners: LIC, HDFC Life, Max Life.</p><div class="fpotential">₹2–4 Cr Yr 1 · highest loyalty impact</div></div>
       <div class="finCard"><div class="fk">Credit builder</div><h4>Secured credit card · ₹5,000 limit</h4><p>Snabbit salary as collateral. Snabbler builds credit score over 12 months. <b>Referral fee + interchange revenue share.</b> Partners: Slice, OneCard, AU Bank.</p><div class="fpotential">₹1–3 Cr Yr 1 · ₹15–25 Cr Yr 3–5</div></div>
     </div>
 
@@ -932,7 +971,7 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
   </div>
 </section>
 
-<section class="sec" style="padding-top:40px;background:#FFFFFF">
+<section class="sec" style="padding-top:40px">
   <div class="wrap">
     <div class="mutualGrid rv">
 
@@ -979,7 +1018,7 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
         <div class="mcardExchange">
           <div class="mcardSide snabbit">
             <div class="mcardSideLabel">Snabbit gives</div>
-            <ul><li>New-parent household signal → baby care + pediatrician CPA</li><li>Elder care household signal → health checkup + medicine delivery</li><li>Snabbler health insurance distribution (10K lives)</li></ul>
+            <ul><li>New-parent household signal → baby care + pediatrician CPA</li><li>Elder care household signal → health checkup + medicine delivery</li><li>Snabbler health insurance distribution (15K lives)</li></ul>
           </div>
           <div class="mcardArrow">⇌</div>
           <div class="mcardSide partner">
@@ -1002,11 +1041,11 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
           </div>
           <div class="mcardTag" style="background:rgba(124,58,237,.1);color:#7C3AED;border-color:rgba(124,58,237,.3)">Fintech</div>
         </div>
-        <div class="mcardThesis">Acko built insurance products designed to be sold inside apps in 3 minutes. Snabbit has two captive pools: <b>10,000 underinsured Snabblers who need cover and 50,000 homeowners who need home + content insurance.</b> Acko gets zero-CAC, identity-verified distribution at scale.</div>
+        <div class="mcardThesis">Acko built insurance products designed to be sold inside apps in 3 minutes. Snabbit has two captive pools: <b>15,000 underinsured Snabblers who need cover and 50,000 homeowners who need home + content insurance.</b> Acko gets zero-CAC, identity-verified distribution at scale.</div>
         <div class="mcardExchange">
           <div class="mcardSide snabbit">
             <div class="mcardSideLabel">Snabbit gives</div>
-            <ul><li>10K Snabblers — pre-verified identity for health + accident cover</li><li>50K homeowners — home insurance distribution at service booking</li><li>Verified household composition for product underwriting</li></ul>
+            <ul><li>15K Snabblers — pre-verified identity for health + accident cover</li><li>50K homeowners — home insurance distribution at service booking</li><li>Verified household composition for product underwriting</li></ul>
           </div>
           <div class="mcardArrow">⇌</div>
           <div class="mcardSide partner">
