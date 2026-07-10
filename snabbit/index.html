@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Snabbit — Monetization Opportunities</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1A0A10; --ink2:#221218; --ink3:#2E1820;
+  --paper:#FFF5F9; --paperW:#FFFFFF;
+  --pink:#E8186D; --pinkL:#F03E8A; --pinkD:#C4125A;
+  --pinkGlow:rgba(232,24,109,.15);
+  --green:#22C55E; --yellow:#FF9500;
+  --grey:#9A8A92; --grey2:#6E5E66;
+  --line:rgba(232,24,109,.12); --lineD:rgba(255,255,255,.08);
+  --disp:'Plus Jakarta Sans',system-ui,sans-serif;
+  --body:'DM Sans',system-ui,sans-serif;
+  --mono:'DM Mono','Courier New',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#FFFFFF;color:#1A0A10;font-family:var(--body);font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:var(--disp);font-weight:800;line-height:1.05;letter-spacing:-.025em;color:#1A0A10}
+b{font-weight:600}
+.wrap{max-width:1120px;margin:0 auto;padding:0 26px}
+section{position:relative}
+
+/* ── TOPBAR ── */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:calc(12px + env(safe-area-inset-top)) 26px 12px;background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid rgba(232,24,109,.1)}
+.topbar .brand{display:flex;align-items:center;gap:10px}
+.tbLogo{width:32px;height:32px;background:var(--pink);border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-weight:800;font-size:14px;color:#0A0E1A;flex-shrink:0}
+.tbName{font-family:var(--disp);font-weight:800;font-size:17px;color:#1A0A10}
+.tbTag{color:#9A8A92;font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase}
+.nav{display:flex;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#9A8A92;padding:6px 13px;border-radius:100px;white-space:nowrap;text-decoration:none;border:1px solid transparent;transition:all .2s}
+.nav a:hover{color:var(--pink)}
+.nav a.on{color:var(--pink);border-color:rgba(232,24,109,.4);background:rgba(232,24,109,.06)}
+
+/* ── PAGE SYSTEM ── */
+.page{display:none;padding-top:68px;min-height:100vh}
+.page.on{display:block}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .5s,transform .5s}
+.rv.in{opacity:1;transform:none}
+
+/* ── SECTIONS ── */
+.sec{padding:60px 0}
+.teal{background:var(--pink);color:#0A0E1A}
+.navy{background:var(--navy);color:#1A0A10}
+.dark2{background:#FFF5F9;border-top:1px solid rgba(232,24,109,.1);border-bottom:1px solid rgba(232,24,109,.1)}
+.dark2bg{background:#FFF5F9;border-top:1px solid rgba(232,24,109,.1);border-bottom:1px solid rgba(232,24,109,.1)}
+.snpink{background:var(--pink);color:#fff}
+.snpink h2,.snpink .intro,.snpink .intro b{color:#fff}
+
+/* ── SECTION HEADS ── */
+.shead{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.snum{font-family:var(--mono);font-size:11px;color:var(--pink);letter-spacing:.12em;border:1px solid rgba(232,24,109,.35);border-radius:100px;padding:5px 13px;white-space:nowrap}
+.slbl{color:#9A8A92;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase}
+h2{font-size:clamp(2rem,4.5vw,3.2rem);max-width:22ch;color:#1A0A10}
+h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;border-radius:.12em}
+.intro{font-size:15.5px;color:#6E5E66;max-width:70ch;margin-top:14px;line-height:1.65}
+.intro b{color:#1A0A10}
+
+/* ── SNABBIT HERO ── */
+.hero{position:relative;overflow:hidden;padding:100px 0 70px}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(110% 70% at 80% 10%,rgba(232,24,109,.06),transparent 65%);pointer-events:none}
+.hero .ey{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--pink);margin-bottom:22px;display:flex;align-items:center;gap:8px}
+.hero .ey::before{content:"";width:28px;height:2px;background:var(--pink);border-radius:2px}
+.hero h1{font-size:clamp(2.4rem,5.5vw,4rem);max-width:18ch}
+.hero h1 .pill{background:var(--pink);color:#fff}
+.hero .lede{font-size:15.5px;color:#8A7A82;max-width:60ch;margin-top:18px;line-height:1.65}
+.hero .lede b{color:#1A0A10}
+
+.heroStats{display:flex;flex-wrap:wrap;margin-top:50px;border-top:1px solid rgba(232,24,109,.1);border-bottom:1px solid rgba(232,24,109,.1)}
+.heroStats .t{flex:1;min-width:120px;padding:16px 20px 14px;border-right:1px solid rgba(232,24,109,.1)}
+.heroStats .t:last-child{border-right:none}
+.heroStats .n{font-family:var(--disp);font-weight:800;font-size:clamp(1.3rem,2.8vw,1.9rem);color:var(--pink)}
+.heroStats .l{color:#9A8A92;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
+
+/* ── MOAT STRIP ── */
+.moatStrip{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:46px;background:rgba(232,24,109,.1);border:1px solid rgba(232,24,109,.1);border-radius:16px;overflow:hidden}
+@media(max-width:760px){.moatStrip{grid-template-columns:1fr 1fr}}
+.moat{background:#FFF5F9;padding:22px 20px}
+.moat .mi{font-size:22px;margin-bottom:10px}
+.moat .mk{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--pink);margin-bottom:5px}
+.moat h4{font-size:1rem;color:#1A0A10;margin-bottom:5px;letter-spacing:-.01em}
+.moat p{font-size:12.5px;color:#9A8A92;line-height:1.45}
+
+/* ── REVENUE BRIDGE BARS ── */
+#bridge{margin-top:48px;padding:34px 28px;background:#FFF5F9;border:1px solid rgba(232,24,109,.1);border-radius:20px}
+.bTitle{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--pink);margin-bottom:32px}
+.bRow{display:flex;align-items:flex-end;gap:8px;height:180px;margin-bottom:12px}
+.bcol{flex:1;display:flex;flex-direction:column;align-items:center;position:relative;height:100%;opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s}
+.bcol.in{opacity:1;transform:none}
+.bcol .bv{font-family:var(--disp);font-weight:800;font-size:1rem;margin-bottom:8px;opacity:0;transition:opacity .5s .6s;color:var(--pink)}
+.bcol.in .bv{opacity:1}
+.bbar{width:100%;border-radius:8px 8px 0 0;transition:height .9s cubic-bezier(.22,.61,.36,1);height:0}
+.bbar.base{background:linear-gradient(180deg,#1E2A4A,#141D35);border:1px solid rgba(232,24,109,.1)}
+.bbar.step{background:linear-gradient(180deg,#F03E8A,var(--pink))}
+.bbar.total{background:linear-gradient(180deg,#FFE08A,var(--yellow));box-shadow:0 0 36px rgba(255,209,102,.2)}
+.bcol .bl{position:absolute;bottom:-38px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;color:#9A8A92;text-align:center;width:130%;line-height:1.35}
+.bridgeNote{margin-top:64px;border-left:3px solid var(--pink);padding:4px 0 4px 18px;font-size:14.5px;color:#6E5E66;max-width:72ch}
+.bridgeNote b{color:#1A0A10}
+
+/* ── NAV PAGES ── */
+.pgfoot{padding:20px 0 32px;border-top:1px solid rgba(232,24,109,.1);margin-top:24px}
+.pgfoot .in2{max-width:1120px;margin:0 auto;padding:0 26px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.pgbtn{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(232,24,109,.1);border-radius:100px;padding:10px 20px;color:#9A8A92;text-decoration:none;transition:all .2s}
+.pgbtn:hover{border-color:var(--pink);color:var(--pink)}
+.pgbtn.primary{background:var(--pink);color:#0A0E1A;border-color:var(--pink);font-weight:600}
+.pgbtn.primary:hover{background:var(--pinkD);border-color:var(--pinkD)}
+
+/* ── OPPORTUNITY CARDS ── */
+.oppGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:14px;margin-top:16px}
+.opp{border:1px solid rgba(232,24,109,.1);border-radius:18px;background:#FFF5F9;padding:24px;position:relative;overflow:hidden;transition:border-color .2s,transform .2s}
+.opp:hover{border-color:rgba(232,24,109,.3);transform:translateY(-3px)}
+.opp::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--oppAccent,var(--pink));opacity:.7}
+.oppIcon{font-size:26px;margin-bottom:14px}
+.oppKey{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--pink);margin-bottom:6px}
+.oppTitle{font-family:var(--disp);font-weight:700;font-size:1.15rem;color:#1A0A10;margin-bottom:8px;letter-spacing:-.01em}
+.oppDesc{font-size:13.5px;color:#7A6A72;line-height:1.5}
+.oppDesc b{color:#1A0A10}
+.oppChips{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px}
+.oppChip{font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(232,24,109,.1);border-radius:100px;padding:3px 9px;color:#7A6A72}
+.oppChip.hi{border-color:rgba(232,24,109,.35);color:var(--pink);background:rgba(232,24,109,.07)}
+.oppPotential{margin-top:12px;padding-top:10px;border-top:1px solid rgba(232,24,109,.1);font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--yellow)}
+
+/* ── PERSONAS ── */
+.personaGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:16px}
+.pcard{border:1px solid rgba(232,24,109,.1);border-radius:16px;background:#FFF5F9;overflow:hidden;transition:transform .22s}
+.pcard:hover{transform:translateY(-4px)}
+.pcard .pimg{width:100%;height:170px;object-fit:cover;object-position:top center;display:block}
+.pcard .av{display:none}
+.pcard h3{font-size:1.05rem;color:#1A0A10;margin:14px 20px 2px}
+.pcard .pm{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);margin-bottom:8px;padding:0 20px}
+.pcard p{font-size:13px;color:#7A6A72;line-height:1.45;padding:0 20px}
+.pcard .asset{margin:12px 20px 18px;padding-top:10px;border-top:1px solid rgba(232,24,109,.1);font-size:12.5px;color:#1A0A10;font-weight:600}
+.pcard .asset span{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);display:block;margin-bottom:3px;font-weight:400}
+
+/* ── SAMPLE PITCH TABS ── */
+.ptabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.ptab{flex:1;min-width:140px;text-align:left;border:1px solid rgba(232,24,109,.1);background:#FFF5F9;border-radius:14px;padding:14px 16px;cursor:pointer;transition:all .25s;color:#1A0A10;font-family:var(--body)}
+.ptab .pk{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#9A8A92;margin-bottom:6px}
+.ptab h3{font-size:1rem;letter-spacing:-.01em;font-family:var(--disp);font-weight:700}
+.ptab.on{border-color:rgba(232,24,109,.5);background:rgba(232,24,109,.08)}
+.ptab.on .pk{color:var(--pink)}
+
+.pp{display:none;border:1px solid rgba(232,24,109,.1);border-radius:16px;background:#FFF5F9;padding:28px}
+.pp.on{display:block}
+.ppTop{margin-bottom:20px}
+.ppTop .who{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);margin-bottom:10px}
+.ppTop h3{font-size:1.5rem;margin-bottom:10px;color:#1A0A10}
+.ppTop p{font-size:14px;color:#7A6A72;line-height:1.55;max-width:72ch}
+.ppGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+@media(max-width:760px){.ppGrid{grid-template-columns:1fr}}
+.ppCell{border:1px solid rgba(232,24,109,.1);border-radius:12px;padding:16px}
+.ppCell .cl{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--pink);margin-bottom:8px}
+.ppCell p{font-size:13px;color:#7A6A72;line-height:1.5}
+.ppCell p b{color:#1A0A10}
+.ppLine{margin-top:20px;font-family:var(--disp);font-size:1.15rem;font-weight:700;color:#1A0A10;border-left:3px solid var(--pink);padding-left:16px;line-height:1.4;letter-spacing:-.01em}
+
+/* ── MUTUAL PARTNERSHIP CARDS ── */
+.mutualGrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+@media(max-width:860px){.mutualGrid{grid-template-columns:1fr}}
+.mutualCard{border:1px solid rgba(232,24,109,.1);border-radius:18px;background:#FFF5F9;padding:22px;display:flex;flex-direction:column;gap:16px;transition:border-color .2s}
+.mutualCard:hover{border-color:rgba(232,24,109,.25)}
+.mcardTop{display:flex;align-items:center;gap:12px}
+.mcardLogo{width:42px;height:42px;border-radius:11px;flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.mcardMeta{flex:1;min-width:0}
+.mcardName{font-family:var(--disp);font-weight:700;font-size:1.05rem;color:#1A0A10;letter-spacing:-.01em}
+.mcardSub{font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;color:#9A8A92;margin-top:2px;text-transform:uppercase}
+.mcardTag{font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;border:1px solid;border-radius:100px;padding:3px 9px;white-space:nowrap;flex-shrink:0}
+.mcardThesis{font-size:13px;color:#7A6A72;line-height:1.55}
+.mcardThesis b{color:#1A0A10}
+.mcardExchange{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:start;background:rgba(232,24,109,.04);border-radius:11px;padding:13px}
+.mcardSide ul{list-style:none;display:grid;gap:5px;margin-top:7px}
+.mcardSide li{font-size:12px;color:#7A6A72;line-height:1.4;padding-left:11px;position:relative}
+.mcardSide li::before{content:"";position:absolute;left:0;top:.55em;width:5px;height:5px;border-radius:50%}
+.mcardSide.snabbit li::before{background:var(--pink)}
+.mcardSide.partner li::before{background:var(--green)}
+.mcardSideLabel{font-family:var(--mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase}
+.mcardSide.snabbit .mcardSideLabel{color:var(--pink)}
+.mcardSide.partner .mcardSideLabel{color:var(--green)}
+.mcardArrow{font-size:1.2rem;color:#9A8A92;opacity:.4;padding-top:16px}
+.mcardModel{display:flex;align-items:baseline;gap:8px;padding-top:12px;border-top:1px solid rgba(232,24,109,.1);flex-wrap:wrap}
+.mcardModelLabel{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:#9A8A92;white-space:nowrap}
+.mcardModelVal{font-size:12px;color:var(--pink);font-weight:600;line-height:1.4}
+
+/* ── FORMAT MOMENT CARDS ── */
+.momentGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:12px}
+.mc{border:1px solid rgba(232,24,109,.1);border-radius:16px;background:#FFF5F9;overflow:hidden;transition:border-color .2s}
+.mc:hover{border-color:rgba(232,24,109,.25)}
+.mcHead{padding:15px 17px 11px;border-bottom:1px solid rgba(232,24,109,.1);display:flex;align-items:center;gap:9px}
+.mcIcon{font-size:19px;line-height:1;flex-shrink:0}
+.mcMeta{flex:1}
+.mcMoment{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#9A8A92}
+.mcTitle{font-family:var(--disp);font-weight:700;font-size:.95rem;color:#1A0A10;letter-spacing:-.01em;margin-top:1px}
+.mcDuration{font-family:var(--mono);font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);margin-top:2px}
+.mcFormats{padding:13px 17px;display:grid;gap:8px}
+.mf{display:flex;align-items:flex-start;gap:8px}
+.mfDot{width:5px;height:5px;border-radius:50%;background:var(--pink);flex-shrink:0;margin-top:5px}
+.mfName{font-size:12.5px;color:#1A0A10;font-weight:600;line-height:1.2}
+.mfDesc{font-size:11px;color:#A08A94;line-height:1.35;margin-top:1px}
+.mfTag{display:inline-block;font-family:var(--mono);font-size:7.5px;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(232,24,109,.1);border-radius:100px;padding:2px 7px;color:#8A95B0;margin-top:3px}
+.mfTag.brand{border-color:rgba(139,159,232,.4);color:#F472B6}
+.mfTag.perf{border-color:rgba(232,24,109,.35);color:var(--pink)}
+.mfTag.both{border-color:rgba(255,209,102,.35);color:var(--yellow)}
+
+/* Flagship sponsored format */
+.sponsoredHome{border:1px solid rgba(232,24,109,.3);border-radius:18px;background:linear-gradient(135deg,rgba(232,24,109,.08),rgba(232,24,109,.02));padding:26px 28px;margin-bottom:14px;position:relative;overflow:hidden}
+.sponsoredHome::before{content:"";position:absolute;top:-50px;right:-50px;width:170px;height:170px;background:radial-gradient(circle,rgba(232,24,109,.15),transparent 70%);pointer-events:none}
+.shBadge{display:inline-flex;align-items:center;gap:7px;background:var(--pink);color:#0A0E1A;border-radius:100px;padding:5px 13px;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:14px}
+.shTitle{font-family:var(--disp);font-weight:800;font-size:1.45rem;color:#1A0A10;letter-spacing:-.02em;margin-bottom:7px}
+.shDesc{font-size:13.5px;color:#7A6A72;line-height:1.55;max-width:68ch;margin-bottom:16px}
+.shDesc b{color:#1A0A10}
+.shFormats{display:flex;flex-wrap:wrap;gap:8px}
+.shFormat{border:1px solid rgba(232,24,109,.2);border-radius:10px;padding:10px 13px;background:rgba(232,24,109,.04);min-width:160px;flex:1}
+.shfLabel{font-family:var(--mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--pink);margin-bottom:3px}
+.shfName{font-size:12.5px;color:#1A0A10;font-weight:600}
+.shfDesc{font-size:11.5px;color:#A08A94;margin-top:2px;line-height:1.35}
+
+/* Legend */
+.fmtLegend{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;padding-top:11px;border-top:1px solid rgba(232,24,109,.1)}
+.fmtLegend .fl{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#7A6A72}
+.fmtLegend .fld{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+
+/* Fintech / Snabbler financial products */
+.finGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.finCard{border:1px solid rgba(232,24,109,.1);border-radius:14px;background:#FFF5F9;padding:20px;transition:border-color .2s}
+.finCard:hover{border-color:rgba(232,24,109,.2)}
+.finCard .fk{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--pink);margin-bottom:6px}
+.finCard h4{font-family:var(--disp);font-size:1rem;color:#1A0A10;margin-bottom:6px;letter-spacing:-.01em;font-weight:700}
+.finCard p{font-size:13px;color:#7A6A72;line-height:1.45}
+.finCard p b{color:#1A0A10}
+.finCard .fpotential{margin-top:10px;font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--pink)}
+
+/* Revenue table */
+.revTable{margin-top:36px;border:1px solid rgba(232,24,109,.1);border-radius:16px;overflow:hidden}
+.revHead{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;background:rgba(232,24,109,.06);border-bottom:1px solid rgba(232,24,109,.15)}
+.revHead div{padding:11px 16px;font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--pink)}
+.revRow{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;border-bottom:1px solid rgba(232,24,109,.1)}
+.revRow:last-child{border-bottom:none}
+.revRow div{padding:13px 16px;font-size:13px;color:#7A6A72}
+.revRow .rn{color:#1A0A10;font-weight:700;font-family:var(--disp);font-size:.95rem;letter-spacing:-.01em}
+.revRow .rv2{color:var(--pink);font-family:var(--mono);font-size:11.5px}
+.revTotal{background:rgba(232,24,109,.05)}
+.revTotal div{color:var(--pink);font-weight:700}
+
+/* Sampling hero section */
+.samplingHero{background:linear-gradient(135deg,rgba(232,24,109,.07),rgba(232,24,109,.03));border:1px solid rgba(232,24,109,.2);border-radius:18px;padding:28px;margin-bottom:16px;position:relative;overflow:hidden}
+.samplingHero::before{content:"";position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(255,209,102,.15),transparent 70%)}
+.samplingHero .shk{font-family:var(--mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--pink);margin-bottom:12px}
+.samplingHero h3{font-size:1.5rem;margin-bottom:8px}
+.samplingHero p{font-size:14px;color:#7A6A72;max-width:64ch;line-height:1.55}
+.samplingHero p b{color:#1A0A10}
+.samplingGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:18px}
+.sampCard{border:1px solid rgba(232,24,109,.15);border-radius:12px;padding:14px;background:rgba(232,24,109,.04)}
+.sampCard .sk{font-family:var(--mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--pink);margin-bottom:5px}
+.sampCard .sn{font-size:13px;color:#1A0A10;font-weight:600;margin-bottom:3px}
+.sampCard .sd{font-size:12px;color:#A08A94;line-height:1.35}
+
+/* Guard / principle */
+.guard{border-left:3px solid var(--pink);padding:4px 0 4px 18px;color:#6E5E66;font-size:14px;max-width:75ch;line-height:1.55}
+.guard b{color:#1A0A10}
+
+/* Principles grid */
+.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+@media(max-width:760px){.principles{grid-template-columns:1fr}}
+.prn{display:flex;gap:12px;border:1px solid rgba(232,24,109,.1);border-radius:13px;padding:16px}
+.prnNum{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);flex-shrink:0;padding-top:2px}
+.prnTitle{font-family:var(--disp);font-weight:700;font-size:.95rem;color:#1A0A10;margin-bottom:4px;letter-spacing:-.01em}
+.prnDesc{font-size:12.5px;color:#A08A94;line-height:1.45}
+
+@media(max-width:760px){
+  .revHead,.revRow{grid-template-columns:1.5fr 1fr}
+  .revHead div:nth-child(3),.revRow div:nth-child(3){display:none}
+  .shFormats{flex-direction:column}
+}
+@media(max-width:520px){
+  h2{font-size:1.9rem}
+  .heroStats .t{min-width:50%}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="brand">
+    <div class="tbLogo">S</div>
+    <div>
+      <div class="tbName">Snabbit</div>
+      <div class="tbTag">Monetization strategy</div>
+    </div>
+  </div>
+  <nav class="nav">
+    <a href="#/" data-r="/" class="on">Overview</a>
+    <a href="#/personas" data-r="/personas">Personas</a>
+    <a href="#/ads" data-r="/ads">Ads &amp; Sampling</a>
+    <a href="#/fintech" data-r="/fintech">Fintech</a>
+    <a href="#/b2b" data-r="/b2b">B2B</a>
+    <a href="#/partnerships" data-r="/partnerships">Partnerships</a>
+  </nav>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: OVERVIEW / HOME -->
+<!-- ============================================================ -->
+<div class="page on" data-page="/">
+
+<section class="hero">
+  <div class="wrap">
+    <div class="ey rv">Snabbit · Monetization brief</div>
+    <h1 class="rv">Beyond the<br><span class="pill">service fee.</span></h1>
+    <p class="lede rv">Snabbit enters <b>50,000 high-income urban homes every day</b> — verified, trusted, recurring. That is not just a services business. It is an attention network, a distribution channel, a financial services corridor, and an enterprise staffing platform waiting to be monetized. This brief maps every path from a ₹500 booking to a ₹500 Cr business.</p>
+
+    <div class="heroStats rv">
+      <div class="t"><div class="n">50K+</div><div class="l">SEC A/A+ households served</div></div>
+      <div class="t"><div class="n">10K+</div><div class="l">verified Snabblers active</div></div>
+      <div class="t"><div class="n">Daily</div><div class="l">recurring home access</div></div>
+      <div class="t"><div class="n">3 cities</div><div class="l">Mumbai · Bangalore · Delhi NCR</div></div>
+      <div class="t"><div class="n">₹2L+</div><div class="l">avg household monthly income</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark2bg">
+  <div class="wrap">
+    <div class="shead rv"><span class="snum">—</span><span class="slbl">The unfair advantages</span></div>
+    <h2 class="rv">What no other platform owns.</h2>
+    <div class="moatStrip rv">
+      <div class="moat"><div class="mi">🏠</div><div class="mk">Home access</div><h4>Physical presence inside 50K homes</h4><p>Not an impression. An actual person, trusted, in the kitchen or nursery. No ad platform can buy this.</p></div>
+      <div class="moat"><div class="mi">✅</div><div class="mk">Verified trust</div><h4>Background-checked Snabblers, recurring relationship</h4><p>The household trusts Snabbit enough to give access to their home. Trust = conversion rate no brand can buy.</p></div>
+      <div class="moat"><div class="mi">👑</div><div class="mk">Premium audience</div><h4>SEC A/A+ · 28–45 · dual-income · high LTV</h4><p>The most valuable urban consumer cohort in India. Exactly who Nykaa, Apple, Ariel, and HDFC are chasing.</p></div>
+      <div class="moat"><div class="mi">🔁</div><div class="mk">Recurring frequency</div><h4>Daily or weekly home visits · not a one-off</h4><p>Repeat physical access is a distribution channel, not a moment. FMCG brands would pay for this permanently.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="shead rv"><span class="snum">₹</span><span class="slbl">Revenue streams — the full map</span></div>
+    <h2 class="rv">Seven ways to monetize<br>the same <span class="pill">home visit.</span></h2>
+
+    <div class="oppGrid rv">
+
+      <div class="opp" style="--oppAccent:#E8186D">
+        <div class="oppIcon">📱</div>
+        <div class="oppKey">Stream 01</div>
+        <div class="oppTitle">In-app Advertising</div>
+        <div class="oppDesc">Premium SEC A/A+ inventory — household FMCG, baby care, home décor, appliances. <b>Post-service notification open rates ~80%</b> — the highest attention moment in any app.</div>
+        <div class="oppChips"><span class="oppChip hi">CPM</span><span class="oppChip hi">CPA</span><span class="oppChip">Sponsored listings</span><span class="oppChip">Native cards</span></div>
+        <div class="oppPotential">Yr 1–2: ₹8–15 Cr · Yr 3–5: ₹50–80 Cr</div>
+      </div>
+
+      <div class="opp" style="--oppAccent:#FFD166">
+        <div class="oppIcon">🎁</div>
+        <div class="oppKey">Stream 02</div>
+        <div class="oppTitle">In-home Product Sampling</div>
+        <div class="oppDesc">Snabblers carry and place FMCG samples inside homes during service. <b>Verified placement in SEC A+ homes with photo confirmation.</b> The most premium last-mile sampling channel in India.</div>
+        <div class="oppChips"><span class="oppChip hi">Per-sample fee</span><span class="oppChip hi">Brand activation</span><span class="oppChip">Verified placement</span></div>
+        <div class="oppPotential">Yr 1–2: ₹5–12 Cr · Yr 3–5: ₹40–70 Cr</div>
+      </div>
+
+      <div class="opp" style="--oppAccent:#F472B6">
+        <div class="oppIcon">💳</div>
+        <div class="oppKey">Stream 03</div>
+        <div class="oppTitle">Snabbler Financial Services</div>
+        <div class="oppDesc">10,000+ gig workers: underbanked, first digital job, regular income. <b>Earned wage access, micro-insurance, savings, equipment loans.</b> Rapido-captain-level opportunity on the supply side.</div>
+        <div class="oppChips"><span class="oppChip hi">Distribution fee</span><span class="oppChip hi">Rev-share</span><span class="oppChip">Loan origination</span></div>
+        <div class="oppPotential">Yr 1–2: ₹10–20 Cr · Yr 3–5: ₹60–100 Cr</div>
+      </div>
+
+      <div class="opp" style="--oppAccent:#E8186D">
+        <div class="oppIcon">🏢</div>
+        <div class="oppKey">Stream 04</div>
+        <div class="oppTitle">B2B / Enterprise</div>
+        <div class="oppDesc">Office cleaning, co-working housekeeping, real estate developer contracts, hotel on-demand staffing. <b>Higher ticket, recurring, zero consumer acquisition cost.</b></div>
+        <div class="oppChips"><span class="oppChip hi">Contract revenue</span><span class="oppChip">AMC</span><span class="oppChip">Staffing margin</span></div>
+        <div class="oppPotential">Yr 1–2: ₹15–30 Cr · Yr 3–5: ₹80–150 Cr</div>
+      </div>
+
+      <div class="opp" style="--oppAccent:#FFD166">
+        <div class="oppIcon">🛒</div>
+        <div class="oppKey">Stream 05</div>
+        <div class="oppTitle">Household Commerce</div>
+        <div class="oppDesc">Cleaning products, baby essentials, home care items — ordered through Snabbit, delivered by the Snabbler or next-day. <b>The Snabbler already knows what the household needs.</b></div>
+        <div class="oppChips"><span class="oppChip hi">Take rate 15–25%</span><span class="oppChip">White-label products</span><span class="oppChip">Replenishment</span></div>
+        <div class="oppPotential">Yr 1–2: ₹6–12 Cr · Yr 3–5: ₹35–60 Cr</div>
+      </div>
+
+      <div class="opp" style="--oppAccent:#F472B6">
+        <div class="oppIcon">🤝</div>
+        <div class="oppKey">Stream 06</div>
+        <div class="oppTitle">Brand Partnerships</div>
+        <div class="oppDesc">Mutual partnerships with Nykaa, 1mg, Acko, Zepto — same high-income household user, complementary moments. <b>Rev-share, CPI, and co-marketing deals</b> that monetize the trust relationship.</div>
+        <div class="oppChips"><span class="oppChip hi">Rev-share</span><span class="oppChip hi">CPI</span><span class="oppChip">Co-marketing</span></div>
+        <div class="oppPotential">Yr 1–2: ₹8–15 Cr · Yr 3–5: ₹40–70 Cr</div>
+      </div>
+
+      <div class="opp" style="--oppAccent:#E8186D">
+        <div class="oppIcon">📊</div>
+        <div class="oppKey">Stream 07</div>
+        <div class="oppTitle">Subscription Expansion</div>
+        <div class="oppDesc">Snabbit Pass tiers (Basic/Premium/Elite), priority booking, multi-city pass, annual home maintenance subscription. <b>Each tier unlocks new monetization surface.</b></div>
+        <div class="oppChips"><span class="oppChip hi">Higher ARPU</span><span class="oppChip">Annual AMC</span><span class="oppChip">Multi-city</span></div>
+        <div class="oppPotential">Yr 1–2: ₹12–20 Cr · Yr 3–5: ₹70–110 Cr</div>
+      </div>
+
+    </div>
+
+    <!-- Revenue bridge -->
+    <div id="bridge" style="margin-top:52px" class="rv">
+      <div class="bTitle">Monetization stack — projected annual revenue (₹ Crore)</div>
+      <div class="bRow">
+        <div class="bcol" style="transition-delay:.0s"><div class="bv">₹40</div><div class="bbar base" data-h="40%" style="height:0"></div><div class="bl">Core service<br>commission</div></div>
+        <div class="bcol" style="transition-delay:.1s"><div class="bv" style="color:var(--pink)">+₹15</div><div class="bbar step" data-h="15%" style="height:0"></div><div class="bl">In-app<br>ads</div></div>
+        <div class="bcol" style="transition-delay:.2s"><div class="bv" style="color:var(--pink)">+₹12</div><div class="bbar step" data-h="12%" style="height:0"></div><div class="bl">In-home<br>sampling</div></div>
+        <div class="bcol" style="transition-delay:.3s"><div class="bv" style="color:var(--pink)">+₹20</div><div class="bbar step" data-h="20%" style="height:0"></div><div class="bl">Snabbler<br>fintech</div></div>
+        <div class="bcol" style="transition-delay:.4s"><div class="bv" style="color:var(--pink)">+₹25</div><div class="bbar step" data-h="25%" style="height:0"></div><div class="bl">B2B /<br>enterprise</div></div>
+        <div class="bcol" style="transition-delay:.5s"><div class="bv" style="color:var(--pink)">+₹10</div><div class="bbar step" data-h="10%" style="height:0"></div><div class="bl">Household<br>commerce</div></div>
+        <div class="bcol" style="transition-delay:.6s"><div class="bv" style="color:var(--pink)">+₹15</div><div class="bbar step" data-h="15%" style="height:0"></div><div class="bl">Partnerships<br>+ sub upsell</div></div>
+        <div class="bcol" style="transition-delay:.7s"><div class="bv" style="color:var(--pink)">₹137</div><div class="bbar total" data-h="100%" style="height:0"></div><div class="bl">Total Yr 3<br>potential</div></div>
+      </div>
+      <div style="height:42px"></div>
+    </div>
+
+    <div class="bridgeNote rv"><b>The core insight:</b> Snabbit's service fee is a relationship starter, not the business. The household that books a maid is also a premium FMCG buyer, an insurance prospect, a Nykaa shopper, and a home loan applicant — and Snabbit is the only platform they trust enough to let inside their home every day.</div>
+  </div>
+</section>
+
+<div class="pgfoot"><div class="in2"><span></span><a class="pgbtn primary" href="#/personas">Next · Personas →</a></div></div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: PERSONAS -->
+<!-- ============================================================ -->
+<div class="page" data-page="/personas">
+<section class="sec snpink">
+  <div class="wrap">
+    <div class="shead rv"><span class="snum" style="border-color:rgba(255,255,255,.4);color:#fff">02</span><span class="slbl" style="color:rgba(255,255,255,.8)">Who Snabbit serves</span></div>
+    <h2 class="rv" style="color:#fff">Two sides. One platform.<br>Both monetizable.</h2>
+    <p class="intro rv" style="color:rgba(255,255,255,.85)">Snabbit serves a premium urban household and a gig-economy Snabbler. Both have unmet financial and aspirational needs. Both are the target of this monetization strategy.</p>
+  </div>
+</section>
+
+<section class="sec dark2bg">
+  <div class="wrap">
+    <div class="shead rv"><span class="snum">—</span><span class="slbl">The customer side</span></div>
+    <div class="personaGrid rv">
+
+      <div class="pcard" data-actor="Priya_Dutt">
+        <div class="av">PR</div>
+        <h3>Priya &amp; Rahul</h3>
+        <div class="pm">The DINC household · Mumbai · Bandra West</div>
+        <p>Both work. No time for household management. ₹3L/mo combined income. Order everything on apps. Trust is the only currency they pay in.</p>
+        <div class="asset"><span>Primary monetization surface</span>Premium FMCG sampling, Nykaa/1mg CPA, home insurance, appliance finance</div>
+      </div>
+
+      <div class="pcard" data-actor="Mira_Rajput">
+        <div class="av">AN</div>
+        <h3>Ananya</h3>
+        <div class="pm">New mother · 31 · Powai · on maternity leave</div>
+        <p>Baby at home, anxious about hygiene and help quality. Highest willingness-to-pay in the cohort. Brands her baby uses are brands she researches for 2 hours.</p>
+        <div class="asset"><span>Primary monetization surface</span>Baby care sampling (Pampers, Mamaearth), Practo/pediatrician CPA, postpartum wellness</div>
+      </div>
+
+      <div class="pcard" data-actor="Vikram_Gokhale">
+        <div class="av">VS</div>
+        <h3>Vikram &amp; Smita</h3>
+        <div class="pm">45 · senior exec couple · Juhu · aging parents</div>
+        <p>Manage both careers and elderly parents. Need reliability above price. Buy premium everything. Highest LTV customer — books 3+ services per week.</p>
+        <div class="asset"><span>Primary monetization surface</span>Elder care partnerships, premium subscription upsell, health insurance referral</div>
+      </div>
+
+      <div class="pcard" data-actor="Tahir_Raj_Bhasin">
+        <div class="av">AK</div>
+        <h3>Aryan</h3>
+        <div class="pm">27 · startup founder · Koramangala · first apartment</div>
+        <p>Just moved out. Never managed a home. Books deep cleaning, cooking, laundry. Not price sensitive — time sensitive. Open to every bundled offer in the app.</p>
+        <div class="asset"><span>Primary monetization surface</span>Household commerce upsell, cooking kit delivery, home décor CPA</div>
+      </div>
+
+    </div>
+
+    <div class="shead rv" style="margin-top:52px"><span class="snum">—</span><span class="slbl">The Snabbler side</span></div>
+    <div class="personaGrid rv">
+
+      <div class="pcard" data-actor="Ratna_Pathak_Shah">
+        <div class="av">SM</div>
+        <h3>Savitri</h3>
+        <div class="pm">Maid · 38 · Dharavi · 4 households</div>
+        <p>Migrant from UP. No bank account before Snabbit. Earns ₹18,000/mo. Sends ₹8,000 home. First formal digital income — first fintech opportunity.</p>
+        <div class="asset"><span>Fintech opportunity</span>Zero-balance savings, UPI onboarding, micro health insurance, earned wage access</div>
+      </div>
+
+      <div class="pcard" data-actor="Nawazuddin_Siddiqui">
+        <div class="av">RK</div>
+        <h3>Raju</h3>
+        <div class="pm">Cook · 42 · Ghatkopar · trained by Snabbit</div>
+        <p>Trained in Snabbit's kitchen skill program. Earns ₹22,000/mo across 3 households. Wants to upgrade his knife set and rent a pressure cooker. No credit history.</p>
+        <div class="asset"><span>Fintech opportunity</span>Equipment loan, skill certification, income smoothing credit, group insurance</div>
+      </div>
+
+      <div class="pcard" data-actor="Dia_Mirza">
+        <div class="av">NK</div>
+        <h3>Nirmala</h3>
+        <div class="pm">Nanny · 35 · Thane · 2 families</div>
+        <p>Cares for toddlers of working parents. High-trust role — highest-paid Snabbler category. Wants to get her child vaccinated. No health cover for her family.</p>
+        <div class="asset"><span>Fintech opportunity</span>Family health insurance, child education savings plan, accident cover</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="pgfoot"><div class="in2"><a class="pgbtn" href="#/">← Overview</a><a class="pgbtn primary" href="#/ads">Next · Ads &amp; Sampling →</a></div></div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: ADS & BRANDS -->
+<!-- ============================================================ -->
+<div class="page" data-page="/ads">
+<section class="sec snpink">
+  <div class="wrap">
+    <div class="shead rv"><span class="snum" style="border-color:rgba(255,255,255,.4);color:#fff">03</span><span class="slbl" style="color:rgba(255,255,255,.8)">Advertising &amp; brand monetization</span></div>
+    <h2 class="rv" style="color:#fff">The most valuable<br>urban attention in India.</h2>
+    <p class="intro rv" style="color:rgba(255,255,255,.85)">SEC A/A+ households. Daily recurring access. A post-service moment with 80% notification open rates. No other platform in India owns this combination — and brands are paying CPMs of ₹800–1,200 to reach far lower-quality audiences on Instagram.</p>
+  </div>
+</section>
+
+<section class="sec dark2bg">
+  <div class="wrap">
+
+    <!-- Flagship: Snabbit Home Moment -->
+    <div class="sponsoredHome rv">
+      <div class="shBadge">★ Flagship format</div>
+      <div class="shTitle">The Snabbit Home Moment</div>
+      <div class="shDesc">Every service visit creates a verified, trusted, physical presence inside a premium household. <b>That moment — before, during, and after — is the advertising product no other platform can sell.</b> The Snabbler as a brand ambassador. The service completion as a conversion trigger. The home as the media surface.</div>
+      <div class="shFormats">
+        <div class="shFormat">
+          <div class="shfLabel">Physical placement</div>
+          <div class="shfName">Snabbler kit branding</div>
+          <div class="shfDesc">Branded apron, cleaning kit, or carry bag inside the home. Brand enters 50K+ SEC A homes daily.</div>
+        </div>
+        <div class="shFormat">
+          <div class="shfLabel">Verified sampling</div>
+          <div class="shfName">Snabbler-delivered sample</div>
+          <div class="shfDesc">Snabbler places product sample and explains it during service. Photo-verified. SEC A+ home guaranteed.</div>
+        </div>
+        <div class="shFormat">
+          <div class="shfLabel">Post-service</div>
+          <div class="shfName">Completion screen takeover</div>
+          <div class="shfDesc">Full-screen brand placement at service completion. 80% open rate. Highest attention moment in the app lifecycle.</div>
+        </div>
+        <div class="shFormat">
+          <div class="shfLabel">Re-booking</div>
+          <div class="shfName">Next-booking offer card</div>
+          <div class="shfDesc">Brand offer surfaces when household re-books. Repeat exposure + purchase intent window.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Format legend -->
+    <div class="fmtLegend rv">
+      <div class="fl"><div class="fld" style="background:#F472B6"></div><span style="color:#F472B6">Brand / awareness</span></div>
+      <div class="fl"><div class="fld" style="background:var(--pink)"></div><span style="color:var(--pink)">Performance / outcome</span></div>
+      <div class="fl"><div class="fld" style="background:var(--yellow)"></div><span style="color:var(--pink)">Both objectives</span></div>
+    </div>
+
+    <!-- Moment cards -->
+    <div class="momentGrid rv" style="margin-top:16px">
+
+      <div class="mc">
+        <div class="mcHead">
+          <div class="mcIcon">📲</div>
+          <div class="mcMeta">
+            <div class="mcMoment">Moment 1</div>
+            <div class="mcTitle">Pre-booking</div>
+            <div class="mcDuration">App open → service selection</div>
+          </div>
+        </div>
+        <div class="mcFormats">
+          <div class="mf"><div class="mfDot"></div><div class="mfBody"><div class="mfName">Home-screen brand card</div><div class="mfDesc">Category-relevant brand above the service booking flow. Baby care for Ananya, cleaning brands for Priya.</div><span class="mfTag brand">Brand</span></div></div>
+          <div class="mf"><div class="mfDot"></div><div class="mfBody"><div class="mfName">Service-aware native offer</div><div class="mfDesc">Booked a deep clean? Harpic surfaces. Booked a cook? Tata Sampann surfaces. Context = conversion.</div><span class="mfTag perf">Performance</span></div></div>
+        </div>
+      </div>
+
+      <div class="mc">
+        <div class="mcHead">
+          <div class="mcIcon">⏳</div>
+          <div class="mcMeta">
+            <div class="mcMoment">Moment 2</div>
+            <div class="mcTitle">Snabbler en route</div>
+            <div class="mcDuration">Confirmed · 20–60 min window · high anticipation</div>
+          </div>
+        </div>
+        <div class="mcFormats">
+          <div class="mf"><div class="mfDot"></div><div class="mfBody"><div class="mfName">Brand video — wait moment</div><div class="mfDesc">Full-screen 15–30 sec. Household is home, phone in hand, engaged. Premium brand storytelling window.</div><span class="mfTag brand">Brand</span></div></div>
+          <div class="mf"><div class="mfDot"></div><div class="mfBody"><div class="mfName">Rewarded video</div><div class="mfDesc">Watch a 30-sec ad, get ₹20 off next booking or a free service upgrade. Voluntary attention — highest completion.</div><span class="mfTag both">Both</span></div></div>
+        </div>
+      </div>
+
+      <div class="mc">
+        <div class="mcHead">
+          <div class="mcIcon">🏠</div>
+          <div class="mcMeta">
+            <div class="mcMoment">Moment 3</div>
+            <div class="mcTitle">During service</div>
+            <div class="mcDuration">Physical · Snabbler in home · 1–4 hours</div>
+          </div>
+        </div>
+        <div class="mcFormats">
+          <div class="mf"><div class="mfDot"></div><div class="mfBody"><div class="mfName">Snabbler kit branding</div><div class="mfDesc">Apron, bag, cleaning kit branded by partner. Physical media inside SEC A+ home — not an impression, a presence.</div><span class="mfTag brand">Brand</span></div></div>
+          <div class="mf"><div class="mfDot"></div><div class="mfBody"><div class="mfName">Snabbler-led product introduce</div><div class="mfDesc">"I use this for cleaning — want to try a sample?" Trained, scripted, photo-verified. Highest trust channel.</div><span class="mfTag perf">Performance</span></div></div>
+        </div>
+      </div>
+
+      <div class="mc">
+        <div class="mcHead">
+          <div class="mcIcon">✅</div>
+          <div class="mcMeta">
+            <div class="mcMoment">Moment 4</div>
+            <div class="mcTitle">Service completion</div>
+            <div class="mcDuration">Rating screen · highest engagement moment</div>
+          </div>
+        </div>
+        <div class="mcFormats">
+          <div class="mf"><div class="mfDot"></div><div class="mfBody"><div class="mfName">Completion screen takeover</div><div class="mfDesc">Full-screen CTA after rating. Household is satisfied, grateful, phone in hand. Best conversion moment in the funnel.</div><span class="mfTag both">Both</span></div></div>
+          <div class="mf"><div class="mfDot"></div><div class="mfBody"><div class="mfName">Scratch card / reward unlock</div><div class="mfDesc">Gamified brand coupon after every 5th service. Feels like loyalty reward — functions as brand acquisition.</div><span class="mfTag perf">Performance</span></div></div>
+        </div>
+      </div>
+
+      <div class="mc">
+        <div class="mcHead">
+          <div class="mcIcon">🔔</div>
+          <div class="mcMeta">
+            <div class="mcMoment">Moment 5</div>
+            <div class="mcTitle">Post-service notification</div>
+            <div class="mcDuration">~80% open rate · 24hr window · re-engagement</div>
+          </div>
+        </div>
+        <div class="mcFormats">
+          <div class="mf"><div class="mfDot"></div><div class="mfBody"><div class="mfName">Sponsored push notification</div><div class="mfDesc">Brand offer in the post-service feedback push. 80% open rate vs 5% industry average — a 16x attention premium.</div><span class="mfTag both">Both</span></div></div>
+          <div class="mf"><div class="mfDot"></div><div class="mfBody"><div class="mfName">Re-order reminder with brand offer</div><div class="mfDesc">Next cleaning product delivery reminder + Lizol/Harpic offer. Closing the commerce loop.</div><span class="mfTag perf">Performance</span></div></div>
+        </div>
+      </div>
+
+      <div class="mc" style="background:linear-gradient(135deg,rgba(232,24,109,.08),rgba(255,220,235,.3));border-color:rgba(232,24,109,.25)">
+        <div class="mcHead" style="border-color:rgba(232,24,109,.15)">
+          <div class="mcIcon">📊</div>
+          <div class="mcMeta">
+            <div class="mcMoment">Data layer</div>
+            <div class="mcTitle" style="color:var(--pink)">Household Intelligence</div>
+            <div class="mcDuration">Aggregated · anonymous · FMCG gold</div>
+          </div>
+        </div>
+        <div class="mcFormats">
+          <div class="mf"><div class="mfDot" style="background:var(--yellow)"></div><div class="mfBody"><div class="mfName">Household category signals</div><div class="mfDesc">Service type, frequency, add-ons, location — packaged as anonymous audience segments for brand targeting.</div><span class="mfTag both">Data licensing</span></div></div>
+          <div class="mf"><div class="mfDot" style="background:var(--yellow)"></div><div class="mfBody"><div class="mfName">Home state audience packages</div><div class="mfDesc">New parent household, senior care home, high-frequency premium user — sold to Pampers, Apollo, HDFC Life.</div><span class="mfTag brand">Audience</span></div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Brand pitches -->
+    <div class="shead rv" style="margin-top:52px"><span class="snum">—</span><span class="slbl">Sample brand pitches</span></div>
+    <div class="ptabs rv">
+      <button class="ptab on" data-p="0"><div class="pk">Premium FMCG</div><h3>Ariel / P&amp;G</h3></button>
+      <button class="ptab" data-p="1"><div class="pk">Baby care</div><h3>Pampers / Mamaearth</h3></button>
+      <button class="ptab" data-p="2"><div class="pk">Health &amp; beauty</div><h3>Nykaa</h3></button>
+      <button class="ptab" data-p="3"><div class="pk">Financial services</div><h3>HDFC Life</h3></button>
+    </div>
+
+    <div class="pp on rv">
+      <div class="ppTop">
+        <div class="who">Target: Priya · Ananya · Vikram — the premium household</div>
+        <h3>Your product. Their home. Every week.</h3>
+        <p><b>The insight:</b> Ariel spends crores reaching SEC A households on Instagram — where they're skipping the ad in 3 seconds. Snabbit's maid is in their laundry room every week, touching their washing machine, looking at their detergent shelf. <b>No impression. A presence.</b></p>
+      </div>
+      <div class="ppGrid">
+        <div class="ppCell"><div class="cl">The activation</div><p><b>Snabbler-delivered Ariel pod sample</b> during every laundry-related service. Photo-verified placement. The Snabbler demonstrates the product. Household receives a ₹50 cashback QR code redeemable on the next Ariel purchase. SEC A home, zero wastage, measured conversion.</p></div>
+        <div class="ppCell"><div class="cl">Scale</div><p><b>50,000 homes · weekly touchpoint · 12 weeks.</b> Not a digital campaign. A physical distribution activation with digital measurement. The same household that sees the Ariel pod is retargeted in-app for the full pack. Physical-to-digital conversion loop.</p></div>
+        <div class="ppCell"><div class="cl">Measurement</div><p><b>Purchase conversion tracked via QR code scan + app coupon redemption.</b> Snabbit provides verified placement photos, household category segment, and conversion rate. ROI calculated per sample placed — not per impression served.</p></div>
+      </div>
+      <div class="ppLine">"You've been trying to get into their laundry room for 20 years. We go in every Tuesday."</div>
+    </div>
+
+    <div class="pp rv">
+      <div class="ppTop">
+        <div class="who">Target: Ananya — the new mother · highest willingness to pay</div>
+        <h3>The home a new mother trusts is your best sales channel.</h3>
+        <p><b>The insight:</b> Ananya researches baby products for 2 hours before buying. She trusts exactly two sources: other mothers and the people inside her home. <b>A Pampers sample placed by a Snabbit nanny carries more conversion weight than a full-page print ad.</b></p>
+      </div>
+      <div class="ppGrid">
+        <div class="ppCell"><div class="cl">The activation</div><p><b>Nanny-delivered baby care sample kit</b> — Pampers, Mamaearth, Himalaya — placed during every nanny booking in households with a child under 2. Nanny is trained to explain the product. Household receives a first-purchase discount QR for the full product line.</p></div>
+        <div class="ppCell"><div class="cl">New mother segment</div><p>Snabbit identifies new-parent households from nanny/babysitter booking patterns. <b>A verified new-mother audience segment sold to Pampers, Enfamil, Mamaearth, Himalaya, and Chicco</b> — the five brands fighting for wallet share in the first 12 months.</p></div>
+        <div class="ppCell"><div class="cl">Why Snabbit wins</div><p>Mamaearth pays ₹600–1,200 CPA on Meta for a new-mother customer. <b>Snabbit delivers a physically verified in-home sample placement with nanny endorsement for ₹80–150 per home.</b> The conversion rate is not comparable.</p></div>
+      </div>
+      <div class="ppLine">"She filters every Instagram ad. She does not filter what her nanny tells her to try."</div>
+    </div>
+
+    <div class="pp rv">
+      <div class="ppTop">
+        <div class="who">Target: Priya · Ananya — the SEC A female buyer · Nykaa's core audience</div>
+        <h3>The home trial that no influencer can fake.</h3>
+        <p><b>The insight:</b> Nykaa spends heavily on influencer marketing to reach the exact woman who books Snabbit services. But influencers are performance. A Snabbit delivery of a Nykaa beauty box — placed on her dressing table by her trusted help — is a brand moment no influencer campaign can replicate.</p>
+      </div>
+      <div class="ppGrid">
+        <div class="ppCell"><div class="cl">The activation</div><p><b>Nykaa beauty box delivered by Snabbler</b> — timed to service completion when the household is in their best mood. 3–5 trial products, Nykaa-branded packaging, QR for a ₹200 first-purchase offer. Verified placement, tracked conversion.</p></div>
+        <div class="ppCell"><div class="cl">In-app partnership</div><p><b>Nykaa featured in Snabbit's post-service notification</b> — "Your home is clean. Time for you." 80% open rate, relevant emotional context. CPA on first Nykaa order driven through Snabbit. Rev-share on repeat purchases for 90 days.</p></div>
+        <div class="ppCell"><div class="cl">Data exchange</div><p>Snabbit's household composition data (new mother, working professional, premium homeowner) helps Nykaa target their highest-LTV segments. <b>Anonymous audience segment licensing — ₹2–5 Cr annual data deal alongside the activation.</b></p></div>
+      </div>
+      <div class="ppLine">"You pay ₹1,200 for her click on Instagram. We put your product in her hand on a good day."</div>
+    </div>
+
+    <div class="pp rv">
+      <div class="ppTop">
+        <div class="who">Target: Vikram · Priya — primary earners · insurance underweight</div>
+        <h3>The home visit that starts a 20-year relationship.</h3>
+        <p><b>The insight:</b> HDFC Life's biggest acquisition challenge is reaching the high-income 35–45 bracket at the right moment — not during a commute or a scroll, but when they're thinking about home and family. <b>The moment a Snabbit service is booked is exactly that moment.</b></p>
+      </div>
+      <div class="ppGrid">
+        <div class="ppCell"><div class="cl">The moment</div><p><b>Post-service completion screen</b> — "Your home is cared for. Is your family?" HDFC Life term plan offer with a 2-minute quote. Household is relaxed, home is clean, family is top of mind. No more qualified moment exists in financial services acquisition.</p></div>
+        <div class="ppCell"><div class="cl">Snabbler channel</div><p>HDFC Life trains Snabblers on a 3-sentence referral pitch — not a sales pitch, a conversation starter. <b>Every maid, cook, and driver who mentions HDFC Life earns a ₹200 referral bonus.</b> 10,000 Snabblers = 10,000 financial advisors inside SEC A homes.</p></div>
+        <div class="ppCell"><div class="cl">Revenue model</div><p><b>CPA on qualified leads + referral commission on policy issuance.</b> HDFC Life's current CAC for a term policy is ₹3,000–8,000. Snabbit can deliver a qualified household lead for ₹800–1,500 — verified income, verified homeowner, verified family composition.</p></div>
+      </div>
+      <div class="ppLine">"Your best lead is a homeowner thinking about their family. We see them every week."</div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- PAGE: IN-HOME SAMPLING -->
+<!-- ============================================================ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="shead rv" style="margin-top:8px"><span class="snum">—</span><span class="slbl">In-home product sampling</span></div>
+    <h2 class="rv">The only verified in-home sampling channel in India.</h2>
+    <p class="intro rv">FMCG brands spend thousands of crores trying to get products into SEC A homes. Snabbit's Snabblers already go in — every day, trusted, with the household's permission. This is not a sampling program. It is a physical distribution infrastructure.</p>
+  </div>
+</section>
+
+<section class="sec dark2bg">
+  <div class="wrap">
+
+    <div class="samplingHero rv">
+      <div class="shk">Why in-home sampling is different</div>
+      <h3>It's not a free sample.<br>It's a trusted recommendation.</h3>
+      <p>When a Snabbit maid places an Ariel pod on the washing machine and says "I use this at home — it's really good," she is not running an ad. She is making a recommendation from inside a trusted relationship. <b>No influencer, no billboard, no digital ad can buy that moment.</b> The conversion rate is not comparable to any other sampling channel.</p>
+      <div class="samplingGrid">
+        <div class="sampCard"><div class="sk">The access</div><div class="sn">50,000+ SEC A homes daily</div><div class="sd">Background-verified entry. Not a flyering campaign — a trusted presence.</div></div>
+        <div class="sampCard"><div class="sk">The endorsement</div><div class="sn">Snabbler-delivered, Snabbler-explained</div><div class="sd">Household trusts the Snabbler. Trust transfers to the recommended product.</div></div>
+        <div class="sampCard"><div class="sk">The verification</div><div class="sn">Photo confirmation per placement</div><div class="sd">Every sample placed is photographed by the Snabbler and logged in the app. Brands pay only on verified placement.</div></div>
+        <div class="sampCard"><div class="sk">The close</div><div class="sn">QR + in-app offer loop</div><div class="sd">Sample QR → first purchase discount → in-app retargeting for full product. Physical-to-digital funnel, end to end.</div></div>
+      </div>
+    </div>
+
+    <div class="shead rv" style="margin-top:44px"><span class="snum">—</span><span class="slbl">Categories and brand targets</span></div>
+    <div class="finGrid rv">
+      <div class="finCard" style="--oppAccent:#E8186D"><div class="fk">Home care</div><h4>Ariel · Lizol · Harpic · Surf Excel · Vim</h4><p><b>Perfect fit:</b> Snabbler handles cleaning products during service. Demonstration is organic. Placement is contextual — cleaning product placed in kitchen or bathroom during clean.</p><div class="fpotential">₹150–300/home · ₹7–15 Cr Yr 1 potential</div></div>
+      <div class="finCard"><div class="fk">Baby care</div><h4>Pampers · Mamaearth · Himalaya Baby · Chicco</h4><p><b>Perfect fit:</b> Nanny and babysitter bookings signal new-parent household. Highest trust relationship for baby products. Sample kit + pediatrician CPA bundle.</p><div class="fpotential">₹200–500/home · ₹5–12 Cr Yr 1 potential</div></div>
+      <div class="finCard"><div class="fk">Beauty &amp; personal care</div><h4>Nykaa · Mamaearth · WOW Skin · Dove · Olay</h4><p><b>Perfect fit:</b> Primary household decision-maker is a working woman booking services. Beauty box placed on dressing table during room cleaning. High aspiration, high conversion.</p><div class="fpotential">₹250–600/home · ₹6–14 Cr Yr 1 potential</div></div>
+      <div class="finCard"><div class="fk">Health &amp; nutrition</div><h4>1mg · Himalaya · Patanjali · Ensure · Protinex</h4><p><b>Perfect fit:</b> Senior care and elder support bookings signal health-conscious household. Supplement samples placed during service. Doctor-consult CPA bundled.</p><div class="fpotential">₹180–400/home · ₹4–8 Cr Yr 1 potential</div></div>
+      <div class="finCard"><div class="fk">Food &amp; beverages</div><h4>Tata Sampann · Aashirvaad · Dabur · Country Delight</h4><p><b>Perfect fit:</b> Cook bookings indicate active kitchen. Trial pack of atta, ghee, or spice placed during cooking session. Category-highest trust placement — Snabbler literally cooked with it.</p><div class="fpotential">₹100–250/home · ₹3–7 Cr Yr 1 potential</div></div>
+      <div class="finCard"><div class="fk">Air &amp; room care</div><h4>Godrej aer · Odonil · Ambi Pur · Pee Safe</h4><p><b>Perfect fit:</b> Deep cleaning bookings are the perfect context. Post-clean air freshener sample — household is in fresh-home mode, highest receptivity to the category.</p><div class="fpotential">₹80–200/home · ₹2–5 Cr Yr 1 potential</div></div>
+    </div>
+
+    <div class="shead rv" style="margin-top:44px"><span class="snum">—</span><span class="slbl">The pricing model</span></div>
+    <div class="revTable rv">
+      <div class="revHead"><div>Sampling tier</div><div>Per placement</div><div>Monthly homes</div><div>Revenue model</div></div>
+      <div class="revRow"><div class="rn">Standard placement</div><div class="rv2">₹100–150</div><div class="rv2">20,000</div><div>Sample + QR. No scripted introduction. Photo verification.</div></div>
+      <div class="revRow"><div class="rn">Enhanced placement</div><div class="rv2">₹250–400</div><div class="rv2">8,000</div><div>Sample + Snabbler introduction (scripted, trained). Photo + voice note verification.</div></div>
+      <div class="revRow"><div class="rn">Premium activation</div><div class="rv2">₹500–800</div><div class="rv2">3,000</div><div>Sample + intro + in-app retargeting + 90-day purchase tracking.</div></div>
+      <div class="revRow"><div class="rn">Category exclusivity</div><div class="rv2">₹20–50 Cr/yr</div><div class="rv2">All homes</div><div>One brand owns all sampling in a category for 12 months across all Snabbit cities.</div></div>
+      <div class="revRow revTotal"><div class="rn">Total sampling potential</div><div class="rv2">₹40–70 Cr</div><div class="rv2">Yr 3–5</div><div style="color:var(--pink);font-weight:700">Near-zero marginal cost — Snabbler already in the home</div></div>
+    </div>
+
+    <div class="guard rv" style="margin-top:28px"><b>The guardrail:</b> max 1 brand per service category per visit. The household's trust is the asset — it must never feel like a sales channel. Opt-out available at household level. Snabbler scripting is advisory, never pushy. Every placement measured and reported transparently.</div>
+  </div>
+</section>
+<div class="pgfoot"><div class="in2"><a class="pgbtn" href="#/personas">← Personas</a><a class="pgbtn primary" href="#/fintech">Next · Fintech →</a></div></div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: FINTECH -->
+<!-- ============================================================ -->
+<div class="page" data-page="/fintech">
+<section class="sec snpink">
+  <div class="wrap">
+    <div class="shead rv"><span class="snum" style="border-color:rgba(255,255,255,.4);color:#fff">04</span><span class="slbl" style="color:rgba(255,255,255,.8)">Financial services</span></div>
+    <h2 class="rv" style="color:#fff">10,000 Snabblers.<br>Zero credit history.<br><span style="background:#0A0E1A;color:var(--pink);padding:0 .1em;border-radius:.1em">Every product.</span></h2>
+    <p class="intro rv" style="color:rgba(255,255,255,.85)">Snabbit's 10,000 Snabblers are the most underserved financial cohort in urban India — regular income, verified identity, known work history, zero formal credit. This is both a social obligation and a significant revenue opportunity. The two are not in conflict.</p>
+  </div>
+</section>
+
+<section class="sec dark2bg">
+  <div class="wrap">
+
+    <div class="shead rv"><span class="snum">—</span><span class="slbl">Snabbler financial products</span></div>
+    <div class="finGrid rv">
+      <div class="finCard"><div class="fk">Earned wage access</div><h4>Draw tomorrow's earnings today</h4><p>Snabblers can withdraw earned wages daily instead of waiting for weekly/monthly payout. <b>Snabbit charges 1–2% float fee.</b> Partners: Refyne, EarlySalary, Salary Finance.</p><div class="fpotential">₹5–10 Cr Yr 1 · near-zero risk (earned wages only)</div></div>
+      <div class="finCard"><div class="fk">Micro health insurance</div><h4>₹199/mo family cover</h4><p>Hospitalization cover for Snabbler and 3 dependents. <b>Snabbit earns 15–20% distribution fee.</b> Partners: Acko, Digit, Niva Bupa. Bulk negotiated rates — 10,000 lives at once.</p><div class="fpotential">₹3–7 Cr Yr 1 distribution fee</div></div>
+      <div class="finCard"><div class="fk">Savings account</div><h4>Zero-balance · UPI-enabled · goal-linked</h4><p>First bank account for many Snabblers. <b>Referral fee ₹200–500 per activated account.</b> Partners: Jupiter, Fi Money, Airtel Payments Bank. Snabbit controls payroll — clean salary credit from day 1.</p><div class="fpotential">₹2–4 Cr Yr 1 · long-term loyalty asset</div></div>
+      <div class="finCard"><div class="fk">Equipment &amp; tool loans</div><h4>Cleaning kit, uniforms, phone upgrades</h4><p>Snabbler needs a better mop or a new smartphone to use the app. <b>Snabbit underwrites with earnings data — zero credit score needed.</b> Loan repaid via salary deduction. Partners: KreditBee, StashFin.</p><div class="fpotential">₹4–8 Cr Yr 1 origination fees</div></div>
+      <div class="finCard"><div class="fk">Life &amp; accident cover</div><h4>Term cover · ₹10L sum assured · ₹99/mo</h4><p>Snabbler works in homes — risk is low but cover is meaningful. <b>Group term rate negotiated by Snabbit for 10,000 lives.</b> Distribution fee 15%. Partners: LIC, HDFC Life, Max Life.</p><div class="fpotential">₹2–4 Cr Yr 1 · highest loyalty impact</div></div>
+      <div class="finCard"><div class="fk">Credit builder</div><h4>Secured credit card · ₹5,000 limit</h4><p>Snabbit salary as collateral. Snabbler builds credit score over 12 months. <b>Referral fee + interchange revenue share.</b> Partners: Slice, OneCard, AU Bank.</p><div class="fpotential">₹1–3 Cr Yr 1 · ₹15–25 Cr Yr 3–5</div></div>
+    </div>
+
+    <div class="shead rv" style="margin-top:44px"><span class="snum">—</span><span class="slbl">Customer-side financial products</span></div>
+    <div class="finGrid rv">
+      <div class="finCard"><div class="fk">Home insurance</div><h4>PolicyBazaar · Acko · Digit</h4><p>Every household that books Snabbit is a homeowner or high-value renter. <b>Home insurance referral at booking confirmation.</b> "You're letting someone into your home — is it insured?" Perfect contextual moment.</p><div class="fpotential">Referral fee ₹800–2,000/policy · ₹5–12 Cr Yr 3</div></div>
+      <div class="finCard"><div class="fk">Premium credit card</div><h4>HDFC · AU Bank · IDFC First</h4><p>SEC A household, regular Snabbit spender, verified income. <b>Co-branded Snabbit credit card</b> with cashback on service bookings. Snabbit earns referral + interchange share.</p><div class="fpotential">Referral fee ₹1,500–3,000/card · ₹6–15 Cr Yr 3</div></div>
+      <div class="finCard"><div class="fk">Appliance EMI</div><h4>BharatPe · Bajaj Finserv · ZestMoney</h4><p>Household books a deep clean for a new washing machine. <b>Post-service EMI offer for appliance upgrade.</b> "Your house is spotless — ready to upgrade the dishwasher?" Contextual, warm, high conversion.</p><div class="fpotential">Distribution fee 1–2% of loan · ₹3–8 Cr Yr 3</div></div>
+    </div>
+
+    <div class="revTable rv" style="margin-top:36px">
+      <div class="revHead"><div>Financial product</div><div>Yr 1–2 est.</div><div>Yr 3–5 est.</div><div>Primary model</div></div>
+      <div class="revRow"><div class="rn">Earned wage access</div><div class="rv2">₹5–10 Cr</div><div class="rv2">₹20–35 Cr</div><div>Float fee 1–2%</div></div>
+      <div class="revRow"><div class="rn">Health &amp; life insurance</div><div class="rv2">₹5–11 Cr</div><div class="rv2">₹25–45 Cr</div><div>Distribution fee 15–20%</div></div>
+      <div class="revRow"><div class="rn">Savings &amp; credit builder</div><div class="rv2">₹3–7 Cr</div><div class="rv2">₹15–25 Cr</div><div>Referral + interchange</div></div>
+      <div class="revRow"><div class="rn">Equipment loans</div><div class="rv2">₹4–8 Cr</div><div class="rv2">₹18–30 Cr</div><div>Origination fee</div></div>
+      <div class="revRow"><div class="rn">Customer-side products</div><div class="rv2">₹8–15 Cr</div><div class="rv2">₹30–55 Cr</div><div>Referral + co-brand</div></div>
+      <div class="revRow revTotal"><div class="rn">Total fintech potential</div><div class="rv2">₹25–51 Cr</div><div class="rv2">₹108–190 Cr</div><div style="color:var(--pink);font-weight:700">Largest single non-service revenue stream</div></div>
+    </div>
+  </div>
+</section>
+<div class="pgfoot"><div class="in2"><a class="pgbtn" href="#/ads">← Ads &amp; Sampling</a><a class="pgbtn primary" href="#/b2b">Next · B2B →</a></div></div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: B2B -->
+<!-- ============================================================ -->
+<div class="page" data-page="/b2b">
+<section class="sec snpink">
+  <div class="wrap">
+    <div class="shead rv"><span class="snum" style="border-color:rgba(255,255,255,.4);color:#fff">05</span><span class="slbl" style="color:rgba(255,255,255,.8)">B2B &amp; enterprise</span></div>
+    <h2 class="rv" style="color:#fff">Higher ticket. Recurring.<br>Zero consumer CAC.</h2>
+    <p class="intro rv" style="color:rgba(255,255,255,.85)">The same Snabbler network that serves households can serve offices, co-working spaces, real estate developers, and hotels — at 3–5x the ticket size, on longer contracts, with enterprise-level predictability. B2B is the fastest path to EBITDA.</p>
+  </div>
+</section>
+
+<section class="sec dark2bg">
+  <div class="wrap">
+
+    <div class="oppGrid rv">
+
+      <div class="opp" style="--oppAccent:#E8186D">
+        <div class="oppIcon">🏢</div>
+        <div class="oppKey">B2B 01</div>
+        <div class="oppTitle">Corporate office cleaning</div>
+        <div class="oppDesc">100–500 employee offices need daily cleaning, pantry management, and facility upkeep. <b>₹50,000–3,00,000/month contracts</b> with 12-month lock-ins. Mumbai's BKC, Nariman Point, Powai corridors are Snabbit's backyard.</div>
+        <div class="oppChips"><span class="oppChip hi">Monthly contract</span><span class="oppChip hi">High ticket</span><span class="oppChip">Predictable revenue</span></div>
+        <div class="oppPotential">100 clients × ₹1L/mo = ₹12 Cr Yr 1</div>
+      </div>
+
+      <div class="opp" style="--oppAccent:#FFD166">
+        <div class="oppIcon">💼</div>
+        <div class="oppKey">B2B 02</div>
+        <div class="oppTitle">Co-working space partnerships</div>
+        <div class="oppDesc">WeWork, Awfis, IndiQube, 91Springboard — all need daily cleaning and facility management across multiple locations. <b>One enterprise deal = 20–50 locations.</b> Snabbit's app makes multi-location scheduling and compliance trivial.</div>
+        <div class="oppChips"><span class="oppChip hi">Multi-location</span><span class="oppChip">SaaS + service</span><span class="oppChip">3yr contracts</span></div>
+        <div class="oppPotential">5 chains × 30 locations × ₹80K/mo = ₹14.4 Cr Yr 1</div>
+      </div>
+
+      <div class="opp" style="--oppAccent:#F472B6">
+        <div class="oppIcon">🏗️</div>
+        <div class="oppKey">B2B 03</div>
+        <div class="oppTitle">Real estate developer partnerships</div>
+        <div class="oppDesc">New project possession: 500 apartments, all needing post-construction deep cleaning simultaneously. <b>One developer deal = ₹1–3 Cr single activation.</b> Ongoing society housekeeping subscription for premium residential buildings.</div>
+        <div class="oppChips"><span class="oppChip hi">Project activation</span><span class="oppChip">Society AMC</span><span class="oppChip">Premium positioning</span></div>
+        <div class="oppPotential">₹8–20 Cr Yr 1 · scales with city expansion</div>
+      </div>
+
+      <div class="opp" style="--oppAccent:#E8186D">
+        <div class="oppIcon">🏨</div>
+        <div class="oppKey">B2B 04</div>
+        <div class="oppTitle">Hotel &amp; hospitality on-demand</div>
+        <div class="oppDesc">Boutique hotels and serviced apartments need housekeeping staff — but the variable demand makes full-time hiring expensive. <b>Snabbit's on-demand model is a perfect fit.</b> Pay per shift, zero bench cost, app-managed scheduling.</div>
+        <div class="oppChips"><span class="oppChip hi">Per-shift billing</span><span class="oppChip">No bench cost</span><span class="oppChip">App-managed</span></div>
+        <div class="oppPotential">₹5–12 Cr Yr 1 · high margin</div>
+      </div>
+
+      <div class="opp" style="--oppAccent:#FFD166">
+        <div class="oppIcon">🏥</div>
+        <div class="oppKey">B2B 05</div>
+        <div class="oppTitle">Healthcare facility cleaning</div>
+        <div class="oppDesc">Clinics, diagnostic centres, dental practices — need daily, protocol-level cleaning. <b>Premium price point: ₹3,000–10,000/day.</b> Snabbit's background verification and training protocols are the differentiator vs. unorganised vendors.</div>
+        <div class="oppChips"><span class="oppChip hi">Premium pricing</span><span class="oppChip">Compliance-driven</span><span class="oppChip">Recurring</span></div>
+        <div class="oppPotential">₹4–9 Cr Yr 1 · underserved market</div>
+      </div>
+
+      <div class="opp" style="--oppAccent:#F472B6">
+        <div class="oppIcon">🎓</div>
+        <div class="oppKey">B2B 06</div>
+        <div class="oppTitle">Snabbler training institute</div>
+        <div class="oppDesc">Monetize Snabbit's training curriculum. Individuals pay ₹2,000–5,000 for Snabbit certification. Certified individuals get priority placement and higher rates. <b>Training revenue + premium placement fee + third-party employer access.</b></div>
+        <div class="oppChips"><span class="oppChip hi">Training fee</span><span class="oppChip">Placement fee</span><span class="oppChip">Employer access</span></div>
+        <div class="oppPotential">₹3–8 Cr Yr 1 · scales with Snabbler supply</div>
+      </div>
+
+    </div>
+
+    <div class="revTable rv" style="margin-top:36px">
+      <div class="revHead"><div>B2B stream</div><div>Yr 1–2 est.</div><div>Yr 3–5 est.</div><div>Contract type</div></div>
+      <div class="revRow"><div class="rn">Corporate offices</div><div class="rv2">₹12–20 Cr</div><div class="rv2">₹50–80 Cr</div><div>Monthly retainer · 12-month lock-in</div></div>
+      <div class="revRow"><div class="rn">Co-working chains</div><div class="rv2">₹14–22 Cr</div><div class="rv2">₹55–90 Cr</div><div>Multi-location SaaS + service</div></div>
+      <div class="revRow"><div class="rn">Real estate developers</div><div class="rv2">₹8–15 Cr</div><div class="rv2">₹35–60 Cr</div><div>Project activation + society AMC</div></div>
+      <div class="revRow"><div class="rn">Hotels + healthcare</div><div class="rv2">₹9–21 Cr</div><div class="rv2">₹40–70 Cr</div><div>Per-shift + monthly</div></div>
+      <div class="revRow"><div class="rn">Training institute</div><div class="rv2">₹3–8 Cr</div><div class="rv2">₹20–40 Cr</div><div>Fee per certification + placement</div></div>
+      <div class="revRow revTotal"><div class="rn">Total B2B potential</div><div class="rv2">₹46–86 Cr</div><div class="rv2">₹200–340 Cr</div><div style="color:var(--pink);font-weight:700">Highest margin stream · predictable revenue</div></div>
+    </div>
+  </div>
+</section>
+<div class="pgfoot"><div class="in2"><a class="pgbtn" href="#/fintech">← Fintech</a><a class="pgbtn primary" href="#/partnerships">Next · Partnerships →</a></div></div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: PARTNERSHIPS -->
+<!-- ============================================================ -->
+<div class="page" data-page="/partnerships">
+<section class="sec snpink">
+  <div class="wrap">
+    <div class="shead rv"><span class="snum" style="border-color:rgba(255,255,255,.4);color:#fff">06</span><span class="slbl" style="color:rgba(255,255,255,.8)">Mutual partnerships</span></div>
+    <h2 class="rv" style="color:#fff">Five partnerships.<br>One shared home.</h2>
+    <p class="intro rv" style="color:rgba(255,255,255,.85)">Each partner below needs what only Snabbit can give: <b>verified, trusted, recurring access to a high-income urban household.</b> Snabbit needs what each partner has: distribution, financial infrastructure, or content that makes the Snabbit relationship stickier. These are mutual exchanges, not ad buys.</p>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:40px;background:#FFFFFF">
+  <div class="wrap">
+    <div class="mutualGrid rv">
+
+      <!-- NYKAA -->
+      <div class="mutualCard">
+        <div class="mcardTop">
+          <div class="mcardLogo" style="background:#FC2779">
+            <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="12" fill="#FC2779"/><text x="50%" y="62%" dominant-baseline="middle" text-anchor="middle" fill="#fff" font-family="Arial Black" font-size="11" font-weight="900">nykaa</text></svg>
+          </div>
+          <div class="mcardMeta">
+            <div class="mcardName">Nykaa</div>
+            <div class="mcardSub">Beauty e-commerce · SEC A female · ₹5,500 Cr GMV</div>
+          </div>
+          <div class="mcardTag" style="background:rgba(252,39,121,.1);color:#FC2779;border-color:rgba(252,39,121,.3)">Beauty</div>
+        </div>
+        <div class="mcardThesis">Nykaa's core customer is a working urban woman aged 25–42. Snabbit's primary household booker is the same person. <b>Nykaa is chasing her on Instagram at ₹1,200 CPA. Snabbit puts a beauty box in her hand on a good day for ₹200.</b> Neither can replicate what the other has.</div>
+        <div class="mcardExchange">
+          <div class="mcardSide snabbit">
+            <div class="mcardSideLabel">Snabbit gives</div>
+            <ul><li>Beauty box delivery inside 50K homes at service completion</li><li>Post-service notification inventory (80% open rate)</li><li>SEC A female audience segment — verified household composition</li></ul>
+          </div>
+          <div class="mcardArrow">⇌</div>
+          <div class="mcardSide partner">
+            <div class="mcardSideLabel">Nykaa gives back</div>
+            <ul><li>CPA ₹200–400 on first Nykaa order driven through Snabbit</li><li>Rev-share on 90-day repeat purchases</li><li>Nykaa beauty content in Snabbit's post-booking notification</li></ul>
+          </div>
+        </div>
+        <div class="mcardModel"><span class="mcardModelLabel">Revenue model</span><span class="mcardModelVal">CPA ₹200–400 per first order + 90-day purchase rev-share</span></div>
+      </div>
+
+      <!-- 1MG / APOLLO -->
+      <div class="mutualCard">
+        <div class="mcardTop">
+          <div class="mcardLogo" style="background:#EF4444">
+            <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="12" fill="#EF4444"/><text x="50%" y="62%" dominant-baseline="middle" text-anchor="middle" fill="#fff" font-family="Arial Black" font-size="13" font-weight="900">1mg</text></svg>
+          </div>
+          <div class="mcardMeta">
+            <div class="mcardName">Tata 1mg</div>
+            <div class="mcardSub">Online pharmacy · diagnostics · teleconsult</div>
+          </div>
+          <div class="mcardTag" style="background:rgba(239,68,68,.1);color:#EF4444;border-color:rgba(239,68,68,.3)">Health</div>
+        </div>
+        <div class="mcardThesis">A household with a nanny has a baby. A household with elder support has aging parents. A household with regular deep cleaning is health-conscious. <b>Snabbit's service type is a medical need signal that 1mg cannot buy anywhere else.</b></div>
+        <div class="mcardExchange">
+          <div class="mcardSide snabbit">
+            <div class="mcardSideLabel">Snabbit gives</div>
+            <ul><li>New-parent household signal → baby care + pediatrician CPA</li><li>Elder care household signal → health checkup + medicine delivery</li><li>Snabbler health insurance distribution (10K lives)</li></ul>
+          </div>
+          <div class="mcardArrow">⇌</div>
+          <div class="mcardSide partner">
+            <div class="mcardSideLabel">1mg gives back</div>
+            <ul><li>CPA ₹150–300 on first medicine order or lab test booking</li><li>Snabbler health cover at group rate — reduces Snabbit's churn</li><li>1mg health content in Snabbit's post-service notification</li></ul>
+          </div>
+        </div>
+        <div class="mcardModel"><span class="mcardModelLabel">Revenue model</span><span class="mcardModelVal">Order CPA + Snabbler health cover distribution fee</span></div>
+      </div>
+
+      <!-- ACKO -->
+      <div class="mutualCard">
+        <div class="mcardTop">
+          <div class="mcardLogo" style="background:#7C3AED">
+            <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="12" fill="#7C3AED"/><text x="50%" y="62%" dominant-baseline="middle" text-anchor="middle" fill="#fff" font-family="Arial Black" font-size="12" font-weight="900">Acko</text></svg>
+          </div>
+          <div class="mcardMeta">
+            <div class="mcardName">Acko Insurance</div>
+            <div class="mcardSub">Digital-first · micro &amp; sachet insurance · fast claim</div>
+          </div>
+          <div class="mcardTag" style="background:rgba(124,58,237,.1);color:#7C3AED;border-color:rgba(124,58,237,.3)">Fintech</div>
+        </div>
+        <div class="mcardThesis">Acko built insurance products designed to be sold inside apps in 3 minutes. Snabbit has two captive pools: <b>10,000 underinsured Snabblers who need cover and 50,000 homeowners who need home + content insurance.</b> Acko gets zero-CAC, identity-verified distribution at scale.</div>
+        <div class="mcardExchange">
+          <div class="mcardSide snabbit">
+            <div class="mcardSideLabel">Snabbit gives</div>
+            <ul><li>10K Snabblers — pre-verified identity for health + accident cover</li><li>50K homeowners — home insurance distribution at service booking</li><li>Verified household composition for product underwriting</li></ul>
+          </div>
+          <div class="mcardArrow">⇌</div>
+          <div class="mcardSide partner">
+            <div class="mcardSideLabel">Acko gives back</div>
+            <ul><li>Distribution fee 15–18% of all premiums driven through Snabbit</li><li>Snabbler accident cover reduces liability exposure for Snabbit</li><li>Group rate negotiated for Snabbler bulk — reduces Snabbit's welfare cost</li></ul>
+          </div>
+        </div>
+        <div class="mcardModel"><span class="mcardModelLabel">Revenue model</span><span class="mcardModelVal">Distribution fee 15–18% · both Snabbler and customer pools</span></div>
+      </div>
+
+      <!-- ZEPTO / BLINKIT -->
+      <div class="mutualCard">
+        <div class="mcardTop">
+          <div class="mcardLogo" style="background:#FACC15">
+            <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="12" fill="#FACC15"/><text x="50%" y="62%" dominant-baseline="middle" text-anchor="middle" fill="#141414" font-family="Arial Black" font-size="10" font-weight="900">zepto</text></svg>
+          </div>
+          <div class="mcardMeta">
+            <div class="mcardName">Zepto / Blinkit</div>
+            <div class="mcardSub">Quick commerce · household essentials · 10-min delivery</div>
+          </div>
+          <div class="mcardTag" style="background:rgba(250,204,21,.1);color:#B45309;border-color:rgba(250,204,21,.3)">Commerce</div>
+        </div>
+        <div class="mcardThesis">A maid who just cleaned the kitchen notices the household is out of dishwash or atta. <b>The Snabbler is the most precise real-time household inventory signal in India.</b> A "reorder" button in the Snabbler's app — or a completion screen offer in the customer's app — converts household consumption observation into immediate Q-commerce orders.</div>
+        <div class="mcardExchange">
+          <div class="mcardSide snabbit">
+            <div class="mcardSideLabel">Snabbit gives</div>
+            <ul><li>Real-time household inventory observation via Snabbler</li><li>Completion screen placement — "running low on Vim?" at peak relevance</li><li>Recurring household replenishment signal (category + frequency)</li></ul>
+          </div>
+          <div class="mcardArrow">⇌</div>
+          <div class="mcardSide partner">
+            <div class="mcardSideLabel">Zepto gives back</div>
+            <ul><li>CPA ₹60–150 on every order driven through Snabbit</li><li>Zepto grocery delivery as a Snabbit subscription perk — drives pass upgrades</li><li>Co-marketing: "Snabbit + Zepto — your home, fully sorted"</li></ul>
+          </div>
+        </div>
+        <div class="mcardModel"><span class="mcardModelLabel">Revenue model</span><span class="mcardModelVal">CPA ₹60–150 per order + subscription bundle rev-share</span></div>
+      </div>
+
+      <!-- URBAN COMPANY (reverse) -->
+      <div class="mutualCard">
+        <div class="mcardTop">
+          <div class="mcardLogo" style="background:#FF6B35">
+            <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="12" fill="#FF6B35"/><text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" fill="#fff" font-family="Arial Black" font-size="9" font-weight="900">Snabbit</text><text x="50%" y="75%" dominant-baseline="middle" text-anchor="middle" fill="rgba(255,255,255,.7)" font-family="Arial Black" font-size="9" font-weight="900">Certified</text></svg>
+          </div>
+          <div class="mcardMeta">
+            <div class="mcardName">Snabbit Certified</div>
+            <div class="mcardSub">Background check as a service · landlord &amp; employer market</div>
+          </div>
+          <div class="mcardTag" style="background:rgba(255,107,53,.1);color:#FF6B35;border-color:rgba(255,107,53,.3)">Platform extension</div>
+        </div>
+        <div class="mcardThesis">Snabbit already runs India's most rigorous domestic worker background check. <b>Every landlord hiring a maid, every family hiring a driver, every senior citizen hiring a caretaker independently — all need exactly what Snabbit has built.</b> Sell the trust infrastructure as a standalone product.</div>
+        <div class="mcardExchange">
+          <div class="mcardSide snabbit">
+            <div class="mcardSideLabel">Snabbit gives</div>
+            <ul><li>Background verification certificate for domestic workers not on Snabbit</li><li>Skill certification for independently trained workers</li><li>Snabbit quality mark — trusted by 50K households</li></ul>
+          </div>
+          <div class="mcardArrow">⇌</div>
+          <div class="mcardSide partner">
+            <div class="mcardSideLabel">Market gives back</div>
+            <ul><li>₹500–2,000 per verification from independent landlords/employers</li><li>Expands Snabbit brand into the entire unorganised domestic worker market</li><li>Pipeline of verified workers for Snabbit's own platform</li></ul>
+          </div>
+        </div>
+        <div class="mcardModel"><span class="mcardModelLabel">Revenue model</span><span class="mcardModelVal">₹500–2,000 per background check · direct market · no partner needed</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<div class="pgfoot"><div class="in2"><a class="pgbtn" href="#/b2b">← B2B</a><a class="pgbtn primary" href="#/">Back to start →</a></div></div>
+</div>
+
+<script>
+const pages=[...document.querySelectorAll('.page')];
+const navlinks=[...document.querySelectorAll('.nav a')];
+
+function route(){
+  let h=location.hash.replace('#','')||'/';
+  if(!pages.some(p=>p.dataset.page===h)) h='/';
+  pages.forEach(p=>p.classList.toggle('on',p.dataset.page===h));
+  navlinks.forEach(a=>a.classList.toggle('on',a.dataset.r===h));
+  window.scrollTo(0,0);
+  const act=pages.find(p=>p.dataset.page===h);
+  act.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));
+  if(h==='/'){
+    const br=document.getElementById('bridge');
+    if(br){
+      br.querySelectorAll('.bbar').forEach(b=>{b.style.height='0'});
+      const bio=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){
+        br.querySelectorAll('.bbar').forEach(b=>{b.style.height=b.dataset.h});
+        br.querySelectorAll('.bcol').forEach(c=>c.classList.add('in'));
+        bio.disconnect();
+      }})},{threshold:.3});
+      bio.observe(br);
+    }
+  }
+  const onA=navlinks.find(a=>a.classList.contains('on'));
+  if(onA) onA.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
+}
+addEventListener('hashchange',route);
+route();
+
+// persona portraits from Wikipedia
+document.querySelectorAll('.pcard[data-actor]').forEach(async card=>{
+  await new Promise(r=>setTimeout(r,60));
+  if(card.querySelector('.pimg'))return;
+  try{
+    const t=card.dataset.actor.replace(/ /g,'_');
+    const res=await fetch('https://en.wikipedia.org/api/rest_v1/page/summary/'+t);
+    if(!res.ok)return;
+    const j=await res.json();
+    const src=j.thumbnail&&j.thumbnail.source;
+    if(!src)return;
+    const im=document.createElement('img');
+    im.className='pimg';im.alt=card.dataset.actor;im.loading='lazy';
+    im.src=src.replace(/\/\d+px-/,'/400px-');
+    im.onerror=()=>im.remove();
+    card.insertBefore(im,card.firstChild);
+  }catch(e){}
+});
+
+// pitch tabs
+const ptabs=[...document.querySelectorAll('.ptab')];
+const pps=[...document.querySelectorAll('.pp')];
+ptabs.forEach((t,i)=>t.addEventListener('click',()=>{
+  ptabs.forEach((x,k)=>x.classList.toggle('on',k===i));
+  pps.forEach((x,k)=>x.classList.toggle('on',k===i));
+}));
+</script>
+</body>
+</html>
