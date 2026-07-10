@@ -14,7 +14,7 @@
   --pink:#E8186D; --pinkL:#F03E8A; --pinkD:#C4125A;
   --pinkGlow:rgba(232,24,109,.15);
   --green:#22C55E; --yellow:#FF9500;
-  --grey:#9A8A92; --grey2:#6E5E66;
+  --grey:#5E4E57; --grey2:#443640;
   --line:rgba(232,24,109,.12); --lineD:rgba(255,255,255,.08);
   --disp:'Plus Jakarta Sans',system-ui,sans-serif;
   --body:'DM Sans',system-ui,sans-serif;
@@ -33,10 +33,10 @@ section{position:relative}
 .topbar .brand{display:flex;align-items:center;gap:10px}
 .tbLogo{width:32px;height:32px;background:var(--pink);border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-weight:800;font-size:14px;color:#0A0E1A;flex-shrink:0}
 .tbName{font-family:var(--disp);font-weight:800;font-size:17px;color:#1A0A10}
-.tbTag{color:#9A8A92;font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase}
+.tbTag{color:#5E4E57;font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase}
 .nav{display:flex;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 .nav::-webkit-scrollbar{display:none}
-.nav a{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#9A8A92;padding:6px 13px;border-radius:100px;white-space:nowrap;text-decoration:none;border:1px solid transparent;transition:all .2s}
+.nav a{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#5E4E57;padding:6px 13px;border-radius:100px;white-space:nowrap;text-decoration:none;border:1px solid transparent;transition:all .2s}
 .nav a:hover{color:var(--pink)}
 .nav a.on{color:var(--pink);border-color:rgba(232,24,109,.4);background:rgba(232,24,109,.06)}
 
@@ -58,10 +58,10 @@ section{position:relative}
 /* ── SECTION HEADS ── */
 .shead{display:flex;align-items:center;gap:12px;margin-bottom:22px}
 .snum{font-family:var(--mono);font-size:11px;color:var(--pink);letter-spacing:.12em;border:1px solid rgba(232,24,109,.35);border-radius:100px;padding:5px 13px;white-space:nowrap}
-.slbl{color:#9A8A92;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase}
+.slbl{color:#5E4E57;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase}
 h2{font-size:clamp(2rem,4.5vw,3.2rem);max-width:22ch;color:#1A0A10}
 h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;border-radius:.12em}
-.intro{font-size:15.5px;color:#6E5E66;max-width:70ch;margin-top:14px;line-height:1.65}
+.intro{font-size:15.5px;color:#443640;max-width:70ch;margin-top:14px;line-height:1.65}
 .intro b{color:#1A0A10}
 
 /* ── SNABBIT HERO ── */
@@ -71,14 +71,14 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
 .hero .ey::before{content:"";width:28px;height:2px;background:var(--pink);border-radius:2px}
 .hero h1{font-size:clamp(2.4rem,5.5vw,4rem);max-width:18ch}
 .hero h1 .pill{background:var(--pink);color:#fff}
-.hero .lede{font-size:15.5px;color:#8A7A82;max-width:60ch;margin-top:18px;line-height:1.65}
+.hero .lede{font-size:15.5px;color:#443640;max-width:60ch;margin-top:18px;line-height:1.65}
 .hero .lede b{color:#1A0A10}
 
 .heroStats{display:flex;flex-wrap:wrap;margin-top:50px;border-top:1px solid rgba(232,24,109,.1);border-bottom:1px solid rgba(232,24,109,.1)}
 .heroStats .t{flex:1;min-width:120px;padding:16px 20px 14px;border-right:1px solid rgba(232,24,109,.1)}
 .heroStats .t:last-child{border-right:none}
 .heroStats .n{font-family:var(--disp);font-weight:800;font-size:clamp(1.3rem,2.8vw,1.9rem);color:var(--pink)}
-.heroStats .l{color:#9A8A92;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
+.heroStats .l{color:#5E4E57;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
 
 /* ── MOAT STRIP ── */
 .moatStrip{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:46px;background:rgba(232,24,109,.1);border:1px solid rgba(232,24,109,.1);border-radius:16px;overflow:hidden}
@@ -87,7 +87,7 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
 .moat .mi{font-size:22px;margin-bottom:10px}
 .moat .mk{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--pink);margin-bottom:5px}
 .moat h4{font-size:1rem;color:#1A0A10;margin-bottom:5px;letter-spacing:-.01em}
-.moat p{font-size:12.5px;color:#9A8A92;line-height:1.45}
+.moat p{font-size:12.5px;color:#5E4E57;line-height:1.45}
 
 /* ── REVENUE BRIDGE BARS ── */
 #bridge{margin-top:48px;padding:34px 28px;background:#FFF5F9;border:1px solid rgba(232,24,109,.1);border-radius:20px}
@@ -101,14 +101,14 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
 .bbar.base{background:linear-gradient(180deg,#1E2A4A,#141D35);border:1px solid rgba(232,24,109,.1)}
 .bbar.step{background:linear-gradient(180deg,#F03E8A,var(--pink))}
 .bbar.total{background:linear-gradient(180deg,#FFE08A,var(--yellow));box-shadow:0 0 36px rgba(255,209,102,.2)}
-.bcol .bl{position:absolute;bottom:-38px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;color:#9A8A92;text-align:center;width:130%;line-height:1.35}
-.bridgeNote{margin-top:64px;border-left:3px solid var(--pink);padding:4px 0 4px 18px;font-size:14.5px;color:#6E5E66;max-width:72ch}
+.bcol .bl{position:absolute;bottom:-38px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;color:#5E4E57;text-align:center;width:130%;line-height:1.35}
+.bridgeNote{margin-top:64px;border-left:3px solid var(--pink);padding:4px 0 4px 18px;font-size:14.5px;color:#443640;max-width:72ch}
 .bridgeNote b{color:#1A0A10}
 
 /* ── NAV PAGES ── */
 .pgfoot{padding:20px 0 32px;border-top:1px solid rgba(232,24,109,.1);margin-top:24px}
 .pgfoot .in2{max-width:1120px;margin:0 auto;padding:0 26px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.pgbtn{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(232,24,109,.1);border-radius:100px;padding:10px 20px;color:#9A8A92;text-decoration:none;transition:all .2s}
+.pgbtn{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(232,24,109,.1);border-radius:100px;padding:10px 20px;color:#5E4E57;text-decoration:none;transition:all .2s}
 .pgbtn:hover{border-color:var(--pink);color:var(--pink)}
 .pgbtn.primary{background:var(--pink);color:#0A0E1A;border-color:var(--pink);font-weight:600}
 .pgbtn.primary:hover{background:var(--pinkD);border-color:var(--pinkD)}
@@ -121,10 +121,10 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
 .oppIcon{font-size:26px;margin-bottom:14px}
 .oppKey{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--pink);margin-bottom:6px}
 .oppTitle{font-family:var(--disp);font-weight:700;font-size:1.15rem;color:#1A0A10;margin-bottom:8px;letter-spacing:-.01em}
-.oppDesc{font-size:13.5px;color:#7A6A72;line-height:1.5}
+.oppDesc{font-size:13.5px;color:#443640;line-height:1.5}
 .oppDesc b{color:#1A0A10}
 .oppChips{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px}
-.oppChip{font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(232,24,109,.1);border-radius:100px;padding:3px 9px;color:#7A6A72}
+.oppChip{font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(232,24,109,.1);border-radius:100px;padding:3px 9px;color:#443640}
 .oppChip.hi{border-color:rgba(232,24,109,.35);color:var(--pink);background:rgba(232,24,109,.07)}
 .oppPotential{margin-top:12px;padding-top:10px;border-top:1px solid rgba(232,24,109,.1);font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--yellow)}
 
@@ -136,14 +136,14 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
 .pcard .av{display:none}
 .pcard h3{font-size:1.05rem;color:#1A0A10;margin:14px 20px 2px}
 .pcard .pm{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);margin-bottom:8px;padding:0 20px}
-.pcard p{font-size:13px;color:#7A6A72;line-height:1.45;padding:0 20px}
+.pcard p{font-size:13px;color:#443640;line-height:1.45;padding:0 20px}
 .pcard .asset{margin:12px 20px 18px;padding-top:10px;border-top:1px solid rgba(232,24,109,.1);font-size:12.5px;color:#1A0A10;font-weight:600}
 .pcard .asset span{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);display:block;margin-bottom:3px;font-weight:400}
 
 /* ── SAMPLE PITCH TABS ── */
 .ptabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
 .ptab{flex:1;min-width:140px;text-align:left;border:1px solid rgba(232,24,109,.1);background:#FFF5F9;border-radius:14px;padding:14px 16px;cursor:pointer;transition:all .25s;color:#1A0A10;font-family:var(--body)}
-.ptab .pk{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#9A8A92;margin-bottom:6px}
+.ptab .pk{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#5E4E57;margin-bottom:6px}
 .ptab h3{font-size:1rem;letter-spacing:-.01em;font-family:var(--disp);font-weight:700}
 .ptab.on{border-color:rgba(232,24,109,.5);background:rgba(232,24,109,.08)}
 .ptab.on .pk{color:var(--pink)}
@@ -153,12 +153,12 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
 .ppTop{margin-bottom:20px}
 .ppTop .who{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);margin-bottom:10px}
 .ppTop h3{font-size:1.5rem;margin-bottom:10px;color:#1A0A10}
-.ppTop p{font-size:14px;color:#7A6A72;line-height:1.55;max-width:72ch}
+.ppTop p{font-size:14px;color:#443640;line-height:1.55;max-width:72ch}
 .ppGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
 @media(max-width:760px){.ppGrid{grid-template-columns:1fr}}
 .ppCell{border:1px solid rgba(232,24,109,.1);border-radius:12px;padding:16px}
 .ppCell .cl{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--pink);margin-bottom:8px}
-.ppCell p{font-size:13px;color:#7A6A72;line-height:1.5}
+.ppCell p{font-size:13px;color:#443640;line-height:1.5}
 .ppCell p b{color:#1A0A10}
 .ppLine{margin-top:20px;font-family:var(--disp);font-size:1.15rem;font-weight:700;color:#1A0A10;border-left:3px solid var(--pink);padding-left:16px;line-height:1.4;letter-spacing:-.01em}
 
@@ -171,22 +171,22 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
 .mcardLogo{width:42px;height:42px;border-radius:11px;flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .mcardMeta{flex:1;min-width:0}
 .mcardName{font-family:var(--disp);font-weight:700;font-size:1.05rem;color:#1A0A10;letter-spacing:-.01em}
-.mcardSub{font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;color:#9A8A92;margin-top:2px;text-transform:uppercase}
+.mcardSub{font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;color:#5E4E57;margin-top:2px;text-transform:uppercase}
 .mcardTag{font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;border:1px solid;border-radius:100px;padding:3px 9px;white-space:nowrap;flex-shrink:0}
-.mcardThesis{font-size:13px;color:#7A6A72;line-height:1.55}
+.mcardThesis{font-size:13px;color:#443640;line-height:1.55}
 .mcardThesis b{color:#1A0A10}
 .mcardExchange{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:start;background:rgba(232,24,109,.04);border-radius:11px;padding:13px}
 .mcardSide ul{list-style:none;display:grid;gap:5px;margin-top:7px}
-.mcardSide li{font-size:12px;color:#7A6A72;line-height:1.4;padding-left:11px;position:relative}
+.mcardSide li{font-size:12px;color:#443640;line-height:1.4;padding-left:11px;position:relative}
 .mcardSide li::before{content:"";position:absolute;left:0;top:.55em;width:5px;height:5px;border-radius:50%}
 .mcardSide.snabbit li::before{background:var(--pink)}
 .mcardSide.partner li::before{background:var(--green)}
 .mcardSideLabel{font-family:var(--mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase}
 .mcardSide.snabbit .mcardSideLabel{color:var(--pink)}
 .mcardSide.partner .mcardSideLabel{color:var(--green)}
-.mcardArrow{font-size:1.2rem;color:#9A8A92;opacity:.4;padding-top:16px}
+.mcardArrow{font-size:1.2rem;color:#5E4E57;opacity:.4;padding-top:16px}
 .mcardModel{display:flex;align-items:baseline;gap:8px;padding-top:12px;border-top:1px solid rgba(232,24,109,.1);flex-wrap:wrap}
-.mcardModelLabel{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:#9A8A92;white-space:nowrap}
+.mcardModelLabel{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:#5E4E57;white-space:nowrap}
 .mcardModelVal{font-size:12px;color:var(--pink);font-weight:600;line-height:1.4}
 
 /* ── FORMAT MOMENT CARDS ── */
@@ -196,14 +196,14 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
 .mcHead{padding:15px 17px 11px;border-bottom:1px solid rgba(232,24,109,.1);display:flex;align-items:center;gap:9px}
 .mcIcon{font-size:19px;line-height:1;flex-shrink:0}
 .mcMeta{flex:1}
-.mcMoment{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#9A8A92}
+.mcMoment{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#5E4E57}
 .mcTitle{font-family:var(--disp);font-weight:700;font-size:.95rem;color:#1A0A10;letter-spacing:-.01em;margin-top:1px}
 .mcDuration{font-family:var(--mono);font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);margin-top:2px}
 .mcFormats{padding:13px 17px;display:grid;gap:8px}
 .mf{display:flex;align-items:flex-start;gap:8px}
 .mfDot{width:5px;height:5px;border-radius:50%;background:var(--pink);flex-shrink:0;margin-top:5px}
 .mfName{font-size:12.5px;color:#1A0A10;font-weight:600;line-height:1.2}
-.mfDesc{font-size:11px;color:#A08A94;line-height:1.35;margin-top:1px}
+.mfDesc{font-size:11px;color:#5E4E57;line-height:1.35;margin-top:1px}
 .mfTag{display:inline-block;font-family:var(--mono);font-size:7.5px;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(232,24,109,.1);border-radius:100px;padding:2px 7px;color:#8A95B0;margin-top:3px}
 .mfTag.brand{border-color:rgba(139,159,232,.4);color:#F472B6}
 .mfTag.perf{border-color:rgba(232,24,109,.35);color:var(--pink)}
@@ -214,17 +214,17 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
 .sponsoredHome::before{content:"";position:absolute;top:-50px;right:-50px;width:170px;height:170px;background:radial-gradient(circle,rgba(232,24,109,.15),transparent 70%);pointer-events:none}
 .shBadge{display:inline-flex;align-items:center;gap:7px;background:var(--pink);color:#0A0E1A;border-radius:100px;padding:5px 13px;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:14px}
 .shTitle{font-family:var(--disp);font-weight:800;font-size:1.45rem;color:#1A0A10;letter-spacing:-.02em;margin-bottom:7px}
-.shDesc{font-size:13.5px;color:#7A6A72;line-height:1.55;max-width:68ch;margin-bottom:16px}
+.shDesc{font-size:13.5px;color:#443640;line-height:1.55;max-width:68ch;margin-bottom:16px}
 .shDesc b{color:#1A0A10}
 .shFormats{display:flex;flex-wrap:wrap;gap:8px}
 .shFormat{border:1px solid rgba(232,24,109,.2);border-radius:10px;padding:10px 13px;background:rgba(232,24,109,.04);min-width:160px;flex:1}
 .shfLabel{font-family:var(--mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--pink);margin-bottom:3px}
 .shfName{font-size:12.5px;color:#1A0A10;font-weight:600}
-.shfDesc{font-size:11.5px;color:#A08A94;margin-top:2px;line-height:1.35}
+.shfDesc{font-size:11.5px;color:#5E4E57;margin-top:2px;line-height:1.35}
 
 /* Legend */
 .fmtLegend{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;padding-top:11px;border-top:1px solid rgba(232,24,109,.1)}
-.fmtLegend .fl{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#7A6A72}
+.fmtLegend .fl{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#443640}
 .fmtLegend .fld{width:7px;height:7px;border-radius:50%;flex-shrink:0}
 
 /* Fintech / Snabbler financial products */
@@ -233,7 +233,7 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
 .finCard:hover{border-color:rgba(232,24,109,.2)}
 .finCard .fk{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--pink);margin-bottom:6px}
 .finCard h4{font-family:var(--disp);font-size:1rem;color:#1A0A10;margin-bottom:6px;letter-spacing:-.01em;font-weight:700}
-.finCard p{font-size:13px;color:#7A6A72;line-height:1.45}
+.finCard p{font-size:13px;color:#443640;line-height:1.45}
 .finCard p b{color:#1A0A10}
 .finCard .fpotential{margin-top:10px;font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--pink)}
 
@@ -243,7 +243,7 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
 .revHead div{padding:11px 16px;font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--pink)}
 .revRow{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;border-bottom:1px solid rgba(232,24,109,.1)}
 .revRow:last-child{border-bottom:none}
-.revRow div{padding:13px 16px;font-size:13px;color:#7A6A72}
+.revRow div{padding:13px 16px;font-size:13px;color:#443640}
 .revRow .rn{color:#1A0A10;font-weight:700;font-family:var(--disp);font-size:.95rem;letter-spacing:-.01em}
 .revRow .rv2{color:var(--pink);font-family:var(--mono);font-size:11.5px}
 .revTotal{background:rgba(232,24,109,.05)}
@@ -254,16 +254,16 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
 .samplingHero::before{content:"";position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(255,209,102,.15),transparent 70%)}
 .samplingHero .shk{font-family:var(--mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--pink);margin-bottom:12px}
 .samplingHero h3{font-size:1.5rem;margin-bottom:8px}
-.samplingHero p{font-size:14px;color:#7A6A72;max-width:64ch;line-height:1.55}
+.samplingHero p{font-size:14px;color:#443640;max-width:64ch;line-height:1.55}
 .samplingHero p b{color:#1A0A10}
 .samplingGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:18px}
 .sampCard{border:1px solid rgba(232,24,109,.15);border-radius:12px;padding:14px;background:rgba(232,24,109,.04)}
 .sampCard .sk{font-family:var(--mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--pink);margin-bottom:5px}
 .sampCard .sn{font-size:13px;color:#1A0A10;font-weight:600;margin-bottom:3px}
-.sampCard .sd{font-size:12px;color:#A08A94;line-height:1.35}
+.sampCard .sd{font-size:12px;color:#5E4E57;line-height:1.35}
 
 /* Guard / principle */
-.guard{border-left:3px solid var(--pink);padding:4px 0 4px 18px;color:#6E5E66;font-size:14px;max-width:75ch;line-height:1.55}
+.guard{border-left:3px solid var(--pink);padding:4px 0 4px 18px;color:#443640;font-size:14px;max-width:75ch;line-height:1.55}
 .guard b{color:#1A0A10}
 
 /* Principles grid */
@@ -272,7 +272,7 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
 .prn{display:flex;gap:12px;border:1px solid rgba(232,24,109,.1);border-radius:13px;padding:16px}
 .prnNum{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);flex-shrink:0;padding-top:2px}
 .prnTitle{font-family:var(--disp);font-weight:700;font-size:.95rem;color:#1A0A10;margin-bottom:4px;letter-spacing:-.01em}
-.prnDesc{font-size:12.5px;color:#A08A94;line-height:1.45}
+.prnDesc{font-size:12.5px;color:#5E4E57;line-height:1.45}
 
 @media(max-width:760px){
   .revHead,.revRow{grid-template-columns:1.5fr 1fr}
@@ -321,7 +321,7 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
   <div class="wrap">
     <div class="ey rv">Snabbit · Monetization brief</div>
     <h1 class="rv">Beyond the<br><span class="pill">service fee.</span></h1>
-    <p class="lede rv">Snabbit already runs <b>40,000+ home visits a day</b> into high-income urban homes — verified, trusted, recurring — and the category is still early: within 3–5 years millions of premium households will buy on-demand home help. That is not just a services business. It is an attention network, a distribution channel, a financial-services corridor, and an enterprise staffing platform waiting to be monetized. This brief maps every path from a ₹500 booking to a ₹1,500 Cr+ business.</p>
+    <p class="lede rv">Snabbit runs <b>40,000+ home visits a day</b> into high-income urban homes — verified, trusted, recurring. The category is early: within 3–5 years, millions of premium households will buy on-demand home help. That's not just a services business — it's an attention network, a distribution channel, and a financial-services corridor waiting to be monetized.</p>
 
     <div class="heroStats rv">
       <div class="t"><div class="n">40K+</div><div class="l">home visits a day</div></div>
@@ -350,7 +350,7 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
   <div class="wrap">
     <div class="shead rv"><span class="snum">↗</span><span class="slbl">The market · 3–5 year view</span></div>
     <h2 class="rv">The household base is<br>about to <span class="pill">10×</span>.</h2>
-    <p class="intro rv">India's home-services market is ~$60B today and heads to ~$100B by FY30 — but only ~3% of the top-8 cities buy it <b>online</b>, and that share is just starting to compound. The affluent base Snabbit serves is projected to reach <b>~100M people (~25M households) by 2027</b>. The prize is not the service fee on today's homes — it is owning the trusted relationship with <b>millions</b> of premium households as the category moves online.</p>
+    <p class="intro rv">India's home-services market grows from ~$60B to ~$100B by FY30, yet only ~3% of the top-8 cities buy it <b>online</b> today. With <b>~100M affluent Indians by 2027</b>, the prize isn't the fee on today's homes — it's owning the trusted relationship with <b>millions</b> of premium households as the category moves online.</p>
 
     <div class="heroStats rv" style="margin-top:30px">
       <div class="t"><div class="n">$60B→$100B</div><div class="l">India home services · FY25→FY30</div></div>
@@ -466,11 +466,11 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
       <div style="height:42px"></div>
     </div>
 
-    <div class="bridgeNote rv"><b>The core insight:</b> Snabbit's service fee is a relationship starter, not the business. The household that books a maid is also a premium FMCG buyer, an insurance prospect, a Nykaa shopper, and a home loan applicant — and Snabbit is the only platform they trust enough to let inside their home every day.</div>
+    <div class="bridgeNote rv"><b>The core insight:</b> the service fee is a relationship starter, not the business. The household that books a maid is also a premium FMCG buyer, an insurance prospect, and a Nykaa shopper — and Snabbit is the only platform they trust enough to let inside their home.</div>
   </div>
 </section>
 
-<div class="wrap"><p style="font-size:11px;color:#9A8A92;max-width:82ch;margin:8px auto 0;line-height:1.6">Market, competitor and household figures are estimates compiled from public sources (TechCrunch, YourStory, Entrackr, Tracxn, Bloomberg, Goldman Sachs, IBEF, Grand View Research, and Urban Company FY25 filings) plus independent projection. Scenarios are illustrative, not forecasts. Snabbit operating metrics as of April 2026.</p></div>
+<div class="wrap"><p style="font-size:11px;color:#5E4E57;max-width:82ch;margin:8px auto 0;line-height:1.6">Market, competitor and household figures are estimates compiled from public sources (TechCrunch, YourStory, Entrackr, Tracxn, Bloomberg, Goldman Sachs, IBEF, Grand View Research, and Urban Company FY25 filings) plus independent projection. Scenarios are illustrative, not forecasts. Snabbit operating metrics as of April 2026.</p></div>
 <div class="pgfoot"><div class="in2"><span></span><a class="pgbtn primary" href="#/personas">Next · Personas →</a></div></div>
 </div>
 
@@ -482,7 +482,7 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
   <div class="wrap">
     <div class="shead rv"><span class="snum" style="border-color:rgba(255,255,255,.4);color:#fff">02</span><span class="slbl" style="color:rgba(255,255,255,.8)">Who Snabbit serves</span></div>
     <h2 class="rv" style="color:#fff">Two sides. One platform.<br>Both monetizable.</h2>
-    <p class="intro rv" style="color:rgba(255,255,255,.85)">Snabbit serves a premium urban household and a gig-economy Snabbler. Both have unmet financial and aspirational needs. Both are the target of this monetization strategy.</p>
+    <p class="intro rv" style="color:rgba(255,255,255,.85)">Snabbit serves a premium urban household and a gig-economy Snabbler — both with unmet financial and aspirational needs, both monetizable.</p>
   </div>
 </section>
 
@@ -567,7 +567,7 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
   <div class="wrap">
     <div class="shead rv"><span class="snum" style="border-color:rgba(255,255,255,.4);color:#fff">03</span><span class="slbl" style="color:rgba(255,255,255,.8)">Advertising &amp; brand monetization</span></div>
     <h2 class="rv" style="color:#fff">The most valuable<br>urban attention in India.</h2>
-    <p class="intro rv" style="color:rgba(255,255,255,.85)">SEC A/A+ households. Daily recurring access. A post-service moment with 80% notification open rates. No other platform in India owns this combination — and brands are paying CPMs of ₹800–1,200 to reach far lower-quality audiences on Instagram.</p>
+    <p class="intro rv" style="color:rgba(255,255,255,.85)">SEC A/A+ households, daily recurring access, and a post-service moment with ~80% open rates. No platform in India owns this combination — while brands pay ₹800–1,200 CPMs for lower-quality Instagram audiences.</p>
   </div>
 </section>
 
@@ -781,7 +781,7 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
   <div class="wrap">
     <div class="shead rv" style="margin-top:8px"><span class="snum">—</span><span class="slbl">In-home product sampling</span></div>
     <h2 class="rv">The only verified in-home sampling channel in India.</h2>
-    <p class="intro rv">FMCG brands spend thousands of crores trying to get products into SEC A homes. Snabbit's Snabblers already go in — every day, trusted, with the household's permission. This is not a sampling program. It is a physical distribution infrastructure.</p>
+    <p class="intro rv">FMCG brands spend crores getting products into SEC A homes. Snabbit's Snabblers already go in — daily, trusted, invited. This isn't a sampling program; it's physical distribution infrastructure.</p>
   </div>
 </section>
 
@@ -834,7 +834,7 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
   <div class="wrap">
     <div class="shead rv"><span class="snum" style="border-color:rgba(255,255,255,.4);color:#fff">04</span><span class="slbl" style="color:rgba(255,255,255,.8)">Financial services</span></div>
     <h2 class="rv" style="color:#fff">15,000 Snabblers.<br>Zero credit history.<br><span style="background:#0A0E1A;color:var(--pink);padding:0 .1em;border-radius:.1em">Every product.</span></h2>
-    <p class="intro rv" style="color:rgba(255,255,255,.85)">Snabbit's 15,000 Snabblers are the most underserved financial cohort in urban India — regular income, verified identity, known work history, zero formal credit. This is both a social obligation and a significant revenue opportunity. The two are not in conflict.</p>
+    <p class="intro rv" style="color:rgba(255,255,255,.85)">Snabbit's 15,000 Snabblers are urban India's most underserved financial cohort — regular income, verified identity, zero formal credit. Serving them is both a social obligation and a real revenue opportunity.</p>
   </div>
 </section>
 
@@ -880,7 +880,7 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
   <div class="wrap">
     <div class="shead rv"><span class="snum" style="border-color:rgba(255,255,255,.4);color:#fff">05</span><span class="slbl" style="color:rgba(255,255,255,.8)">B2B &amp; enterprise</span></div>
     <h2 class="rv" style="color:#fff">Higher ticket. Recurring.<br>Zero consumer CAC.</h2>
-    <p class="intro rv" style="color:rgba(255,255,255,.85)">The same Snabbler network that serves households can serve offices, co-working spaces, real estate developers, and hotels — at 3–5x the ticket size, on longer contracts, with enterprise-level predictability. B2B is the fastest path to EBITDA.</p>
+    <p class="intro rv" style="color:rgba(255,255,255,.85)">The same Snabbler network can serve offices, co-working spaces, developers, and hotels — at 3–5x the ticket, on longer contracts. B2B is the fastest path to EBITDA.</p>
   </div>
 </section>
 
@@ -967,7 +967,7 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
   <div class="wrap">
     <div class="shead rv"><span class="snum" style="border-color:rgba(255,255,255,.4);color:#fff">06</span><span class="slbl" style="color:rgba(255,255,255,.8)">Mutual partnerships</span></div>
     <h2 class="rv" style="color:#fff">Five partnerships.<br>One shared home.</h2>
-    <p class="intro rv" style="color:rgba(255,255,255,.85)">Each partner below needs what only Snabbit can give: <b>verified, trusted, recurring access to a high-income urban household.</b> Snabbit needs what each partner has: distribution, financial infrastructure, or content that makes the Snabbit relationship stickier. These are mutual exchanges, not ad buys.</p>
+    <p class="intro rv" style="color:rgba(255,255,255,.85)">Each partner needs what only Snabbit has: <b>trusted, recurring access to a high-income household.</b> Snabbit needs what they have: distribution, financial rails, or content that makes the relationship stickier. Mutual exchanges, not ad buys.</p>
   </div>
 </section>
 
