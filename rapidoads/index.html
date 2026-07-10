@@ -340,6 +340,11 @@ section{position:relative}
   *{animation:none!important;transition:none!important}
   .rv{opacity:1;transform:none}
 }
+/* rapidoads logo — swish motion (journey/speed cue) */
+@keyframes raSwish{0%,100%{transform:translateX(1.5px);opacity:.8}50%{transform:translateX(-3px);opacity:.4}}
+.ralock .mark svg path:last-of-type{transform-box:fill-box;transform-origin:center;animation:raSwish 1.5s ease-in-out infinite}
+@keyframes raGlide{0%,100%{transform:translateX(0)}50%{transform:translateX(-5px)}}
+.ralock.big .mark{animation:raGlide 2.8s ease-in-out infinite}
 </style>
 </head>
 <body>
@@ -354,7 +359,7 @@ section{position:relative}
 <!-- HERO -->
 <section class="hero">
   <div class="wrap">
-    <div class="ey mono">Monetization · Part II — the operating plan</div>
+    <div class="ey mono">Monetization · the operating plan</div>
     <h1>From 2%<br>to <span class="pill">4%.</span></h1>
     <p class="lede">Rides got Rapido to ~2% EBITDA. Rides won't get it to 4 — the take rate is competitive and captains need their economics. <b>The second two points come from monetizing what Rapido already owns: attention, data and trust</b> — built as non-ride revenue worth 2% of GMV, at margins rides can never touch.</p>
     <div class="heroStats">
@@ -382,7 +387,7 @@ section{position:relative}
       <div class="bcol"><div class="bv y">+0.05%</div><div class="bbar step s4" data-h="3%"></div><div class="bl">Insights &amp;<br>B2B data</div></div>
       <div class="bcol"><div class="bv">~4%</div><div class="bbar total" data-h="84%"></div><div class="bl">EBITDA<br>at maturity</div></div>
     </div></div>
-    <div class="bridgeNote rv"><b>Why 1.5% for ads?</b> That's the Uber/Grab maturity band — benchmarked, defensible, boring in the best way. At ~$4B GMV that's ~$60M / ₹500 Cr a year of high-margin, recurring revenue. Financial services is the sleeper: captain lending referrals underwritten by earnings Rapido itself settles, ride-insurance attach, and a co-branded card — distribution fees at ~90% margin.</div>
+    <div class="bridgeNote rv"><b>Why 1.5% for ads?</b> That's the Uber/Grab maturity band — benchmarked, defensible, boring in the best way. At ~$4B GMV that's ~$60M / ₹500 Cr a year of high-margin, recurring revenue. Financial services is the sleeper — small in this 3–5-year bridge, the long game beyond it: captain lending referrals underwritten by earnings Rapido itself settles, ride-insurance attach, and a co-branded card at ~90%-margin distribution fees.</div>
   </div>
 </section>
 
