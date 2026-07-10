@@ -516,13 +516,6 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
         <div class="asset"><span>Primary monetization surface</span>Elder care partnerships, premium subscription upsell, health insurance referral</div>
       </div>
 
-      <div class="pcard" data-actor="Tahir_Raj_Bhasin">
-        <div class="av">AK</div>
-        <h3>Aryan</h3>
-        <div class="pm">27 · startup founder · Koramangala · first apartment</div>
-        <p>Just moved out. Never managed a home. Books deep cleaning, cooking, laundry. Not price sensitive — time sensitive. Open to every bundled offer in the app.</p>
-        <div class="asset"><span>Primary monetization surface</span>Household commerce upsell, cooking kit delivery, home décor CPA</div>
-      </div>
 
     </div>
 
@@ -537,13 +530,6 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
         <div class="asset"><span>Fintech opportunity</span>Zero-balance savings, UPI onboarding, micro health insurance, earned wage access</div>
       </div>
 
-      <div class="pcard" data-actor="Seema_Pahwa">
-        <div class="av">LA</div>
-        <h3>Lakshmi</h3>
-        <div class="pm">Cook · 42 · Ghatkopar · trained by Snabbit</div>
-        <p>Trained in Snabbit's kitchen skill program. Earns ₹22,000/mo across 3 households. Wants to upgrade her knife set and rent a pressure cooker. No credit history.</p>
-        <div class="asset"><span>Fintech opportunity</span>Equipment loan, skill certification, income smoothing credit, group insurance</div>
-      </div>
 
       <div class="pcard" data-actor="Dia_Mirza">
         <div class="av">NK</div>
@@ -1147,24 +1133,7 @@ function route(){
 addEventListener('hashchange',route);
 route();
 
-// persona portraits from Wikipedia
-document.querySelectorAll('.pcard[data-actor]').forEach(async card=>{
-  await new Promise(r=>setTimeout(r,60));
-  if(card.querySelector('.pimg'))return;
-  try{
-    const t=card.dataset.actor.replace(/ /g,'_');
-    const res=await fetch('https://en.wikipedia.org/api/rest_v1/page/summary/'+t);
-    if(!res.ok)return;
-    const j=await res.json();
-    const src=j.thumbnail&&j.thumbnail.source;
-    if(!src)return;
-    const im=document.createElement('img');
-    im.className='pimg';im.alt=card.dataset.actor;im.loading='lazy';
-    im.src=src.replace(/\/\d+px-/,'/400px-');
-    im.onerror=()=>im.remove();
-    card.insertBefore(im,card.firstChild);
-  }catch(e){}
-});
+// (persona portraits removed — text-only cards, no images)
 
 // pitch tabs
 const ptabs=[...document.querySelectorAll('.ptab')];
