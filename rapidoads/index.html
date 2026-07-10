@@ -167,8 +167,13 @@ section{position:relative}
 
 /* ===== RAPIDO ADS FORMAT — TABLE ===== */
 .adformats{margin-top:42px;position:relative;text-align:left}
-.flagLine{border:1px solid rgba(253,206,9,.4);border-radius:14px;background:linear-gradient(135deg,rgba(253,206,9,.12),rgba(253,206,9,.04));padding:18px 22px;font-size:14.5px;color:#D8D2C6;line-height:1.55;margin-bottom:22px}
-.flagLine b{color:var(--paper)}
+.exclusive{border:1px solid rgba(253,206,9,.4);border-radius:18px;background:linear-gradient(135deg,rgba(253,206,9,.1),rgba(253,206,9,.03));padding:24px 26px;margin-bottom:26px}
+.exHead{font-size:14.5px;color:#D8D2C6;line-height:1.55;margin-bottom:18px}
+.exBadge{display:inline-block;background:var(--yl);color:#141414;border-radius:100px;padding:4px 12px;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-right:10px}
+.exGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.exCard{border:1px solid rgba(253,206,9,.28);border-radius:12px;background:rgba(253,206,9,.05);padding:16px 18px}
+.exName{font-family:var(--disp);font-weight:700;font-size:1.05rem;color:var(--paper);letter-spacing:-.01em;margin-bottom:6px}
+.exDesc{font-size:12.8px;color:#B8B2A6;line-height:1.5}
 .fmtWrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:16px}
 .fmtTable{width:100%;border-collapse:collapse;font-size:13.5px;min-width:660px}
 .fmtTable th{text-align:left;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);font-weight:400;padding:14px 18px;border-bottom:1px solid var(--line);background:var(--ink2)}
@@ -839,14 +844,21 @@ section{position:relative}
 <!-- 07 RAPIDO ADS -->
 <section class="sec tago">
   <div class="wrap">
-    <div class="k rv">Brand</div>
-    <div class="adbrand rv"><span class="ralock big"><span class="mark"><svg viewBox="0 0 48 48" fill="none"><path d="M27 6 C35 6 41 12 41 20 C41 30 27 42 27 42 C27 42 20 36 16 29" stroke="#141414" stroke-width="4.5" stroke-linecap="round"/><circle cx="27" cy="19" r="5" fill="#141414"/><path d="M6 22 H16 M9 29 H18 M13 36 H22" stroke="#141414" stroke-width="4" stroke-linecap="round"/></svg></span><span class="wm"><span class="l1">rapido<span class="thin">ads</span></span><span class="l2">journey media, measured</span></span></span></div>
+    <div class="adbrand rv"><span class="ralock big"><span class="mark"><svg viewBox="0 0 48 48" fill="none"><path d="M27 6 C35 6 41 12 41 20 C41 30 27 42 27 42 C27 42 20 36 16 29" stroke="#141414" stroke-width="4.5" stroke-linecap="round"/><circle cx="27" cy="19" r="5" fill="#141414"/><path d="M6 22 H16 M9 29 H18 M13 36 H22" stroke="#141414" stroke-width="4" stroke-linecap="round"/></svg></span><span class="wm"><span class="l1">rapido<span class="thin">ads</span></span></span></span></div>
     <h2 class="rv">The media that <span class="y">moves</span> India.</h2>
     <div class="sub rv">74M riders · 4M daily journeys · measured to the doorstep</div>
 
     <div class="adformats rv">
 
-      <div class="flagLine"><b>Flagship — the Sponsored Ride:</b> a brand pays some or all of the fare and owns the whole journey; the rider feels rewarded, not advertised to. Full-screen presence, verified delivery, a measurably grateful audience — no other medium in India can buy this moment.</div>
+      <div class="exclusive">
+        <div class="exHead"><span class="exBadge">Rapido Exclusive</span>Signature inventory only Rapido can sell — and, unlike in-app placements, some of it reaches the whole base, not just the people who open the app today.</div>
+        <div class="exGrid">
+          <div class="exCard"><div class="exName">Sponsored Ride</div><div class="exDesc">A brand pays some or all of the fare and owns the whole journey — the rider feels rewarded, not advertised to. Full-screen presence, verified delivery, a grateful audience.</div></div>
+          <div class="exCard"><div class="exName">App Icon takeover</div><div class="exDesc">The Rapido app icon itself goes co-branded on every user's home screen — reach across the entire install base, not just today's active openers.</div></div>
+          <div class="exCard"><div class="exName">Sponsored notifications</div><div class="exDesc">Branded push moments that reach users before they open the app — bringing the audience back, not only monetising those already inside.</div></div>
+          <div class="exCard"><div class="exName">Rewarded video</div><div class="exDesc">Opt-in ad for a fare discount or RapidoCoins — voluntary attention, and the highest-completion format on the platform.</div></div>
+        </div>
+      </div>
 
       <div class="fmtWrap">
       <table class="fmtTable">
@@ -855,10 +867,9 @@ section{position:relative}
           <tr><td class="mcell" rowspan="3"><b>Pre-booking</b><span>app open → destination</span></td><td class="fname">Home-screen masthead</td><td>Full-width brand takeover above the booking flow.</td><td><span class="obj b">Brand</span></td></tr>
           <tr><td class="fname">City / route takeover</td><td>Own all inventory in a city or corridor for a campaign window.</td><td><span class="obj b">Brand</span></td></tr>
           <tr><td class="fname">Destination-aware offer card</td><td>Coupon that surfaces when the likely destination matches a merchant.</td><td><span class="obj p">Performance</span></td></tr>
-          <tr><td class="mcell" rowspan="4"><b>The Wait</b><span>captain en route · 2–6 min</span></td><td class="fname">Vertical video</td><td>Full-screen 15–30s video — captive, eyes on phone. Best CPM in the journey.</td><td><span class="obj b">Brand</span></td></tr>
+          <tr><td class="mcell" rowspan="3"><b>The Wait</b><span>captain en route · 2–6 min</span></td><td class="fname">Vertical video</td><td>Full-screen 15–30s video — captive, eyes on phone. Best CPM in the journey.</td><td><span class="obj b">Brand</span></td></tr>
           <tr><td class="fname">Content / episode teaser</td><td>Partner content preview with a ride-end unlock.</td><td><span class="obj x">Both</span></td></tr>
           <tr><td class="fname">Pre-ride brand film</td><td>15–45s skippable brand story for launches and occasions.</td><td><span class="obj b">Brand</span></td></tr>
-          <tr><td class="fname">Rewarded video</td><td>Opt-in ad for a fare discount or RapidoCoins — highest completion.</td><td><span class="obj x">Both</span></td></tr>
           <tr><td class="mcell" rowspan="3"><b>In-ride · Bike / Auto</b><span>glance frequency · mode-aware</span></td><td class="fname">Route-aware native card</td><td>Offer served on the current route corridor — “3 stops from your drop.”</td><td><span class="obj p">Performance</span></td></tr>
           <tr><td class="fname">Store catchment card</td><td>Radius-triggered offer within 500m of a merchant.</td><td><span class="obj p">Performance</span></td></tr>
           <tr><td class="fname">Mid-ride swipeable carousel</td><td>3-card brand or product carousel, low-interruption.</td><td><span class="obj x">Both</span></td></tr>
