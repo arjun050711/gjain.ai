@@ -6,7 +6,7 @@
 <title>Snabbit — Monetization Opportunities</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#1A0A10; --ink2:#221218; --ink3:#2E1820;
@@ -16,8 +16,8 @@
   --green:#22C55E; --yellow:#FF9500;
   --grey:#5E4E57; --grey2:#443640;
   --line:rgba(255,46,109,.12); --lineD:rgba(255,255,255,.08);
-  --disp:'Plus Jakarta Sans',system-ui,sans-serif;
-  --body:'DM Sans',system-ui,sans-serif;
+  --disp:'Instrument Sans',system-ui,sans-serif;
+  --body:'Instrument Sans',system-ui,sans-serif;
   --mono:'DM Mono','Courier New',monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -32,6 +32,7 @@ section{position:relative}
 .topbar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:calc(12px + env(safe-area-inset-top)) 26px 12px;background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,46,109,.1)}
 .topbar .brand{display:flex;align-items:center;gap:10px}
 .tbLogoImg{height:26px;width:auto;display:block;flex-shrink:0}
+.tbLogoLink{display:block;line-height:0;cursor:pointer}
 .tbName{font-family:var(--disp);font-weight:800;font-size:17px;color:#1A0A10}
 .tbTag{color:#5E4E57;font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase}
 .nav{display:flex;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
@@ -41,7 +42,7 @@ section{position:relative}
 .nav a.on{color:var(--pink);border-color:rgba(255,46,109,.4);background:rgba(255,46,109,.06)}
 
 /* ── PAGE SYSTEM ── */
-.page{display:none;padding-top:68px;min-height:100vh}
+.page{display:none;padding-top:calc(68px + env(safe-area-inset-top));min-height:100vh}
 .page.on{display:block}
 .rv{opacity:0;transform:translateY(18px);transition:opacity .5s,transform .5s}
 .rv.in{opacity:1;transform:none}
@@ -289,6 +290,7 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
 .moatStrip{border-color:rgba(255,46,109,.18)}
 .heroStats{border-color:rgba(255,46,109,.2)}
 .prn{border-color:rgba(255,46,109,.18)}
+@media(max-width:600px){.tbTag{display:none}}
 </style>
 </head>
 <body>
@@ -296,7 +298,7 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
 <!-- TOPBAR -->
 <div class="topbar">
   <div class="brand">
-    <img src="snabbit-logo.svg" alt="Snabbit" class="tbLogoImg">
+    <a href="#/" class="tbLogoLink" aria-label="Snabbit — overview"><img src="snabbit-logo.svg" alt="Snabbit" class="tbLogoImg"></a>
     <div class="tbTag">Monetization strategy</div>
   </div>
   <nav class="nav">
