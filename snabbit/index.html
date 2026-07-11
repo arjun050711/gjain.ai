@@ -291,6 +291,12 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
 .heroStats{border-color:rgba(255,46,109,.2)}
 .prn{border-color:rgba(255,46,109,.18)}
 @media(max-width:600px){.tbTag{display:none}}
+/* frequency vs value TAM map */
+.fvWrap{margin-top:20px;border:1px solid rgba(255,46,109,.2);border-radius:16px;background:#FFFFFF;padding:22px 24px 14px;box-shadow:0 2px 12px rgba(26,10,16,.06);overflow-x:auto}
+.fvWrap svg{min-width:660px;width:100%;height:auto;display:block}
+.fvWrap svg text{font-family:var(--body)}
+.fvCap{font-size:13px;color:#443640;line-height:1.55;margin-top:12px}
+.fvCap b{color:#1A0A10}
 </style>
 </head>
 <body>
@@ -426,6 +432,39 @@ h2 .pill{display:inline-block;background:var(--pink);color:#fff;padding:0 .15em;
     </div>
 
     <div class="guard rv" style="margin-top:26px"><b>And the surface keeps widening.</b> Near-term, Snabbit is scaling home cooks (piloted in Bangalore) plus childcare, elder care and drivers — each a recurring, trusted visit into the same home. The <b>big adjacency is beauty &amp; wellness at home</b> — Urban Company's highest-margin category: served by the same vetted all-women fleet it lifts AOV ~4–5×, and it unlocks the platform's richest ad, sampling and commerce audience (Nykaa, beauty FMCG).</div>
+
+    <div class="shead rv" style="margin-top:44px"><span class="snum">—</span><span class="slbl">Two ways to grow the TAM</span></div>
+    <div class="fvWrap rv">
+      <svg viewBox="0 0 920 470" role="img" aria-label="Frequency versus value map of home-service categories">
+        <defs><marker id="fvA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#FF2E6D"/></marker></defs>
+        <line x1="120" y1="40" x2="120" y2="400" stroke="rgba(26,10,16,.28)" stroke-width="1.5"/>
+        <line x1="120" y1="400" x2="885" y2="400" stroke="rgba(26,10,16,.28)" stroke-width="1.5"/>
+        <path d="M120 40 l-5 11 h10 z" fill="rgba(26,10,16,.45)"/>
+        <path d="M885 400 l-11 -5 v10 z" fill="rgba(26,10,16,.45)"/>
+        <text transform="translate(46,300) rotate(-90)" font-size="15" font-weight="700" fill="#1A0A10">Value per visit / AOV</text>
+        <text x="505" y="442" text-anchor="middle" font-size="15" font-weight="700" fill="#1A0A10">Frequency — visits per household</text>
+        <!-- core + frequency cluster -->
+        <rect x="608" y="284" width="196" height="98" rx="14" fill="rgba(255,46,109,.06)" stroke="rgba(255,46,109,.22)"/>
+        <circle cx="658" cy="332" r="7" fill="#FF2E6D"/><circle cx="700" cy="352" r="7" fill="#FF2E6D"/><circle cx="735" cy="318" r="7" fill="#FF2E6D"/><circle cx="756" cy="358" r="7" fill="#FF2E6D"/><circle cx="676" cy="362" r="7" fill="#FF2E6D"/><circle cx="720" cy="304" r="7" fill="#FF2E6D"/>
+        <text x="706" y="276" text-anchor="middle" font-size="14" font-weight="700" fill="#FF2E6D">Core + frequency plays</text>
+        <text x="706" y="398" text-anchor="middle" font-size="11.5" fill="#6E5E66">cleaning · cooking · laundry · childcare · elder care · drivers</text>
+        <!-- beauty (the prize) -->
+        <circle cx="480" cy="122" r="24" fill="none" stroke="#FF9500" stroke-width="3"/>
+        <circle cx="480" cy="122" r="13" fill="#FF2E6D"/>
+        <text x="480" y="66" text-anchor="middle" font-size="18" font-weight="700" fill="#1A0A10">Beauty &amp; wellness</text>
+        <text x="480" y="88" text-anchor="middle" font-size="13" fill="#FF2E6D">the value adjacency · ~4–5× AOV</text>
+        <!-- appliance repair (skip) -->
+        <circle cx="206" cy="150" r="9" fill="#B9AEB4" stroke="#9A8A92" stroke-width="1.5" stroke-dasharray="3 3"/>
+        <text x="206" y="187" text-anchor="middle" font-size="13.5" font-weight="600" fill="#6E5E66">Appliance repair, handyman</text>
+        <text x="206" y="205" text-anchor="middle" font-size="12" fill="#9A8A92">skip — TAM without moat</text>
+        <!-- vectors -->
+        <path d="M645 305 C 585 245, 540 190, 502 150" fill="none" stroke="#FF2E6D" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#fvA)"/>
+        <text transform="translate(548,236) rotate(-43)" text-anchor="middle" font-size="12.5" font-weight="700" fill="#FF2E6D">VALUE ↑</text>
+        <path d="M462 384 L636 384" fill="none" stroke="#FF2E6D" stroke-width="2.5" marker-end="url(#fvA)"/>
+        <text x="545" y="376" text-anchor="middle" font-size="12.5" font-weight="700" fill="#FF2E6D">FREQUENCY →</text>
+      </svg>
+      <div class="fvCap"><b>The area is the TAM.</b> Snabbit widens it on <b>both</b> axes — frequency (recurring, trust-deepening categories) and value (beauty: higher AOV plus the richest ad and sampling audience) — while skipping high-value, low-frequency work like appliance repair, where the moat doesn’t transfer.</div>
+    </div>
 
     <div class="shead rv" style="margin-top:44px"><span class="snum">—</span><span class="slbl">The household base this monetizes — by Year 5</span></div>
     <div class="revTable rv">
