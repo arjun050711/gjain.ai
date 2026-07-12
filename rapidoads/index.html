@@ -27,7 +27,7 @@ section{position:relative}
 
 .topbar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:calc(12px + env(safe-area-inset-top)) 28px 12px;background:rgba(15,15,18,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
 .topbar .brand{font-family:var(--disp);font-weight:800;font-size:18px;background:var(--yl);color:#141414;padding:4px 12px;border-radius:8px}
-.topbar .tag{color:var(--grey);font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase}
+.topbar .tag{color:var(--grey);font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase}
 
 /* hero */
 .hero{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;justify-content:center;padding:120px 0 70px;overflow:hidden}
@@ -41,7 +41,7 @@ section{position:relative}
 .heroStats .t{flex:1;min-width:128px;padding:17px 20px 15px;border-right:1px solid var(--line)}
 .heroStats .t:last-child{border-right:none}
 .heroStats .n{font-family:var(--disp);font-weight:700;font-size:clamp(1.4rem,2.9vw,2rem)}
-.heroStats .l{color:var(--grey);font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;margin-top:4px}
+.heroStats .l{color:var(--grey);font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;margin-top:4px}
 .road{height:5px;background:repeating-linear-gradient(90deg,var(--yl) 0 34px,transparent 34px 60px);opacity:.85;margin-top:52px;animation:roadmove 2.6s linear infinite}
 @keyframes roadmove{to{background-position:120px 0}}
 
@@ -67,7 +67,7 @@ section{position:relative}
 .bbar{width:100%;max-width:120px;border-radius:8px 8px 0 0;position:relative;transition:height 1s cubic-bezier(.2,.8,.2,1);height:0}
 .bcol .bv{font-family:var(--disp);font-weight:800;font-size:1.15rem;margin-bottom:8px;opacity:0;transition:opacity .5s .6s}
 .bcol.in .bv{opacity:1}
-.bcol .bl{position:absolute;bottom:-40px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);text-align:center;width:130%;line-height:1.4}
+.bcol .bl{position:absolute;bottom:-40px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);text-align:center;width:130%;line-height:1.4}
 .bbar.base{background:linear-gradient(180deg,#2A2A33,#1F1F26);border:1px solid var(--line)}
 .bbar.step{background:linear-gradient(180deg,#FFDB47,var(--yl))}
 .bbar.step.s2{background:linear-gradient(180deg,#3DDC97,#2BB87D)}
@@ -81,9 +81,9 @@ section{position:relative}
 /* ===== ROADMAP ===== */
 .rmap{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:48px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
 .ryr{background:var(--ink);padding:28px 24px;position:relative}
-.ryr .yk{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--yl)}
+.ryr .yk{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--yl)}
 .ryr .pct{font-family:var(--disp);font-weight:800;font-size:2rem;letter-spacing:-.02em;margin:10px 0 2px}
-.ryr .pl{font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);margin-bottom:14px}
+.ryr .pl{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);margin-bottom:14px}
 .ryr h3{font-size:1.12rem;margin-bottom:8px}
 .ryr p{font-size:13.5px;color:#C0BAAE;line-height:1.5}
 .ryr .fill2{position:absolute;left:0;bottom:0;height:4px;background:var(--yl)}
@@ -97,15 +97,15 @@ section{position:relative}
 .pcard:hover{transform:translateY(-4px)}
 .pcard .av{display:none}
 .pcard h3{font-size:1.15rem;color:#141414;margin:16px 0 2px;padding:0 22px}
-.pcard .pm{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#8a6b00;margin-bottom:10px;padding:0 22px;line-height:1.5;min-height:29px}
+.pcard .pm{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#8a6b00;margin-bottom:10px;padding:0 22px;line-height:1.5;min-height:29px}
 .pcard p{font-size:13.5px;color:#4A4457;line-height:1.5;padding:0 22px}
 .pcard .asset{margin:12px 22px 0;padding-top:11px;border-top:1px solid var(--lineP);font-size:12.5px;color:#141414;font-weight:600}
-.pcard .asset span{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#8a6b00;display:block;margin-bottom:3px;font-weight:400}
+.pcard .asset span{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#8a6b00;display:block;margin-bottom:3px;font-weight:400}
 
 /* ===== PITCHES ===== */
 .ptabs{display:flex;gap:10px;margin:44px 0 0;flex-wrap:wrap}
 .ptab{flex:1;min-width:150px;text-align:left;border:1px solid var(--line);background:var(--ink);border-radius:14px;padding:16px 18px;cursor:pointer;transition:all .25s;color:var(--paper);font-family:var(--body)}
-.ptab .pk{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey)}
+.ptab .pk{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey)}
 .ptab h3{font-family:var(--disp);font-size:1.25rem;margin-top:5px;letter-spacing:-.01em}
 .ptab.on{border-color:var(--yl);box-shadow:0 8px 30px rgba(253,206,9,.16);transform:translateY(-3px)}
 .ptab.on h3{color:var(--yl)}
@@ -114,14 +114,14 @@ section{position:relative}
 .pp.on{display:block;animation:fadein .45s}
 @keyframes fadein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .ppTop{padding:30px 30px 24px;border-bottom:1px solid var(--line)}
-.ppTop .who{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--yl);margin-bottom:10px}
+.ppTop .who{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--yl);margin-bottom:10px}
 .ppTop h3{font-size:1.6rem;letter-spacing:-.02em;margin-bottom:10px}
 .ppTop p{font-size:15px;color:#C6C0B4;max-width:74ch}
 .ppTop p b{color:var(--paper)}
 .ppGrid{display:grid;grid-template-columns:1fr 1fr 1fr}
 .ppCell{padding:22px 26px;border-right:1px solid var(--line)}
 .ppCell:last-child{border-right:none}
-.ppCell .cl{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);margin-bottom:9px}
+.ppCell .cl{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);margin-bottom:9px}
 .ppCell p{font-size:13.6px;color:#CFC9BD;line-height:1.55}
 .ppCell p b{color:var(--paper)}
 .ppLine{padding:20px 30px;background:rgba(253,206,9,.08);border-top:1px solid rgba(253,206,9,.25);font-family:var(--disp);font-weight:600;font-size:1.05rem;color:var(--yl);letter-spacing:-.01em}
@@ -155,43 +155,43 @@ section{position:relative}
 
 .bp{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:44px 0 8px}
 .bpc{border:1px solid var(--line);border-radius:16px;padding:24px 24px;background:linear-gradient(160deg,var(--ink2),var(--ink))}
-.bpc .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--yl);margin-bottom:8px}
+.bpc .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--yl);margin-bottom:8px}
 .bpc h3{font-size:1.22rem;margin-bottom:6px}
 .bpc p{font-size:13.8px;color:#C6C0B4;line-height:1.55}
 .bpc p b{color:var(--paper)}
 .spectrum{margin:26px 0 6px;position:relative;height:74px}
 .spectrum .bar{position:absolute;left:0;right:0;top:32px;height:6px;border-radius:4px;background:linear-gradient(90deg,#C79BFF,var(--yl))}
-.spectrum .endl{position:absolute;top:0;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey)}
+.spectrum .endl{position:absolute;top:0;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey)}
 .spectrum .endl.r{right:0}
 .sdot{position:absolute;top:24px;transform:translateX(-50%);text-align:center}
 .sdot .d{width:22px;height:22px;border-radius:50%;border:2px solid var(--ink);margin:0 auto}
-.sdot .n{font-family:var(--mono);font-size:9px;letter-spacing:.06em;color:#D8D2C6;margin-top:8px;white-space:nowrap}
+.sdot .n{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:#D8D2C6;margin-top:8px;white-space:nowrap}
 
 
 /* ===== RAPIDO ADS FORMAT — TABLE ===== */
 .adformats{margin-top:42px;position:relative;text-align:left}
 .exclusive{border:1px solid rgba(253,206,9,.4);border-radius:18px;background:linear-gradient(135deg,rgba(253,206,9,.1),rgba(253,206,9,.03));padding:24px 26px;margin-bottom:26px}
 .exHead{font-size:14.5px;color:#D8D2C6;line-height:1.55;margin-bottom:18px}
-.exBadge{display:inline-block;background:var(--yl);color:#141414;border-radius:100px;padding:4px 12px;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-right:10px}
+.exBadge{display:inline-block;background:var(--yl);color:#141414;border-radius:100px;padding:4px 12px;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-right:10px}
 .exGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
 .exCard{border:1px solid rgba(253,206,9,.28);border-radius:12px;background:rgba(253,206,9,.05);padding:16px 18px}
 .exName{font-family:var(--disp);font-weight:700;font-size:1.05rem;color:var(--paper);letter-spacing:-.01em;margin-bottom:6px}
 .exDesc{font-size:12.8px;color:#B8B2A6;line-height:1.5}
 .fmtWrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:16px}
 .fmtTable{width:100%;border-collapse:collapse;font-size:13.5px;min-width:660px}
-.fmtTable th{text-align:left;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);font-weight:400;padding:14px 18px;border-bottom:1px solid var(--line);background:var(--ink2)}
+.fmtTable th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);font-weight:400;padding:14px 18px;border-bottom:1px solid var(--line);background:var(--ink2)}
 .fmtTable td{padding:12px 18px;border-bottom:1px solid var(--line);color:#B8B2A6;line-height:1.45;vertical-align:top}
 .fmtTable tbody tr:last-child td{border-bottom:none}
 .fmtTable .mcell{border-right:1px solid var(--line);color:var(--paper);white-space:nowrap}
 .fmtTable .mcell b{font-family:var(--disp);font-weight:700;font-size:1rem;letter-spacing:-.01em;display:block}
-.fmtTable .mcell span{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--yl);display:block;margin-top:4px;white-space:normal}
+.fmtTable .mcell span{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--yl);display:block;margin-top:4px;white-space:normal}
 .fmtTable .fname{color:var(--paper);font-weight:600}
-.obj{display:inline-block;font-family:var(--mono);font-size:8px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);border-radius:100px;padding:2px 8px;white-space:nowrap}
+.obj{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);border-radius:100px;padding:2px 8px;white-space:nowrap}
 .obj.b{border-color:rgba(199,155,255,.4);color:#C79BFF}
 .obj.p{border-color:rgba(61,220,151,.4);color:#3DDC97}
 .obj.x{border-color:rgba(253,206,9,.4);color:var(--yl)}
 
-@media(max-width:860px){.bp{grid-template-columns:1fr}.sdot .n{font-size:8px}}
+@media(max-width:860px){.bp{grid-template-columns:1fr}.sdot .n{font-size:10px}}
 
 .blogo{display:inline-flex;align-items:center;justify-content:center;border-radius:10px;font-family:var(--disp);font-weight:800;flex-shrink:0;line-height:1}
 .ptab .blogo{width:42px;height:42px;margin-bottom:10px}
@@ -200,7 +200,7 @@ section{position:relative}
 .lg-sting{background:#C8102E;color:#fff;font-style:italic;font-size:11px}
 .lg-zudio{background:#FFD200;color:#141414;font-size:11.5px;letter-spacing:-.02em}
 
-.lg-flipkart{background:#2874F0;color:#fff;font-size:10.5px;letter-spacing:-.02em;position:relative}
+.lg-flipkart{background:#2874F0;color:#fff;font-size:11px;letter-spacing:-.02em;position:relative}
 .lg-flipkart i{position:absolute;top:6px;right:7px;font-style:italic;font-weight:800;color:#FFE500;font-size:13px}
 .lg-jhimg{background:#fff;padding:5px;overflow:hidden}
 .lg-jhimg img{width:100%;height:100%;object-fit:contain;display:block}
@@ -218,7 +218,7 @@ section{position:relative}
 .ralock .wm{text-align:left;font-family:var(--disp);display:flex;flex-direction:column}
 .ralock .wm .l1{display:block;font-weight:800;font-size:1.9rem;letter-spacing:-.02em;line-height:1}
 .ralock .wm .l1 .thin{font-weight:600;color:var(--yl)}
-.ralock .wm .l2{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--grey);margin-top:5px}
+.ralock .wm .l2{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--grey);margin-top:5px}
 .ralock.big{gap:20px}
 .ralock.big .mark{width:96px;height:96px;border-radius:24px}
 .ralock.big .mark svg{width:54px;height:54px}
@@ -234,7 +234,7 @@ section{position:relative}
 .nav{position:fixed;top:calc(52px + env(safe-area-inset-top));left:0;right:0;z-index:49;background:rgba(15,15,18,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav .in2{max-width:1140px;margin:0 auto;padding:0 28px;display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 .nav .in2::-webkit-scrollbar{display:none}
-.nav a{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);text-decoration:none;padding:13px 12px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+.nav a{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);text-decoration:none;padding:13px 12px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
 .nav a.on{color:var(--yl);border-bottom-color:var(--yl)}
 .page{display:none}
 .page.on{display:block;animation:pagein .4s}
@@ -271,8 +271,8 @@ section{position:relative}
 .mcardLogo{width:44px;height:44px;border-radius:12px;flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .mcardMeta{flex:1;min-width:0}
 .mcardName{font-family:var(--disp);font-weight:700;font-size:1.1rem;color:var(--paper);letter-spacing:-.01em}
-.mcardSub{font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--grey);margin-top:2px;text-transform:uppercase}
-.mcardTag{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;border:1px solid;border-radius:100px;padding:3px 10px;white-space:nowrap;flex-shrink:0}
+.mcardSub{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--grey);margin-top:2px;text-transform:uppercase}
+.mcardTag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;border:1px solid;border-radius:100px;padding:3px 10px;white-space:nowrap;flex-shrink:0}
 
 .mcardThesis{font-size:13.5px;color:#C6C0B4;line-height:1.55}
 .mcardThesis b{color:var(--paper)}
@@ -284,20 +284,20 @@ section{position:relative}
 .mcardSide li::before{content:"";position:absolute;left:0;top:.55em;width:5px;height:5px;border-radius:50%}
 .mcardSide.rapido li::before{background:var(--yl)}
 .mcardSide.partner li::before{background:#3DDC97}
-.mcardSideLabel{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase}
+.mcardSideLabel{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
 .mcardSide.rapido .mcardSideLabel{color:var(--yl)}
 .mcardSide.partner .mcardSideLabel{color:#3DDC97}
 .mcardArrow{font-size:1.4rem;color:var(--grey);opacity:.5;padding-top:18px;align-self:flex-start}
 
 .mcardModel{display:flex;align-items:baseline;gap:8px;padding-top:14px;border-top:1px solid var(--line)}
-.mcardModelLabel{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);white-space:nowrap}
+.mcardModelLabel{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);white-space:nowrap}
 .mcardModelVal{font-size:12.5px;color:var(--yl);font-weight:600;line-height:1.4}
 
 /* Why these six */
 .mutualPrinciples{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
 @media(max-width:760px){.mutualPrinciples{grid-template-columns:1fr}}
 .mp{display:flex;gap:14px;border:1px solid var(--line);border-radius:14px;padding:18px 16px;background:rgba(255,255,255,.02)}
-.mpn{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--yl);flex-shrink:0;padding-top:2px}
+.mpn{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--yl);flex-shrink:0;padding-top:2px}
 .mpTitle{font-family:var(--disp);font-weight:700;font-size:1rem;color:var(--paper);margin-bottom:5px;letter-spacing:-.01em}
 .mpDesc{font-size:13px;color:#AAA3B6;line-height:1.45}
 
@@ -333,7 +333,7 @@ section{position:relative}
   .topbar .tag{display:none}
   .bridgeScroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -28px;padding:0 28px}
   .bridge{height:300px;gap:6px;min-width:560px}
-  .bcol .bl{font-size:8px;width:110%}
+  .bcol .bl{font-size:10px;width:110%}
 }
 @media(max-width:520px){.rmap{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){
@@ -345,16 +345,28 @@ section{position:relative}
 .ralock .mark svg path:last-of-type{transform-box:fill-box;transform-origin:center;animation:raSwish 1.5s ease-in-out infinite}
 @keyframes raGlide{0%,100%{transform:translateX(0)}50%{transform:translateX(-5px)}}
 .ralock.big .mark{animation:raGlide 2.8s ease-in-out infinite}
+
+/* ===== landscape tables ===== */
+.lscScroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:22px;border:1px solid var(--line);border-radius:14px}
+.lscTbl{width:100%;border-collapse:collapse;font-size:14px;min-width:640px}
+.lscTbl th,.lscTbl td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.45}
+.lscTbl tr:last-child td{border-bottom:none}
+.lscTbl thead th{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);background:var(--ink2)}
+.lscTbl .app{font-weight:700;color:var(--paper);white-space:nowrap;font-size:14.5px}
+.lscTbl .app span{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--grey);font-weight:400;margin-top:3px;text-transform:none;white-space:normal}
+.lscTbl .core{color:var(--grey)}
+.lscTbl .beyond b{color:var(--yl);font-weight:600}
+.lscTbl tbody tr:hover{background:rgba(255,255,255,.03)}
 </style>
 </head>
 <body>
 
 <div class="topbar">
-  <div class="ralock"><span class="mark"><svg viewBox="0 0 48 48" fill="none"><path d="M27 6 C35 6 41 12 41 20 C41 30 27 42 27 42 C27 42 20 36 16 29" stroke="#141414" stroke-width="4.5" stroke-linecap="round"/><circle cx="27" cy="19" r="5" fill="#141414"/><path d="M6 22 H16 M9 29 H18 M13 36 H22" stroke="#141414" stroke-width="4" stroke-linecap="round"/></svg></span><span class="wm"><span class="l1">rapido<span class="thin">ads</span></span></span></div>
+  <a class="ralock" href="#/tagline" aria-label="Rapido Ads — home" style="text-decoration:none;color:inherit;cursor:pointer"><span class="mark"><svg viewBox="0 0 48 48" fill="none"><path d="M27 6 C35 6 41 12 41 20 C41 30 27 42 27 42 C27 42 20 36 16 29" stroke="#141414" stroke-width="4.5" stroke-linecap="round"/><circle cx="27" cy="19" r="5" fill="#141414"/><path d="M6 22 H16 M9 29 H18 M13 36 H22" stroke="#141414" stroke-width="4" stroke-linecap="round"/></svg></span><span class="wm"><span class="l1">rapido<span class="thin">ads</span></span></span></a>
   <div class="tag">The path to 4% — a plan</div>
 </div>
 
-<nav class="nav"><div class="in2"><a href="#/tagline" data-r="/tagline">Rapido Ads</a><a href="#/personas" data-r="/personas">Personas</a><a href="#/pitches" data-r="/pitches">The pitches</a><a href="#/partnerships" data-r="/partnerships">Partnerships</a><a href="#/" data-r="/">The plan</a></div></nav>
+<nav class="nav"><div class="in2"><a href="#/tagline" data-r="/tagline">Rapido Ads</a><a href="#/personas" data-r="/personas">Personas</a><a href="#/pitches" data-r="/pitches">The pitches</a><a href="#/partnerships" data-r="/partnerships">Partnerships</a><a href="#/landscape" data-r="/landscape">Landscape</a><a href="#/" data-r="/">The plan</a></div></nav>
 <div class="page" data-page="/">
 <!-- HERO -->
 <section class="hero">
@@ -435,7 +447,7 @@ section{position:relative}
 </section>
 
 
-<div class="pgfoot"><div class="in2"><a class="pgbtn" href="#/partnerships">← Partnerships</a><span></span></div></div>
+<div class="pgfoot"><div class="in2"><a class="pgbtn" href="#/landscape">← Landscape</a><span></span></div></div>
 </div>
 
 <div class="page" data-page="/personas">
@@ -515,7 +527,7 @@ section{position:relative}
           <div class="ppCell"><div class="cl">The audiences</div><p><b>Journey Graph segments:</b> bike→auto graduates = rising spenders; T2/3 riders with no metro history = untapped first orders. Trajectory sold as acquisition targeting — plus 5M captains, verified earners upgrading phones and appliances: a prime acquisition and pay-later segment.</p></div>
           <div class="ppCell"><div class="cl">Pricing</div><p><b>Always-on CPI + audience-package PMPs</b>, with festive-event surges on top — the programmatic lane agencies already know how to buy, running twelve months a year.</p></div>
         </div>
-        <div class="ppLine">"Your next 100M customers don't watch IPL in English. They ride Rapido in Indore."</div>
+        <div class="ppLine">"Your next 100M customers don't watch IPL in English. They ride Rapido in Siliguri."</div>
       </div>
       <!-- JAWED HABIB -->
       <div class="pp">
@@ -543,7 +555,7 @@ section{position:relative}
           <div class="ppCell"><div class="cl">Closing the loop</div><p>The captain OOH creates awareness; the app closes it. A <b>ride-end walk-in offer</b> fires whenever a rider drops within 500m of any Zudio — every day, not just opening weekend. A sponsored auto to the store when it counts, Zudio funds the fare and owns the journey. <b>Footfall lift vs control towns</b> is the proof metric — a per-store ROI number Trent's CFO has never had from a local media plan.</p></div>
           <div class="ppCell"><div class="cl">Why this beats the alternatives</div><p>Cable tickers reach 60+ audiences. Pamphlets are thrown away. Meta reaches metros. <b>Rapido is the only medium physically present in the town, reaching the 18–35 buyer, and measuring the walk-in — every week of the year.</b> For organised retail at Zudio's pace, it's an always-on footfall engine, not a launch stunt.</p></div>
         </div>
-        <div class="ppLine">"Every other medium tells you they reached Indore. We tell you which rider walked into your store — and which captain was wearing your logo when they passed it."</div>
+        <div class="ppLine">"Every other medium tells you they reached Siliguri. We tell you which rider walked into your store — and which captain was wearing your logo when they passed it."</div>
       </div>
     </div>
   </div>
@@ -554,283 +566,214 @@ section{position:relative}
 </div>
 
 <div class="page" data-page="/partnerships">
-<!-- 05 PARTNERSHIPS -->
+<!-- 03 THE ALLIANCE -->
 <section class="sec brandy" style="padding-bottom:0">
   <div class="wrap">
-    <div class="shead rv"><span class="snum">03</span><span class="slbl">Six partnerships. One shared user.</span></div>
-    <h2 class="rv">Not an ad network.<br>A <span class="pill" style="font-size:inherit">mutual exchange.</span></h2>
-    <p class="intro rv">Each partnership below works because both sides need something only the other can give. <b>Rapido brings verified daily reach and the ride moment. The partner brings content, merchant access, or a product that makes riding with Rapido more valuable.</b> The same Tier 2/3 user — more monetized, without a higher fare.</p>
+    <div class="shead rv"><span class="snum">03</span><span class="slbl">From ad-seller to alliance convener</span></div>
+    <h2 class="rv">Alone, you rent from the triopoly.<br>Together, India <span class="pill" style="font-size:inherit">owns the pipe.</span></h2>
+    <p class="intro rv">Google, Meta and Amazon take roughly <b>70% of India's digital ad spend</b>. No single Indian app has the scale, frequency or measurement to be a real alternative — and advertisers won't stitch together fifteen sub-scale integrations. The unlock isn't another content rev-share deal. It's a <b>common buying-and-measurement platform across India's first-party utility apps</b> — one pipe to reach verified, logged-in Indian audiences with closed-loop, real-world proof. Rapido is the natural convener.</p>
   </div>
 </section>
 
 <section class="sec" style="padding-top:40px;background:var(--ink)">
   <div class="wrap">
 
-    <!-- SIX PARTNERSHIP CARDS -->
+    <div class="heroStats rv" style="margin-top:0">
+      <div class="t"><div class="n">~70%</div><div class="l">Triopoly share of India digital adspend</div></div>
+      <div class="t"><div class="n">~25%</div><div class="l">India digital adspend annual growth</div></div>
+      <div class="t"><div class="n">15+</div><div class="l">Sub-scale Indian first-party apps, each selling alone</div></div>
+      <div class="t"><div class="n">0</div><div class="l">Indian-owned ad platforms at triopoly scale</div></div>
+    </div>
+
+    <div class="shead rv" style="margin-top:56px"><span class="snum">—</span><span class="slbl">The platform · one pipe, four shared layers</span></div>
+    <div class="mutualPrinciples rv">
+      <div class="mp"><div class="mpn">01</div><div class="mpBody"><div class="mpTitle">One buy</div><div class="mpDesc">Advertisers reach across mobility, payments, food, quick-commerce and content in a single insertion order — cross-app reach and frequency no one app can offer alone.</div></div></div>
+      <div class="mp"><div class="mpn">02</div><div class="mpBody"><div class="mpTitle">One clean room</div><div class="mpDesc">A DPDP-safe, first-party identity graph. Matched cohorts and shared measurement — no raw personal data ever leaves any app.</div></div></div>
+      <div class="mp"><div class="mpn">03</div><div class="mpBody"><div class="mpTitle">One measurement standard</div><div class="mpDesc">Anchored by Rapido's real-world <b>arrival &amp; footfall</b> signal — the closed-loop outcome Google and Meta can't produce because they don't move the physical person.</div></div></div>
+      <div class="mp"><div class="mpn">04</div><div class="mpBody"><div class="mpTitle">One vernacular SMB layer</div><div class="mpDesc">Self-serve, WhatsApp-simple ad buying for the Bharat long tail — the millions of local merchants the triopoly serves badly.</div></div></div>
+    </div>
+
+    <div class="shead rv" style="margin-top:56px"><span class="snum">—</span><span class="slbl">Who's in it — and what each brings</span></div>
     <div class="mutualGrid rv">
 
-      <!-- 1. SEEKHO -->
       <div class="mutualCard">
         <div class="mcardTop">
-          <div class="mcardLogo" style="background:#F59E0B">
-            <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="12" fill="#F59E0B"/><text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" fill="#141414" font-family="Arial Black" font-size="11" font-weight="900">Seekho</text></svg>
+          <div class="mcardLogo" style="background:#FDCE09">
+            <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="12" fill="#FDCE09"/><text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" fill="#fff" font-family="Arial Black" font-size="20" font-weight="900">R</text></svg>
           </div>
           <div class="mcardMeta">
-            <div class="mcardName">Seekho</div>
-            <div class="mcardSub">Bite-sized Hindi skills · ₹99/mo · T2/3 first</div>
+            <div class="mcardName">Rapido · Mobility</div>
+            <div class="mcardSub">74M riders · 5M captains · 100+ cities</div>
           </div>
-          <div class="mcardTag" style="background:rgba(245,158,11,.12);color:#F59E0B;border-color:rgba(245,158,11,.3)">EdTech</div>
+          <div class="mcardTag" style="background:#FDCE091a;color:#FDCE09;border-color:#FDCE094d">Convener</div>
         </div>
-
-        <div class="mcardThesis">
-          The 15-minute commute is <b>the only learning window</b> Ankit and Manoj will realistically use — and Seekho is built for exactly it: Hindi, practical, short.
-        </div>
-
+        <div class="mcardThesis">The only member that moves the user through the <b>physical world</b> — so it owns the outcome layer the whole alliance is measured on.</div>
         <div class="mcardExchange">
           <div class="mcardSide rapido">
-            <div class="mcardSideLabel">Rapido gives</div>
-            <ul>
-              <li>Wait-moment course discovery to 74M riders</li>
-              <li>Ride-pass bundle — ₹99 Seekho inside ₹299 pass</li>
-            </ul>
+            <div class="mcardSideLabel">Brings to the alliance</div>
+            <ul><li>Movement + real-time destination intent</li><li>Real-world <b>arrival &amp; footfall</b> attribution</li></ul>
           </div>
           <div class="mcardArrow">⇌</div>
           <div class="mcardSide partner">
-            <div class="mcardSideLabel">Seekho gives back</div>
-            <ul>
-              <li>Rev-share 25% on every subscription driven through Rapido</li>
-              <li>Co-branded aspirational positioning: "Learn on the ride"</li>
-            </ul>
+            <div class="mcardSideLabel">Gets back</div>
+            <ul><li>Advertiser demand aggregated across every other app's audience</li><li>A platform take-rate on all cross-app spend</li></ul>
           </div>
         </div>
-
         <div class="mcardModel">
-          <span class="mcardModelLabel">Revenue model</span>
-          <span class="mcardModelVal">Rev-share 25% + ride-pass bundle + Captain Academy licensing</span>
+          <span class="mcardModelLabel">Role in the alliance</span>
+          <span class="mcardModelVal">Convener · attribution backbone · platform take-rate</span>
         </div>
       </div>
 
-      <!-- 2. LOKAL -->
       <div class="mutualCard">
         <div class="mcardTop">
-          <div class="mcardLogo" style="background:#22C55E">
-            <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="12" fill="#22C55E"/><text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" fill="#fff" font-family="Arial Black" font-size="14" font-weight="900">Lokal</text></svg>
+          <div class="mcardLogo" style="background:#5F259F">
+            <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="12" fill="#5F259F"/><text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" fill="#fff" font-family="Arial Black" font-size="20" font-weight="900">₹</text></svg>
           </div>
           <div class="mcardMeta">
-            <div class="mcardName">Lokal</div>
-            <div class="mcardSub">Local news + merchant listings · 50M+ users · 5,000 towns</div>
+            <div class="mcardName">Payments apps</div>
+            <div class="mcardSub">PhonePe · Paytm · UPI-scale identity</div>
           </div>
-          <div class="mcardTag" style="background:rgba(34,197,94,.1);color:#22C55E;border-color:rgba(34,197,94,.3)">Hyperlocal</div>
+          <div class="mcardTag" style="background:#8B5CF61a;color:#8B5CF6;border-color:#8B5CF64d">Identity</div>
         </div>
-
-        <div class="mcardThesis">
-          Lokal has a town-level merchant sales force Rapido can't build; Rapido has route data and coupon rails Lokal can't build. <b>One product, two networks.</b>
-        </div>
-
+        <div class="mcardThesis">The <b>identity and spend spine</b> — who the user is and what they actually buy, the signal advertisers pay the most for.</div>
         <div class="mcardExchange">
           <div class="mcardSide rapido">
-            <div class="mcardSideLabel">Rapido gives</div>
-            <ul>
-              <li>Route and catchment data — which riders pass which merchants</li>
-              <li>Coupon delivery and walk-in measurement at ride-end</li>
-            </ul>
+            <div class="mcardSideLabel">Brings to the alliance</div>
+            <ul><li>Verified identity + real purchase/spend signal</li><li>Settlement &amp; rewards rails</li></ul>
           </div>
           <div class="mcardArrow">⇌</div>
           <div class="mcardSide partner">
-            <div class="mcardSideLabel">Lokal gives back</div>
-            <ul>
-              <li>5,000-town merchant sales force closes joint packs for Rapido</li>
-              <li>60/40 revenue split — Rapido earns without a field team</li>
-            </ul>
+            <div class="mcardSideLabel">Gets back</div>
+            <ul><li>Reach + frequency from apps it doesn't own</li><li>Ad demand far beyond its own surface</li></ul>
           </div>
         </div>
-
         <div class="mcardModel">
-          <span class="mcardModelLabel">Revenue model</span>
-          <span class="mcardModelVal">Joint merchant pack — 60% Rapido / Lokal closes the sale</span>
+          <span class="mcardModelLabel">Role in the alliance</span>
+          <span class="mcardModelVal">First-party identity + purchase attribution</span>
         </div>
       </div>
 
-      <!-- 3. POCKET FM -->
+      <div class="mutualCard">
+        <div class="mcardTop">
+          <div class="mcardLogo" style="background:#E23744">
+            <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="12" fill="#E23744"/><text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" fill="#fff" font-family="Arial Black" font-size="20" font-weight="900">F</text></svg>
+          </div>
+          <div class="mcardMeta">
+            <div class="mcardName">Food &amp; Quick-commerce</div>
+            <div class="mcardSub">Zomato · Swiggy · Blinkit</div>
+          </div>
+          <div class="mcardTag" style="background:#F871711a;color:#F87171;border-color:#F871714d">Intent</div>
+        </div>
+        <div class="mcardThesis"><b>High-dwell browsing and hard purchase intent</b> — the retail-media surface the alliance's SKU-level ads run on.</div>
+        <div class="mcardExchange">
+          <div class="mcardSide rapido">
+            <div class="mcardSideLabel">Brings to the alliance</div>
+            <ul><li>Purchase intent + high-dwell inventory</li><li>SKU-level closed-loop attribution</li></ul>
+          </div>
+          <div class="mcardArrow">⇌</div>
+          <div class="mcardSide partner">
+            <div class="mcardSideLabel">Gets back</div>
+            <ul><li>Cross-app frequency it can't build alone</li><li>Rapido's arrival signal to prove offline conversion</li></ul>
+          </div>
+        </div>
+        <div class="mcardModel">
+          <span class="mcardModelLabel">Role in the alliance</span>
+          <span class="mcardModelVal">Sponsored listings + retail media</span>
+        </div>
+      </div>
+
       <div class="mutualCard">
         <div class="mcardTop">
           <div class="mcardLogo" style="background:#6C63FF">
-            <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="12" fill="#6C63FF"/><text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" fill="#fff" font-family="Arial Black" font-size="9" font-weight="900">Pocket FM</text></svg>
+            <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="12" fill="#6C63FF"/><text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" fill="#fff" font-family="Arial Black" font-size="18" font-weight="900">▶</text></svg>
           </div>
           <div class="mcardMeta">
-            <div class="mcardName">Pocket FM</div>
-            <div class="mcardSub">Hindi audio series · 100M+ users · ₹399 Cr ARR</div>
+            <div class="mcardName">Content &amp; vernacular</div>
+            <div class="mcardSub">Pocket FM · Lokal · Stage · Seekho</div>
           </div>
-          <div class="mcardTag" style="background:rgba(108,99,255,.1);color:#6C63FF;border-color:rgba(108,99,255,.3)">Audio</div>
+          <div class="mcardTag" style="background:#818CF81a;color:#818CF8;border-color:#818CF84d">Reach</div>
         </div>
-
-        <div class="mcardThesis">
-          Pocket FM's dramas are <b>eyes-free, 15-minute, cliffhanger-structured</b> — built for the commute without saying so. The ride-end episode break is India's most natural subscription trigger.
-        </div>
-
+        <div class="mcardThesis"><b>Dwell time and Bharat depth</b> — 5,000-town reach and the wait-moment attention the utility apps lack.</div>
         <div class="mcardExchange">
           <div class="mcardSide rapido">
-            <div class="mcardSideLabel">Rapido gives</div>
-            <ul>
-              <li>Episode streaming during wait + in-ride moments</li>
-              <li>Ride-end cliffhanger — "episode 3 unlocks with a Rapido ride-pass"</li>
-            </ul>
+            <div class="mcardSideLabel">Brings to the alliance</div>
+            <ul><li>Vernacular dwell + creator supply</li><li>Reach into 5,000 towns beyond the metros</li></ul>
           </div>
           <div class="mcardArrow">⇌</div>
           <div class="mcardSide partner">
-            <div class="mcardSideLabel">Pocket FM gives back</div>
-            <ul>
-              <li>Rev-share 20% on every subscription driven through Rapido</li>
-              <li>Exclusive Rapido commuter series — makes the ride-pass stickier</li>
-            </ul>
+            <div class="mcardSideLabel">Gets back</div>
+            <ul><li>A monetization pipe and demand none can sell alone</li><li>Distribution through the daily ride moment</li></ul>
           </div>
         </div>
-
         <div class="mcardModel">
-          <span class="mcardModelLabel">Revenue model</span>
-          <span class="mcardModelVal">Rev-share 20% + exclusive commuter content in ride-pass bundle</span>
+          <span class="mcardModelLabel">Role in the alliance</span>
+          <span class="mcardModelVal">Shared inventory + vernacular creative</span>
         </div>
       </div>
 
-      <!-- 4. STAGE OTT -->
-      <div class="mutualCard">
-        <div class="mcardTop">
-          <div class="mcardLogo" style="background:#F72585">
-            <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="12" fill="#F72585"/><text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" fill="#fff" font-family="Arial Black" font-size="16" font-weight="900">St</text></svg>
-          </div>
-          <div class="mcardMeta">
-            <div class="mcardName">Stage OTT</div>
-            <div class="mcardSub">Haryana · Rajasthan · UP · Bihar · ₹49/mo</div>
-          </div>
-          <div class="mcardTag" style="background:rgba(247,37,133,.1);color:#F72585;border-color:rgba(247,37,133,.3)">Regional OTT</div>
-        </div>
-
-        <div class="mcardThesis">
-          Stage's geography <b>is</b> Rapido's densest Tier 2/3 markets — Haryanvi riders, Rajasthani auto drivers, UP commuters. Stage has the content they love; Rapido has the daily moment.
-        </div>
-
-        <div class="mcardExchange">
-          <div class="mcardSide rapido">
-            <div class="mcardSideLabel">Rapido gives</div>
-            <ul>
-              <li>State-targeted episode teasers to riders in Stage's exact geographies</li>
-              <li>Festival pack discovery — Holi, Diwali, Eid content bundled into ride-pass</li>
-            </ul>
-          </div>
-          <div class="mcardArrow">⇌</div>
-          <div class="mcardSide partner">
-            <div class="mcardSideLabel">Stage gives back</div>
-            <ul>
-              <li>Rev-share 25% on subscriptions Rapido drives</li>
-              <li>Regional creator network for Rapido vernacular ad production</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="mcardModel">
-          <span class="mcardModelLabel">Revenue model</span>
-          <span class="mcardModelVal">Rev-share 25% + access to Stage's regional brand partnerships</span>
-        </div>
-      </div>
-
-      <!-- 5. ASTROTALK -->
-      <div class="mutualCard">
-        <div class="mcardTop">
-          <div class="mcardLogo" style="background:#FF6B00">
-            <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="12" fill="#FF6B00"/><text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" fill="#fff" font-family="Arial Black" font-size="9" font-weight="900">Astro</text><text x="50%" y="75%" dominant-baseline="middle" text-anchor="middle" fill="#fff" font-family="Arial Black" font-size="9" font-weight="900">Talk</text></svg>
-          </div>
-          <div class="mcardMeta">
-            <div class="mcardName">AstroTalk</div>
-            <div class="mcardSub">Astrology consultations · ₹1,200 Cr+ ARR · 50M+ users</div>
-          </div>
-          <div class="mcardTag" style="background:rgba(255,107,0,.1);color:#FF6B00;border-color:rgba(255,107,0,.3)">Lifestyle</div>
-        </div>
-
-        <div class="mcardThesis">
-          AstroTalk is one of Bharat's fastest-growing apps — <b>₹1,200 Cr ARR, 50M users</b>. Rapido's riders heading to temples, pandits and weddings are its most receptive audience — reachable by destination at the moment of intent.
-        </div>
-
-        <div class="mcardExchange">
-          <div class="mcardSide rapido">
-            <div class="mcardSideLabel">Rapido gives</div>
-            <ul>
-              <li>Destination-aware triggers — temple, wedding venue, auspicious dates</li>
-              <li>Daily horoscope card in the wait moment (high open rate, daily habit)</li>
-            </ul>
-          </div>
-          <div class="mcardArrow">⇌</div>
-          <div class="mcardSide partner">
-            <div class="mcardSideLabel">AstroTalk gives back</div>
-            <ul>
-              <li>CPI ₹30–60 on first consultation bookings — high LTV user</li>
-              <li>Daily horoscope content makes the wait moment more engaging — reduces booking drop-off</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="mcardModel">
-          <span class="mcardModelLabel">Revenue model</span>
-          <span class="mcardModelVal">CPI ₹30–60 per first booking + daily content engagement (reduces wait churn)</span>
-        </div>
-      </div>
-
-      <!-- 6. ACKO -->
-      <div class="mutualCard">
-        <div class="mcardTop">
-          <div class="mcardLogo" style="background:#7C3AED">
-            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MjcuNTggMTI2LjYyIj4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiAjYjU5Y2Y1OwogICAgICB9CgogICAgICAuY2xzLTIgewogICAgICAgIGZpbGw6ICMyODIwNWY7CiAgICAgIH0KCiAgICAgIC5jbHMtMyB7CiAgICAgICAgZmlsbDogIzkyNmZmMzsKICAgICAgfQoKICAgICAgLmNscy00IHsKICAgICAgICBmaWxsOiAjNGUyOWJiOwogICAgICB9CiAgICA8L3N0eWxlPgogIDwvZGVmcz4KICA8ZyBpZD0iTGF5ZXJfMS0yIiBkYXRhLW5hbWU9IkxheWVyIDEiPgogICAgPGc+CiAgICAgIDxnPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTIyNS4zNywyMS4xaDIyLjI0bDM1LjQ0LDg0LjQyaC0yNC43NGwtNi4wNy0xNC45N2gtMzIuMTFsLTUuOTUsMTQuOTdoLTI0LjI2bDM1LjQ0LTg0LjQyWk0yNDUuNTksNzIuNDdsLTkuMjgtMjMuODMtOS4zOSwyMy44M2gxOC42N1oiLz4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0yNzcuNTYsNjMuNTV2LS4yNGMwLTI0LjI2LDE4LjY3LTQzLjI5LDQzLjg4LTQzLjI5LDE3LjAxLDAsMjcuOTUsNy4xNCwzNS4zMiwxNy4zNmwtMTcuMzYsMTMuNDRjLTQuNzYtNS45NS0xMC4yMy05Ljc1LTE4LjItOS43NS0xMS42NSwwLTE5Ljg2LDkuODctMTkuODYsMjJ2LjI0YzAsMTIuNDksOC4yMSwyMi4yNCwxOS44NiwyMi4yNCw4LjY4LDAsMTMuOC00LjA0LDE4Ljc5LTEwLjExbDE3LjM2LDEyLjM3Yy03Ljg1LDEwLjgyLTE4LjQzLDE4Ljc5LTM2Ljg3LDE4Ljc5LTIzLjc4LDAtNDIuOTMtMTguMi00Mi45My00My4wNVoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0zNjQuNiwyMS4xaDIzLjA3djM0LjI1bDI4LjY2LTM0LjI1aDI3LjM1bC0zMS41MSwzNi4zLDMyLjU5LDQ4LjEyaC0yNy43MWwtMjAuOTMtMzEuMzUtOC40NCw5LjUzdjIxLjgzaC0yMy4wN1YyMS4xWiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTQzNy45MSw2My41NXYtLjI0YzAtMjMuOSwxOS4yNy00My4yOSw0NC45NS00My4yOXM0NC43MiwxOS4xNSw0NC43Miw0My4wNXYuMjRjMCwyMy45MS0xOS4yNyw0My4yOS00NC45NSw0My4yOXMtNDQuNzItMTkuMTUtNDQuNzItNDMuMDVaTTUwNC4wMyw2My41NXYtLjI0YzAtMTIuMDEtOC42OC0yMi40OC0yMS40MS0yMi40OHMtMjEuMDUsMTAuMjMtMjEuMDUsMjIuMjR2LjI0YzAsMTIuMDEsOC42OCwyMi40OCwyMS4yOSwyMi40OHMyMS4xNy0xMC4yMywyMS4xNy0yMi4yNFoiLz4KICAgICAgPC9nPgogICAgICA8Zz4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTQiIGQ9Ik0xNjguODMsNDQuMDZ2MzguMzVjMCwyLjk0LTEuMzcsNS40OS00LjE0LDcuMjUtMzQuNjgsMjItNjAuOTQsMzEuMjQtNzAuMTIsMzMuODEtMTIuNjcsMy41NS0xOS4zOCwzLjE4LTIwLjQ4LDMuMS0yMy4xMy0xLjYyLTYyLjEtMzIuNDUtNjIuMS0zMi40NSwwLDAsMzEuNzksNy41MiwxMDUuMjYtMjYuMzQsMTMuNzctNi4zNSwyOS4xNS0xMy4yLDQ3LjAyLTIxLjIyLDAsMCwzLjktMS42Myw0LjU2LTIuNVoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik0xNjYuNzksNDIuOTljLjQ0LS4yNywxLjAzLS42NCwxLjIzLTEuMzcuMTgtLjY2LjEtMS40OC0uMjctMi4wNy0uNjgtMS4wOC0xLjgxLTEuOC0zLjA2LTIuNTlDMTMwLjAxLDE0Ljk3LDEwMy43NSw1LjcyLDk0LjU2LDMuMTUsODEuODktLjQsNzUuMTgtLjAzLDc0LjA5LjA1LDUwLjk2LDEuNjcsMTEuOTksMzIuNSwxMS45OSwzMi41YzAsMCwzMS43OS03LjUyLDEwNS4yNiwyNi4zNCwyLjM2LDEuMDksNC43OCwyLjE5LDcuMjQsMy4zMmw0MC4xMy0xOC4wMnMxLjQ4LS43MSwyLjE3LTEuMTRaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDkuMjIsNjMuMjhjLjA0LTguMTgsMS4xLTE2LjM3LDMuMDQtMjQuNDYsMCwwLC4yNi0xLjAxLjI2LTEuMDEtMTQuNDctMy4zLTI1LjEzLTMuOTktMzEuNTQtMy45OS01LjI5LDAtOC4wOS40Ni05LjA1LjY2LTEuNzIuMzctMi45NCwxLjY5LTMuODEsMi44MUMyLjk2LDQzLjk0LDAsNTMuNDEsMCw2My4yOEgwYzAsOS44NywyLjk2LDE5LjM0LDguMTMsMjUuOTguODcsMS4xMSwyLjA4LDIuNDQsMy44MSwyLjgxLjk2LjIsMy43Ni42Niw5LjA1LjY2LDYuNCwwLDE3LjA3LS42OSwzMS41NC0zLjk5LDAsMC0uMjYtMS4wMS0uMjYtMS4wMS0xLjk0LTguMDktMy0xNi4yOC0zLjA0LTI0LjQ2WiIvPgogICAgICA8L2c+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4=" alt="Acko" style="width:100%;height:100%;object-fit:contain;padding:6px;filter:brightness(0) invert(1)" onerror="this.style.display='none';this.parentNode.innerHTML+='<text x=\'50%\' y=\'60%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'#fff\' font-family=\'Arial Black\' font-size=\'13\'>Acko</text>'">
-          </div>
-          <div class="mcardMeta">
-            <div class="mcardName">Acko Insurance</div>
-            <div class="mcardSub">Digital-first · sachet insurance · captain + rider cover</div>
-          </div>
-          <div class="mcardTag" style="background:rgba(124,58,237,.1);color:#7C3AED;border-color:rgba(124,58,237,.3)">Fintech</div>
-        </div>
-
-        <div class="mcardThesis">
-          Every captain needs vehicle insurance; every rider is exposed to ride-risk. Acko sells sachet insurance inside apps in 3 minutes — and Rapido is <b>the largest captive insurance channel in Indian mobility: 5M captains, 74M riders.</b>
-        </div>
-
-        <div class="mcardExchange">
-          <div class="mcardSide rapido">
-            <div class="mcardSideLabel">Rapido gives</div>
-            <ul>
-              <li>5M captains — pre-verified identity, vehicle type, city: underwriting done</li>
-              <li>₹5/ride accident cover shown at booking — zero-friction attachment</li>
-            </ul>
-          </div>
-          <div class="mcardArrow">⇌</div>
-          <div class="mcardSide partner">
-            <div class="mcardSideLabel">Acko gives back</div>
-            <ul>
-              <li>Distribution fee 15–18% of premium — near 100% margin for Rapido</li>
-              <li>Captain vehicle cover makes the platform safer — reduces churn and liability</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="mcardModel">
-          <span class="mcardModelLabel">Revenue model</span>
-          <span class="mcardModelVal">Distribution fee 15–18% of premium · 5M captains · near-zero marginal cost</span>
-        </div>
-      </div>
-
-    </div><!-- end mutualGrid -->
-
-    <!-- WHAT MAKES THIS WORK -->
-    <div class="shead rv" style="margin-top:56px"><span class="snum">—</span><span class="slbl">Why these six and not thirty</span></div>
-    <div class="mutualPrinciples rv">
-      <div class="mp"><div class="mpn">01</div><div class="mpBody"><div class="mpTitle">Same user, different moment</div><div class="mpDesc">Every partner above serves the identical T2/3 rider — on the bike, at the temple, learning on the commute. No audience mismatch.</div></div></div>
-      <div class="mp"><div class="mpn">02</div><div class="mpBody"><div class="mpTitle">Rapido gets something back</div><div class="mpDesc">Content that stickifies the wait (Pocket FM, AstroTalk), a sales force Rapido doesn't have (Lokal), or insurance that reduces captain churn (Acko). Not just money.</div></div></div>
-      <div class="mp"><div class="mpn">03</div><div class="mpBody"><div class="mpTitle">Partner can't replicate the moment</div><div class="mpDesc">The ride-end cliffhanger, the temple-destination trigger, the captain identity — none of these can be bought on any other platform in India.</div></div></div>
     </div>
 
-    <div class="guard rv" style="margin-top:36px;margin-bottom:20px"><b>The rule:</b> max 2 partner touchpoints per journey. The ride is the product — every partner interaction should make it feel more rewarding, never more cluttered.</div>
+    <div class="shead rv" style="margin-top:56px"><span class="snum">—</span><span class="slbl">Why Rapido convenes it</span></div>
+    <div class="mutualPrinciples rv">
+      <div class="mp"><div class="mpn">01</div><div class="mpBody"><div class="mpTitle">It owns the outcome layer</div><div class="mpDesc">Only Rapido physically moves the user, so only Rapido can prove a store visit. That makes it the natural measurement backbone — not just another inventory seller.</div></div></div>
+      <div class="mp"><div class="mpn">02</div><div class="mpBody"><div class="mpTitle">It is neutral by design</div><div class="mpDesc">Rapido doesn't compete with payments, food or content players for their core business — so it can be the neutral Switzerland that convenes rivals onto one pipe.</div></div></div>
+      <div class="mp"><div class="mpn">03</div><div class="mpBody"><div class="mpTitle">The economics work for everyone</div><div class="mpDesc">Rapido earns a platform take-rate on cross-app demand plus a premium on its attribution layer. Members get advertiser demand — and a measurement standard — none could build alone.</div></div></div>
+    </div>
+
+    <div class="guard rv" style="margin-top:36px;margin-bottom:20px"><b>The rethink:</b> not thirty content rev-share deals — one shared buying-and-measurement pipe that turns every Indian utility app into a credible third choice to Google and Meta.</div>
   </div>
 </section>
 
+<div class="pgfoot"><div class="in2"><a class="pgbtn" href="#/pitches">← The pitches</a><a class="pgbtn primary" href="#/landscape">Next · Landscape →</a></div></div>
+</div>
 
-<div class="pgfoot"><div class="in2"><a class="pgbtn" href="#/pitches">← The pitches</a><a class="pgbtn primary" href="#/">Next · The plan →</a></div></div>
+<div class="page" data-page="/landscape">
+<!-- 04 THE LANDSCAPE -->
+<section class="sec" style="background:var(--ink)">
+  <div class="wrap">
+    <div class="shead rv"><span class="snum">04</span><span class="slbl">The landscape · monetization beyond the core</span></div>
+    <h2 class="rv">The core rarely pays.<br>The <span class="pill" style="font-size:inherit">edges</span> do.</h2>
+    <p class="intro rv">Across India and the world, the winners thin out or give away their core take-rate and make the money on the edges — ads, fintech, membership and commerce. Rapido's plan sits <b>inside a proven pattern</b>, not against it.</p>
+
+    <div class="shead rv" style="margin-top:48px"><span class="snum">—</span><span class="slbl">Indian utility apps</span></div>
+    <div class="lscScroll rv">
+      <table class="lscTbl">
+        <thead><tr><th style="width:19%">App</th><th style="width:30%">Core (thin / given up)</th><th style="width:51%">Where the money is made</th></tr></thead>
+        <tbody>
+          <tr><td class="app">Rapido<span>mobility</span></td><td class="core">Rides — flat SaaS login fee, 0% commission</td><td class="beyond"><b>Delivery (Ownly)</b>, captain subscriptions, ads, fintech (planned)</td></tr>
+          <tr><td class="app">PhonePe<span>payments</span></td><td class="core">UPI payments — zero MDR</td><td class="beyond"><b>Lending &amp; insurance distribution</b>, wealth/mutual funds, ads, ONDC commerce (Pincode)</td></tr>
+          <tr><td class="app">Paytm<span>payments</span></td><td class="core">Payments</td><td class="beyond">Merchant <b>lending distribution</b>, ads, device subscriptions (Soundbox), commerce</td></tr>
+          <tr><td class="app">Zomato (Eternal)<span>food</span></td><td class="core">Food-delivery commission</td><td class="beyond"><b>Ads / retail media</b>, Blinkit (quick-commerce), Hyperpure (B2B supply), Gold membership</td></tr>
+          <tr><td class="app">Swiggy<span>food</span></td><td class="core">Food-delivery commission</td><td class="beyond"><b>Instamart</b> (quick-commerce), ads, Swiggy One membership, Dineout</td></tr>
+          <tr><td class="app">Ola<span>mobility</span></td><td class="core">Rides</td><td class="beyond">Ola Electric (EV), financial services (insurance, credit), ads</td></tr>
+          <tr><td class="app">MakeMyTrip<span>travel</span></td><td class="core">Travel booking commission</td><td class="beyond">Media / ads, fintech (BNPL, forex)</td></tr>
+          <tr><td class="app">MyGate<span>society app</span></td><td class="core">Society management SaaS</td><td class="beyond"><b>Advertising — 65–70% of revenue</b>, commerce, fintech distribution</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="shead rv" style="margin-top:48px"><span class="snum">—</span><span class="slbl">Global players</span></div>
+    <div class="lscScroll rv">
+      <table class="lscTbl">
+        <thead><tr><th style="width:19%">Player</th><th style="width:30%">Core</th><th style="width:51%">Where the money is made</th></tr></thead>
+        <tbody>
+          <tr><td class="app">Amazon<span>retail</span></td><td class="core">Retail marketplace</td><td class="beyond"><b>AWS</b>, <b>advertising (~$50B+)</b>, Prime membership</td></tr>
+          <tr><td class="app">Uber<span>mobility</span></td><td class="core">Rides + delivery commission</td><td class="beyond"><b>Uber Ads (~$1B+ run-rate)</b>, Uber One membership, Uber for Business, freight</td></tr>
+          <tr><td class="app">Grab<span>mobility</span></td><td class="core">Rides + delivery commission</td><td class="beyond"><b>Financial services</b> (digital bank, lending, insurance, BNPL), Grab Ads, GrabUnlimited</td></tr>
+          <tr><td class="app">Gojek / GoTo<span>mobility</span></td><td class="core">Rides + food commission</td><td class="beyond"><b>GoTo Financial</b> (GoPay, lending, BNPL), e-commerce fee (Tokopedia/TikTok), ads</td></tr>
+          <tr><td class="app">DoorDash<span>delivery</span></td><td class="core">Delivery commission</td><td class="beyond"><b>DoorDash Ads</b>, DashPass membership, white-label logistics (Drive)</td></tr>
+          <tr><td class="app">Meituan<span>food</span></td><td class="core">Food delivery</td><td class="beyond">In-store / hotel / travel, ads, fintech</td></tr>
+          <tr><td class="app">Careem<span>mobility</span></td><td class="core">Rides</td><td class="beyond">Delivery, <b>Careem Pay</b> (fintech), super-app services</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="guard rv" style="margin-top:36px;margin-bottom:20px"><b>The pattern:</b> the winners don't monetize the core transaction harder — they monetize the <b>attention, identity, cash-flow and data</b> the core creates. That is exactly the path to 4%.</div>
+  </div>
+</section>
+
+<div class="pgfoot"><div class="in2"><a class="pgbtn" href="#/partnerships">← Partnerships</a><a class="pgbtn primary" href="#/">Next · The plan →</a></div></div>
 </div>
 
 <div class="page" data-page="/tagline">
