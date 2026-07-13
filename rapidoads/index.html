@@ -372,6 +372,15 @@ section{position:relative}
 .leverChip.proof{color:#3DDC97;border-color:rgba(61,220,151,.32);background:rgba(61,220,151,.08)}
 .leverChip.rail{color:#FFB300;border-color:rgba(255,179,0,.32);background:rgba(255,179,0,.08)}
 @media(max-width:720px){.leverGrid{grid-template-columns:1fr}}
+
+/* ===== experiment cards ===== */
+.expGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.expCard{border:1px dashed rgba(255,255,255,.24);border-radius:14px;padding:18px 18px 16px;background:rgba(255,255,255,.02)}
+.expTitle{font-family:var(--disp);font-weight:700;font-size:15.5px;color:var(--paper);margin-bottom:9px;line-height:1.2}
+.expTitle .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#6FB7FF;margin-right:9px;vertical-align:middle}
+.expWhat{font-size:13px;color:var(--grey);line-height:1.55}
+.expWhat b{color:var(--paper);font-weight:600}
+@media(max-width:720px){.expGrid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -776,6 +785,14 @@ section{position:relative}
         <div class="leverWhy">The same first-party signal that powers ad targeting — <b>ad-like margin, no inventory ceiling.</b></div>
         <div class="leverMeta"><span class="leverChip proof">Proof · transit / mobility data products</span><span class="leverChip rail">Rule · aggregate-only, never person-level, never sold</span></div>
       </div>
+    </div>
+
+    <div class="shead rv" style="margin-top:56px"><span class="snum">—</span><span class="slbl">Experiments · early bets beyond the four</span></div>
+    <p class="intro rv" style="margin-bottom:2px">Not yet sized into the 0.5% — but natural extensions of the same three assets Rapido already owns: <b>the fleet, the app, and the captain relationship.</b></p>
+    <div class="expGrid rv">
+      <div class="expCard"><div class="expTitle"><span class="dot"></span>Prepaid &amp; utility top-ups</div><div class="expWhat">Mobile/DTH recharge, bill-pay and FASTag inside the app. A tiny take per transaction — but <b>enormous frequency at near-zero cost</b>, and every recharge is another app-open. The PhonePe/Paytm daily-habit wedge.</div></div>
+      <div class="expCard"><div class="expTitle"><span class="dot"></span>Fleet-as-a-service · idle hours</div><div class="expWhat">Rent the captain fleet to e-commerce, quick-commerce and D2C players for last-mile in <b>non-rush windows</b>. The fleet is already paid for — this monetizes idle capacity Rapido loses today, as a B2B logistics line.</div></div>
+      <div class="expCard"><div class="expTitle"><span class="dot"></span>Captain EV financing &amp; leasing</div><div class="expWhat">Lease or finance two- and three-wheeler EVs to captains, EMI deducted at source against the productive asset. <b>Rapido is already piloting three-wheeler EV leasing</b> — deep lock-in, secured, partner-financed.</div></div>
     </div>
 
     <div class="shead rv" style="margin-top:60px"><span class="snum">—</span><span class="slbl">The landscape · how everyone monetizes beyond the core</span></div>
