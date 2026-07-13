@@ -381,6 +381,23 @@ section{position:relative}
 .expWhat{font-size:13px;color:var(--grey);line-height:1.55}
 .expWhat b{color:var(--paper);font-weight:600}
 @media(max-width:720px){.expGrid{grid-template-columns:1fr}}
+
+/* ===== OOH Intelligence product cards ===== */
+.prodGrid{display:grid;grid-template-columns:1fr;gap:22px;margin-top:30px}
+.prodCard{background:var(--ink2);border:1px solid var(--line);border-radius:18px;padding:30px 30px 26px}
+.prodTag{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--yl);margin-bottom:11px}
+.prodName{font-family:var(--disp);font-weight:800;font-size:clamp(1.55rem,3vw,2.1rem);color:var(--paper);margin-bottom:14px;letter-spacing:-.02em;line-height:1.05}
+.prodLede{font-size:15.5px;color:#D8D2C6;line-height:1.55;max-width:66ch;margin-bottom:22px}
+.prodLede b{color:var(--paper);font-weight:600}
+.prodRow{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.prodCol .h{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--yl);margin-bottom:9px}
+.prodCol p{font-size:13.5px;color:var(--grey);line-height:1.55}
+.prodCol p b{color:var(--paper);font-weight:600}
+.buyers{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.buyerChip{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;padding:6px 12px;border-radius:100px;border:1px solid rgba(253,206,9,.3);color:var(--yl);background:rgba(253,206,9,.07)}
+.prodEarn{font-size:13px;color:var(--grey);border-top:1px solid var(--line);margin-top:20px;padding-top:15px;line-height:1.5}
+.prodEarn b{color:var(--paper);font-weight:600}
+@media(max-width:720px){.prodRow{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -390,7 +407,7 @@ section{position:relative}
   <div class="tag">2% of GMV — a plan</div>
 </div>
 
-<nav class="nav"><div class="in2"><a href="#/tagline" data-r="/tagline">Rapido Ads</a><a href="#/personas" data-r="/personas">Personas</a><a href="#/pitches" data-r="/pitches">The pitches</a><a href="#/partnerships" data-r="/partnerships">Partnerships</a><a href="#/landscape" data-r="/landscape">Beyond ads</a><a href="#/" data-r="/">The plan</a></div></nav>
+<nav class="nav"><div class="in2"><a href="#/tagline" data-r="/tagline">Rapido Ads</a><a href="#/personas" data-r="/personas">Personas</a><a href="#/pitches" data-r="/pitches">The pitches</a><a href="#/partnerships" data-r="/partnerships">OOH Intelligence</a><a href="#/landscape" data-r="/landscape">Beyond ads</a><a href="#/" data-r="/">The plan</a></div></nav>
 <div class="page" data-page="/">
 <!-- HERO -->
 <section class="hero">
@@ -586,166 +603,47 @@ section{position:relative}
 </section>
 
 
-<div class="pgfoot"><div class="in2"><a class="pgbtn" href="#/personas">← Personas</a><a class="pgbtn primary" href="#/partnerships">Next · Partnerships →</a></div></div>
+<div class="pgfoot"><div class="in2"><a class="pgbtn" href="#/personas">← Personas</a><a class="pgbtn primary" href="#/partnerships">Next · OOH Intelligence →</a></div></div>
 </div>
 
 <div class="page" data-page="/partnerships">
-<!-- 03 THE ALLIANCE -->
-<section class="sec brandy" style="padding-bottom:0">
+<!-- 03 OOH INTELLIGENCE -->
+<section class="sec" style="background:var(--ink)">
   <div class="wrap">
-    <div class="shead rv"><span class="snum">03</span><span class="slbl">From ad-seller to alliance convener</span></div>
-    <h2 class="rv">Alone, you rent from the triopoly.<br>Together, India <span class="pill" style="font-size:inherit">owns the pipe.</span></h2>
-    <p class="intro rv">Google, Meta and Amazon take roughly <b>70% of India's digital ad spend</b>. No single Indian app has the scale, frequency or measurement to be a real alternative — and advertisers won't stitch together fifteen sub-scale integrations. The unlock isn't another content rev-share deal. It's a <b>common buying-and-measurement platform across India's first-party utility apps</b> — one pipe to reach verified, logged-in Indian audiences with closed-loop, real-world proof. Rapido is the natural convener.</p>
-  </div>
-</section>
+    <div class="shead rv"><span class="snum">03</span><span class="slbl">OOH Intelligence · movement made measurable</span></div>
+    <h2 class="rv">Rapido sees where India<br>actually <span class="pill" style="font-size:inherit">goes.</span></h2>
+    <p class="intro rv">~5M journeys a day trace where India actually moves — which roads, which corridors, which stores, at which hours. That first-party <b>movement graph</b> is the scarcest asset in Indian advertising. Two products fall straight out of it.</p>
 
-<section class="sec" style="padding-top:40px;background:var(--ink)">
-  <div class="wrap">
+    <div class="prodGrid rv">
 
-    <div class="heroStats rv" style="margin-top:0">
-      <div class="t"><div class="n">~70%</div><div class="l">Triopoly share of India digital adspend</div></div>
-      <div class="t"><div class="n">~25%</div><div class="l">India digital adspend annual growth</div></div>
-      <div class="t"><div class="n">15+</div><div class="l">Sub-scale Indian first-party apps, each selling alone</div></div>
-      <div class="t"><div class="n">0</div><div class="l">Indian-owned ad platforms at triopoly scale</div></div>
-    </div>
-
-    <div class="shead rv" style="margin-top:56px"><span class="snum">—</span><span class="slbl">The platform · one pipe, four shared layers</span></div>
-    <div class="mutualPrinciples rv">
-      <div class="mp"><div class="mpn">01</div><div class="mpBody"><div class="mpTitle">One buy</div><div class="mpDesc">Advertisers reach across mobility, payments, food, quick-commerce and content in a single insertion order — cross-app reach and frequency no one app can offer alone.</div></div></div>
-      <div class="mp"><div class="mpn">02</div><div class="mpBody"><div class="mpTitle">One clean room</div><div class="mpDesc">A DPDP-safe, first-party identity graph. Matched cohorts and shared measurement — no raw personal data ever leaves any app.</div></div></div>
-      <div class="mp"><div class="mpn">03</div><div class="mpBody"><div class="mpTitle">One measurement standard</div><div class="mpDesc">Anchored by Rapido's real-world <b>arrival &amp; footfall</b> signal — the closed-loop outcome Google and Meta can't produce because they don't move the physical person.</div></div></div>
-      <div class="mp"><div class="mpn">04</div><div class="mpBody"><div class="mpTitle">One vernacular SMB layer</div><div class="mpDesc">Self-serve, WhatsApp-simple ad buying for the Bharat long tail — the millions of local merchants the triopoly serves badly.</div></div></div>
-    </div>
-
-    <div class="shead rv" style="margin-top:56px"><span class="snum">—</span><span class="slbl">Who's in it — and what each brings</span></div>
-    <div class="mutualGrid rv">
-
-      <div class="mutualCard">
-        <div class="mcardTop">
-          <div class="mcardLogo" style="background:#FDCE09">
-            <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="12" fill="#FDCE09"/><text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" fill="#fff" font-family="Arial Black" font-size="20" font-weight="900">R</text></svg>
-          </div>
-          <div class="mcardMeta">
-            <div class="mcardName">Rapido · Mobility</div>
-            <div class="mcardSub">74M riders · 5M captains · 100+ cities</div>
-          </div>
-          <div class="mcardTag" style="background:#FDCE091a;color:#FDCE09;border-color:#FDCE094d">Convener</div>
+      <div class="prodCard">
+        <div class="prodTag">Product 01 · B2B data</div>
+        <div class="prodName">OOH Intelligence</div>
+        <div class="prodLede">India's out-of-home advertising — hoardings, transit, street furniture — is a <b>~₹4,000 Cr+ market that still plans and prices on guesswork.</b> Rapido moves ~5M people past that inventory every day, so it is the one player that can say <b>who actually sees a site, how often, and whether it drove a store visit.</b></div>
+        <div class="prodRow">
+          <div class="prodCol"><div class="h">What it delivers</div><p>Traffic &amp; audience heatmaps by corridor; real reach, frequency and opportunity-to-see per hoarding; footfall attribution on exposure.</p></div>
+          <div class="prodCol"><div class="h">Who buys it</div><p><b>Brands &amp; agencies</b> — plan spend on evidence. <b>OOH media owners</b> — price inventory by real audience. <b>Rapido itself</b> — sharper targeting for its own ads.</p></div>
+          <div class="prodCol"><div class="h">Why only Rapido</div><p>Google and Meta don't move the physical person; legacy OOH runs on panels and estimates. Rapido owns the first-party movement graph.</p></div>
         </div>
-        <div class="mcardThesis">The only member that moves the user through the <b>physical world</b> — so it owns the outcome layer the whole alliance is measured on.</div>
-        <div class="mcardExchange">
-          <div class="mcardSide rapido">
-            <div class="mcardSideLabel">Brings to the alliance</div>
-            <ul><li>Movement + real-time destination intent</li><li>Real-world <b>arrival &amp; footfall</b> attribution</li></ul>
-          </div>
-          <div class="mcardArrow">⇌</div>
-          <div class="mcardSide partner">
-            <div class="mcardSideLabel">Gets back</div>
-            <ul><li>Advertiser demand aggregated across every other app's audience</li><li>A platform take-rate on all cross-app spend</li></ul>
-          </div>
-        </div>
-        <div class="mcardModel">
-          <span class="mcardModelLabel">Role in the alliance</span>
-          <span class="mcardModelVal">Convener · attribution backbone · platform take-rate</span>
-        </div>
+        <div class="buyers"><span class="buyerChip">Brands</span><span class="buyerChip">Agencies</span><span class="buyerChip">OOH media owners</span><span class="buyerChip">Rapido's own ads</span></div>
+        <div class="prodEarn"><b>Earns</b> as a B2B data subscription + per-campaign measurement — and lifts Rapido's own ad CPMs. Aggregate, anonymized only — never person-level.</div>
       </div>
 
-      <div class="mutualCard">
-        <div class="mcardTop">
-          <div class="mcardLogo" style="background:#5F259F">
-            <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="12" fill="#5F259F"/><text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" fill="#fff" font-family="Arial Black" font-size="20" font-weight="900">₹</text></svg>
-          </div>
-          <div class="mcardMeta">
-            <div class="mcardName">Payments apps</div>
-            <div class="mcardSub">PhonePe · Paytm · UPI-scale identity</div>
-          </div>
-          <div class="mcardTag" style="background:#8B5CF61a;color:#8B5CF6;border-color:#8B5CF64d">Identity</div>
+      <div class="prodCard">
+        <div class="prodTag">Product 02 · Hyperlocal</div>
+        <div class="prodName">The Digital Pamphlet</div>
+        <div class="prodLede">The neighbourhood shop, clinic, gym or tuition centre still prints paper pamphlets and hopes. Rapido turns that into a <b>measurable digital pamphlet</b> — a geo-fenced offer shown to riders and captains who live in or move through a 1–2 km catchment, with walk-ins measured by observed arrival.</div>
+        <div class="prodRow">
+          <div class="prodCol"><div class="h">How it works</div><p>Draw a radius, set a ₹500/day budget, publish an offer — self-serve, vernacular, live in minutes.</p></div>
+          <div class="prodCol"><div class="h">Why it wins</div><p>Rapido knows who moves through a micro-area and can <b>prove the walk-in</b> — the Bharat long tail Google and Meta serve badly.</p></div>
+          <div class="prodCol"><div class="h">The prize</div><p>Millions of SMBs, tiny budgets, <b>enormous in aggregate</b> — digitizing the paper-leaflet spend that never had attribution.</p></div>
         </div>
-        <div class="mcardThesis">The <b>identity and spend spine</b> — who the user is and what they actually buy, the signal advertisers pay the most for.</div>
-        <div class="mcardExchange">
-          <div class="mcardSide rapido">
-            <div class="mcardSideLabel">Brings to the alliance</div>
-            <ul><li>Verified identity + real purchase/spend signal</li><li>Settlement &amp; rewards rails</li></ul>
-          </div>
-          <div class="mcardArrow">⇌</div>
-          <div class="mcardSide partner">
-            <div class="mcardSideLabel">Gets back</div>
-            <ul><li>Reach + frequency from apps it doesn't own</li><li>Ad demand far beyond its own surface</li></ul>
-          </div>
-        </div>
-        <div class="mcardModel">
-          <span class="mcardModelLabel">Role in the alliance</span>
-          <span class="mcardModelVal">First-party identity + purchase attribution</span>
-        </div>
-      </div>
-
-      <div class="mutualCard">
-        <div class="mcardTop">
-          <div class="mcardLogo" style="background:#E23744">
-            <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="12" fill="#E23744"/><text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" fill="#fff" font-family="Arial Black" font-size="20" font-weight="900">F</text></svg>
-          </div>
-          <div class="mcardMeta">
-            <div class="mcardName">Food &amp; Quick-commerce</div>
-            <div class="mcardSub">Zomato · Swiggy · Blinkit</div>
-          </div>
-          <div class="mcardTag" style="background:#F871711a;color:#F87171;border-color:#F871714d">Intent</div>
-        </div>
-        <div class="mcardThesis"><b>High-dwell browsing and hard purchase intent</b> — the retail-media surface the alliance's SKU-level ads run on.</div>
-        <div class="mcardExchange">
-          <div class="mcardSide rapido">
-            <div class="mcardSideLabel">Brings to the alliance</div>
-            <ul><li>Purchase intent + high-dwell inventory</li><li>SKU-level closed-loop attribution</li></ul>
-          </div>
-          <div class="mcardArrow">⇌</div>
-          <div class="mcardSide partner">
-            <div class="mcardSideLabel">Gets back</div>
-            <ul><li>Cross-app frequency it can't build alone</li><li>Rapido's arrival signal to prove offline conversion</li></ul>
-          </div>
-        </div>
-        <div class="mcardModel">
-          <span class="mcardModelLabel">Role in the alliance</span>
-          <span class="mcardModelVal">Sponsored listings + retail media</span>
-        </div>
-      </div>
-
-      <div class="mutualCard">
-        <div class="mcardTop">
-          <div class="mcardLogo" style="background:#6C63FF">
-            <svg viewBox="0 0 44 44" fill="none"><rect width="44" height="44" rx="12" fill="#6C63FF"/><text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" fill="#fff" font-family="Arial Black" font-size="18" font-weight="900">▶</text></svg>
-          </div>
-          <div class="mcardMeta">
-            <div class="mcardName">Content &amp; vernacular</div>
-            <div class="mcardSub">Pocket FM · Lokal · Stage · Seekho</div>
-          </div>
-          <div class="mcardTag" style="background:#818CF81a;color:#818CF8;border-color:#818CF84d">Reach</div>
-        </div>
-        <div class="mcardThesis"><b>Dwell time and Bharat depth</b> — 5,000-town reach and the wait-moment attention the utility apps lack.</div>
-        <div class="mcardExchange">
-          <div class="mcardSide rapido">
-            <div class="mcardSideLabel">Brings to the alliance</div>
-            <ul><li>Vernacular dwell + creator supply</li><li>Reach into 5,000 towns beyond the metros</li></ul>
-          </div>
-          <div class="mcardArrow">⇌</div>
-          <div class="mcardSide partner">
-            <div class="mcardSideLabel">Gets back</div>
-            <ul><li>A monetization pipe and demand none can sell alone</li><li>Distribution through the daily ride moment</li></ul>
-          </div>
-        </div>
-        <div class="mcardModel">
-          <span class="mcardModelLabel">Role in the alliance</span>
-          <span class="mcardModelVal">Shared inventory + vernacular creative</span>
-        </div>
+        <div class="prodEarn"><b>Earns</b> pay-per-view / lead / visit — the self-serve engine that scales advertiser count far past agency-sold brand deals.</div>
       </div>
 
     </div>
 
-    <div class="shead rv" style="margin-top:56px"><span class="snum">—</span><span class="slbl">Why Rapido convenes it</span></div>
-    <div class="mutualPrinciples rv">
-      <div class="mp"><div class="mpn">01</div><div class="mpBody"><div class="mpTitle">It owns the outcome layer</div><div class="mpDesc">Only Rapido physically moves the user, so only Rapido can prove a store visit. That makes it the natural measurement backbone — not just another inventory seller.</div></div></div>
-      <div class="mp"><div class="mpn">02</div><div class="mpBody"><div class="mpTitle">It is neutral by design</div><div class="mpDesc">Rapido doesn't compete with payments, food or content players for their core business — so it can be the neutral Switzerland that convenes rivals onto one pipe.</div></div></div>
-      <div class="mp"><div class="mpn">03</div><div class="mpBody"><div class="mpTitle">The economics work for everyone</div><div class="mpDesc">Rapido earns a platform take-rate on cross-app demand plus a premium on its attribution layer. Members get advertiser demand — and a measurement standard — none could build alone.</div></div></div>
-    </div>
-
-    <div class="guard rv" style="margin-top:36px;margin-bottom:20px"><b>The rethink:</b> not thirty content rev-share deals — one shared buying-and-measurement pipe that turns every Indian utility app into a credible third choice to Google and Meta.</div>
+    <div class="guard rv" style="margin-top:34px;margin-bottom:20px"><b>One asset, sold twice:</b> Rapido's movement graph becomes <b>intelligence</b> for the OOH industry and <b>reach</b> for the corner shop — both feeding, and fed by, the ad engine.</div>
   </div>
 </section>
 
@@ -834,7 +732,7 @@ section{position:relative}
   </div>
 </section>
 
-<div class="pgfoot"><div class="in2"><a class="pgbtn" href="#/partnerships">← Partnerships</a><a class="pgbtn primary" href="#/">Next · The plan →</a></div></div>
+<div class="pgfoot"><div class="in2"><a class="pgbtn" href="#/partnerships">← OOH Intelligence</a><a class="pgbtn primary" href="#/">Next · The plan →</a></div></div>
 </div>
 
 <div class="page" data-page="/tagline">
