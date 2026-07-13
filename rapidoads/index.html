@@ -357,6 +357,21 @@ section{position:relative}
 .lscTbl .core{color:var(--grey)}
 .lscTbl .beyond b{color:var(--yl);font-weight:600}
 .lscTbl tbody tr:hover{background:rgba(255,255,255,.03)}
+
+/* ===== non-ad lever cards ===== */
+.leverGrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px}
+.leverCard{background:var(--ink2);border:1px solid var(--line);border-radius:16px;padding:22px 22px 20px}
+.leverHead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:12px}
+.leverName{font-family:var(--disp);font-weight:700;font-size:19px;color:var(--paper);line-height:1.1}
+.leverPct{font-family:var(--mono);font-size:12px;font-weight:700;color:#141414;background:var(--yl);border-radius:100px;padding:4px 11px;white-space:nowrap}
+.leverWhat{font-size:14px;color:var(--paper);line-height:1.5;margin-bottom:10px}
+.leverWhy{font-size:13.5px;color:var(--grey);line-height:1.5;margin-bottom:13px}
+.leverWhy b{color:var(--paper);font-weight:600}
+.leverMeta{display:flex;flex-wrap:wrap;gap:8px}
+.leverChip{font-family:var(--mono);font-size:10.5px;letter-spacing:.03em;text-transform:uppercase;padding:5px 10px;border-radius:8px;border:1px solid var(--line);color:var(--grey)}
+.leverChip.proof{color:#3DDC97;border-color:rgba(61,220,151,.32);background:rgba(61,220,151,.08)}
+.leverChip.rail{color:#FFB300;border-color:rgba(255,179,0,.32);background:rgba(255,179,0,.08)}
+@media(max-width:720px){.leverGrid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -366,7 +381,7 @@ section{position:relative}
   <div class="tag">2% of GMV — a plan</div>
 </div>
 
-<nav class="nav"><div class="in2"><a href="#/tagline" data-r="/tagline">Rapido Ads</a><a href="#/personas" data-r="/personas">Personas</a><a href="#/pitches" data-r="/pitches">The pitches</a><a href="#/partnerships" data-r="/partnerships">Partnerships</a><a href="#/landscape" data-r="/landscape">Landscape</a><a href="#/" data-r="/">The plan</a></div></nav>
+<nav class="nav"><div class="in2"><a href="#/tagline" data-r="/tagline">Rapido Ads</a><a href="#/personas" data-r="/personas">Personas</a><a href="#/pitches" data-r="/pitches">The pitches</a><a href="#/partnerships" data-r="/partnerships">Partnerships</a><a href="#/landscape" data-r="/landscape">Beyond ads</a><a href="#/" data-r="/">The plan</a></div></nav>
 <div class="page" data-page="/">
 <!-- HERO -->
 <section class="hero">
@@ -447,7 +462,7 @@ section{position:relative}
 </section>
 
 
-<div class="pgfoot"><div class="in2"><a class="pgbtn" href="#/landscape">← Landscape</a><span></span></div></div>
+<div class="pgfoot"><div class="in2"><a class="pgbtn" href="#/landscape">← Beyond ads</a><span></span></div></div>
 </div>
 
 <div class="page" data-page="/personas">
@@ -725,40 +740,69 @@ section{position:relative}
   </div>
 </section>
 
-<div class="pgfoot"><div class="in2"><a class="pgbtn" href="#/pitches">← The pitches</a><a class="pgbtn primary" href="#/landscape">Next · Landscape →</a></div></div>
+<div class="pgfoot"><div class="in2"><a class="pgbtn" href="#/pitches">← The pitches</a><a class="pgbtn primary" href="#/landscape">Next · Beyond ads →</a></div></div>
 </div>
 
 <div class="page" data-page="/landscape">
-<!-- 04 THE LANDSCAPE -->
+<!-- 04 BEYOND ADS -->
 <section class="sec" style="background:var(--ink)">
   <div class="wrap">
-    <div class="shead rv"><span class="snum">04</span><span class="slbl">The landscape · monetization beyond the core</span></div>
-    <h2 class="rv">The core rarely pays.<br>The <span class="pill" style="font-size:inherit">edges</span> do.</h2>
-    <p class="intro rv">Across India and the world, the winners thin out or give away their core take-rate and make the money on the edges — ads, fintech, membership and commerce. Rapido's plan sits <b>inside a proven pattern</b>, not against it.</p>
+    <div class="shead rv"><span class="snum">04</span><span class="slbl">Beyond ads · the other 0.5% of GMV</span></div>
+    <h2 class="rv">Ads carries 1.5. These four <span class="pill" style="font-size:inherit">carry the 0.5.</span></h2>
+    <p class="intro rv">Every lever below is <b>asset-light, distribution-only, and already proven</b> by a comparable platform — sized deliberately below advertising so the plan never leans on out-executing it.</p>
 
-    <div class="shead rv" style="margin-top:48px"><span class="snum">—</span><span class="slbl">Indian utility apps</span></div>
+    <div class="leverGrid rv">
+      <div class="leverCard">
+        <div class="leverHead"><div class="leverName">Financial services</div><div class="leverPct">+0.2% GMV</div></div>
+        <div class="leverWhat">Captain &amp; rider lending and insurance, distributed — instant payout / earned-wage, co-lending via NBFC partners, ride-insurance attach, a co-branded card.</div>
+        <div class="leverWhy">Rapido settles captain earnings, so it owns the underwriting data and can deduct EMIs at source. <b>~90% fee margin, zero balance sheet.</b></div>
+        <div class="leverMeta"><span class="leverChip proof">Proof · Grab loan book &gt;$1.18B; Gojek GoTo Financial</span><span class="leverChip rail">Rule · distribute, never own the book or licence</span></div>
+      </div>
+      <div class="leverCard">
+        <div class="leverHead"><div class="leverName">Membership · Rapido Pass</div><div class="leverPct">+0.15% GMV</div></div>
+        <div class="leverWhat">A paid pass — ride discounts + cheaper Ownly delivery + priority allocation, billed on rails the captain SaaS already runs.</div>
+        <div class="leverWhy"><b>~95% margin, pure software</b> — and the frequency flywheel that lifts the value of every ad impression and fintech attach.</div>
+        <div class="leverMeta"><span class="leverChip proof">Proof · Uber One · ~46M members</span><span class="leverChip rail">Rule · price for penetration, not near-term ARPU</span></div>
+      </div>
+      <div class="leverCard">
+        <div class="leverHead"><div class="leverName">Commerce &amp; coupons</div><div class="leverPct">+0.1% GMV</div></div>
+        <div class="leverWhat">Ownly food, coupons and local-merchant offers running on the captain fleet's idle capacity.</div>
+        <div class="leverWhy">A <b>feeder, not a P&amp;L</b> — it manufactures frequency, onboards merchants for retail media, and carries fintech distribution.</div>
+        <div class="leverMeta"><span class="leverChip proof">Proof · Zomato / Swiggy retail media</span><span class="leverChip rail">Rule · ring-fence burn; no dark-store capex</span></div>
+      </div>
+      <div class="leverCard">
+        <div class="leverHead"><div class="leverName">Data &amp; insights</div><div class="leverPct">+0.05% GMV</div></div>
+        <div class="leverWhat">Aggregated, anonymized footfall and origin-destination flows for retail site-selection, urban planning and CPG distribution.</div>
+        <div class="leverWhy">The same first-party signal that powers ad targeting — <b>ad-like margin, no inventory ceiling.</b></div>
+        <div class="leverMeta"><span class="leverChip proof">Proof · transit / mobility data products</span><span class="leverChip rail">Rule · aggregate-only, never person-level, never sold</span></div>
+      </div>
+    </div>
+
+    <div class="shead rv" style="margin-top:60px"><span class="snum">—</span><span class="slbl">The landscape · how everyone monetizes beyond the core</span></div>
+    <p class="intro rv" style="margin-bottom:6px">These four levers aren't novel — they're the standard adjacency playbook. Across India and the world, the winners thin out or give away their core take-rate and make the money on the edges. Rapido's plan sits <b>inside a proven pattern</b>, not against it.</p>
+
+    <div class="shead rv" style="margin-top:32px"><span class="snum">—</span><span class="slbl">Indian utility apps</span></div>
     <div class="lscScroll rv">
       <table class="lscTbl">
         <thead><tr><th style="width:19%">App</th><th style="width:30%">Core (thin / given up)</th><th style="width:51%">Where the money is made</th></tr></thead>
         <tbody>
           <tr><td class="app">Rapido<span>mobility</span></td><td class="core">Rides — flat SaaS login fee, 0% commission</td><td class="beyond"><b>Delivery (Ownly)</b>, captain subscriptions, ads, fintech (planned)</td></tr>
+          <tr><td class="app">Truecaller<span>caller ID · utility</span></td><td class="core">Caller ID &amp; spam-blocking — free</td><td class="beyond"><b>Advertising (majority of revenue)</b>, Premium subscription, verified-business messaging, fintech</td></tr>
           <tr><td class="app">PhonePe<span>payments</span></td><td class="core">UPI payments — zero MDR</td><td class="beyond"><b>Lending &amp; insurance distribution</b>, wealth/mutual funds, ads, ONDC commerce (Pincode)</td></tr>
           <tr><td class="app">Paytm<span>payments</span></td><td class="core">Payments</td><td class="beyond">Merchant <b>lending distribution</b>, ads, device subscriptions (Soundbox), commerce</td></tr>
+          <tr><td class="app">CRED<span>credit-card bill pay</span></td><td class="core">Bill payments — free</td><td class="beyond">Commerce (CRED store/offers), <b>lending</b> (CRED Cash / Mint), brand ads</td></tr>
           <tr><td class="app">Zomato (Eternal)<span>food</span></td><td class="core">Food-delivery commission</td><td class="beyond"><b>Ads / retail media</b>, Blinkit (quick-commerce), Hyperpure (B2B supply), Gold membership</td></tr>
           <tr><td class="app">Swiggy<span>food</span></td><td class="core">Food-delivery commission</td><td class="beyond"><b>Instamart</b> (quick-commerce), ads, Swiggy One membership, Dineout</td></tr>
-          <tr><td class="app">Ola<span>mobility</span></td><td class="core">Rides</td><td class="beyond">Ola Electric (EV), financial services (insurance, credit), ads</td></tr>
-          <tr><td class="app">MakeMyTrip<span>travel</span></td><td class="core">Travel booking commission</td><td class="beyond">Media / ads, fintech (BNPL, forex)</td></tr>
           <tr><td class="app">MyGate<span>society app</span></td><td class="core">Society management SaaS</td><td class="beyond"><b>Advertising — 65–70% of revenue</b>, commerce, fintech distribution</td></tr>
         </tbody>
       </table>
     </div>
 
-    <div class="shead rv" style="margin-top:48px"><span class="snum">—</span><span class="slbl">Global players</span></div>
+    <div class="shead rv" style="margin-top:44px"><span class="snum">—</span><span class="slbl">Global players</span></div>
     <div class="lscScroll rv">
       <table class="lscTbl">
         <thead><tr><th style="width:19%">Player</th><th style="width:30%">Core</th><th style="width:51%">Where the money is made</th></tr></thead>
         <tbody>
-          <tr><td class="app">Amazon<span>retail</span></td><td class="core">Retail marketplace</td><td class="beyond"><b>AWS</b>, <b>advertising (~$50B+)</b>, Prime membership</td></tr>
           <tr><td class="app">Uber<span>mobility</span></td><td class="core">Rides + delivery commission</td><td class="beyond"><b>Uber Ads (~$1B+ run-rate)</b>, Uber One membership, Uber for Business, freight</td></tr>
           <tr><td class="app">Grab<span>mobility</span></td><td class="core">Rides + delivery commission</td><td class="beyond"><b>Financial services</b> (digital bank, lending, insurance, BNPL), Grab Ads, GrabUnlimited</td></tr>
           <tr><td class="app">Gojek / GoTo<span>mobility</span></td><td class="core">Rides + food commission</td><td class="beyond"><b>GoTo Financial</b> (GoPay, lending, BNPL), e-commerce fee (Tokopedia/TikTok), ads</td></tr>
@@ -769,7 +813,7 @@ section{position:relative}
       </table>
     </div>
 
-    <div class="guard rv" style="margin-top:36px;margin-bottom:20px"><b>The pattern:</b> the winners don't monetize the core transaction harder — they monetize the <b>attention, identity, cash-flow and data</b> the core creates. That is exactly the 2% of non-core GMV.</div>
+    <div class="guard rv" style="margin-top:36px;margin-bottom:20px"><b>The pattern:</b> the winners don't monetize the core transaction harder — they monetize the <b>attention, identity, cash-flow and data</b> the core creates. Ads is Rapido's biggest such lever; these four are the rest.</div>
   </div>
 </section>
 
