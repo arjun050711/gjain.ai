@@ -345,6 +345,54 @@
     }
     .demobar .dlbl{flex-basis:100%;margin-bottom:2px}
   }
+
+  /* ===== WhatsApp @approve mock ===== */
+  .wacard{display:flex;align-items:center;gap:12px;background:#e7f6ee;border:1px solid #bfe6cf;border-radius:16px;padding:13px 14px;cursor:pointer;transition:.15s}
+  .wacard:hover{background:#ddf1e5}
+  .wacard .wa-ic{width:40px;height:40px;border-radius:11px;background:#25d366;color:#fff;display:grid;place-items:center;font-size:19px;flex:none}
+  .wacard .wa-cbody{flex:1;min-width:0}
+  .wacard .wa-ct{font-weight:700;font-size:13.5px;color:var(--ink)}
+  .wacard .wa-cd{font-size:11.5px;color:var(--ink-soft);line-height:1.4;margin-top:2px}
+  .wacard .wa-cd b{color:var(--ink);font-weight:600}
+  .wacard .wa-cgo{font-size:12px;font-weight:700;color:#0a8f47;flex:none}
+
+  .screen.wamode{padding:0}
+  .wa{display:flex;flex-direction:column;min-height:100%;background:#e5ddd5;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='42' height='42'%3E%3Cg fill='%23d7cec3' fill-opacity='0.55'%3E%3Ccircle cx='7' cy='7' r='1.3'/%3E%3Ccircle cx='28' cy='19' r='1.3'/%3E%3Ccircle cx='15' cy='32' r='1.3'/%3E%3C/g%3E%3C/svg%3E")}
+  .wa-head{position:sticky;top:0;z-index:6;display:flex;align-items:center;gap:10px;background:#128c7e;color:#fff;padding:12px}
+  .wa-back{background:0;border:0;color:#fff;font-size:26px;line-height:1;cursor:pointer;padding:0 2px}
+  .wa-ava{width:36px;height:36px;border-radius:50%;background:#0d6b60;display:grid;place-items:center;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:17px;color:#fff;flex:none}
+  .wa-hmeta{flex:1;min-width:0}
+  .wa-name{font-weight:700;font-size:14.5px;display:flex;align-items:center;gap:5px}
+  .wa-badge{background:#34b7f1;color:#fff;width:14px;height:14px;border-radius:50%;font-size:9px;display:inline-grid;place-items:center;font-weight:700}
+  .wa-status{font-size:10.5px;color:rgba(255,255,255,.82);margin-top:1px}
+  .wa-hicons{font-size:18px;opacity:.9;letter-spacing:1px}
+  .wa-body{flex:1;padding:14px 12px 6px;display:flex;flex-direction:column;gap:8px}
+  .wa-day{align-self:center;background:#d9e5e2;color:#5b6b67;font-size:10px;font-weight:600;letter-spacing:.05em;padding:4px 11px;border-radius:8px;margin-bottom:4px}
+  .wa-msg{display:flex;max-width:86%}
+  .wa-msg.in{align-self:flex-start}
+  .wa-msg.out{align-self:flex-end}
+  .wa-b{position:relative;font-size:13px;line-height:1.45;color:#111b21;padding:8px 10px 6px;border-radius:10px;box-shadow:0 1px .6px rgba(0,0,0,.14)}
+  .wa-msg.in .wa-b{background:#fff;border-top-left-radius:2px}
+  .wa-msg.out .wa-b{background:#dcf8c6;border-top-right-radius:2px}
+  .wa-b b{font-weight:700}
+  .wa-t{display:block;text-align:right;font-size:9.5px;color:#8b9a95;margin-top:3px}
+  .wa-t .tick{color:#53bdeb;font-weight:700}
+  .wa-typing{display:flex;gap:4px;padding:11px 12px}
+  .wa-typing span{width:7px;height:7px;border-radius:50%;background:#b6c1bd;animation:wablink 1.2s infinite}
+  .wa-typing span:nth-child(2){animation-delay:.2s}.wa-typing span:nth-child(3){animation-delay:.4s}
+  @keyframes wablink{0%,60%,100%{opacity:.3}30%{opacity:1}}
+  .wa-pass{background:#fff;border:1px solid #e4e9e7;border-radius:12px;padding:11px;margin:9px 0;display:flex;gap:12px;align-items:center}
+  .wa-qr{width:100px;height:100px;flex:none;border-radius:8px;overflow:hidden;border:1px solid #eef1f0}
+  .wa-pass-meta{flex:1;min-width:0}
+  .wa-pass-t{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:13.5px;color:#111b21;margin-bottom:6px;display:flex;align-items:center;gap:5px}
+  .wa-pass-t::before{content:"🔓";font-size:12px}
+  .wa-pass-row{display:flex;justify-content:space-between;gap:8px;font-size:10.5px;color:#67736f;padding:2px 0}
+  .wa-pass-row b{color:#111b21;font-weight:600;text-align:right}
+  .wa-composer{position:sticky;bottom:0;display:flex;align-items:center;gap:8px;padding:8px 10px calc(8px + env(safe-area-inset-bottom,0px));background:#f0f0f0}
+  .wa-input{flex:1;background:#fff;border-radius:20px;padding:10px 14px;font-size:12.5px;color:#111b21;box-shadow:0 1px .5px rgba(0,0,0,.1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .wa-input b{font-weight:700;color:#075e54}
+  .wa-send{width:42px;height:42px;border-radius:50%;background:#128c7e;color:#fff;border:0;font-size:16px;cursor:pointer;flex:none;display:grid;place-items:center}
 </style>
 </head>
 <body>
@@ -422,6 +470,8 @@ let guardScreen="gate";      // gate | queue | scanned
 let residentScreen="home";   // home | activity | map | market | work
 let marketScope="society";   // society | city | india
 let marketTab="browse";      // browse | post
+let waStep="0";              // 0 (before send) | typing | 1 (replied)
+let waNum="9876543210";      // number being approved via WhatsApp
 let adminScreen="overview";
 let partnerScreen="dashboard";
 let activeScan=null;
@@ -487,6 +537,7 @@ function residentView(){
   if(residentScreen==="guest") return residentGuest();
   if(residentScreen==="market") return residentMarket();
   if(residentScreen==="work") return residentWork();
+  if(residentScreen==="wapprove") return residentWhatsApp();
   return `
   <div class="apphead">
     <div><div class="lg">Arri<b>v</b>e</div><div class="sm">${DB.resident.name} · Tower ${DB.resident.tower}, ${DB.resident.flat}</div></div>
@@ -505,6 +556,16 @@ function residentView(){
     <div class="chip"><span class="k" style="background:var(--emerald-soft)">🚗</span> Driver — daily</div>
     <div class="chip"><span class="k" style="background:var(--amber-soft)">🌙</span> No delivery after 11 PM</div>
     <div class="chip add" onclick="toast('Rule builder — conversational')">＋ Add a rule</div>
+  </div>
+
+  <div class="eyebrow">Let someone in — from WhatsApp</div>
+  <div class="wacard" onclick="openWA()">
+    <div class="wa-ic">💬</div>
+    <div class="wa-cbody">
+      <div class="wa-ct">Approve anyone via WhatsApp</div>
+      <div class="wa-cd">Message <b>@approve</b> + their number to Arrive — a gate QR is created instantly. <b>No app for them.</b></div>
+    </div>
+    <div class="wa-cgo">Try →</div>
   </div>
 
   <div class="eyebrow">Coming up — already handled</div>
@@ -585,6 +646,61 @@ function residentGuest(){
     <div class="listrow"><div class="ic" style="background:var(--emerald)">M</div><div class="m"><div class="t">Meera (sister)</div><div class="d">Sun · 11 AM · staying over</div></div><span class="pill ok">active</span></div>
   </div>
   ${footnav('res',[['home','Home','sq'],['guest','Guest','people'],['market','Market','tag'],['work','Work','work']])}`;
+}
+
+/* ---- WhatsApp @approve → QR pass mock ---- */
+function residentWhatsApp(){
+  const num=waNum;
+  const pretty='+91 '+num.slice(0,5)+' '+num.slice(5);
+  const sent = waStep!=='0';
+  return `
+  <div class="wa">
+    <div class="wa-head">
+      <button class="wa-back" onclick="navTo('res','home')">‹</button>
+      <div class="wa-ava">A</div>
+      <div class="wa-hmeta"><div class="wa-name">Arrive <span class="wa-badge">✓</span></div><div class="wa-status">business account · replies instantly</div></div>
+      <div class="wa-hicons">⋮</div>
+    </div>
+    <div class="wa-body">
+      <div class="wa-day">TODAY</div>
+      <div class="wa-msg in"><div class="wa-b">👋 To let someone in, message <b>@approve</b> and their mobile number — add a note like "plumber 4–6pm" if you want. I'll create a gate pass instantly.<span class="wa-t">9:39 AM</span></div></div>
+      ${sent?`<div class="wa-msg out"><div class="wa-b">@approve ${num} plumber 4–6pm<span class="wa-t">9:41 AM <span class="tick">✓✓</span></span></div></div>`:''}
+      ${waStep==='typing'?`<div class="wa-msg in"><div class="wa-b wa-typing"><span></span><span></span><span></span></div></div>`:''}
+      ${waStep==='1'?`<div class="wa-msg in"><div class="wa-b">✅ <b>Approved.</b> Gate pass created for ${pretty}.
+        <div class="wa-pass">
+          <div class="wa-qr">${waQR(num)}</div>
+          <div class="wa-pass-meta">
+            <div class="wa-pass-t">Arrive Pass</div>
+            <div class="wa-pass-row"><span>Visitor</span><b>${pretty}</b></div>
+            <div class="wa-pass-row"><span>Where</span><b>Tower B · A-1203</b></div>
+            <div class="wa-pass-row"><span>Gate</span><b>Gate 2</b></div>
+            <div class="wa-pass-row"><span>Valid</span><b>Today 4–6 PM</b></div>
+          </div>
+        </div>
+        Sent to their WhatsApp too — they just show this at the gate. <b>No app needed</b>, and nothing to approve when they arrive.<span class="wa-t">9:41 AM</span></div></div>`:''}
+    </div>
+    <div class="wa-composer">
+      <div class="wa-input">${sent?'<span style="opacity:.45">Message</span>':'@approve <b>'+num+'</b> plumber 4–6pm'}</div>
+      <button class="wa-send" onclick="waSend()" aria-label="Send">${sent?'🎙':'➤'}</button>
+    </div>
+  </div>`;
+}
+function openWA(){ waStep='0'; navTo('res','wapprove'); setTimeout(scrollWA,20); }
+function waSend(){ if(waStep!=='0') return; waStep='typing'; render(); scrollWA(); setTimeout(function(){ waStep='1'; render(); scrollWA(); }, 950); }
+function scrollWA(){ const s=document.getElementById('screen'); if(s) s.scrollTop=s.scrollHeight; }
+function waQR(seed){
+  const N=25, cell=8, quiet=2, px=(N+quiet*2)*cell;
+  let s=2166136261>>>0; const str=String(seed); for(let i=0;i<str.length;i++){s^=str.charCodeAt(i); s=Math.imul(s,16777619)>>>0;}
+  const rnd=function(){ s^=s<<13; s>>>=0; s^=s>>>17; s^=s<<5; s>>>=0; return s/4294967296; };
+  const R=Array.from({length:N},()=>Array(N).fill(false));
+  const M=Array.from({length:N},()=>Array(N).fill(false));
+  const fnd=function(r,c){ for(let i=-1;i<=7;i++)for(let j=-1;j<=7;j++){const rr=r+i,cc=c+j; if(rr<0||cc<0||rr>=N||cc>=N)continue; R[rr][cc]=true; M[rr][cc]=(i>=0&&i<=6&&j>=0&&j<=6)&&((i===0||i===6||j===0||j===6)||(i>=2&&i<=4&&j>=2&&j<=4)); } };
+  fnd(0,0); fnd(0,N-7); fnd(N-7,0);
+  const a=N-9; for(let i=0;i<5;i++)for(let j=0;j<5;j++){R[a+i][a+j]=true; M[a+i][a+j]=(i===0||i===4||j===0||j===4)||(i===2&&j===2);}
+  for(let i=0;i<N;i++){ if(!R[6][i]){R[6][i]=true;M[6][i]=(i%2===0);} if(!R[i][6]){R[i][6]=true;M[i][6]=(i%2===0);} }
+  for(let r=0;r<N;r++)for(let c=0;c<N;c++){ if(!R[r][c]) M[r][c]=rnd()>0.52; }
+  let g=''; for(let r=0;r<N;r++)for(let c=0;c<N;c++){ if(M[r][c]) g+='<rect x="'+((c+quiet)*cell)+'" y="'+((r+quiet)*cell)+'" width="'+cell+'" height="'+cell+'"/>'; }
+  return '<svg viewBox="0 0 '+px+' '+px+'" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"><rect width="'+px+'" height="'+px+'" fill="#fff"/><g fill="#0b1f14">'+g+'</g></svg>';
 }
 
 /* ---- 2. MARKETPLACE: buy / sell / rent with scope ---- */
@@ -924,7 +1040,8 @@ let pendingNav=null;
 function footnav(persona, items){ pendingNav={persona,items}; return ''; }
 function renderNav(){
   const bar=document.getElementById('navbar');
-  if(!pendingNav){bar.innerHTML='';return;}
+  if(!pendingNav){bar.innerHTML='';bar.style.display='none';return;}
+  bar.style.display='';
   const {persona,items}=pendingNav;
   const cur = persona==='res'?residentScreen : persona==='guard'?guardScreen : persona==='admin'?adminScreen : partnerScreen;
   bar.innerHTML = items.map(([id,label,ic])=>`
@@ -960,6 +1077,7 @@ function render(){
   else if(view==='guard') s.innerHTML=guardView();
   else if(view==='admin') s.innerHTML=adminView();
   else s.innerHTML=partnerView();
+  s.classList.toggle('wamode', view==='res' && residentScreen==='wapprove');
   renderNav();
 }
 onChange(()=>{ if(view==='res'||view==='guard'||view==='partner') render(); });
