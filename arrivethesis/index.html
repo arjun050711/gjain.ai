@@ -235,6 +235,33 @@
     .qa-end{font-size:8px}
     .quad-xaxis{margin-top:9px;padding-top:9px}
   }
+  /* section 03 — Zero Approvals */
+  h2.sec.mega{font-size:clamp(42px,8.5vw,88px);line-height:.98;letter-spacing:-.03em}
+  h2.sec.mega .dot{color:var(--saffron)}
+  .rails{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:6px}
+  .rail{position:relative;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 24px 22px;box-shadow:var(--shadow-sm);overflow:hidden;transition:transform .25s,box-shadow .25s}
+  .rail:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+  .rail::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px}
+  .rail.commerce::before{background:var(--saffron)}
+  .rail.social::before{background:var(--emerald)}
+  .rail-ic{font-size:26px;line-height:1}
+  .rail-k{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin:13px 0 7px}
+  .rail.commerce .rail-k{color:var(--saffron)}
+  .rail.social .rail-k{color:var(--emerald)}
+  .rail-t{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:20px;letter-spacing:-.015em;color:var(--ink)}
+  .rail-d{font-size:13.5px;color:var(--ink-soft);line-height:1.55;margin-top:9px}
+  .rail-d b{color:var(--ink);font-weight:600}
+  @media(max-width:700px){.rails{grid-template-columns:1fr}}
+  .securestrip{display:flex;gap:13px;align-items:flex-start;margin-top:16px;border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--card);font-size:13.5px;color:var(--ink-soft);line-height:1.55;box-shadow:var(--shadow-sm)}
+  .securestrip .si{color:var(--emerald);font-size:19px;flex:none;line-height:1.3}
+  .securestrip b{color:var(--ink)}
+  .wedge-sub{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:20px;letter-spacing:-.01em;margin:44px 0 6px;color:var(--ink)}
+  .wedge-subd{font-size:14px;color:var(--ink-soft);line-height:1.6;max-width:68ch;margin-bottom:26px}
+  .wedge-subd b{color:var(--ink);font-weight:600}
+  .futurenote{margin-top:24px;border-left:3px dashed var(--saffron);background:var(--saffron-soft);border-radius:0 14px 14px 0;padding:17px 20px;font-size:13px;line-height:1.6;color:var(--ink-soft)}
+  .futurenote .fk{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--saffron);margin-bottom:6px;display:block}
+  .futurenote b{color:var(--ink);font-weight:600}
+  .futurenote em{font-style:italic;color:var(--mute)}
 
   /* MAP (04) */
   .maptop{background:var(--navy);color:#fff;border-radius:18px 18px 0 0;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
@@ -526,10 +553,33 @@
 <section class="band" id="wedge">
   <div class="wrap">
     <div class="sechead">
-      <div class="kicker rv"><span class="num">03</span><span class="lbl">The Wedge at the Gate</span></div>
-      <h2 class="sec rv d1">Bootstrap the graph where identity is checked every day.</h2>
-      <p class="sec-sub rv d2">The gate is the perfect starting point — but only if you solve the <em>right</em> traffic. Plot every arrival by <b>how often</b> it happens and <b>how familiar</b> the person is. Three quadrants are already handled. The fourth — high-frequency, low-familiarity — is now the largest share of daily arrivals, and the one the incumbent structurally cannot win.</p>
+      <div class="kicker rv"><span class="num">03</span><span class="lbl">The Wedge · Zero Approvals</span></div>
+      <h2 class="sec mega rv d1">Zero approvals<span class="dot">.</span></h2>
+      <p class="sec-sub rv d2">The gate stops asking. Every legitimate arrival authorises <em>itself</em> — from the order you placed or the WhatsApp you already sent — so your phone never buzzes at the gate again. The only person ever stopped is the one nobody invited.</p>
     </div>
+
+    <div class="rails rv d2">
+      <div class="rail commerce">
+        <div class="rail-ic">📦</div>
+        <div class="rail-k">Rail 1 · Commerce</div>
+        <div class="rail-t">The order is the pass</div>
+        <div class="rail-d">Blinkit, Swiggy, Zepto, Uber, Urban Company. You authorised the visit the moment you tapped "order" — Arrive turns that intent into a verified, time-bound entry. Nothing to approve.</div>
+      </div>
+      <div class="rail social">
+        <div class="rail-ic">💬</div>
+        <div class="rail-k">Rail 2 · Everyone else</div>
+        <div class="rail-t">The WhatsApp is the pass</div>
+        <div class="rail-d">Guests, relatives, the local plumber who already pings you for your location. The chat you're already in becomes the pass — <b>no new app for them</b>, nothing to approve at the gate.</div>
+      </div>
+    </div>
+
+    <div class="securestrip rv">
+      <span class="si">🔒</span>
+      <div><b>More secure, not less.</b> Every pass is bound to one order or person, one destination and one time window — a verified handoff, never a blanket "always allow". Zero approvals and tighter security, at once.</div>
+    </div>
+
+    <h3 class="wedge-sub rv">Why deliveries are the way in</h3>
+    <p class="wedge-subd rv">Plot every arrival by <b>how often</b> it happens and <b>how familiar</b> the person is. Three quadrants are already handled. The fourth — high-frequency, low-familiarity — is now the largest share of daily arrivals, and the one the incumbent structurally can't win.</p>
 
     <div class="quad-wrap rv d2">
       <div class="quad-yaxis" aria-hidden="true">
@@ -567,7 +617,12 @@
     </div>
 
     <div class="note navy rv" style="margin-top:26px">
-      <b>Why the incumbent can't follow —</b> for this quadrant it has only two moves, both wrong: <b>per-arrival approval</b> nags the resident for something they already authorised, and <b>blanket auto-approve</b> re-opens the security hole. Arrive's verified handoff wins the quadrant <em>and</em> seeds the identity graph as a by-product.
+      <b>Why the incumbent can't follow —</b> the <em>feature</em> is copyable in a week; the <em>asset</em> isn't. An incumbent can wave a summoned delivery through <b>its own</b> gate — but that only ever produces an <b>access log locked inside one society's app</b>, not a <b>verified identity the resident carries</b> to the office, a property deal, or the next gate. Converting access into identity means sitting <b>neutrally across every context at once</b> — and no player deep in one category will turn its walled garden into shared infrastructure for its rivals. Arrive wins this quadrant to <em>seed</em> that graph; the graph — not the gate trick — is what none of them is built to assemble.
+    </div>
+
+    <div class="futurenote rv">
+      <span class="fk">Looking ahead ↗</span>
+      As Meta builds <b>personal superintelligence</b> into WhatsApp, the informal rail turns fully autonomous — a personal agent grants access straight from the conversation you're already having, with no <span style="white-space:nowrap">@approve</span> and nothing to tap. Today's one gesture becomes zero. <em>Directional — depends on Meta opening personal agents inside user chats.</em>
     </div>
   </div>
 </section>
@@ -730,7 +785,7 @@
       <div class="risk rv"><h4>Building the verified graph is hard</h4><p>Verification and last-100m maps are real, expensive work. <b>Answer:</b> that difficulty <em>is</em> the moat. The gate workflow generates both as a by-product of daily use — guard walkthroughs, rider traces, resident corrections — so the asset compounds and can't be shortcut by a fast follower.</p></div>
       <div class="risk rv d1"><h4>RWA / society adoption is slow</h4><p>Committees are fragmented and political. <b>Answer:</b> partner-funded pilots, developer/greenfield societies at handover (no incumbent to displace), a visible treasury share, and winning the daily-felt experience for guards and residents so switching back to paper is unthinkable.</p></div>
       <div class="risk rv"><h4>Privacy &amp; trust (household movement data)</h4><p>Commercialising who-comes-and-goes would destroy the trust the network depends on. <b>Answer:</b> least-privilege by design — the guard sees only what a decision needs; access data never becomes an ad profile. Trust is the product, protected as DPDP-grade architecture, not an afterthought.</p></div>
-      <div class="risk rv d1"><h4>Incumbent response</h4><p>MyGate is now near-breakeven and can copy features. <b>Answer:</b> it's structurally trapped — 65–70% ad-dependent in a safety app, and its per-arrival-approval default can't be retrofitted to verified handoff without breaking its own model. We compete on architecture and neutrality, not feature parity.</p></div>
+      <div class="risk rv d1"><h4>Incumbent response</h4><p>MyGate can copy the gate feature — it already has. <b>Answer:</b> the feature was never the moat. What no single-category player will build is the <em>neutral</em> graph that spans society, commerce, office and property — becoming shared infrastructure for its own rivals. We compete on the asset and its neutrality, not feature parity.</p></div>
     </div>
 
     <div class="whynow rv">
