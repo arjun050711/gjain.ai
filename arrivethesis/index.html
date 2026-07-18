@@ -200,10 +200,15 @@
   @media(max-width:760px){.step::after{display:none}}
 
   /* QUADRANT (03) */
-  .quad-wrap{display:flex;gap:20px;align-items:stretch}
-  .quad-yaxis{display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;transform:rotate(180deg);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);flex:none}
-  .quad-main{flex:1;min-width:0}
-  .quad{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .quad-wrap{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto auto;column-gap:14px;align-items:stretch}
+  /* Y axis — vertical line + arrowhead (up = more familiar) with High/Low anchors */
+  .quad-yaxis{grid-column:1;grid-row:1;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-align:center;padding:5px 13px 5px 0}
+  .quad-yaxis::after{content:"";position:absolute;right:0;top:7px;bottom:7px;width:2px;background:var(--saffron);border-radius:2px}
+  .quad-yaxis::before{content:"";position:absolute;right:-3px;top:0;width:0;height:0;border-left:4.5px solid transparent;border-right:4.5px solid transparent;border-bottom:8px solid var(--saffron)}
+  .quad-yaxis .qa-name{writing-mode:vertical-rl;transform:rotate(180deg);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+  .qa-end{font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+  /* Plot */
+  .quad{grid-column:2;grid-row:1;display:grid;grid-template-columns:1fr 1fr;gap:14px}
   .qcell{border-radius:16px;padding:18px;min-height:150px;display:flex;flex-direction:column;border:1px solid var(--line);background:var(--paper);position:relative}
   .qcell.solved{background:var(--emerald-soft);border-color:var(--emerald-line)}
   .qcell.wedge{background:linear-gradient(155deg,#17233a,#0f1826);border-color:transparent;color:#fff;box-shadow:var(--shadow-lg)}
@@ -212,9 +217,24 @@
   .qcell p{font-size:12.5px;color:var(--mute);line-height:1.45}
   .qcell.wedge p{color:rgba(255,255,255,.72)}
   .qcell .qbadge{margin-top:auto;padding-top:14px}
-  .quad-xaxis{text-align:center;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-top:12px}
-  .quad-ends{display:flex;justify-content:space-between;font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--faint);margin-top:6px;padding:0 4px}
-  @media(max-width:560px){.quad{grid-template-columns:1fr}.quad-yaxis{display:none}}
+  /* X axis — horizontal line + arrowhead (right = more frequent) with Low/High anchors */
+  .quad-xaxis{grid-column:2;grid-row:2;position:relative;display:flex;align-items:center;justify-content:space-between;margin-top:12px;padding:11px 13px 0 2px}
+  .quad-xaxis::after{content:"";position:absolute;left:2px;right:7px;top:0;height:2px;background:var(--saffron);border-radius:2px}
+  .quad-xaxis::before{content:"";position:absolute;right:0;top:-3px;width:0;height:0;border-top:4.5px solid transparent;border-bottom:4.5px solid transparent;border-left:8px solid var(--saffron)}
+  .quad-xaxis .qa-name{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+  @media(max-width:560px){
+    .quad-wrap{column-gap:9px}
+    .quad{gap:9px}
+    .qcell{padding:12px;min-height:0}
+    .qcell h4{font-size:12px;margin-bottom:4px}
+    .qcell p{font-size:10.5px;line-height:1.35}
+    .qcell .qbadge{padding-top:9px}
+    .qcell .tag{font-size:8px;padding:3px 6px;letter-spacing:.04em}
+    .quad-yaxis{padding-right:9px}
+    .quad-yaxis .qa-name,.quad-xaxis .qa-name{font-size:9.5px;letter-spacing:.1em}
+    .qa-end{font-size:8px}
+    .quad-xaxis{margin-top:9px;padding-top:9px}
+  }
 
   /* MAP (04) */
   .maptop{background:var(--navy);color:#fff;border-radius:18px 18px 0 0;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
@@ -512,32 +532,37 @@
     </div>
 
     <div class="quad-wrap rv d2">
-      <div class="quad-yaxis">Familiarity →</div>
-      <div class="quad-main">
-        <div class="quad">
-          <div class="qcell">
-            <h4>Guests &amp; relatives</h4>
-            <p>Pre-planned, low volume. Not urgent.</p>
-            <div class="qbadge"><span class="tag hh">Solved · pre-invite</span></div>
-          </div>
-          <div class="qcell solved">
-            <h4>House help, cook, driver</h4>
-            <p>Daily entry, same known person. Verify once.</p>
-            <div class="qbadge"><span class="tag hh">Solved · verify once</span></div>
-          </div>
-          <div class="qcell">
-            <h4>One-off vendor, salesperson</h4>
-            <p>Rare and unknown — a live check is fine.</p>
-            <div class="qbadge"><span class="tag mute">Low volume · OK</span></div>
-          </div>
-          <div class="qcell wedge">
-            <h4>Blinkit · Swiggy · Zepto · Uber · Snabbit</h4>
-            <p>Highest volume, still growing. Unknown — but you summoned them.</p>
-            <div class="qbadge"><span class="tag saff">◆ The wedge</span></div>
-          </div>
+      <div class="quad-yaxis" aria-hidden="true">
+        <span class="qa-end">High</span>
+        <span class="qa-name">Familiarity</span>
+        <span class="qa-end">Low</span>
+      </div>
+      <div class="quad">
+        <div class="qcell">
+          <h4>Guests &amp; relatives</h4>
+          <p>Pre-planned, low volume. Not urgent.</p>
+          <div class="qbadge"><span class="tag hh">Solved · pre-invite</span></div>
         </div>
-        <div class="quad-xaxis">Frequency →</div>
-        <div class="quad-ends"><span>Low freq</span><span>High freq</span></div>
+        <div class="qcell solved">
+          <h4>House help, cook, driver</h4>
+          <p>Daily entry, same known person. Verify once.</p>
+          <div class="qbadge"><span class="tag hh">Solved · verify once</span></div>
+        </div>
+        <div class="qcell">
+          <h4>One-off vendor, salesperson</h4>
+          <p>Rare and unknown — a live check is fine.</p>
+          <div class="qbadge"><span class="tag mute">Low volume · OK</span></div>
+        </div>
+        <div class="qcell wedge">
+          <h4>Blinkit · Swiggy · Zepto · Uber · Snabbit</h4>
+          <p>Highest volume, still growing. Unknown — but you summoned them.</p>
+          <div class="qbadge"><span class="tag saff">◆ The wedge</span></div>
+        </div>
+      </div>
+      <div class="quad-xaxis" aria-hidden="true">
+        <span class="qa-end">Low</span>
+        <span class="qa-name">Frequency</span>
+        <span class="qa-end">High</span>
       </div>
     </div>
 
