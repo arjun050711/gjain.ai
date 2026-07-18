@@ -3,3 +3,8 @@
 .wrangler
 wrangler.jsonc
 node_modules
+worker.js
+.dev.vars
+.gitignore
+package.json
+package-lock.json

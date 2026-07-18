@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "gjain",
+  "main": "worker.js",
+  "compatibility_date": "2026-04-05",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/arrive",
+      "/arrive/*",
+      "/arrivethesis",
+      "/arrivethesis/*"
+    ]
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ]
+}
