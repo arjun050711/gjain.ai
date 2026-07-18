@@ -393,6 +393,42 @@
   .wa-input{flex:1;background:#fff;border-radius:20px;padding:10px 14px;font-size:12.5px;color:#111b21;box-shadow:0 1px .5px rgba(0,0,0,.1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .wa-input b{font-weight:700;color:#075e54}
   .wa-send{width:42px;height:42px;border-radius:50%;background:#128c7e;color:#fff;border:0;font-size:16px;cursor:pointer;flex:none;display:grid;place-items:center}
+
+  /* ===== Guard: self-serve gate device ===== */
+  .gdcard{display:flex;align-items:center;gap:12px;background:#eef1f5;border:1px solid var(--line);border-radius:14px;padding:12px 14px;cursor:pointer;margin-top:4px;transition:.15s}
+  .gdcard:hover{background:#e7ebf1}
+  .gdcard .gd-ic{font-size:20px;flex:none}
+  .gdcard .gdc-body{flex:1;min-width:0}
+  .gdcard .gdc-t{font-weight:700;font-size:13.5px;color:var(--ink)}
+  .gdcard .gdc-d{font-size:11.5px;color:var(--mute);line-height:1.4;margin-top:2px}
+  .gdcard .gdc-go{font-size:12px;font-weight:700;color:var(--ink-soft);flex:none}
+
+  .screen.gdmode{padding:0}
+  .gd{min-height:100%;display:flex;flex-direction:column;color:#fff;transition:background .35s;
+    background:radial-gradient(600px 380px at 50% 20%,rgba(43,95,138,.25),transparent 60%),linear-gradient(160deg,#0f1826,#16233a)}
+  .gd.green{background:radial-gradient(620px 440px at 50% 32%,rgba(34,197,94,.36),transparent 62%),linear-gradient(160deg,#0c1a12,#10241a)}
+  .gd.red{background:radial-gradient(620px 440px at 50% 32%,rgba(239,68,68,.32),transparent 62%),linear-gradient(160deg,#1c1210,#241512)}
+  .gd-top{display:flex;align-items:center;justify-content:space-between;padding:14px 14px 6px}
+  .gd-back{background:rgba(255,255,255,.12);border:0;color:#fff;font-size:12px;font-weight:600;padding:7px 12px;border-radius:999px;cursor:pointer}
+  .gd-loc{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+  .gd-stage{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:18px;gap:14px}
+  .gd-scanicon{width:118px;height:118px;border-radius:26px;border:2px dashed rgba(255,255,255,.28);display:grid;place-items:center;color:rgba(255,255,255,.62)}
+  .gd-scanicon svg{width:46px;height:46px}
+  .gd-prompt{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:23px;letter-spacing:-.01em}
+  .gd-sub{font-size:12.5px;color:rgba(255,255,255,.6);max-width:26ch}
+  .gd-light{width:148px;height:148px;border-radius:50%;display:grid;place-items:center;font-size:72px;font-weight:800;color:#fff;line-height:1;animation:gdpulse 1s ease-in-out infinite}
+  .gd-light.green{background:#22c55e;box-shadow:0 22px 64px rgba(34,197,94,.55)}
+  .gd-light.red{background:#ef4444;box-shadow:0 22px 64px rgba(239,68,68,.55)}
+  @keyframes gdpulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.05);opacity:.92}}
+  .gd-verdict{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:29px;letter-spacing:-.01em}
+  .gd-info{font-size:12.5px;color:rgba(255,255,255,.74)}
+  .gd-foot{padding:12px 16px calc(16px + env(safe-area-inset-bottom,0px))}
+  .gd-note{font-size:11px;color:rgba(255,255,255,.6);text-align:center;line-height:1.5;margin-bottom:11px}
+  .gd-note b{font-weight:700}
+  .gd-demo{display:flex;gap:9px}
+  .gd-btn{flex:1;border:0;border-radius:12px;padding:13px;font-family:inherit;font-weight:700;font-size:12.5px;cursor:pointer}
+  .gd-btn.ok{background:#22c55e;color:#08361d}
+  .gd-btn.no{background:rgba(255,255,255,.13);color:#fff;border:1px solid rgba(255,255,255,.22)}
 </style>
 </head>
 <body>
@@ -475,6 +511,7 @@ let waNum="9876543210";      // number being approved via WhatsApp
 let adminScreen="overview";
 let partnerScreen="dashboard";
 let activeScan=null;
+let gateLight="idle";        // idle | green | red  (self-serve gate device)
 let listeners=[];
 function onChange(fn){listeners.push(fn)}
 function emit(){listeners.forEach(f=>f())}
@@ -808,6 +845,7 @@ function residentWork(){
 /* ============================================================ GUARD */
 function guardView(){
   if(guardScreen==="scanned" && activeScan) return guardScanned();
+  if(guardScreen==="device") return gateDevice();
   const q=DB.arrivals.filter(a=>a.status==="pending"||a.status==="verified");
   const waiting=DB.arrivals.filter(a=>a.status==="pending").length;
   if(guardScreen==="queue") return `
@@ -828,6 +866,12 @@ function guardView(){
     <div class="row"><div><div class="lbl">You are on</div><div class="gate">${DB.guard.gate} · Main</div></div>
     <div class="q"><div class="n">${waiting}</div><div class="c">WAITING</div></div></div>
     <button class="scanbtn" onclick="doScan(nextPending())">${I.scan} Scan visitor QR</button>
+  </div>
+  <div class="eyebrow">Self-serve gate device</div>
+  <div class="gdcard" onclick="navTo('guard','device')">
+    <div class="gd-ic">🟢</div>
+    <div class="gdc-body"><div class="gdc-t">Scan-and-go gate device</div><div class="gdc-d">Everyone scans; a green or red light decides. The guard only steps in on red.</div></div>
+    <div class="gdc-go">Open →</div>
   </div>
   <div class="eyebrow">Voice — as spoken at the gate</div>
   <div class="voice"><div class="ic">${I.mic}</div><div class="txt"><b>Bolkar bhi ho sakta hai.</b> <span class="hi">“Ye QR scan nahi ho raha”</span> — bolne par Arrive khud batayega kya karna hai.</div></div>
@@ -918,6 +962,38 @@ function finishScan(id){completeArrival(id);activeScan=null;guardScreen="gate";t
 function fixScan(id){const a=DB.arrivals.find(x=>x.id===id);a._bad=false;verifyArrival(id,true);render();toast('New QR verified');}
 function demoBad(id){const a=DB.arrivals.find(x=>x.id===id);a._bad=true;a.status="pending";render();}
 function backToGate(){activeScan=null;guardScreen="gate";render();}
+
+/* ---- Self-serve gate device (scan → green/red) ---- */
+function gateDevice(){
+  const st=gateLight;
+  const stage = st==='idle'
+    ? `<div class="gd-scanicon">${I.scan}</div>
+       <div class="gd-prompt">Scan your Arrive pass</div>
+       <div class="gd-sub">Delivery, cab or guest — hold the QR to the reader</div>`
+    : st==='green'
+    ? `<div class="gd-light green">✓</div>
+       <div class="gd-verdict">ENTER</div>
+       <div class="gd-info">Blinkit → Tower B · A-1203 · verified &amp; logged</div>`
+    : `<div class="gd-light red">✕</div>
+       <div class="gd-verdict">STOP · SEE GUARD</div>
+       <div class="gd-info">Pass expired or unknown — the guard will check</div>`;
+  return `
+  <div class="gd ${st}">
+    <div class="gd-top">
+      <button class="gd-back" onclick="navTo('guard','gate')">← Guard</button>
+      <div class="gd-loc">${DB.guard.gate} · self-serve device</div>
+    </div>
+    <div class="gd-stage">${stage}</div>
+    <div class="gd-foot">
+      <div class="gd-note">The guard steps in only on <b style="color:#ff8a7a">red</b>. Every scan is logged automatically — no register, no phone call.</div>
+      <div class="gd-demo">
+        <button class="gd-btn ok" onclick="gateScan('green')">Simulate valid scan</button>
+        <button class="gd-btn no" onclick="gateScan('red')">Simulate expired QR</button>
+      </div>
+    </div>
+  </div>`;
+}
+function gateScan(v){ if(gateLight!=='idle') return; gateLight=v; render(); setTimeout(function(){ if(guardScreen==='device'){ gateLight='idle'; render(); } }, 2400); }
 
 /* ============================================================ RWA ADMIN */
 function adminView(){
@@ -1078,6 +1154,7 @@ function render(){
   else if(view==='admin') s.innerHTML=adminView();
   else s.innerHTML=partnerView();
   s.classList.toggle('wamode', view==='res' && residentScreen==='wapprove');
+  s.classList.toggle('gdmode', view==='guard' && guardScreen==='device');
   renderNav();
 }
 onChange(()=>{ if(view==='res'||view==='guard'||view==='partner') render(); });
