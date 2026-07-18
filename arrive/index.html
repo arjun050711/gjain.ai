@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arrive™ — Interactive Prototype</title>
+<meta name="description" content="Arrive — the verified-identity network for India's homes. Interactive product prototype.">
+<meta property="og:title" content="Arrive™ — the verified-identity network for India's homes">
+<meta property="og:description" content="One verified identity. Every door it opens. Interactive product prototype.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23141a24'/%3E%3Ctext x='50' y='72' font-family='Georgia,serif' font-size='64' font-weight='700' text-anchor='middle' fill='%23e07a2b'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#141a24; --ink-soft:#3d4657; --mute:#7a8494; --faint:#aab2bf;
+    --line:#e7e9ee; --paper:#f6f7f9; --card:#ffffff;
+    --emerald:#0f7a52; --emerald-soft:#e7f3ec; --emerald-line:#bfe0cd;
+    --amber:#b5761f; --amber-soft:#fbf1de; --amber-line:#eccf9a;
+    --red:#a8331f; --red-soft:#fbeae6;
+    --saffron:#e07a2b; --blue:#2b5f8a; --blue-soft:#e6eff6;
+    --shadow:0 1px 2px rgba(20,26,36,.04),0 8px 30px rgba(20,26,36,.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:"Inter",system-ui,-apple-system,sans-serif;
+    background:radial-gradient(1200px 600px at 20% -10%,#eef1f5 0,transparent 60%),radial-gradient(1000px 700px at 110% 20%,#f0ece6 0,transparent 55%),#e9ebf0;
+    color:var(--ink);display:flex;flex-direction:column;align-items:center;padding:28px 16px 60px;min-height:100%;
+  }
+  .brandbar{display:flex;flex-direction:column;align-items:center;gap:13px;margin-bottom:18px}
+  .wordmark .logo{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:28px;letter-spacing:-.02em}
+  .wordmark .logo b{color:var(--saffron)}
+  .tag{font-size:12px;color:var(--ink-soft)}
+  .thesislink{display:inline-flex;align-items:center;gap:6px;font-family:"Inter",sans-serif;font-size:12px;font-weight:600;color:var(--saffron);text-decoration:none;background:#fdf6ef;border:1px solid #e6c3a3;border-radius:999px;padding:6px 13px;margin-top:2px;transition:.18s}
+  .thesislink:hover{background:#fbeede;border-color:#dca871}
+  .thesislink span{transition:transform .18s}
+  .thesislink:hover span{transform:translateX(3px)}
+  .switch{display:inline-flex;background:#dfe3ea;border-radius:999px;padding:4px;gap:2px;box-shadow:inset 0 1px 3px rgba(20,26,36,.08);flex-wrap:wrap;justify-content:center}
+  .switch button{border:0;background:transparent;font-family:inherit;font-weight:600;font-size:12.5px;color:var(--ink-soft);padding:8px 15px;border-radius:999px;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:6px}
+  .switch button .dot{width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.45}
+  .switch button.on{background:var(--ink);color:#fff;box-shadow:var(--shadow)}
+  .switch button.on .dot{opacity:1;background:var(--saffron)}
+
+  .stage{display:flex;gap:26px;align-items:flex-start;flex-wrap:wrap;justify-content:center}
+  .phone{width:392px;max-width:100%;background:var(--paper);border-radius:44px;box-shadow:0 2px 6px rgba(20,26,36,.10),0 30px 70px rgba(20,26,36,.22);border:1px solid rgba(255,255,255,.7);overflow:hidden;position:relative}
+  .notch{height:34px;position:relative;background:var(--paper)}
+  .notch::before{content:"";position:absolute;left:50%;transform:translateX(-50%);top:0;width:120px;height:22px;background:var(--ink);border-radius:0 0 16px 16px}
+  .statusbar{position:absolute;top:9px;left:0;right:0;display:flex;justify-content:space-between;padding:0 26px;font-size:12px;font-weight:600}
+  .screen{height:730px;overflow-y:auto;padding:6px 18px 84px;scrollbar-width:none;position:relative}
+  .screen::-webkit-scrollbar{display:none}
+  .laptop .screen{padding-bottom:24px}
+
+  .apphead{display:flex;align-items:center;justify-content:space-between;padding:10px 2px 14px}
+  .apphead .lg{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:19px}
+  .apphead .lg b{color:var(--saffron)}
+  .apphead .lg .role{font-size:11px;color:var(--mute);font-weight:600}
+  .apphead .sm{font-size:11.5px;color:var(--mute);margin-top:1px}
+  .avatar{width:37px;height:37px;border-radius:11px;color:#fff;display:grid;place-items:center;font-weight:700;font-size:13px}
+
+  .eyebrow{font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--mute);margin:18px 2px 8px;display:flex;align-items:center;gap:8px}
+  .eyebrow .live{width:7px;height:7px;border-radius:50%;background:var(--emerald);animation:pulse 1.8s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(15,122,82,.5)}70%{box-shadow:0 0 0 7px rgba(15,122,82,0)}100%{box-shadow:0 0 0 0 rgba(15,122,82,0)}}
+
+  .greet{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:22px;line-height:1.2;letter-spacing:-.01em;margin:2px 2px}
+  .greet .q{color:var(--mute);font-weight:500}
+  .sub{font-size:12.5px;color:var(--mute);margin:3px 2px 6px}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:15px;box-shadow:var(--shadow)}
+  .arrival{position:relative;overflow:hidden;transition:border-color .5s}
+  .arrival .bar{position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--amber);transition:background .5s}
+  .arrival.done .bar{background:var(--emerald)}
+  .arrival.denied .bar{background:var(--red)}
+  .arow{display:flex;align-items:center;gap:11px}
+  .btile{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-weight:800;font-size:14px;color:#fff;flex:none;font-family:"Bricolage Grotesque",sans-serif}
+  .arow .meta{flex:1;min-width:0}
+  .arow .meta .t{font-weight:700;font-size:14.5px;white-space:nowrap}
+  .arow .meta .d{font-size:11px;color:var(--mute);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .state{font-size:10.5px;font-weight:700;padding:6px 9px;border-radius:999px;white-space:nowrap;display:flex;align-items:center;gap:5px;flex:none}
+  .state.pending{background:var(--amber-soft);color:var(--amber)}
+  .state.verified{background:var(--emerald-soft);color:var(--emerald)}
+  .state.denied{background:var(--red-soft);color:var(--red)}
+  .state.done{background:#eef0f3;color:var(--mute)}
+  .spin{width:10px;height:10px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:sp .7s linear infinite}
+  @keyframes sp{to{transform:rotate(360deg)}}
+  .checks{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:12px}
+  .chk{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--ink-soft);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:6px 8px}
+  .chk svg{color:var(--emerald);flex:none}
+  .chk b{color:var(--ink);font-weight:600}
+  .doorline{font-size:11.5px;color:var(--mute);margin-top:10px;display:flex;align-items:center;gap:6px}
+  .doorline b{color:var(--emerald)}
+  .quiet{font-size:11px;color:var(--mute);font-style:italic;margin:8px 4px 0;display:flex;gap:6px;align-items:flex-start}
+  .upcoming .doorline{margin-top:11px;font-style:italic}
+  .quiet svg{flex:none;margin-top:1px;color:var(--saffron)}
+
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chip{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 12px;font-size:12px;font-weight:500;color:var(--ink-soft);display:flex;align-items:center;gap:7px}
+  .chip .k{width:24px;height:24px;border-radius:7px;display:grid;place-items:center;font-size:12px;flex:none}
+  .chip.add{color:var(--saffron);border-style:dashed;border-color:#e6c3a3;background:#fdf6ef;font-weight:600;cursor:pointer}
+
+  .btn{border:0;font-family:inherit;font-weight:600;font-size:13px;padding:11px;border-radius:11px;cursor:pointer;transition:.15s}
+  .btn.primary{background:var(--emerald);color:#fff}.btn.primary:hover{background:#0c6644}
+  .btn.ghost{background:var(--paper);color:var(--ink-soft);border:1px solid var(--line)}.btn.ghost:hover{background:#eef0f3}
+  .btn.dark{background:var(--ink);color:#fff}
+  .btn.amber{background:var(--amber);color:#fff}
+  .btn.block{width:100%}
+  .rowbtns{display:flex;gap:8px;margin-top:12px}
+  .rowbtns .btn{flex:1}
+
+  .ask .q{font-size:14px;font-weight:600;line-height:1.35}
+  .ask .q b{color:var(--saffron)}
+  .answered-note{display:none;margin-top:10px;font-size:12px;color:var(--emerald);font-weight:600;align-items:center;gap:6px}
+  .ask.answered .rowbtns{display:none}
+  .ask.answered .answered-note{display:flex}
+
+  .compose{position:absolute;left:14px;right:14px;bottom:70px;background:var(--ink);border-radius:15px;padding:10px 11px 10px 14px;display:flex;align-items:center;gap:9px;box-shadow:0 10px 30px rgba(20,26,36,.3);z-index:5}
+  .compose input{flex:1;border:0;background:transparent;color:#fff;font-family:inherit;font-size:13px;outline:none}
+  .compose input::placeholder{color:#8b93a3}
+  .compose .mic,.compose .send{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;color:#fff;flex:none;cursor:pointer;border:0}
+  .compose .mic{background:rgba(255,255,255,.1)}.compose .mic:hover{background:var(--saffron)}
+  .compose .send{background:var(--saffron)}
+
+  /* order simulator (resident) */
+
+  /* GUARD */
+  .g-hero{background:var(--ink);color:#fff;border-radius:20px;padding:16px;box-shadow:var(--shadow)}
+  .g-hero .row{display:flex;justify-content:space-between;align-items:flex-start}
+  .g-hero .lbl{font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:#8b93a3;font-weight:700}
+  .g-hero .gate{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:18px;margin-top:2px}
+  .g-hero .q .n{font-family:"Bricolage Grotesque",sans-serif;font-size:24px;font-weight:800;line-height:1;text-align:right}
+  .g-hero .q .c{font-size:10px;color:#8b93a3;text-align:right}
+  .scanbtn{width:100%;margin-top:14px;border:0;font-family:inherit;font-weight:700;font-size:14.5px;color:var(--ink);background:#fff;border-radius:13px;padding:14px;display:flex;align-items:center;justify-content:center;gap:9px;cursor:pointer;transition:.15s}
+  .scanbtn:hover{transform:translateY(-1px)}
+  .scanbtn svg{color:var(--saffron)}
+  .voice{background:var(--amber-soft);border:1px solid var(--amber-line);border-radius:13px;padding:11px 12px;display:flex;gap:10px;align-items:flex-start}
+  .voice .ic{width:28px;height:28px;border-radius:8px;background:var(--amber);color:#fff;display:grid;place-items:center;flex:none}
+  .voice .txt{font-size:12px;line-height:1.5;color:var(--ink-soft)}
+  .voice .txt b{color:var(--ink)} .voice .hi{font-style:italic;color:var(--amber);font-weight:600}
+
+  .qitem{display:flex;align-items:center;gap:11px;padding:11px;border:1px solid var(--line);border-radius:13px;background:var(--card);margin-bottom:8px;cursor:pointer;transition:.15s}
+  .qitem:hover{border-color:var(--saffron)}
+  .qitem .st{width:8px;height:8px;border-radius:50%;flex:none}
+  .qitem .st.v{background:var(--emerald)} .qitem .st.p{background:var(--amber)}
+  .qitem .info{flex:1;min-width:0}
+  .qitem .info .t{font-size:13px;font-weight:600}
+  .qitem .info .d{font-size:11px;color:var(--mute)}
+  .qitem .go{color:var(--faint)}
+
+  .verdict{border-radius:18px;overflow:hidden;box-shadow:var(--shadow);animation:pop .35s cubic-bezier(.2,.9,.3,1.2)}
+  @keyframes pop{from{transform:scale(.96);opacity:0}to{transform:scale(1);opacity:1}}
+  .verdict .head{padding:15px;color:#fff;display:flex;align-items:center;gap:11px}
+  .verdict.ok .head{background:linear-gradient(135deg,#0f7a52,#0b6042)}
+  .verdict.no .head{background:linear-gradient(135deg,#a8331f,#8a2617)}
+  .verdict .badge{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.16);display:grid;place-items:center;flex:none}
+  .verdict .h{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:19px}
+  .verdict .sh{font-size:12px;opacity:.9;margin-top:1px}
+  .verdict .body{background:var(--card);padding:14px 15px}
+  .kv{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line);font-size:12.5px}
+  .kv:last-of-type{border-bottom:0}.kv .k{color:var(--mute)}.kv .v{font-weight:600}.kv .v.ok{color:var(--emerald)}
+  .reason{font-size:12px;color:var(--ink-soft);background:var(--paper);border-radius:10px;padding:10px 11px;margin-top:11px;display:flex;gap:8px;line-height:1.5}
+  .reason.no{background:var(--red-soft);color:var(--red)}.reason svg{flex:none;margin-top:1px}
+  .route-panel{margin-top:10px;background:var(--emerald-soft);border:1px solid var(--emerald-line);border-radius:12px;padding:12px}
+  .ridermap{margin-top:11px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;box-shadow:var(--shadow)}
+  .ridermap .rmhead{font-size:11.5px;font-weight:700;color:var(--emerald);display:flex;align-items:center;gap:6px}
+  .route-panel .rt{font-size:11px;font-weight:700;color:var(--emerald);letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+  .step{display:flex;gap:10px;align-items:flex-start;padding:5px 0;font-size:12.5px}
+  .step .num{width:18px;height:18px;border-radius:50%;background:var(--emerald);color:#fff;font-size:10.5px;font-weight:700;display:grid;place-items:center;flex:none;margin-top:1px}
+
+  /* stat tiles / admin / partner */
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px;box-shadow:var(--shadow)}
+  .stat .n{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:23px;letter-spacing:-.01em}
+  .stat .n.g{color:var(--emerald)} .stat .n.b{color:var(--blue)} .stat .n.a{color:var(--amber)}
+  .stat .l{font-size:11px;color:var(--mute);margin-top:2px;line-height:1.3}
+  .stat .trend{font-size:10.5px;font-weight:700;margin-top:6px;display:inline-flex;align-items:center;gap:3px}
+  .stat .trend.up{color:var(--emerald)} .stat .trend.dn{color:var(--red)}
+
+  .bars{display:flex;align-items:flex-end;gap:7px;height:88px;padding:6px 2px 0}
+  .bars .b{flex:1;background:linear-gradient(180deg,#2b5f8a,#3d76a6);border-radius:5px 5px 0 0;position:relative;min-height:6px;transition:height .6s}
+  .bars .b.hl{background:linear-gradient(180deg,#0f7a52,#12986a)}
+  .bars .b span{position:absolute;top:-16px;left:0;right:0;text-align:center;font-size:9px;font-weight:700;color:var(--ink-soft)}
+  .barx{display:flex;gap:7px;margin-top:6px}.barx div{flex:1;text-align:center;font-size:9.5px;color:var(--mute)}
+
+  .listrow{display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid var(--line)}
+  .listrow:last-child{border-bottom:0}
+  .listrow .ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex:none;font-weight:700;color:#fff;font-size:12px}
+  .listrow .m{flex:1;min-width:0}.listrow .m .t{font-size:13px;font-weight:600}.listrow .m .d{font-size:11px;color:var(--mute)}
+  .pill{font-size:10.5px;font-weight:700;padding:4px 9px;border-radius:999px}
+  .pill.ok{background:var(--emerald-soft);color:var(--emerald)} .pill.warn{background:var(--amber-soft);color:var(--amber)} .pill.info{background:var(--blue-soft);color:var(--blue)}
+
+  .treasury{background:linear-gradient(135deg,#123,#1a3350);color:#fff;border-radius:18px;padding:16px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .revhero{background:linear-gradient(135deg,#0f7a52,#0b5f40);color:#fff;border-radius:18px;padding:16px;box-shadow:var(--shadow)}
+  .revhero .rl{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#a8e6c8;font-weight:700}
+  .revhero .ra{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:32px;margin:3px 0 2px;letter-spacing:-.01em}
+  .revhero .rs{font-size:11.5px;color:#cdeeda}
+  .revhero .rsplit{display:flex;gap:7px;margin-top:13px}
+  .revhero .rsplit div{flex:1;background:rgba(255,255,255,.1);border-radius:9px;padding:8px 6px;text-align:center}
+  .revhero .rk{font-size:9.5px;color:#a8e6c8;margin-bottom:2px}
+  .revhero .rv{font-weight:700;font-size:14px}
+  .paycard{padding:13px 14px}
+  .pcrow{display:flex;align-items:center;gap:11px}
+  .pcico{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;font-size:18px;flex:none}
+  .pcm{flex:1;min-width:0}
+  .pcm .pct{font-size:13px;font-weight:700;color:var(--ink);line-height:1.2}
+  .pcm .pcd{font-size:11px;color:var(--mute);margin-top:2px}
+  .pcstat{text-align:right;flex:none}
+  .pcstat .n{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:17px;line-height:1}
+  .pcstat .n.g{color:var(--emerald)} .pcstat .n.b{color:var(--blue)} .pcstat .n.a{color:var(--amber)}
+  .pcstat .l{font-size:9px;color:var(--mute);margin-top:3px;line-height:1.2}
+  .minibars{display:flex;align-items:flex-end;gap:5px;height:34px;margin:11px 0 0}
+  .minibars .mb{flex:1;background:linear-gradient(180deg,#2b5f8a,#3d76a6);border-radius:3px 3px 0 0;min-height:4px}
+  .pcfoot{font-size:11px;color:var(--ink2);margin-top:10px;display:flex;align-items:center;gap:5px}
+  .pcfoot b{color:var(--emerald)} .pcfoot svg{color:var(--emerald);flex:none}
+  .treasury .lbl{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#9fb3c9;font-weight:700}
+  .treasury .amt{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:30px;margin:4px 0 2px;letter-spacing:-.01em}
+  .treasury .sub2{font-size:11.5px;color:#bcd0e2}
+  .treasury .split{display:flex;gap:8px;margin-top:13px}
+  .treasury .split div{flex:1;background:rgba(255,255,255,.08);border-radius:10px;padding:9px}
+  .treasury .split .v{font-weight:700;font-size:15px} .treasury .split .k{font-size:10px;color:#9fb3c9;margin-top:2px}
+
+  .navbar{position:absolute;left:0;right:0;bottom:0;height:62px;background:rgba(246,247,249,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;justify-content:space-around;align-items:center;padding-bottom:6px;z-index:6}
+  .navbar button{border:0;background:transparent;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:9.5px;color:var(--mute);font-weight:600;cursor:pointer;font-family:inherit}
+  .navbar button.act{color:var(--ink)} .navbar button.act svg{color:var(--saffron)}
+
+  .toast{position:absolute;left:50%;transform:translateX(-50%) translateY(20px);bottom:78px;background:var(--ink);color:#fff;font-size:12.5px;font-weight:600;padding:11px 16px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.3);opacity:0;transition:.3s;z-index:20;pointer-events:none;display:flex;align-items:center;gap:8px;max-width:88%}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  .toast svg{color:var(--saffron);flex:none}
+
+  .caption{max-width:720px;margin:18px auto 0;text-align:center;font-size:12.5px;color:#5a6472;line-height:1.6}
+  .caption b{color:var(--ink)}
+  .hidden{display:none!important}
+  /* neighbourhood map */
+  .mapframe{position:relative;height:230px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)}
+  .mtag{position:absolute;background:#fff;border:1px solid var(--line);font-size:10.5px;font-weight:700;color:var(--ink);padding:5px 9px;border-radius:999px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+  /* marketplace */
+  .scopetabs{display:flex;gap:6px;background:#e4e7ec;border-radius:12px;padding:4px}
+  .scopetabs.three button{font-size:12px}
+  .scopetabs button{flex:1;border:0;background:transparent;font-family:inherit;font-weight:600;font-size:12.5px;color:var(--ink-soft);padding:9px 6px;border-radius:9px;cursor:pointer;transition:.15s;display:flex;align-items:center;justify-content:center;gap:5px}
+  .scopetabs button.on{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+  .scopenote{font-size:11px;color:var(--mute);margin:8px 2px 12px;display:flex;gap:6px;align-items:center}
+  .listing{display:flex;align-items:center;gap:12px;margin-bottom:9px;position:relative}
+  .lem{font-size:26px;flex:none}
+  .linfo{flex:1;min-width:0}
+  .lhead{display:flex;align-items:center;gap:8px}
+  .ltype{font-size:10px;font-weight:800;padding:3px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.03em}
+  .ltype.rent{background:var(--blue-soft);color:var(--blue)} .ltype.sell{background:var(--amber-soft);color:var(--amber)} .ltype.buy{background:var(--emerald-soft);color:var(--emerald)}
+  .lprice{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:14px}
+  .ltitle{font-size:13px;font-weight:600;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .lby{font-size:11px;color:var(--emerald);font-weight:600;margin-top:3px;display:flex;align-items:center;gap:4px}
+  .lby svg{width:11px;height:11px}
+  .ltag{position:absolute;top:12px;right:12px;font-size:9px;font-weight:700;color:var(--mute);background:var(--paper);border:1px solid var(--line);padding:3px 7px;border-radius:999px}
+  .field{margin-bottom:11px}
+  .field label{font-size:11px;font-weight:700;color:var(--mute);text-transform:uppercase;letter-spacing:.05em}
+  .field .inp{margin-top:5px;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:11px;font-size:13px;color:var(--ink);font-weight:500}
+  .verifybox{margin-top:12px;background:var(--emerald-soft);border:1px solid var(--emerald-line);border-radius:14px;padding:13px}
+  .verifybox .vh{font-size:12.5px;font-weight:700;color:var(--emerald);display:flex;align-items:center;gap:7px;margin-bottom:9px}
+  .verifybox .vh svg{color:var(--emerald)}
+  .verifybox .vrow{font-size:12px;color:var(--ink-soft);display:flex;align-items:center;gap:7px;padding:3px 0}
+  .verifybox .vrow svg{color:var(--emerald);flex:none}
+  .verifybox .vnote{font-size:11.5px;color:var(--ink-soft);margin-top:9px;line-height:1.5}
+  .verifybox .vnote b{color:var(--ink)}
+  /* corporate pass */
+  .passcard{background:linear-gradient(135deg,#16243d,#25405f);color:#fff;border-radius:18px;padding:17px;box-shadow:var(--shadow)}
+  .pctop{display:flex;justify-content:space-between;align-items:flex-start}
+  .pclbl{font-size:10px;letter-spacing:.12em;color:#9fb3c9;font-weight:700}
+  .pcco{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:15px;margin-top:2px}
+  .pcqr{width:42px;height:42px;border-radius:11px;background:rgba(255,255,255,.14);display:grid;place-items:center;color:#fff}
+  .pcname{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:24px;margin-top:14px;letter-spacing:-.01em}
+  .pcmeta{font-size:11px;color:#bcd0e2;margin-top:2px}
+  .pcgrid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:15px;border-top:1px solid rgba(255,255,255,.12);padding-top:13px}
+  .pcgrid .k{font-size:10px;color:#9fb3c9;text-transform:uppercase;letter-spacing:.04em}
+  .pcgrid .v{font-size:12.5px;font-weight:600;margin-top:2px}
+  .wstep{font-size:12.5px;color:var(--ink-soft);display:flex;align-items:center;gap:8px;padding:5px 0}
+  .wstep svg{color:var(--emerald);flex:none}
+  .demobar{max-width:720px;margin:16px auto 0;display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center;padding:11px 14px;border:1px dashed #c2c8d2;border-radius:14px;background:rgba(255,255,255,.5)}
+  .demobar .dlbl{font-size:11.5px;color:var(--mute);font-weight:600;margin-right:2px}
+  .demobar button{border:0;background:var(--ink);color:#fff;font-family:inherit;font-weight:600;font-size:12px;padding:7px 13px;border-radius:999px;cursor:pointer;transition:.15s}
+  .demobar button:hover{background:var(--saffron)}
+  .sectiontitle{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:16px;margin:2px 2px 10px}
+  .subtle{font-size:11.5px;color:var(--mute);line-height:1.5;margin:2px}
+</style>
+</head>
+<body>
+
+<div class="brandbar">
+  <div class="wordmark"><span class="logo">Arri<b>v</b>e</span></div>
+  <div class="tag">One trusted arrival network · four connected views · live shared state</div>
+  <a class="thesislink" href="/arrivethesis">Read the strategy &amp; concept <span>→</span></a>
+  <div class="switch">
+    <button id="tab-res" class="on" onclick="setView('res')"><span class="dot"></span>Resident</button>
+    <button id="tab-guard" onclick="setView('guard')"><span class="dot"></span>Guard</button>
+    <button id="tab-admin" onclick="setView('admin')"><span class="dot"></span>RWA Admin</button>
+    <button id="tab-partner" onclick="setView('partner')"><span class="dot"></span>Partner</button>
+  </div>
+</div>
+
+<div class="stage">
+  <div class="phone" id="phone">
+    <div class="notch"><div class="statusbar"><span>9:41</span><span id="sbctx">Prestige Bellandur · 5G</span></div></div>
+    <div class="screen" id="screen"></div>
+    <div class="navbar" id="navbar"></div>
+    <div class="toast" id="toast"></div>
+  </div>
+</div>
+
+<div class="caption" id="caption"></div>
+
+<div class="demobar" id="demobar">
+  <span class="dlbl">Demo control · simulate an order placed in another app →</span>
+  <button onclick="placeOrder('Blinkit')">Blinkit</button>
+  <button onclick="placeOrder('Swiggy')">Swiggy</button>
+  <button onclick="placeOrder('Zepto')">Zepto</button>
+  <button onclick="placeOrder('Uber')">Uber</button>
+</div>
+
+<script>
+/* ============================================================
+   SHARED SIMULATED BACKEND  — all four personas read/write here
+   ============================================================ */
+const DB = {
+  society:"Prestige Bellandur",
+  resident:{name:"Gaurav", flat:"A-1203", tower:"B"},
+  guard:{name:"Ramesh", gate:"Gate 2"},
+  partners:{
+    Blinkit:{color:"#f7c548",fg:"#3a2c00",letter:"B",eta:6},
+    Swiggy:{color:"#fc8019",fg:"#fff",letter:"S",eta:22},
+    Zepto:{color:"#7b2ff7",fg:"#fff",letter:"Z",eta:8},
+    Uber:{color:"#141a24",fg:"#fff",letter:"U",eta:4},
+    "Urban Company":{color:"#0f7a52",fg:"#fff",letter:"UC",eta:0}
+  },
+  arrivals:[], // {id, partner, flat, status: pending|verified|denied|done, placed, reason, minsToDoor}
+  seq:1,
+  metrics:{ gateTimeBaseline:172, gateTimeNow:38 }, // seconds
+  listings:[
+    {id:1, type:"Rent", title:"3 BHK · Tower A, high floor", price:"₹68,000/mo", by:"Verified owner · A-1502", scope:"society", tag:"Posted from this flat", em:"🏠"},
+    {id:2, type:"Sell", title:"2 BHK · Tower C, park-facing", price:"₹1.72 Cr", by:"Verified owner · C-0908", scope:"city", tag:"Ownership doc reviewed", em:"🏢"},
+    {id:3, type:"Rent", title:"Covered parking · Basement 2", price:"₹3,500/mo", by:"Verified resident · B-0410", scope:"society", tag:"Society confirmed", em:"🅿️"},
+    {id:4, type:"Sell", title:"Study table + chair, teak", price:"₹6,500", by:"Verified resident · A-1203", scope:"society", tag:"Neighbour", em:"🪑"},
+  ],
+  corpVisit:{ host:"Priya Menon · Sequoia", company:"Prestige Tech Park", tower:"Block 4", floor:"Level 9", time:"11:30 AM today", status:"ready" },
+};
+
+// seed one live arrival + a couple of completed for charts
+function seed(){
+  DB.arrivals.push({id:DB.seq++, partner:"Blinkit", flat:"A-1203", status:"pending", placed:"9:38 AM", minsToDoor:4});
+  DB.arrivals.push({id:DB.seq++, partner:"Swiggy", flat:"C-0704", status:"pending", placed:"9:40 AM", minsToDoor:6});
+  DB.arrivals.push({id:DB.seq++, partner:"Zepto", flat:"B-1105", status:"verified", placed:"9:35 AM", minsToDoor:2});
+}
+seed();
+
+let view="res";
+let guardScreen="gate";      // gate | queue | scanned
+let residentScreen="home";   // home | activity | map | market | work
+let marketScope="society";   // society | city | india
+let marketTab="browse";      // browse | post
+let adminScreen="overview";
+let partnerScreen="dashboard";
+let activeScan=null;
+let listeners=[];
+function onChange(fn){listeners.push(fn)}
+function emit(){listeners.forEach(f=>f())}
+
+function toast(msg){
+  const el=document.getElementById('toast');
+  el.innerHTML=`<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>${msg}`;
+  el.classList.add('show'); clearTimeout(el._t); el._t=setTimeout(()=>el.classList.remove('show'),2600);
+}
+
+/* resident places an order -> appears in guard queue + partner dash */
+function placeOrder(partner){
+  const p=DB.partners[partner];
+  const a={id:DB.seq++, partner, flat:DB.resident.flat, status:"pending", placed:"now", minsToDoor:p.eta||5};
+  DB.arrivals.unshift(a);
+  toast(`${partner} order placed — heading to your gate`);
+  emit(); render();
+}
+
+/* guard verifies -> resident sees status flip, metrics update */
+function verifyArrival(id, ok){
+  const a=DB.arrivals.find(x=>x.id===id); if(!a)return;
+  a.status = ok?"verified":"denied";
+  emit();
+}
+function completeArrival(id){
+  const a=DB.arrivals.find(x=>x.id===id); if(!a)return;
+  a.status="done"; emit();
+}
+
+/* ============================================================ SVG helpers */
+const I={
+  check:'<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>',
+  x:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 6L6 18M6 6l12 12"/></svg>',
+  bolt:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>',
+  mic:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>',
+  send:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>',
+  scan:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10" stroke-width="2.5"/></svg>',
+  pin:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>',
+  route:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 20l-5.5 2 1.5-6 12-12 4 4-12 12z"/><path d="M14 6l4 4"/></svg>',
+  info:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>',
+  warn:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>',
+  go:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>',
+  map:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3L3 6v15l6-3 6 3 6-3V3l-6 3-6-3z"/><path d="M9 3v15M15 6v15"/></svg>',
+  tag:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0l-7.8-7.8V3h9.8l8 8a2 2 0 0 1 0 2.4z"/><circle cx="7.5" cy="7.5" r="1.3" fill="currentColor"/></svg>',
+  work:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>',
+  bed:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8v12M2 14h20v6M22 14V8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2M6 10h4"/></svg>',
+  key:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7.5" cy="15.5" r="4.5"/><path d="M10.5 12.5L20 3M16 7l3 3"/></svg>',
+  people:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+  up:'<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 19V5M5 12l7-7 7 7"/></svg>',
+  dn:'<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>',
+};
+function ptile(partner,size){const p=DB.partners[partner];return `<div class="btile" style="background:${p.color};color:${p.fg}">${p.letter}</div>`}
+
+/* ============================================================ RESIDENT */
+function residentView(){
+  const live = DB.arrivals.filter(a=>a.flat===DB.resident.flat && (a.status==="pending"||a.status==="verified"));
+  const handledToday = DB.arrivals.filter(a=>a.flat===DB.resident.flat).length + 1;
+  if(residentScreen==="activity") return residentActivity();
+  if(residentScreen==="guest") return residentGuest();
+  if(residentScreen==="market") return residentMarket();
+  if(residentScreen==="work") return residentWork();
+  return `
+  <div class="apphead">
+    <div><div class="lg">Arri<b>v</b>e</div><div class="sm">${DB.resident.name} · Tower ${DB.resident.tower}, ${DB.resident.flat}</div></div>
+    <div class="avatar" style="background:linear-gradient(135deg,#20304a,#33507a)">G</div>
+  </div>
+  <div class="greet">Good morning, ${DB.resident.name}. <span class="q">${live.length?'Everything’s handled.':'Nothing needs you right now.'}</span></div>
+  <div class="sub">${handledToday} arrivals handled today · 0 approvals asked</div>
+
+  <div class="eyebrow"><span class="live"></span> At your gate now</div>
+  ${live.length? live.map(residentArrivalCard).join('') : `<div class="card"><div class="subtle">No one at your gate right now. When you order in Blinkit, Swiggy or book an Uber, it appears here automatically.</div></div>`}
+  <div class="quiet">${I.bolt} You placed the order — so we let them in and just keep you posted. No approval needed.</div>
+
+  <div class="eyebrow">Standing rules</div>
+  <div class="chips">
+    <div class="chip"><span class="k" style="background:var(--emerald-soft)">🧹</span> Maid — daily 9–11 AM</div>
+    <div class="chip"><span class="k" style="background:var(--emerald-soft)">🚗</span> Driver — daily</div>
+    <div class="chip"><span class="k" style="background:var(--amber-soft)">🌙</span> No delivery after 11 PM</div>
+    <div class="chip add" onclick="toast('Rule builder — conversational')">＋ Add a rule</div>
+  </div>
+
+  <div class="eyebrow">Coming up — already handled</div>
+  <div class="card upcoming">
+    <div class="arow">
+      <div class="btile" style="background:#0f7a52;color:#fff">UC</div>
+      <div class="meta"><div class="t">Urban Company</div><div class="d">Plumber · you booked · 2–4 PM</div></div>
+      <div class="state verified">${I.check}Auto-verified</div>
+    </div>
+    <div class="doorline">${I.bolt} Your booking is the authorisation — he'll be let in when he arrives. Nothing for you to do.</div>
+  </div>
+  ${footnav('res',[['home','Home','sq'],['guest','Guest','people'],['market','Market','tag'],['work','Work','work']])}
+  `;
+}
+function residentArrivalCard(a){
+  const verified=a.status==="verified";
+  return `
+  <div class="card arrival ${verified?'done':''}">
+    <div class="bar"></div>
+    <div class="arow">
+      ${ptile(a.partner)}
+      <div class="meta"><div class="t">${a.partner} ${a.partner==='Uber'?'ride':'order'}</div><div class="d">You ordered · ${a.placed==='now'?'just now':a.placed}</div></div>
+      <div class="state ${verified?'verified':'pending'}">${verified?I.check+'Verified · entering':'<span class="spin"></span>Verifying'}</div>
+    </div>
+    ${verified?`
+    <div class="checks">
+      <div class="chk">${I.check}<span><b>Who</b> — matched</span></div>
+      <div class="chk">${I.check}<span><b>Why</b> — your order</span></div>
+      <div class="chk">${I.check}<span><b>Where</b> — ${a.flat}</span></div>
+      <div class="chk">${I.check}<span><b>How long</b> — 15 min</span></div>
+    </div>
+    <div class="doorline">${I.check} Entered ${DB.guard.gate} · <b>${a.minsToDoor} min to your door</b></div>
+    `:`<div class="doorline">Waiting for the gate to verify…</div>`}
+  </div>`;
+}
+function residentActivity(){
+  const mine=DB.arrivals.filter(a=>a.flat===DB.resident.flat);
+  return `
+  <div class="apphead"><div><div class="lg">Activity</div><div class="sm">Every arrival, logged for you</div></div>
+  <div class="avatar" style="background:linear-gradient(135deg,#20304a,#33507a)">G</div></div>
+  <div class="subtle" style="margin-bottom:12px">A clean record — who came, when, and why they were let in. ${mine.length} today.</div>
+  ${mine.map(a=>`<div class="listrow"><div class="ic" style="background:${DB.partners[a.partner].color};color:${DB.partners[a.partner].fg}">${DB.partners[a.partner].letter}</div>
+    <div class="m"><div class="t">${a.partner} ${a.partner==='Uber'?'ride':'delivery'}</div><div class="d">${a.placed==='now'?'just now':a.placed} · ${a.flat}</div></div>
+    <span class="pill ${a.status==='denied'?'warn':'ok'}">${a.status==='denied'?'stopped':'entered'}</span></div>`).join('')}
+  ${footnav('res',[['home','Home','sq'],['guest','Guest','people'],['market','Market','tag'],['work','Work','work']])}
+  `;
+}
+
+/* ---- 1. NEIGHBOURHOOD MAPS ---- */
+function residentGuest(){
+  return `
+  <div class="apphead"><div><div class="lg">Guest access</div><div class="sm">Invite someone — they arrive without a call</div></div>
+  <div class="avatar" style="background:linear-gradient(135deg,#2b5f8a,#3d76a6)">${I.people}</div></div>
+  <div class="subtle" style="margin-bottom:12px">Send a guest pass. They get the right gate, parking and directions — the guard just waves them in.</div>
+
+  <div class="eyebrow">New guest pass</div>
+  <div class="card">
+    <div class="field"><label>Who's visiting</label><div class="inp">Rohan &amp; family</div></div>
+    <div class="field"><label>When</label><div class="inp">Today · 7:00–9:00 PM</div></div>
+    <div class="field"><label>Arriving by</label>
+      <div class="scopetabs" style="margin-top:6px"><button class="on">🚗 Car</button><button>🛵 Two-wheeler</button><button>🚶 Walk-in</button></div>
+    </div>
+  </div>
+
+  <div class="verifybox" style="background:var(--blue-soft);border-color:#bcd6ea">
+    <div class="vh" style="color:var(--blue)">${I.check} Your guest will automatically get</div>
+    <div class="vrow">${I.check} <span><b>Gate 2</b> — the right entrance for Tower B</span></div>
+    <div class="vrow">${I.check} <span><b>Visitor parking</b> — Basement 1, bays 40–60</span></div>
+    <div class="vrow">${I.check} <span>Turn-by-turn to your door once inside</span></div>
+    <div class="vnote" style="color:var(--ink-soft)">The guard sees a verified guest pass — no phone call to you, no waiting at the gate.</div>
+  </div>
+
+  <button class="btn primary block" style="margin-top:12px" onclick="toast('Guest pass sent to Rohan via WhatsApp')">Send guest pass</button>
+
+  <div class="eyebrow">Upcoming guests</div>
+  <div class="card" style="padding:4px 15px">
+    <div class="listrow"><div class="ic" style="background:var(--blue)">R</div><div class="m"><div class="t">Rohan &amp; family</div><div class="d">Today · 7–9 PM · Gate 2 · car</div></div><span class="pill info">sent</span></div>
+    <div class="listrow"><div class="ic" style="background:var(--emerald)">M</div><div class="m"><div class="t">Meera (sister)</div><div class="d">Sun · 11 AM · staying over</div></div><span class="pill ok">active</span></div>
+  </div>
+  ${footnav('res',[['home','Home','sq'],['guest','Guest','people'],['market','Market','tag'],['work','Work','work']])}`;
+}
+
+/* ---- 2. MARKETPLACE: buy / sell / rent with scope ---- */
+function residentMarket(){
+  if(marketTab==="post") return residentMarketPost();
+  const scopeCopy={society:"Only residents of "+DB.society+" see this.", city:"All verified Bengaluru residents see this.", india:"Verified residents across India see this."};
+  const filtered = DB.listings.filter(l=> marketScope==="society" ? l.scope==="society" : marketScope==="city" ? (l.scope==="society"||l.scope==="city") : true);
+  return `
+  <div class="apphead"><div><div class="lg">Marketplace</div><div class="sm">Buy · Sell · Rent — only verified neighbours</div></div>
+  <div class="avatar" style="background:linear-gradient(135deg,#b5761f,#e07a2b)">${I.tag}</div></div>
+  <div class="subtle" style="margin-bottom:10px">Every listing is posted by a <b>currently verified resident or owner</b> — the one thing 99acres can't fake.</div>
+
+  <div class="eyebrow">Publish / view across</div>
+  <div class="scopetabs">
+    <button class="${marketScope==='society'?'on':''}" onclick="setScope('society')">My society</button>
+    <button class="${marketScope==='city'?'on':''}" onclick="setScope('city')">My city</button>
+    <button class="${marketScope==='india'?'on':''}" onclick="setScope('india')">All India</button>
+  </div>
+  <div class="scopenote">${I.info} ${scopeCopy[marketScope]}</div>
+
+  ${filtered.map(l=>`
+  <div class="card listing">
+    <div class="lem">${l.em}</div>
+    <div class="linfo">
+      <div class="lhead"><span class="ltype ${l.type.toLowerCase()}">${l.type}</span><span class="lprice">${l.price}</span></div>
+      <div class="ltitle">${l.title}</div>
+      <div class="lby">${I.check} ${l.by}</div>
+    </div>
+    <span class="ltag">${l.tag}</span>
+  </div>`).join('')}
+
+  <button class="btn primary block" style="margin-top:12px" onclick="marketTab='post';render()">＋ Post a listing</button>
+  ${footnav('res',[['home','Home','sq'],['guest','Guest','people'],['market','Market','tag'],['work','Work','work']])}`;
+}
+function setScope(s){marketScope=s;render();}
+function residentMarketPost(){
+  return `
+  <div class="apphead"><div><div class="lg">Post a listing</div><div class="sm">Verified as ${DB.resident.name} · ${DB.resident.flat}</div></div>
+  <button class="btn ghost" style="padding:8px 12px;font-size:12px" onclick="marketTab='browse';render()">← Back</button></div>
+
+  <div class="eyebrow">What are you listing?</div>
+  <div class="scopetabs three">
+    <button class="on">${I.key} Rent</button><button>${I.tag} Sell</button><button>${I.bed} Buy</button>
+  </div>
+
+  <div class="card" style="margin-top:12px">
+    <div class="field"><label>Title</label><div class="inp">3 BHK · Tower B, A-1203</div></div>
+    <div class="field"><label>Price</label><div class="inp">₹ 72,000 / month</div></div>
+    <div class="field"><label>Show to</label>
+      <div class="scopetabs" style="margin-top:6px">
+        <button class="on">My society</button><button>+ My city</button><button>+ All India</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="verifybox">
+    <div class="vh">${I.check} Auto-verified — no proof to upload</div>
+    <div class="vrow">${I.check} You're a confirmed resident of A-1203</div>
+    <div class="vrow">${I.check} Society & tower confirmed by Arrive</div>
+    <div class="vrow">${I.check} Prospects can be let in for a viewing in one tap</div>
+    <div class="vnote">This becomes the label buyers trust: <b>“Posted from this flat by a verified owner.”</b></div>
+  </div>
+
+  <button class="btn primary block" style="margin-top:12px" onclick="marketTab='browse';toast('Listed — live to your society first')">Publish listing</button>
+  ${footnav('res',[['home','Home','sq'],['guest','Guest','people'],['market','Market','tag'],['work','Work','work']])}`;
+}
+
+/* ---- 3. CORPORATE PARKS: same identity, a second threshold ---- */
+function residentWork(){
+  const v=DB.corpVisit;
+  return `
+  <div class="apphead"><div><div class="lg">Work Access</div><div class="sm">Your Arrive identity — now at the office</div></div>
+  <div class="avatar" style="background:linear-gradient(135deg,#123,#2b5f8a)">${I.work}</div></div>
+  <div class="subtle" style="margin-bottom:12px">The same verified you that opens your home gate now clears corporate reception — no new app, no paper register.</div>
+
+  <div class="eyebrow"><span class="live"></span> Your visit today</div>
+  <div class="passcard">
+    <div class="pctop">
+      <div><div class="pclbl">VISITOR PASS</div><div class="pcco">${v.company}</div></div>
+      <div class="pcqr">${I.scan}</div>
+    </div>
+    <div class="pcname">${DB.resident.name}</div>
+    <div class="pcmeta">Verified via Arrive · Home: ${DB.society}</div>
+    <div class="pcgrid">
+      <div><div class="k">Host</div><div class="v">${v.host}</div></div>
+      <div><div class="k">When</div><div class="v">${v.time}</div></div>
+      <div><div class="k">Where</div><div class="v">${v.tower} · ${v.floor}</div></div>
+      <div><div class="k">Parking</div><div class="v">B2 · Bay 214</div></div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:12px">
+    <div class="rt" style="font-size:11px;font-weight:700;color:var(--blue);letter-spacing:.05em;text-transform:uppercase;margin-bottom:9px">On arrival, Arrive handles</div>
+    <div class="wstep">${I.check} Boom barrier opens — plate pre-registered</div>
+    <div class="wstep">${I.check} Reception check-in, no register to sign</div>
+    <div class="wstep">${I.check} ${v.host.split(' · ')[0]} notified you've arrived</div>
+    <div class="wstep">${I.check} Lift released to ${v.floor}</div>
+    <div class="wstep">${I.check} Exit logged automatically</div>
+  </div>
+
+  <div class="quiet" style="margin-top:12px">${I.info} One portable identity across home, office and client sites — the moat no single-building system has. Sold to enterprises as SaaS.</div>
+  ${footnav('res',[['home','Home','sq'],['guest','Guest','people'],['market','Market','tag'],['work','Work','work']])}`;
+}
+
+/* ============================================================ GUARD */
+function guardView(){
+  if(guardScreen==="scanned" && activeScan) return guardScanned();
+  const q=DB.arrivals.filter(a=>a.status==="pending"||a.status==="verified");
+  const waiting=DB.arrivals.filter(a=>a.status==="pending").length;
+  if(guardScreen==="queue") return `
+    <div class="apphead"><div><div class="lg">Queue <span class="role">· ${waiting} waiting</span></div><div class="sm">${DB.guard.name} · ${DB.guard.gate}</div></div>
+    <div class="avatar" style="background:linear-gradient(135deg,#4a3410,#7a561f)">रा</div></div>
+    <div class="subtle" style="margin-bottom:10px">Tap anyone to verify. Live from resident orders.</div>
+    ${q.length?q.map(a=>`<div class="qitem" onclick="doScan(${a.id})">
+      <span class="st ${a.status==='verified'?'v':'p'}"></span>
+      <div class="ic" style="width:34px;height:34px;border-radius:9px;background:${DB.partners[a.partner].color};color:${DB.partners[a.partner].fg};display:grid;place-items:center;font-weight:800;font-size:12px">${DB.partners[a.partner].letter}</div>
+      <div class="info"><div class="t">${a.partner} → ${a.flat}</div><div class="d">${a.status==='verified'?'verified · entering':'awaiting scan'} · ${a.placed==='now'?'just now':a.placed}</div></div>
+      <span class="go">${I.go}</span></div>`).join(''):`<div class="card"><div class="subtle">Queue empty. Switch to Resident and place an order.</div></div>`}
+    ${footnav('guard',[['gate','Gate','sq'],['queue','Queue','list'],['log','Log','clk']])}`;
+  // gate home
+  return `
+  <div class="apphead"><div><div class="lg">Arri<b>v</b>e <span class="role">· Guard</span></div><div class="sm">${DB.guard.name} · Shift 6 AM–2 PM</div></div>
+  <div class="avatar" style="background:linear-gradient(135deg,#4a3410,#7a561f)">रा</div></div>
+  <div class="g-hero">
+    <div class="row"><div><div class="lbl">You are on</div><div class="gate">${DB.guard.gate} · Main</div></div>
+    <div class="q"><div class="n">${waiting}</div><div class="c">WAITING</div></div></div>
+    <button class="scanbtn" onclick="doScan(nextPending())">${I.scan} Scan visitor QR</button>
+  </div>
+  <div class="eyebrow">Voice — as spoken at the gate</div>
+  <div class="voice"><div class="ic">${I.mic}</div><div class="txt"><b>Bolkar bhi ho sakta hai.</b> <span class="hi">“Ye QR scan nahi ho raha”</span> — bolne par Arrive khud batayega kya karna hai.</div></div>
+  <div class="eyebrow">Live queue</div>
+  ${q.slice(0,3).map(a=>`<div class="qitem" onclick="doScan(${a.id})">
+    <span class="st ${a.status==='verified'?'v':'p'}"></span>
+    <div class="ic" style="width:34px;height:34px;border-radius:9px;background:${DB.partners[a.partner].color};color:${DB.partners[a.partner].fg};display:grid;place-items:center;font-weight:800;font-size:12px">${DB.partners[a.partner].letter}</div>
+    <div class="info"><div class="t">${a.partner} → ${a.flat}</div><div class="d">${a.status==='verified'?'verified':'awaiting scan'} · ${a.placed==='now'?'just now':a.placed}</div></div>
+    <span class="go">${I.go}</span></div>`).join('') || `<div class="card"><div class="subtle">No one waiting.</div></div>`}
+  ${footnav('guard',[['gate','Gate','sq'],['queue','Queue','list'],['log','Log','clk']])}`;
+}
+function nextPending(){const a=DB.arrivals.find(x=>x.status==="pending");return a?a.id:-1}
+function doScan(id){
+  if(id===-1){toast('Queue empty — place an order as Resident');return}
+  activeScan=id; guardScreen="scanned"; render();
+  // simulate: mark verified in shared state after a beat (unless it's the "bad" demo)
+}
+function guardScanned(){
+  const a=DB.arrivals.find(x=>x.id===activeScan);
+  if(!a) {guardScreen="gate";return guardView();}
+  const bad = a._bad;
+  if(!bad){ if(a.status==="pending"){ setTimeout(()=>{verifyArrival(a.id,true);},50);} }
+  const okBody = `
+  <div class="verdict ok">
+    <div class="head"><div class="badge">${I.check.replace('13','24').replace('13','24')}</div><div><div class="h">Allow entry</div><div class="sh">Verified ${a.partner} ${a.partner==='Uber'?'ride':'delivery'}</div></div></div>
+    <div class="body">
+      <div class="kv"><span class="k">Partner</span><span class="v">${a.partner} · rider verified</span></div>
+      <div class="kv"><span class="k">Going to</span><span class="v">Tower ${a.flat[0]} · ${a.flat}</span></div>
+      <div class="kv"><span class="k">Valid until</span><span class="v ok">9:53 AM · 15 min</span></div>
+      <div class="kv"><span class="k">Access</span><span class="v">This unit only</span></div>
+      <div class="reason">${I.info}Order placed by the resident. Rider matches the dispatch. Let them in — no need to call ${a.flat}.</div>
+      <div class="rowbtns">
+        <button class="btn dark block" onclick="showRoute()">${I.route} Send route to rider's phone</button>
+      </div>
+      <div id="routeArea"></div>
+      <div class="rowbtns"><button class="btn primary block" onclick="finishScan(${a.id})">Mark entered — next visitor</button></div>
+    </div>
+  </div>`;
+  const noBody = `
+  <div class="verdict no">
+    <div class="head"><div class="badge">${I.x}</div><div><div class="h">Stop — don't allow yet</div><div class="sh">QR already used</div></div></div>
+    <div class="body">
+      <div class="kv"><span class="k">Partner</span><span class="v">${a.partner} · rider verified</span></div>
+      <div class="kv"><span class="k">Problem</span><span class="v" style="color:var(--red)">Code already scanned</span></div>
+      <div class="reason no">${I.warn}This QR was used 6 minutes ago. Ask the rider to open ${a.partner} and generate a new code, then scan again.</div>
+      <div class="rowbtns"><button class="btn amber block" onclick="fixScan(${a.id})">Rider showed new QR — verify</button></div>
+    </div>
+  </div>`;
+  return `
+  <div class="apphead"><div><div class="lg">Decision</div><div class="sm">${DB.guard.gate} · scan result</div></div>
+  <button class="btn ghost" style="padding:8px 12px;font-size:12px" onclick="backToGate()">← Back</button></div>
+  ${bad?noBody:okBody}
+  <div class="eyebrow">Demo the stop case</div>
+  <button class="btn ghost block" onclick="demoBad(${a.id})">Show an expired / reused QR</button>
+  ${footnav('guard',[['gate','Gate','sq'],['queue','Queue','list'],['log','Log','clk']])}`;
+}
+function showRoute(){
+  const a=DB.arrivals.find(x=>x.id===activeScan);
+  const flat=a?a.flat:"A-1203";
+  document.getElementById('routeArea').innerHTML=`
+  <div class="ridermap">
+    <div class="rmhead">${I.pin} Neighbourhood Map · sent to the ${a?a.partner:''} rider</div>
+    <div class="mapframe" style="height:150px;margin-top:9px">
+      <div class="mtag" style="left:10px;top:10px;font-size:9.5px">Gate 2</div>
+      <svg viewBox="0 0 320 200" width="100%" height="100%" preserveAspectRatio="none">
+        <rect x="0" y="0" width="320" height="200" fill="#eef3ef"/>
+        <path d="M0 165 H320 M60 200 V55 M60 55 H250 M250 200 V55" stroke="#cfe0d4" stroke-width="9" fill="none"/>
+        <rect x="74" y="64" width="48" height="44" rx="4" fill="#c9d8cf"/><text x="98" y="91" font-size="11" fill="#5a6b60" text-anchor="middle">A</text>
+        <rect x="140" y="64" width="48" height="44" rx="4" fill="#8fc5a6"/><text x="164" y="91" font-size="11" fill="#1f4a35" text-anchor="middle" font-weight="700">B</text>
+        <rect x="204" y="64" width="42" height="44" rx="4" fill="#c9d8cf"/><text x="225" y="91" font-size="11" fill="#5a6b60" text-anchor="middle">C</text>
+        <circle cx="82" cy="168" r="7" fill="#e07a2b"/>
+        <ellipse cx="120" cy="132" rx="24" ry="10" fill="#d8e6dd"/><text x="120" y="135" font-size="8" fill="#5a6b60" text-anchor="middle">Clubhouse</text>
+        <path d="M82 165 H120 V112 H164 V110" stroke="#0f7a52" stroke-width="4" fill="none" stroke-dasharray="7 6" stroke-linecap="round"/>
+        <circle cx="164" cy="108" r="7" fill="#0f7a52"/><path d="M161 108l2.5 2.5 4.5-5" stroke="#fff" stroke-width="2" fill="none"/>
+      </svg>
+      <div class="mtag" style="right:10px;bottom:10px;background:var(--emerald);color:#fff;font-size:9.5px">Tower ${flat[0]} · ${flat}</div>
+    </div>
+    <div class="route-panel" style="margin-top:9px">
+      <div class="step"><span class="num">1</span><span>Straight 180 m, past the clubhouse on the right</span></div>
+      <div class="step"><span class="num">2</span><span>Tower ${flat[0]} entrance — use the <b>service lift</b></span></div>
+      <div class="step"><span class="num">3</span><span>Floor 12 · flat left of the lift</span></div>
+    </div>
+    <div class="quiet" style="margin-top:9px">${I.info} This last-100-m map is a partner-paid feature — it cuts the rider's slowest step and improves ${a?a.partner:''}'s turnaround.</div>
+  </div>`;
+  toast('Route sent to the rider’s phone');
+}
+function finishScan(id){completeArrival(id);activeScan=null;guardScreen="gate";toast('Logged. Resident notified.');render();}
+function fixScan(id){const a=DB.arrivals.find(x=>x.id===id);a._bad=false;verifyArrival(id,true);render();toast('New QR verified');}
+function demoBad(id){const a=DB.arrivals.find(x=>x.id===id);a._bad=true;a.status="pending";render();}
+function backToGate(){activeScan=null;guardScreen="gate";render();}
+
+/* ============================================================ RWA ADMIN */
+function adminView(){
+  const total=DB.arrivals.length+41;
+  const verified=DB.arrivals.filter(a=>a.status!=='denied').length+40;
+  return `
+  <div class="apphead"><div><div class="lg">Committee</div><div class="sm">${DB.society} · Mr. Sharma, Secretary</div></div>
+  <div class="avatar" style="background:linear-gradient(135deg,#123,#2b5f8a)">MS</div></div>
+
+  <div class="eyebrow">Today at the gate</div>
+  <div class="stats">
+    <div class="stat"><div class="n b">${total}</div><div class="l">Arrivals processed</div><div class="trend up">${I.up} 12% vs last week</div></div>
+    <div class="stat"><div class="n g">38s</div><div class="l">Avg gate time</div><div class="trend up">${I.up} down from 2m 52s</div></div>
+    <div class="stat"><div class="n a">2</div><div class="l">Stopped / flagged</div><div class="l" style="margin-top:2px">both resolved</div></div>
+    <div class="stat"><div class="n g">100%</div><div class="l">Entries with a full log</div></div>
+  </div>
+
+  <div class="eyebrow">Community treasury — earned this month</div>
+  <div class="treasury">
+    <div class="lbl">Paid to the society fund by partners</div>
+    <div class="amt">₹ 47,200</div>
+    <div class="sub2">Your residents’ arrivals earned this — not a fee you paid.</div>
+    <div class="split">
+      <div><div class="v">₹ 31,000</div><div class="k">Partner access fees</div></div>
+      <div><div class="v">₹ 11,400</div><div class="k">Faster-delivery share</div></div>
+      <div><div class="v">₹ 4,800</div><div class="k">Marketplace</div></div>
+    </div>
+  </div>
+  <div class="subtle" style="margin:8px 2px 0">Funded the Diwali lights and the gym’s new treadmill. Switching away now costs the society real money.</div>
+
+  <div class="eyebrow">Gate volume · last 7 days</div>
+  <div class="card">
+    <div class="bars">
+      ${[62,71,68,80,74,88,96].map((h,i)=>`<div class="b ${i===6?'hl':''}" style="height:${h}%"><span>${[248,284,272,320,296,352,total].slice(i,i+1)}</span></div>`).join('')}
+    </div>
+    <div class="barx">${['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].map(d=>`<div>${d}</div>`).join('')}</div>
+  </div>
+
+  <div class="eyebrow">Needs the committee</div>
+  <div class="card" style="padding:4px 15px">
+    <div class="listrow"><div class="ic" style="background:var(--amber)">!</div><div class="m"><div class="t">Guard roster — Gate 3 night shift</div><div class="d">1 slot open this weekend</div></div><span class="pill warn">action</span></div>
+    <div class="listrow"><div class="ic" style="background:var(--emerald)">✓</div><div class="m"><div class="t">Vendor: lift AMC renewal</div><div class="d">approved via app · 6 votes</div></div><span class="pill ok">done</span></div>
+    <div class="listrow"><div class="ic" style="background:var(--blue)">i</div><div class="m"><div class="t">DPDP: data & consent report</div><div class="d">monthly audit ready to view</div></div><span class="pill info">review</span></div>
+  </div>
+  ${footnav('admin',[['overview','Overview','sq'],['treasury','Finance','clk'],['gates','Gates','list']])}`;
+}
+
+/* ============================================================ PARTNER (wider) */
+function partnerView(){
+  return `
+  <div class="apphead"><div><div class="lg">Arri<b>v</b>e <span class="role">· Demand Console</span></div><div class="sm">All payers · Bengaluru South · this month</div></div>
+  <div class="avatar" style="background:linear-gradient(135deg,#123,#2b5f8a)">₹</div></div>
+  <div class="subtle" style="margin-bottom:12px">Everyone who pays to reach India's verified households — one console, four revenue streams.</div>
+
+  <div class="revhero">
+    <div class="rl">Revenue this month · all streams</div>
+    <div class="ra">₹ 1.42 Cr</div>
+    <div class="rs">across 312 societies · <span style="color:#7fe3b6">▲ 22% MoM</span></div>
+    <div class="rsplit">
+      <div><div class="rk">Gate entry</div><div class="rv">₹78L</div></div>
+      <div><div class="rk">Maps</div><div class="rv">₹34L</div></div>
+      <div><div class="rk">Corp SaaS</div><div class="rv">₹19L</div></div>
+      <div><div class="rk">Property</div><div class="rv">₹11L</div></div>
+    </div>
+  </div>
+
+  <div class="eyebrow">1 · Gate entry — commerce &amp; mobility</div>
+  <div class="card paycard">
+    <div class="pcrow"><div class="pcico" style="background:#f7c548;color:#3a2c00">📦</div>
+      <div class="pcm"><div class="pct">Blinkit · Swiggy · Zepto · Flipkart · Uber</div><div class="pcd">Verified gate access · per entry</div></div>
+      <div class="pcstat"><div class="n g">2m 14s</div><div class="l">saved / delivery</div></div></div>
+    <div class="minibars">${[54,63,58,72,84,79,92].map(h=>`<div class="mb" style="height:${h}%"></div>`).join('')}</div>
+    <div class="pcfoot">${I.up} +18% riders-per-hour · <b>₹78L</b> billed this month</div>
+  </div>
+
+  <div class="eyebrow">2 · Neighbourhood Maps — last-100m routing</div>
+  <div class="card paycard">
+    <div class="pcrow"><div class="pcico" style="background:var(--emerald-soft);color:var(--emerald)">🗺️</div>
+      <div class="pcm"><div class="pct">Delivery &amp; logistics fleets</div><div class="pcd">Gate-to-door navigation · per route</div></div>
+      <div class="pcstat"><div class="n g">1.2%</div><div class="l">wrong-tower<br>(from 7.8%)</div></div></div>
+    <div class="pcfoot">${I.up} 4.1M routes served · <b>₹34L</b> billed this month</div>
+  </div>
+
+  <div class="eyebrow">3 · Corporate Parks — VMS replacement</div>
+  <div class="card paycard">
+    <div class="pcrow"><div class="pcico" style="background:var(--blue-soft);color:var(--blue)">🏢</div>
+      <div class="pcm"><div class="pct">Prestige Tech Park · Embassy · Bagmane</div><div class="pcd">One identity, no separate VMS · SaaS</div></div>
+      <div class="pcstat"><div class="n b">14</div><div class="l">parks live</div></div></div>
+    <div class="pcfoot">${I.info} They pay Arrive <em>instead of</em> a visitor app · <b>₹19L</b> ARR this month</div>
+  </div>
+
+  <div class="eyebrow">4 · Property — verified listings</div>
+  <div class="card paycard">
+    <div class="pcrow"><div class="pcico" style="background:var(--amber-soft);color:var(--amber)">🏷️</div>
+      <div class="pcm"><div class="pct">Agents &amp; developers</div><div class="pcd">Verified resident/owner listings · leads &amp; viewings</div></div>
+      <div class="pcstat"><div class="n a">640</div><div class="l">verified<br>viewings</div></div></div>
+    <div class="pcfoot">${I.up} 3× lead conversion vs portals · <b>₹11L</b> billed this month</div>
+  </div>
+
+  <div class="eyebrow">Live arrivals across all streams</div>
+  <div class="card" style="padding:4px 15px">
+    ${DB.arrivals.slice(0,3).map(a=>`<div class="listrow">
+      <div class="ic" style="background:${DB.partners[a.partner].color};color:${DB.partners[a.partner].fg}">${DB.partners[a.partner].letter}</div>
+      <div class="m"><div class="t">${a.flat} · ${DB.society}</div><div class="d">${a.partner} · token issued · gate ${a.status==='verified'?'cleared':'pending'}</div></div>
+      <span class="pill ${a.status==='denied'?'warn':a.status==='verified'?'ok':'info'}">${a.status==='denied'?'stopped':a.status==='verified'?'entered':'en route'}</span></div>`).join('')}
+  </div>
+
+  <div class="quiet" style="margin-top:12px">${I.info} Arrive never sees order value, items or the customer's number — only what each decision needs. Trust is the product.</div>
+  ${footnav('partner',[['dashboard','Revenue','sq'],['api','Integration','list'],['billing','Billing','clk']])}`;
+}
+
+/* ============================================================ shared nav */
+function footIcon(k){return ({
+  sq:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>',
+  list:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>',
+  clk:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 7v5l3 2"/></svg>',
+  map:I.map, tag:I.tag, work:I.work, people:I.people
+})[k]}
+let pendingNav=null;
+function footnav(persona, items){ pendingNav={persona,items}; return ''; }
+function renderNav(){
+  const bar=document.getElementById('navbar');
+  if(!pendingNav){bar.innerHTML='';return;}
+  const {persona,items}=pendingNav;
+  const cur = persona==='res'?residentScreen : persona==='guard'?guardScreen : persona==='admin'?adminScreen : partnerScreen;
+  bar.innerHTML = items.map(([id,label,ic])=>`
+    <button class="${cur===id?'act':''}" onclick="navTo('${persona}','${id}')">${footIcon(ic)}${label}</button>`).join('');
+}
+function navTo(persona,id){
+  if(persona==='res'){residentScreen=id; if(id!=='market') marketTab='browse';}
+  if(persona==='guard'){guardScreen=id;activeScan=null;}
+  if(persona==='admin'){adminScreen=id;toast(id==='overview'?'':'View: '+id);}
+  if(persona==='partner'){partnerScreen=id;toast(id==='dashboard'?'':'View: '+id);}
+  render();
+}
+
+/* ============================================================ render + switch */
+function setView(v){
+  view=v;
+  ['res','guard','admin','partner'].forEach(k=>document.getElementById('tab-'+k).classList.toggle('on',k===v));
+  document.getElementById('sbctx').textContent =
+    v==='partner' ? 'Partner console · web' : DB.society+' · 5G';
+  const caps={
+    res:'<b>Resident.</b> The true product home — arrivals appear on their own (use the demo control below to trigger one). The bottom tabs show the expansion: <b>Guest</b> (invite someone with the right gate + parking), <b>Market</b> (verified buy/sell/rent, society→city→India), and <b>Work</b> (your identity at a corporate park). The last-100m rider map now lives where it belongs — in the Guard scan flow.',
+    guard:'<b>Guard.</b> Tap the live queue or Scan — get one clear Allow/Stop with a plain reason. On a valid scan, tap <b>Send route to rider\'s phone</b> to push the last-100m Neighbourhood Map to the delivery rider (the partner-paid feature that speeds turnaround). Orders here come from the Resident view in real time.',
+    admin:'<b>RWA committee.</b> Gate performance, the community treasury partners pay into, and what needs a committee decision.',
+    partner:'<b>Demand console.</b> Every payer in one view — commerce/mobility paying per gate entry, fleets paying for neighbourhood maps, corporate parks paying SaaS to replace their VMS, and agents/developers paying for verified property viewings. One verified-household graph, four revenue streams.'
+  };
+  document.getElementById('caption').innerHTML=caps[v];
+  render();
+}
+function render(){
+  pendingNav=null;
+  const s=document.getElementById('screen');
+  if(view==='res') s.innerHTML=residentView();
+  else if(view==='guard') s.innerHTML=guardView();
+  else if(view==='admin') s.innerHTML=adminView();
+  else s.innerHTML=partnerView();
+  renderNav();
+}
+onChange(()=>{ if(view==='res'||view==='guard'||view==='partner') render(); });
+setView('res');
+</script>
+</body>
+</html>

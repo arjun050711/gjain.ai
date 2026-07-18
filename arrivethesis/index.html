@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arrive™ — The Verified-Identity Network for India's Homes</title>
+<meta name="description" content="A verified-identity graph of India's most valuable households. Convenience makes households join for free; commerce and agents pay to reach them. One asset, two sides.">
+<meta property="og:title" content="Arrive™ — Own the door. Own the flow.">
+<meta property="og:description" content="The verified identity of India's consumption class — owned by no one. Until now.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0f1826">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23141a24'/%3E%3Ctext x='50' y='73' font-family='Georgia,serif' font-size='66' font-weight='700' text-anchor='middle' fill='%23e07a2b'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#141a24; --ink-soft:#3d4657; --mute:#7a8494; --faint:#aab2bf;
+    --line:#e7e9ee; --line-soft:#eef0f3; --paper:#f6f7f9; --card:#ffffff;
+    --emerald:#0f7a52; --emerald-soft:#e7f3ec; --emerald-line:#bfe0cd;
+    --amber:#b5761f; --amber-soft:#fbf1de; --amber-line:#eccf9a;
+    --red:#a8331f;
+    --saffron:#e07a2b; --saffron-soft:#fdf2e7;
+    --navy:#141d2e; --navy-2:#1d2c46; --blue:#2b5f8a; --blue-soft:#e6eff6;
+    --shadow-sm:0 1px 2px rgba(20,26,36,.04),0 4px 14px rgba(20,26,36,.06);
+    --shadow:0 1px 2px rgba(20,26,36,.05),0 12px 40px rgba(20,26,36,.10);
+    --shadow-lg:0 30px 80px rgba(20,26,36,.20);
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    font-family:"Inter",system-ui,-apple-system,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{background:rgba(224,122,43,.22)}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+
+  /* wordmark */
+  .wm{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;letter-spacing:-.02em;display:inline-flex;align-items:baseline}
+  .wm b{color:var(--saffron);font-weight:800}
+  .wm sup{font-size:.42em;font-weight:600;margin-left:1px;top:-.7em;position:relative;opacity:.8}
+
+  /* scroll progress */
+  #progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--saffron),#f0a35e);z-index:200;transition:width .1s linear}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .3s,box-shadow .3s,border-color .3s;border-bottom:1px solid transparent}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  nav.solid{background:rgba(246,247,249,.82);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom-color:var(--line);box-shadow:0 1px 0 rgba(20,26,36,.02)}
+  nav .brand{font-size:21px;color:var(--ink)}
+  nav.ondark .brand{color:#fff}
+  nav .navlinks{display:flex;gap:26px;align-items:center}
+  nav .navlinks a.link{font-size:12.5px;font-weight:600;color:var(--mute);letter-spacing:.01em;transition:color .2s;position:relative}
+  nav.ondark .navlinks a.link{color:rgba(255,255,255,.66)}
+  nav .navlinks a.link:hover{color:var(--ink)}
+  nav.ondark .navlinks a.link:hover{color:#fff}
+  nav .navlinks a.link.active{color:var(--saffron)}
+  .cta{display:inline-flex;align-items:center;gap:7px;background:var(--ink);color:#fff !important;font-size:12.5px;font-weight:600;padding:9px 15px;border-radius:999px;transition:transform .18s,box-shadow .2s,background .2s;box-shadow:var(--shadow-sm)}
+  .cta:hover{transform:translateY(-1px);background:#000}
+  nav.ondark .cta{background:var(--saffron)}
+  nav.ondark .cta:hover{background:#ec8636}
+  .cta .arr{transition:transform .18s}
+  .cta:hover .arr{transform:translateX(3px)}
+  @media(max-width:860px){nav .navlinks a.link{display:none}}
+
+  /* HERO */
+  .hero{position:relative;background:
+      radial-gradient(1100px 620px at 78% -8%,rgba(224,122,43,.16),transparent 60%),
+      radial-gradient(900px 600px at 8% 108%,rgba(43,95,138,.18),transparent 60%),
+      linear-gradient(160deg,#0f1826 0%,#16233a 55%,#111a2b 100%);
+    color:#fff;overflow:hidden;padding:150px 0 96px}
+  .hero::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:26px 26px;opacity:.5;mask-image:radial-gradient(1000px 700px at 50% 20%,#000,transparent 75%);-webkit-mask-image:radial-gradient(1000px 700px at 50% 20%,#000,transparent 75%);pointer-events:none}
+  .hero .wrap{position:relative;z-index:2}
+  .eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55);display:flex;align-items:center;gap:11px}
+  .eyebrow .ln{width:34px;height:1px;background:rgba(255,255,255,.3)}
+  .hero h1{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:clamp(38px,6.4vw,74px);line-height:1.02;letter-spacing:-.025em;margin:26px 0 0;max-width:16ch}
+  .hero h1 .g{color:transparent;-webkit-text-stroke:1.4px rgba(255,255,255,.34)}
+  .hero h1 .s{color:var(--saffron)}
+  .hero p.lede{font-size:clamp(15px,1.7vw,18px);line-height:1.65;color:rgba(255,255,255,.74);max-width:60ch;margin-top:26px;font-weight:400}
+  .hero p.lede b{color:#fff;font-weight:600}
+  .hero p.lede .wm{font-size:1.02em}
+  .bigidea{margin-top:34px;border-left:3px solid var(--saffron);background:rgba(255,255,255,.05);border-radius:0 14px 14px 0;padding:20px 24px;max-width:70ch;backdrop-filter:blur(4px)}
+  .bigidea .k{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--saffron);margin-bottom:8px}
+  .bigidea p{font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.82)}
+  .bigidea p b{color:#fff}
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px;max-width:820px}
+  .pillar{border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:18px 18px 17px;background:rgba(255,255,255,.03);transition:transform .25s,border-color .25s,background .25s}
+  .pillar:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.24);background:rgba(255,255,255,.06)}
+  .pillar.dark{background:linear-gradient(155deg,rgba(224,122,43,.14),rgba(224,122,43,.04));border-color:rgba(224,122,43,.32)}
+  .pillar .pt{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:18px;letter-spacing:-.01em}
+  .pillar.p1 .pt{color:#6fd3a3}.pillar.p2 .pt{color:#fff}.pillar.p3 .pt{color:var(--saffron)}
+  .pillar .pd{font-size:12.5px;line-height:1.5;color:rgba(255,255,255,.6);margin-top:7px}
+  .scrollcue{margin-top:56px;display:flex;align-items:center;gap:10px;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+  .scrollcue .m{width:22px;height:34px;border:1.5px solid rgba(255,255,255,.3);border-radius:12px;position:relative}
+  .scrollcue .m::before{content:"";position:absolute;top:6px;left:50%;transform:translateX(-50%);width:3px;height:6px;border-radius:2px;background:var(--saffron);animation:mouse 1.7s infinite}
+  @keyframes mouse{0%{opacity:0;transform:translate(-50%,0)}30%{opacity:1}70%{opacity:1}100%{opacity:0;transform:translate(-50%,11px)}}
+  @media(max-width:680px){.pillars{grid-template-columns:1fr}}
+
+  /* SECTIONS */
+  section.band{padding:clamp(70px,9vw,120px) 0;position:relative}
+  .band.alt{background:var(--card)}
+  .band.dark{background:linear-gradient(165deg,#0f1826,#16233a);color:#fff}
+  .sechead{max-width:none;margin-bottom:52px}
+  .kicker{display:inline-flex;align-items:center;gap:11px;margin-bottom:18px}
+  .kicker .num{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:12px;color:#fff;background:var(--saffron);width:30px;height:24px;border-radius:7px;display:grid;place-items:center;letter-spacing:0}
+  .kicker .lbl{font-size:11.5px;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:var(--mute)}
+  .dark .kicker .lbl{color:rgba(255,255,255,.6)}
+  h2.sec{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:clamp(27px,4vw,44px);line-height:1.08;letter-spacing:-.02em;max-width:20ch}
+  .dark h2.sec{color:#fff}
+  .sec-sub{font-size:clamp(14.5px,1.5vw,16.5px);line-height:1.6;color:var(--ink-soft);max-width:66ch;margin-top:16px}
+  .dark .sec-sub{color:rgba(255,255,255,.72)}
+  .sec-sub b{font-weight:600;color:var(--ink)}
+  .dark .sec-sub b{color:#fff}
+  .sec-sub em{font-style:italic;color:var(--saffron);font-weight:500}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1)}
+  .rv.in{opacity:1;transform:none}
+  .rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}.rv.d4{transition-delay:.32s}.rv.d5{transition-delay:.4s}
+  @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.scrollcue .m::before{animation:none}}
+
+  /* generic card */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow-sm)}
+  .tag{display:inline-flex;align-items:center;gap:5px;font-size:9.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:4px 9px;border-radius:999px}
+  .tag.hh{background:var(--emerald-soft);color:var(--emerald)}
+  .tag.pay{background:var(--navy);color:var(--saffron)}
+  .tag.saff{background:var(--saffron-soft);color:var(--saffron)}
+  .tag.blue{background:var(--blue-soft);color:var(--blue)}
+  .tag.mute{background:var(--paper);color:var(--mute);border:1px solid var(--line)}
+
+  /* FLYWHEEL (01) */
+  .flywheel{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;align-items:stretch;margin-top:8px}
+  .fw-card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:17px 17px 16px;box-shadow:var(--shadow-sm);transition:transform .25s,box-shadow .25s,border-color .25s;overflow:hidden}
+  .fw-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--emerald)}
+  .fw-card.pays::before{background:var(--saffron)}
+  .fw-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:transparent}
+  .fw-card .ic{font-size:20px;line-height:1}
+  .fw-card h4{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:15px;letter-spacing:-.01em;margin:9px 0 4px}
+  .fw-card p{font-size:12.5px;color:var(--mute);line-height:1.45;margin-bottom:11px}
+  .fw-center{grid-column:2;grid-row:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8px}
+  .fw-orb{width:min(240px,80%);aspect-ratio:1;border-radius:50%;background:
+      radial-gradient(120px 120px at 32% 28%,rgba(224,122,43,.28),transparent 60%),
+      linear-gradient(155deg,#17233a,#0f1826);
+    box-shadow:0 24px 60px rgba(20,26,36,.32),inset 0 1px 0 rgba(255,255,255,.08);
+    color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:22px;position:relative}
+  .fw-orb::after{content:"";position:absolute;inset:9px;border-radius:50%;border:1px dashed rgba(255,255,255,.16)}
+  .fw-orb .ok{font-size:9.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--saffron)}
+  .fw-orb .ot{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:21px;line-height:1.08;letter-spacing:-.015em;margin:7px 0 6px}
+  .fw-orb .od{font-size:11px;color:rgba(255,255,255,.6);line-height:1.4}
+  .side-label{display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
+  .side-label.hh{color:var(--emerald)}.side-label.pay{color:var(--saffron)}
+  @media(max-width:820px){
+    .flywheel{grid-template-columns:1fr 1fr}
+    .fw-center{grid-column:1 / -1;grid-row:auto;order:-1;padding:0 0 8px}
+    .side-label{display:none}
+  }
+  @media(max-width:520px){.flywheel{grid-template-columns:1fr}}
+
+  .note{border-radius:16px;padding:20px 24px;font-size:14px;line-height:1.6}
+  .note.soft{background:var(--emerald-soft);border:1px solid var(--emerald-line);color:var(--ink-soft)}
+  .note.soft b{color:var(--emerald)}
+  .note.navy{background:linear-gradient(155deg,#16233a,#0f1826);color:rgba(255,255,255,.85)}
+  .note.navy b{color:#fff}
+  .note.navy em{color:var(--saffron);font-style:italic}
+  .note .nk{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--saffron);margin-bottom:7px}
+
+  /* TWO-SIDED (02) */
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:800px){.twocol{grid-template-columns:1fr}}
+  .sidebox{border-radius:20px;padding:26px;border:1px solid}
+  .sidebox.a{background:var(--emerald-soft);border-color:var(--emerald-line)}
+  .sidebox.b{background:var(--blue-soft);border-color:#cfe0ee}
+  .sidebox .sk{font-size:10.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;margin-bottom:6px}
+  .sidebox.a .sk{color:var(--emerald)}.sidebox.b .sk{color:var(--blue)}
+  .sidebox h3{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:21px;letter-spacing:-.015em;margin-bottom:18px}
+  .feat{display:flex;gap:13px;padding:14px 0;border-top:1px solid rgba(20,26,36,.08)}
+  .feat:first-of-type{border-top:0}
+  .feat .fic{font-size:20px;flex:none;line-height:1.2}
+  .feat .fbody{flex:1;min-width:0}
+  .feat .fh{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+  .feat .fh .ft{font-weight:700;font-size:14.5px;color:var(--ink)}
+  .feat .fd{font-size:12.5px;color:var(--ink-soft);line-height:1.5;margin-top:3px}
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
+  @media(max-width:760px){.flow{grid-template-columns:1fr 1fr}}
+  @media(max-width:420px){.flow{grid-template-columns:1fr}}
+  .step{position:relative;padding-left:2px}
+  .step .sn{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:13px;color:#fff;font-family:"Bricolage Grotesque",sans-serif;margin-bottom:11px}
+  .step:nth-child(1) .sn{background:var(--navy)}
+  .step:nth-child(2) .sn,.step:nth-child(3) .sn,.step:nth-child(4) .sn{background:var(--emerald)}
+  .step .st{font-weight:700;font-size:13.5px;color:var(--ink)}
+  .step .sd{font-size:12px;color:var(--mute);line-height:1.45;margin-top:4px}
+  .step::after{content:"";position:absolute;top:15px;left:38px;right:-10px;height:2px;background:repeating-linear-gradient(90deg,var(--line) 0 6px,transparent 6px 11px)}
+  .step:last-child::after{display:none}
+  @media(max-width:760px){.step::after{display:none}}
+
+  /* QUADRANT (03) */
+  .quad-wrap{display:flex;gap:20px;align-items:stretch}
+  .quad-yaxis{display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;transform:rotate(180deg);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);flex:none}
+  .quad-main{flex:1;min-width:0}
+  .quad{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .qcell{border-radius:16px;padding:18px;min-height:150px;display:flex;flex-direction:column;border:1px solid var(--line);background:var(--paper);position:relative}
+  .qcell.solved{background:var(--emerald-soft);border-color:var(--emerald-line)}
+  .qcell.wedge{background:linear-gradient(155deg,#17233a,#0f1826);border-color:transparent;color:#fff;box-shadow:var(--shadow-lg)}
+  .qcell h4{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:15.5px;letter-spacing:-.01em;margin-bottom:5px}
+  .qcell.wedge h4{color:#fff}
+  .qcell p{font-size:12.5px;color:var(--mute);line-height:1.45}
+  .qcell.wedge p{color:rgba(255,255,255,.72)}
+  .qcell .qbadge{margin-top:auto;padding-top:14px}
+  .quad-xaxis{text-align:center;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-top:12px}
+  .quad-ends{display:flex;justify-content:space-between;font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--faint);margin-top:6px;padding:0 4px}
+  @media(max-width:560px){.quad{grid-template-columns:1fr}.quad-yaxis{display:none}}
+
+  /* MAP (04) */
+  .maptop{background:var(--navy);color:#fff;border-radius:18px 18px 0 0;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .maptop .mt{font-weight:700;font-size:14px;display:flex;align-items:center;gap:8px}
+  .maptop .mt .g{color:var(--saffron)}
+  .mapbox{border:1px solid var(--line);border-top:0;border-radius:0;overflow:hidden;background:#eef1ee}
+  .mapfoot{display:grid;grid-template-columns:repeat(3,1fr);background:var(--card);border:1px solid var(--line);border-top:0;border-radius:0 0 18px 18px}
+  .mapfoot .mstep{padding:15px 18px;border-left:1px solid var(--line);font-size:12.5px;color:var(--ink-soft);line-height:1.4}
+  .mapfoot .mstep:first-child{border-left:0}
+  .mapfoot .mstep b{color:var(--ink)}
+  .mapfoot .mstep .msn{color:var(--emerald);font-weight:700}
+  @media(max-width:620px){.mapfoot{grid-template-columns:1fr}.mapfoot .mstep{border-left:0;border-top:1px solid var(--line)}}
+  .knows{margin-top:24px}
+  .knows .kh{font-weight:700;font-size:14.5px;margin-bottom:13px}
+  .chiprow{display:flex;flex-wrap:wrap;gap:9px}
+  .kchip{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:9px 15px;font-size:12.5px;font-weight:600;color:var(--ink-soft);box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s}
+  .kchip:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+
+  /* TABLE (05) */
+  .tablewrap{overflow-x:auto;border-radius:16px;border:1px solid var(--line);box-shadow:var(--shadow-sm);background:var(--card)}
+  table.cmp{width:100%;border-collapse:collapse;min-width:640px;font-size:13px}
+  table.cmp th,table.cmp td{padding:15px 16px;text-align:left;vertical-align:middle}
+  table.cmp thead th{background:var(--navy);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;line-height:1.25}
+  table.cmp thead th:first-child{border-radius:0}
+  table.cmp tbody tr{border-top:1px solid var(--line-soft)}
+  table.cmp tbody td:first-child,table.cmp tbody th:first-child{font-weight:700;color:var(--ink)}
+  table.cmp .yes{color:var(--emerald);font-weight:700}
+  table.cmp .weak{color:var(--faint);font-style:italic}
+  table.cmp .dash{color:var(--faint)}
+  table.cmp tr.arrive{background:var(--emerald-soft)}
+  table.cmp tr.arrive td,table.cmp tr.arrive th{color:var(--emerald);font-weight:700}
+  .twocol-txt{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:32px}
+  @media(max-width:760px){.twocol-txt{grid-template-columns:1fr;gap:24px}}
+  .twocol-txt h3{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:19px;letter-spacing:-.01em;margin-bottom:10px}
+  .twocol-txt p{font-size:14px;color:var(--ink-soft);line-height:1.6}
+  .twocol-txt p b{color:var(--ink);font-weight:600}
+  .twocol-txt p em{font-style:italic}
+
+  /* PATH + RISK (06) */
+  .seq{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  @media(max-width:820px){.seq{grid-template-columns:1fr 1fr}}
+  @media(max-width:480px){.seq{grid-template-columns:1fr}}
+  .seqcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow-sm);position:relative}
+  .seqcard .sq{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--saffron);margin-bottom:8px}
+  .seqcard.wedge .sq{color:var(--saffron)}
+  .seqcard h4{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:16px;letter-spacing:-.01em;margin-bottom:6px}
+  .seqcard p{font-size:12.5px;color:var(--mute);line-height:1.45}
+  .seqcard.wedge{border-color:var(--saffron);box-shadow:0 0 0 1px var(--saffron),var(--shadow-sm)}
+  .risks{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+  @media(max-width:760px){.risks{grid-template-columns:1fr}}
+  .risk{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s}
+  .risk:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+  .risk h4{font-size:14.5px;font-weight:700;color:var(--red);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .risk h4::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red);flex:none}
+  .risk p{font-size:13px;color:var(--ink-soft);line-height:1.55}
+  .risk p b{color:var(--emerald);font-weight:700}
+  .risk p em{font-style:italic}
+  .whynow{margin-top:44px}
+  .whynow h3{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:22px;letter-spacing:-.015em;margin-bottom:10px}
+  .whynow p{font-size:14.5px;color:var(--ink-soft);line-height:1.65;max-width:72ch}
+
+  /* THE BET / close */
+  .bet{margin-top:56px;border-radius:22px;padding:clamp(30px,5vw,52px);background:
+      radial-gradient(700px 400px at 85% 0%,rgba(224,122,43,.16),transparent 60%),
+      linear-gradient(155deg,#16233a,#0f1826);color:#fff;box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
+  .bet .bk{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--saffron);margin-bottom:16px}
+  .bet h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:clamp(26px,3.8vw,42px);line-height:1.1;letter-spacing:-.02em;max-width:22ch}
+  .bet p{font-size:15px;line-height:1.65;color:rgba(255,255,255,.76);max-width:70ch;margin-top:18px}
+
+  .closer{background:
+      radial-gradient(800px 500px at 50% 120%,rgba(43,95,138,.24),transparent 60%),
+      linear-gradient(160deg,#111a2b,#16233a 60%,#0f1826);color:#fff;text-align:center;padding:clamp(90px,14vw,150px) 0}
+  .closer .wm{font-size:clamp(52px,9vw,96px)}
+  .closer .rule{width:56px;height:3px;background:var(--saffron);border-radius:2px;margin:30px auto 26px}
+  .closer .cl-tag{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:clamp(19px,2.6vw,27px);letter-spacing:-.01em;color:rgba(255,255,255,.92)}
+  .closer .cl-sub{font-size:14.5px;color:rgba(255,255,255,.5);margin-top:12px;letter-spacing:.01em}
+  .closer .cl-actions{margin-top:40px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn-out{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:999px;font-size:13.5px;font-weight:600;transition:transform .18s,background .2s,border-color .2s}
+  .btn-out.solid{background:var(--saffron);color:#fff}
+  .btn-out.solid:hover{background:#ec8636;transform:translateY(-2px)}
+  .btn-out.ghost{border:1px solid rgba(255,255,255,.22);color:#fff}
+  .btn-out.ghost:hover{border-color:rgba(255,255,255,.5);transform:translateY(-2px)}
+
+  footer{background:#0c1420;color:rgba(255,255,255,.5);padding:34px 0;font-size:12px}
+  footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  footer .wm{font-size:16px;color:#fff;opacity:.85}
+  footer .conf{letter-spacing:.1em;text-transform:uppercase;font-size:10.5px;color:rgba(255,255,255,.35)}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<nav id="nav" class="ondark">
+  <div class="wrap">
+    <a href="#top" class="wm brand">Arri<b>v</b>e<sup>™</sup></a>
+    <div class="navlinks">
+      <a class="link" href="#asset">The Asset</a>
+      <a class="link" href="#value">Two-Sided</a>
+      <a class="link" href="#wedge">The Wedge</a>
+      <a class="link" href="#maps">Maps</a>
+      <a class="link" href="#unowned">Un-owned</a>
+      <a class="link" href="#path">Path &amp; Risk</a>
+      <a class="cta" href="/arrive">View prototype <span class="arr">→</span></a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow rv"><span class="ln"></span>India · The Verified-Identity Network for Homes</div>
+    <h1 class="rv d1">The verified identity of India's <span class="g">consumption class</span> — owned by no one. <span class="s">Until now.</span></h1>
+    <p class="lede rv d2">Almost all of India's highest-consumption households now live behind a gate — and that share only grows as the country urbanises. Knowing <b>who really lives where</b>, and letting them prove it in one tap, is the single most useful thing for those households — and the single most valuable thing for everyone trying to reach them. <span class="wm">Arri<b>v</b>e</span> <b>builds that graph</b>, starting at the one place identity is checked every day: the gate.</p>
+
+    <div class="bigidea rv d3">
+      <div class="k">The Big Idea</div>
+      <p>A verified-identity graph of India's most valuable households. <b>Convenience makes households join for free; commerce and agents pay to reach them.</b> One asset, two sides, each making the other stronger.</p>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar p1 rv d2">
+        <div class="pt">Gated = affluent</div>
+        <div class="pd">India's top consumers increasingly live in gated communities — a concentrated, reachable cluster.</div>
+      </div>
+      <div class="pillar p2 rv d3">
+        <div class="pt">Growing</div>
+        <div class="pd">Urbanisation keeps pushing this class behind the gate, year on year.</div>
+      </div>
+      <div class="pillar p3 dark rv d4">
+        <div class="pt">Un-owned</div>
+        <div class="pd">No incumbent owns verified identity across all these uses.</div>
+      </div>
+    </div>
+
+    <div class="scrollcue rv d5"><span class="m"></span> Scroll to explore</div>
+  </div>
+</header>
+
+<!-- 01 THE ASSET -->
+<section class="band" id="asset">
+  <div class="wrap">
+    <div class="sechead">
+      <div class="kicker rv"><span class="num">01</span><span class="lbl">The Asset</span></div>
+      <h2 class="sec rv d1">One verified identity. Every door it opens.</h2>
+      <p class="sec-sub rv d2">The same proof of "this is a real resident of this home" powers six things at once — three that households <b>love</b>, three that the demand side <b>pays for</b>. The graph sits in the middle; every use makes it more complete.</p>
+    </div>
+
+    <div class="flywheel rv d2">
+      <div class="fw-card">
+        <div class="ic">🔔</div>
+        <h4>Manage the doorbell</h4>
+        <p>Who reaches your door — verified, no live approvals.</p>
+        <span class="tag hh">Household</span>
+      </div>
+      <div class="fw-card">
+        <div class="ic">🏠</div>
+        <h4>See &amp; post verified property</h4>
+        <p>Buy / sell / rent among verified residents.</p>
+        <span class="tag hh">Household</span>
+      </div>
+      <div class="fw-card pays">
+        <div class="ic">📦</div>
+        <h4>Quick-commerce &amp; e-comm</h4>
+        <p>Flipkart, Amazon, Blinkit, Zepto — faster gate access.</p>
+        <span class="tag pay">Pays</span>
+      </div>
+
+      <div class="side-label hh">Households&nbsp;love</div>
+      <div class="fw-center">
+        <div class="fw-orb">
+          <div class="ok">The Asset</div>
+          <div class="ot">Verified<br>identity graph</div>
+          <div class="od">Who really lives where — provable in one tap</div>
+        </div>
+      </div>
+      <div class="side-label pay">Demand&nbsp;pays</div>
+
+      <div class="fw-card">
+        <div class="ic">🏢</div>
+        <h4>Glide into corporate parks</h4>
+        <p>Same identity clears office reception &amp; parking.</p>
+        <span class="tag hh">Household</span>
+      </div>
+      <div class="fw-card pays">
+        <div class="ic">🏷️</div>
+        <h4>Real-estate agents &amp; portals</h4>
+        <p>Pay to access verified, resident-posted listings.</p>
+        <span class="tag pay">Pays</span>
+      </div>
+      <div class="fw-card pays">
+        <div class="ic">🚕</div>
+        <h4>Mobility &amp; services</h4>
+        <p>Uber, Snabbit, Urban Company — accurate pickup / drop.</p>
+        <span class="tag pay">Pays</span>
+      </div>
+    </div>
+
+    <div class="note soft rv" style="margin-top:26px">
+      <b>The flywheel —</b> every household that joins for the convenience makes the graph more valuable to commerce and agents, and their spend funds more convenience (rewards, faster service, lower friction) that pulls in more households.
+    </div>
+  </div>
+</section>
+
+<!-- 02 TWO-SIDED VALUE -->
+<section class="band alt" id="value">
+  <div class="wrap">
+    <div class="sechead">
+      <div class="kicker rv"><span class="num">02</span><span class="lbl">Two-Sided Value</span></div>
+      <h2 class="sec rv d1">Households join for free. The demand side pays to reach them.</h2>
+      <p class="sec-sub rv d2">The same verified identity is simultaneously a convenience product and a distribution product. Neither side exists at this quality today.</p>
+    </div>
+
+    <div class="twocol">
+      <div class="sidebox a rv d1">
+        <div class="sk">Side A — Households love it (free)</div>
+        <h3>Convenience nobody else offers</h3>
+        <div class="feat">
+          <div class="fic">🔔</div>
+          <div class="fbody">
+            <div class="fh"><span class="ft">The doorbell, handled</span></div>
+            <div class="fd">Ordered, booked or invited on your phone → the right person is let in, verified. No calls, no live approvals.</div>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="fic">🏢</div>
+          <div class="fbody">
+            <div class="fh"><span class="ft">Corporate parks, one identity</span></div>
+            <div class="fd">The same you clears office reception, lift and parking — no new register, no fresh app.</div>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="fic">🏠</div>
+          <div class="fbody">
+            <div class="fh"><span class="ft">Property, actually verified</span></div>
+            <div class="fd">See &amp; post buy/sell/rent among confirmed residents — society, city or all-India.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebox b rv d2">
+        <div class="sk">Side B — Demand pays</div>
+        <h3>The verified audience they can't get</h3>
+        <div class="feat">
+          <div class="fic">📦</div>
+          <div class="fbody">
+            <div class="fh"><span class="ft">Commerce buys turnaround</span><span class="tag blue">Per entry</span></div>
+            <div class="fd">Flipkart, Amazon, Blinkit, Zepto — quick gate access + last-100m maps cut the slowest, costliest step.</div>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="fic">🚕</div>
+          <div class="fbody">
+            <div class="fh"><span class="ft">Mobility &amp; services buy accuracy</span><span class="tag blue">Per entry</span></div>
+            <div class="fd">Uber, Snabbit, Urban Company — exact pickup, drop and door, fewer failed / wrong-tower trips.</div>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="fic">🏷️</div>
+          <div class="fbody">
+            <div class="fh"><span class="ft">Agents buy verified listings</span><span class="tag blue">Leads</span></div>
+            <div class="fd">Real-estate agents &amp; portals pay for listings posted by confirmed owners — impossible to fake elsewhere.</div>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="fic">🏢</div>
+          <div class="fbody">
+            <div class="fh"><span class="ft">Corporate parks replace their VMS</span><span class="tag blue">SaaS</span></div>
+            <div class="fd">Office parks pay Arrive instead of a separate visitor-management app — one verified identity, already trusted at home, works at reception too.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note navy rv" style="margin-top:20px">
+      <div class="nk">Why they pay real money</div>
+      A minute saved per delivery is riders-per-hour won back; a verified listing converts far better than broker spam. This is tied to their <b>core P&amp;L</b>, not a discretionary ad budget — <em>the healthiest kind of revenue.</em>
+    </div>
+
+    <div class="flow rv" style="margin-top:26px">
+      <div class="step"><div class="sn">1</div><div class="st">Order / book / invite</div><div class="sd">In any app — the intent is the trigger.</div></div>
+      <div class="step"><div class="sn">2</div><div class="st">Identity verified</div><div class="sd">Signed, time- &amp; destination-bound token.</div></div>
+      <div class="step"><div class="sn">3</div><div class="st">One-scan entry + route</div><div class="sd">Guard verifies; last-100m map to the door.</div></div>
+      <div class="step"><div class="sn">4</div><div class="st">Logged, both sides win</div><div class="sd">Quiet update to resident; turnaround to partner.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 THE WEDGE -->
+<section class="band" id="wedge">
+  <div class="wrap">
+    <div class="sechead">
+      <div class="kicker rv"><span class="num">03</span><span class="lbl">The Wedge at the Gate</span></div>
+      <h2 class="sec rv d1">Bootstrap the graph where identity is checked every day.</h2>
+      <p class="sec-sub rv d2">The gate is the perfect starting point — but only if you solve the <em>right</em> traffic. Plot every arrival by <b>how often</b> it happens and <b>how familiar</b> the person is. Three quadrants are already handled. The fourth — high-frequency, low-familiarity — is now the largest share of daily arrivals, and the one the incumbent structurally cannot win.</p>
+    </div>
+
+    <div class="quad-wrap rv d2">
+      <div class="quad-yaxis">Familiarity →</div>
+      <div class="quad-main">
+        <div class="quad">
+          <div class="qcell">
+            <h4>Guests &amp; relatives</h4>
+            <p>Pre-planned, low volume. Not urgent.</p>
+            <div class="qbadge"><span class="tag hh">Solved · pre-invite</span></div>
+          </div>
+          <div class="qcell solved">
+            <h4>House help, cook, driver</h4>
+            <p>Daily entry, same known person. Verify once.</p>
+            <div class="qbadge"><span class="tag hh">Solved · verify once</span></div>
+          </div>
+          <div class="qcell">
+            <h4>One-off vendor, salesperson</h4>
+            <p>Rare and unknown — a live check is fine.</p>
+            <div class="qbadge"><span class="tag mute">Low volume · OK</span></div>
+          </div>
+          <div class="qcell wedge">
+            <h4>Blinkit · Swiggy · Zepto · Uber · Snabbit</h4>
+            <p>Highest volume, still growing. Unknown — but you summoned them.</p>
+            <div class="qbadge"><span class="tag saff">◆ The wedge</span></div>
+          </div>
+        </div>
+        <div class="quad-xaxis">Frequency →</div>
+        <div class="quad-ends"><span>Low freq</span><span>High freq</span></div>
+      </div>
+    </div>
+
+    <div class="note navy rv" style="margin-top:26px">
+      <b>Why the incumbent can't follow —</b> for this quadrant it has only two moves, both wrong: <b>per-arrival approval</b> nags the resident for something they already authorised, and <b>blanket auto-approve</b> re-opens the security hole. Arrive's verified handoff wins the quadrant <em>and</em> seeds the identity graph as a by-product.
+    </div>
+  </div>
+</section>
+
+<!-- 04 NEIGHBOURHOOD MAPS -->
+<section class="band alt" id="maps">
+  <div class="wrap">
+    <div class="sechead">
+      <div class="kicker rv"><span class="num">04</span><span class="lbl">Where the Demand Side Pays</span></div>
+      <h2 class="sec rv d1">Neighbourhood Maps — the last 100 metres no one else has.</h2>
+      <p class="sec-sub rv d2">Public maps stop at the gate. Inside gated communities the delivery journey is slowest and most error-prone — wrong tower, wrong lift, no parking. Arrive routes the verified rider from gate to exact door. This is a <b>partner-paid</b> feature: it cuts the costliest slice of every delivery.</p>
+    </div>
+
+    <div class="rv d2">
+      <div class="maptop">
+        <div class="mt">Route sent to the verified rider · Gate&nbsp;2 <span class="g">→</span> A-1203</div>
+        <span class="tag saff">Partner-paid</span>
+      </div>
+      <div class="mapbox">
+        <svg viewBox="0 0 900 380" width="100%" role="img" aria-label="Neighbourhood map routing a verified rider from Gate 2 to Tower B, flat A-1203">
+          <defs>
+            <linearGradient id="towerB" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#8fcaa8"/><stop offset="1" stop-color="#6fb98c"/>
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="900" height="380" fill="#e7ede8"/>
+          <!-- roads -->
+          <g fill="#d7ddd6">
+            <rect x="60" y="150" width="780" height="34" rx="4"/>
+            <rect x="60" y="250" width="780" height="30" rx="4"/>
+            <rect x="330" y="120" width="30" height="200" rx="4"/>
+            <rect x="640" y="120" width="30" height="200" rx="4"/>
+          </g>
+          <!-- towers -->
+          <g>
+            <rect x="150" y="120" width="150" height="90" rx="10" fill="#cfe0d3"/>
+            <text x="225" y="172" text-anchor="middle" font-family="Bricolage Grotesque,sans-serif" font-size="34" font-weight="700" fill="#5a7a63">A</text>
+            <rect x="400" y="120" width="150" height="90" rx="10" fill="url(#towerB)"/>
+            <text x="475" y="172" text-anchor="middle" font-family="Bricolage Grotesque,sans-serif" font-size="34" font-weight="700" fill="#1c4a30">B</text>
+            <rect x="690" y="120" width="150" height="90" rx="10" fill="#cfe0d3"/>
+            <text x="765" y="172" text-anchor="middle" font-family="Bricolage Grotesque,sans-serif" font-size="34" font-weight="700" fill="#5a7a63">C</text>
+          </g>
+          <!-- clubhouse -->
+          <ellipse cx="360" cy="228" rx="95" ry="26" fill="#d3e7db"/>
+          <text x="360" y="233" text-anchor="middle" font-family="Inter,sans-serif" font-size="15" font-weight="600" fill="#5a7a63">Clubhouse</text>
+          <!-- route -->
+          <polyline points="250,300 340,300 340,225 470,225" fill="none" stroke="#0f7a52" stroke-width="7" stroke-dasharray="3 14" stroke-linecap="round" stroke-linejoin="round">
+            <animate attributeName="stroke-dashoffset" from="170" to="0" dur="2.4s" repeatCount="indefinite"/>
+          </polyline>
+          <!-- verified rider start -->
+          <circle cx="250" cy="300" r="17" fill="#e07a2b"/>
+          <!-- destination check -->
+          <circle cx="470" cy="225" r="17" fill="#0f7a52"/>
+          <path d="M462 225 l6 6 l11 -13" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- pins/labels -->
+          <g font-family="Inter,sans-serif" font-weight="700" font-size="14">
+            <rect x="60" y="86" width="86" height="30" rx="15" fill="#fff" stroke="#d7ddd6"/>
+            <text x="103" y="106" text-anchor="middle" fill="#141a24">Gate 2</text>
+            <rect x="150" y="326" width="150" height="30" rx="15" fill="#e07a2b"/>
+            <text x="225" y="346" text-anchor="middle" fill="#fff" font-size="13">Verified rider</text>
+            <rect x="628" y="300" width="212" height="30" rx="15" fill="#0f7a52"/>
+            <text x="734" y="320" text-anchor="middle" fill="#fff" font-size="13">Tower B · A-1203</text>
+          </g>
+        </svg>
+      </div>
+      <div class="mapfoot">
+        <div class="mstep"><span class="msn">1 ·</span> Straight <b>180 m</b>, clubhouse on the right</div>
+        <div class="mstep"><span class="msn">2 ·</span> Tower B entrance — use the <b>service lift</b></div>
+        <div class="mstep"><span class="msn">3 ·</span> <b>Floor 12</b>, flat left of the lift</div>
+      </div>
+    </div>
+
+    <div class="knows rv">
+      <div class="kh">What this map knows that Google doesn't:</div>
+      <div class="chiprow">
+        <span class="kchip">🛗 Service lifts</span>
+        <span class="kchip">📦 Drop points</span>
+        <span class="kchip">🚫 No-entry lanes</span>
+        <span class="kchip">🅿️ Visitor parking</span>
+        <span class="kchip">🚕 Cab pickup</span>
+        <span class="kchip">🚧 Temporary closures</span>
+      </div>
+    </div>
+
+    <div class="note soft rv" style="margin-top:24px">
+      Built as a by-product of daily verified arrivals — guard walkthroughs, rider traces, resident corrections — so it's accurate <b>and</b> nearly impossible to replicate without deployment at the gate. <b>That's the moat.</b>
+    </div>
+  </div>
+</section>
+
+<!-- 05 WHY IT'S UN-OWNED -->
+<section class="band" id="unowned">
+  <div class="wrap">
+    <div class="sechead">
+      <div class="kicker rv"><span class="num">05</span><span class="lbl">Why It's Un-owned</span></div>
+      <h2 class="sec rv d1">Every incumbent solves one slice. None owns the identity.</h2>
+      <p class="sec-sub rv d2">The reason this graph doesn't exist yet is that it sits <em>across</em> categories. Each incumbent is deep in one column and structurally can't assemble the rest.</p>
+    </div>
+
+    <div class="tablewrap rv d2">
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th>Player</th>
+            <th>Gate / Access</th>
+            <th>Commerce Turnaround</th>
+            <th>Verified Property</th>
+            <th>Verified Identity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>MyGate (gate app)</td><td class="yes">✓</td><td class="dash">—</td><td class="dash">—</td><td class="weak">partial</td></tr>
+          <tr><td>99acres / NoBroker</td><td class="dash">—</td><td class="dash">—</td><td class="weak">weak / unverified</td><td class="dash">—</td></tr>
+          <tr><td>Blinkit / Flipkart</td><td class="dash">—</td><td class="yes">own logistics</td><td class="dash">—</td><td class="dash">—</td></tr>
+          <tr><td>Google Maps</td><td class="weak">stops at gate</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td></tr>
+          <tr><td>Corp VMS (Vizmo, myGate for Business)</td><td class="weak">office only</td><td class="dash">—</td><td class="dash">—</td><td class="weak">siloed per building</td></tr>
+          <tr class="arrive"><th>Arrive</th><td>✓</td><td>✓</td><td>✓</td><td>✓ owns it</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="twocol-txt">
+      <div class="rv">
+        <h3>The wedge: start at the gate</h3>
+        <p>The gate is where identity is already checked every single day — the one place to bootstrap the graph with a workflow all three parties (resident, guard, committee) adopt at once. From there the same identity radiates to property, corporate and beyond.</p>
+      </div>
+      <div class="rv d1">
+        <h3>Why platforms won't build it alone</h3>
+        <p>Each has identity + orders, but a society won't run a Blinkit gate app <em>and</em> a Swiggy one <em>and</em> an Uber one. They plug into <b>one neutral layer</b>. Neutrality is the moat — valuable <em>because</em> shared, un-ownable by any single player.</p>
+      </div>
+    </div>
+
+    <div class="note navy rv" style="margin-top:32px">
+      <div class="nk">The compounding moat</div>
+      More verified households → more valuable to commerce &amp; agents → more spend → more convenience → more households. A two-sided graph with a private last-100m map and cross-context identity is <b>far harder to copy</b> than any single-category product.
+    </div>
+  </div>
+</section>
+
+<!-- 06 PATH & HONEST RISK -->
+<section class="band alt" id="path">
+  <div class="wrap">
+    <div class="sechead">
+      <div class="kicker rv"><span class="num">06</span><span class="lbl">Path &amp; Honest Risk</span></div>
+      <h2 class="sec rv d1">Bootstrap the graph at the gate. Then let it radiate.</h2>
+      <p class="sec-sub rv d2">Sequenced — density, not sprawl.</p>
+    </div>
+
+    <div class="seq rv d2">
+      <div class="seqcard wedge"><div class="sq">Wedge</div><h4>Verified gate access</h4><p>1–2 commerce partners, lighthouse societies, prove turnaround.</p></div>
+      <div class="seqcard"><div class="sq">Then</div><h4>Own a micro-market</h4><p>Full last-100m maps; the graph gets dense.</p></div>
+      <div class="seqcard"><div class="sq">Then</div><h4>Property + corporate</h4><p>Same identity → verified listings &amp; office entry.</p></div>
+      <div class="seqcard"><div class="sq">Then</div><h4>The standard</h4><p>Identity + map APIs across categories.</p></div>
+    </div>
+
+    <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:22px;letter-spacing:-.015em;margin:48px 0 4px" class="rv">The risks that decide it — and the honest answer</h3>
+    <div class="risks">
+      <div class="risk rv"><h4>Platform cold-start</h4><p>Why would Blinkit or Uber integrate with a sub-scale startup? <b>Answer:</b> we don't need deep integration to begin — start with order-message parsing and dynamic passes, prove riders-per-hour gains in dense clusters, and let household density pull partners to the table. The first anchor partner de-risks the rest.</p></div>
+      <div class="risk rv d1"><h4>Platforms build it themselves</h4><p>Each already holds identity + order + address. <b>Answer:</b> a society won't run a Blinkit gate app <em>and</em> a Swiggy one <em>and</em> an Uber one. They plug into one neutral layer. The society-side infrastructure — guard app, access policy, map, standard — is the half no single platform will rebuild alone. Neutrality is the moat.</p></div>
+      <div class="risk rv"><h4>Building the verified graph is hard</h4><p>Verification and last-100m maps are real, expensive work. <b>Answer:</b> that difficulty <em>is</em> the moat. The gate workflow generates both as a by-product of daily use — guard walkthroughs, rider traces, resident corrections — so the asset compounds and can't be shortcut by a fast follower.</p></div>
+      <div class="risk rv d1"><h4>RWA / society adoption is slow</h4><p>Committees are fragmented and political. <b>Answer:</b> partner-funded pilots, developer/greenfield societies at handover (no incumbent to displace), a visible treasury share, and winning the daily-felt experience for guards and residents so switching back to paper is unthinkable.</p></div>
+      <div class="risk rv"><h4>Privacy &amp; trust (household movement data)</h4><p>Commercialising who-comes-and-goes would destroy the trust the network depends on. <b>Answer:</b> least-privilege by design — the guard sees only what a decision needs; access data never becomes an ad profile. Trust is the product, protected as DPDP-grade architecture, not an afterthought.</p></div>
+      <div class="risk rv d1"><h4>Incumbent response</h4><p>MyGate is now near-breakeven and can copy features. <b>Answer:</b> it's structurally trapped — 65–70% ad-dependent in a safety app, and its per-arrival-approval default can't be retrofitted to verified handoff without breaking its own model. We compete on architecture and neutrality, not feature parity.</p></div>
+    </div>
+
+    <div class="whynow rv">
+      <h3>Why now</h3>
+      <p>Quick-commerce flipped the visitor mix from stranger to platform-verified, making identity checkable at scale for the first time. The categories are fragmented and un-owned. The window to set the neutral standard is open — briefly.</p>
+    </div>
+
+    <div class="bet rv">
+      <div class="bk">The Bet</div>
+      <h2>Own the verified identity of India's top households — and you own the door to everything they buy.</h2>
+      <p>Convenience pulls the households in for free; commerce and agents pay to reach them. No incumbent owns the identity, and the graph compounds with every home. That's the company.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSER -->
+<section class="closer">
+  <div class="wrap">
+    <div class="wm">Arri<b>v</b>e<sup>™</sup></div>
+    <div class="rule"></div>
+    <div class="cl-tag">The verified-identity network for India's homes.</div>
+    <div class="cl-sub">Own the door. Own the flow.</div>
+    <div class="cl-actions">
+      <a class="btn-out solid" href="/arrive">Explore the prototype <span>→</span></a>
+      <a class="btn-out ghost" href="#top">Back to top ↑</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="wm">Arri<b>v</b>e<sup>™</sup></div>
+    <div class="conf">Confidential · Strategy &amp; Concept · July 2026 · Strategy synthesis, not investment advice</div>
+  </div>
+</footer>
+
+<script>
+  // scroll progress
+  var prog=document.getElementById('progress');
+  var nav=document.getElementById('nav');
+  var hero=document.getElementById('top');
+  function onScroll(){
+    var st=window.scrollY||document.documentElement.scrollTop;
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    prog.style.width=(h>0?(st/h*100):0)+'%';
+    if(st>24){nav.classList.add('solid')}else{nav.classList.remove('solid')}
+    // nav on dark while over hero
+    var heroBottom=hero.offsetTop+hero.offsetHeight-70;
+    if(st<heroBottom && st<=24){nav.classList.add('ondark')}else if(st<heroBottom){nav.classList.remove('ondark')}else{nav.classList.remove('ondark')}
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // reveal on scroll
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+
+  // scrollspy
+  var links=[].slice.call(document.querySelectorAll('.navlinks a.link'));
+  var secs=links.map(function(l){return document.querySelector(l.getAttribute('href'))}).filter(Boolean);
+  var spy=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id='#'+e.target.id;
+        links.forEach(function(l){l.classList.toggle('active',l.getAttribute('href')===id)});
+      }
+    });
+  },{threshold:0.01,rootMargin:'-45% 0px -50% 0px'});
+  secs.forEach(function(s){spy.observe(s)});
+</script>
+</body>
+</html>
