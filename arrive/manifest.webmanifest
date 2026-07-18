@@ -1,0 +1,16 @@
+{
+  "name": "Arrive — Verified Arrivals",
+  "short_name": "Arrive",
+  "description": "The verified-identity network for India's homes.",
+  "start_url": "/arrive/",
+  "scope": "/arrive/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#141a24",
+  "theme_color": "#141a24",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "apple-touch-icon.png", "sizes": "180x180", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
